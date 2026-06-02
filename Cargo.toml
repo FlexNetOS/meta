@@ -8,6 +8,7 @@ members = [
     "meta_git_lib",
     "meta_mcp",
     "meta_plugin_protocol",
+    "meta_plugin_api",
     "meta_rust_cli",
     "meta_project_cli",
 ]

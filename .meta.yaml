@@ -11,6 +11,10 @@ projects:
     repo: git@github.com:gitkb/meta_plugin_protocol.git
     provides: [plugin-protocol]
 
+  meta_plugin_api:
+    repo: git@github.com:gitkb/meta_plugin_api.git
+    provides: [plugin-api]
+
   meta_core:
     repo: git@github.com:gitkb/meta_core.git
     provides: [meta-core]
