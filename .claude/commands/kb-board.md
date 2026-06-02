@@ -1,10 +1,10 @@
 ---
 allowed-tools:
-  - mcp__gitkb__kb_list
-  - mcp__gitkb__kb_show
-  - mcp__gitkb__kb_graph
+  - mcp__FlexNetOS__kb_list
+  - mcp__FlexNetOS__kb_show
+  - mcp__FlexNetOS__kb_graph
   - Bash(git kb:*)
-description: Show GitKB kanban board with task status columns
+description: Show FlexNetOS kanban board with task status columns
 ---
 
 Display the kanban board and provide actionable context about the current workstream.

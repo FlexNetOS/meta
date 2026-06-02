@@ -1,5 +1,5 @@
 {
-  "description": "Copilot workspace safety hooks for GitKB meta CLI operations",
+  "description": "Copilot workspace safety hooks for FlexNetOS meta CLI operations",
   "hooks": {
     "Stop": [
       {

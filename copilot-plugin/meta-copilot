@@ -15,7 +15,7 @@ PLUGIN_INFO = {
         "copilot hooks",
         "copilot summary"
     ],
-    "description": "GitKB Copilot helper plugin for meta workspace introspection and Copilot resource discovery.",
+    "description": "FlexNetOS Copilot helper plugin for meta workspace introspection and Copilot resource discovery.",
 }
 
 
@@ -70,7 +70,7 @@ def find_meta_config(base_dir: Path):
 
 
 def print_help():
-    print("meta copilot - GitKB Copilot helper plugin")
+    print("meta copilot - FlexNetOS Copilot helper plugin")
     print()
     print("Usage: meta copilot <command>")
     print()
@@ -136,7 +136,7 @@ def main():
         return 0
 
     if command == "summary":
-        print("GitKB Copilot helper summary")
+        print("FlexNetOS Copilot helper summary")
         print("-----------------------------")
         print(f"Plugin manifest: {'found' if plugin_manifest else 'missing'}")
         print(f"Skill files: {len(skills)}")

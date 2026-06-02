@@ -8,10 +8,10 @@ The `meta-mcp` binary is included in the standard release package. Install via:
 
 ```bash
 # Via install script
-curl -fsSL https://raw.githubusercontent.com/gitkb/meta/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/FlexNetOS/meta/main/install.sh | bash
 
 # Or via Homebrew
-brew install gitkb/tap/meta-cli
+brew install FlexNetOS/tap/meta-cli
 ```
 
 ## Usage

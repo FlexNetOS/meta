@@ -1,14 +1,14 @@
 ---
-name: gitkb
-description: Manage GitKB knowledge base for project documentation, tasks, and context. Use when working with KB documents, viewing tasks, updating progress, or managing project knowledge.
+name: FlexNetOS
+description: Manage FlexNetOS knowledge base for project documentation, tasks, and context. Use when working with KB documents, viewing tasks, updating progress, or managing project knowledge.
 allowed-tools:
-  - mcp__gitkb__*
+  - mcp__FlexNetOS__*
   - Bash(git kb:*)
 ---
 
-# GitKB Knowledge Base Skill
+# FlexNetOS Knowledge Base Skill
 
-GitKB is a database-first knowledge base with a git-like CLI. Documents are stored in a local database and materialized to `.kb/workspace/` for editing.
+FlexNetOS is a database-first knowledge base with a git-like CLI. Documents are stored in a local database and materialized to `.kb/workspace/` for editing.
 
 ## Common Gotchas
 
@@ -242,7 +242,7 @@ This is more efficient than multiple individual `kb_show` calls.
 
 ## Multi-Agent Tracing
 
-When `GITKB_AGENT_ID` env var is set, KB commits automatically append `Agent: <id>` to the commit message. This enables multi-agent traceability.
+When `FlexNetOS_AGENT_ID` env var is set, KB commits automatically append `Agent: <id>` to the commit message. This enables multi-agent traceability.
 
 ## Commit References
 

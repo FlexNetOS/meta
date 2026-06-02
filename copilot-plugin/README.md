@@ -1,8 +1,8 @@
-# GitKB Copilot Plugin
+# FlexNetOS Copilot Plugin
 
-This repository contains the scaffold for a GitKB Copilot plugin that brings multi-repo workspace management and knowledge workflows to GitHub Copilot.
+This repository contains the scaffold for a FlexNetOS Copilot plugin that brings multi-repo workspace management and knowledge workflows to GitHub Copilot.
 
-This plugin is modeled on the existing `gitkb/claude-plugins` marketplace and the `meta` CLI ecosystem.
+This plugin is modeled on the existing `FlexNetOS/claude-plugins` marketplace and the `meta` CLI ecosystem.
 
 ## What this plugin provides
 
@@ -11,14 +11,14 @@ This plugin is modeled on the existing `gitkb/claude-plugins` marketplace and th
   - `meta git status`
   - `meta git update`
   - `meta exec -- <command>`
-- **Knowledge and context support** via GitKB knowledge workflows
+- **Knowledge and context support** via FlexNetOS knowledge workflows
 - **Cross-repo safety guidance** for multi-repo changes
 
 ## Plugin manifest
 
 The Copilot plugin manifest is stored at `.copilot-plugin/plugin.json` and declares the plugin metadata plus the available resources:
 
-- `resources.skills` → `../skills/meta-workspace.md`, `../skills/gitkb.md`
+- `resources.skills` → `../skills/meta-workspace.md`, `../skills/FlexNetOS.md`
 - `resources.hooks` → `../hooks/hooks.json`
 
 ## Local meta plugin helper
@@ -40,21 +40,21 @@ Example usage:
 
 These components are relevant to the implementation:
 
-- `gitkb/meta_cli` — main meta CLI and plugin orchestration
-- `gitkb/meta_project_cli` — project management plugin
-- `gitkb/meta_mcp` — MCP server for AI integration
-- `gitkb/gh-config-cli` — GitHub org config tooling for org-aware workflows
+- `FlexNetOS/meta_cli` — main meta CLI and plugin orchestration
+- `FlexNetOS/meta_project_cli` — project management plugin
+- `FlexNetOS/meta_mcp` — MCP server for AI integration
+- `FlexNetOS/gh-config-cli` — GitHub org config tooling for org-aware workflows
 
-## Relevant GitKB sources
+## Relevant FlexNetOS sources
 
-- GitKB Code Intelligence docs: https://gitkb.com/docs/core-concepts/code-intelligence/
-- GitKB releases overview: https://github.com/gitkb/gitkb-releases/blob/main/README.md
+- FlexNetOS Code Intelligence docs: https://FlexNetOS.com/docs/core-concepts/code-intelligence/
+- FlexNetOS releases overview: https://github.com/FlexNetOS/FlexNetOS-releases/blob/main/README.md
 
 These sources emphasize:
 
 - code intelligence across a repo graph with call graph queries, callers, callees, impact, and dead code
 - MCP-based tooling for agents and editor integration
-- GitKB knowledge engineering as a distributed knowledge graph for tasks, docs, and decision support
+- FlexNetOS knowledge engineering as a distributed knowledge graph for tasks, docs, and decision support
 
 ## Getting started
 
@@ -66,5 +66,5 @@ These sources emphasize:
 
 - Add Copilot-specific marketplace metadata and manifest support
 - Implement skill and hook content for Copilot agent behavior
-- Wire Copilot commands to the `meta` CLI and GitKB knowledge tools
+- Wire Copilot commands to the `meta` CLI and FlexNetOS knowledge tools
 - Add example usage for `meta` and `gh-config-cli` integration

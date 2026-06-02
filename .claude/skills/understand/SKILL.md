@@ -2,10 +2,10 @@
 name: understand
 description: Understand a file or symbol's structure and dependencies using code intelligence tools
 allowed-tools:
-  - mcp__gitkb__kb_symbols
-  - mcp__gitkb__kb_callers
-  - mcp__gitkb__kb_callees
-  - mcp__gitkb__kb_symbol_refs
+  - mcp__FlexNetOS__kb_symbols
+  - mcp__FlexNetOS__kb_callers
+  - mcp__FlexNetOS__kb_callees
+  - mcp__FlexNetOS__kb_symbol_refs
 ---
 
 # /understand <file|symbol>

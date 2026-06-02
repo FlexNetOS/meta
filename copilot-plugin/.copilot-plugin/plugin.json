@@ -1,22 +1,22 @@
 {
   "manifest_version": 1,
-  "id": "gitkb.meta-copilot",
+  "id": "FlexNetOS.meta-copilot",
   "name": "meta-copilot",
-  "display_name": "GitKB Meta Copilot",
+  "display_name": "FlexNetOS Meta Copilot",
   "version": "0.1.0",
-  "description": "GitKB Copilot plugin for multi-repo workspace management and knowledge workflows using the meta CLI.",
+  "description": "FlexNetOS Copilot plugin for multi-repo workspace management and knowledge workflows using the meta CLI.",
   "author": {
-    "name": "GitKB",
-    "url": "https://github.com/gitkb"
+    "name": "FlexNetOS",
+    "url": "https://github.com/FlexNetOS"
   },
-  "homepage": "https://github.com/gitkb/meta",
-  "repository": "https://github.com/gitkb/meta",
+  "homepage": "https://github.com/FlexNetOS/meta",
+  "repository": "https://github.com/FlexNetOS/meta",
   "license": "MIT",
-  "keywords": ["meta", "copilot", "workspace", "git", "knowledge", "gitkb"],
+  "keywords": ["meta", "copilot", "workspace", "git", "knowledge", "FlexNetOS"],
   "resources": {
     "skills": [
       "../skills/meta-workspace.md",
-      "../skills/gitkb.md"
+      "../skills/FlexNetOS.md"
     ],
     "hooks": "../hooks/hooks.json"
   }

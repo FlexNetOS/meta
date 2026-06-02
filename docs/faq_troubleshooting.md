@@ -38,13 +38,13 @@ brew --prefix  # Should show installation prefix
 **A:** Use the PowerShell installer:
 
 ```powershell
-irm https://raw.githubusercontent.com/gitkb/meta/main/install.ps1 | iex
+irm https://raw.githubusercontent.com/FlexNetOS/meta/main/install.ps1 | iex
 ```
 
 Or install via cargo:
 
 ```powershell
-cargo install --git https://github.com/gitkb/meta
+cargo install --git https://github.com/FlexNetOS/meta
 ```
 
 ### Q: How do I update meta?
@@ -56,10 +56,10 @@ cargo install --git https://github.com/gitkb/meta
 brew upgrade meta-cli
 
 # Cargo
-cargo install --git https://github.com/gitkb/meta --force
+cargo install --git https://github.com/FlexNetOS/meta --force
 
 # Script install
-curl -fsSL https://raw.githubusercontent.com/gitkb/meta/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/FlexNetOS/meta/main/install.sh | bash
 ```
 
 ---
@@ -374,11 +374,11 @@ META_DEBUG=1 meta project list 2>&1 | grep -i config
 
 ### Q: Where can I report bugs?
 
-**A:** [GitHub Issues](https://github.com/gitkb/meta/issues)
+**A:** [GitHub Issues](https://github.com/FlexNetOS/meta/issues)
 
 ### Q: Where can I ask questions?
 
-**A:** [GitHub Discussions](https://github.com/gitkb/meta/discussions)
+**A:** [GitHub Discussions](https://github.com/FlexNetOS/meta/discussions)
 
 ### Q: How do I get command help?
 

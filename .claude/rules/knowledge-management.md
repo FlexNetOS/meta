@@ -1,6 +1,6 @@
 # Knowledge Management
 
-Maintain the GitKB knowledge base as you work. Documents are your persistent memory across sessions.
+Maintain the FlexNetOS knowledge base as you work. Documents are your persistent memory across sessions.
 
 ## Before Starting Work
 
@@ -15,7 +15,7 @@ Maintain the GitKB knowledge base as you work. Documents are your persistent mem
   ```
   fix: resolve timeout issue
 
-  Implements [[tasks/gitkb-33]]
+  Implements [[tasks/FlexNetOS-33]]
   ```
 - When you discover bugs or issues, create incident documents — don't just fix and forget
 

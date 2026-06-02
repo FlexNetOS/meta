@@ -1,9 +1,9 @@
 ---
 allowed-tools:
-  - mcp__gitkb__kb_status
-  - mcp__gitkb__kb_diff
-  - mcp__gitkb__kb_commit
-  - mcp__gitkb__kb_show
+  - mcp__FlexNetOS__kb_status
+  - mcp__FlexNetOS__kb_diff
+  - mcp__FlexNetOS__kb_commit
+  - mcp__FlexNetOS__kb_show
 description: Commit workspace changes to the knowledge base with validation
 ---
 

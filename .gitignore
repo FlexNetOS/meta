@@ -71,7 +71,7 @@ meta-plugins/
 # plugins (built locally, not committed)
 .meta/plugins/
 
-# GitKB
+# FlexNetOS
 .kb/.cache/
 .kb/workspace/
 .worktrees/
