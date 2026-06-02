@@ -1,0 +1,23 @@
+{
+  "manifest_version": 1,
+  "id": "gitkb.meta-copilot",
+  "name": "meta-copilot",
+  "display_name": "GitKB Meta Copilot",
+  "version": "0.1.0",
+  "description": "GitKB Copilot plugin for multi-repo workspace management and knowledge workflows using the meta CLI.",
+  "author": {
+    "name": "GitKB",
+    "url": "https://github.com/gitkb"
+  },
+  "homepage": "https://github.com/gitkb/meta",
+  "repository": "https://github.com/gitkb/meta",
+  "license": "MIT",
+  "keywords": ["meta", "copilot", "workspace", "git", "knowledge", "gitkb"],
+  "resources": {
+    "skills": [
+      "../skills/meta-workspace.md",
+      "../skills/gitkb.md"
+    ],
+    "hooks": "../hooks/hooks.json"
+  }
+}

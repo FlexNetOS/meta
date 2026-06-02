@@ -40,6 +40,9 @@ target
 models/
 *.bin
 
+# Release archives (kept locally as install backups, not committed)
+*.tar.gz
+
 # Cache
 .cache/
 
