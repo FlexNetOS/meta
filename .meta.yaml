@@ -69,3 +69,83 @@ projects:
     repo: git@github.com:FlexNetOS/.github.git
     path: .github_org
     tags: [org, ci]
+
+  # =====================================================================
+  # FlexNetOS workspace peers — grounded from the .github umbrella refactor.
+  # Content placement is PROVISIONAL: repos are grounded first, content moved
+  # later. Tags marked [untriaged] need classification. See tasks/github-meta-refactor.
+  # =====================================================================
+
+  # --- Extracted operational concerns (new repos; content TBD) ---
+  flexnetos_secrets:
+    repo: git@github.com:FlexNetOS/flexnetos_secrets.git
+    tags: [ops, secrets]
+  flexnetos_runner:
+    repo: git@github.com:FlexNetOS/flexnetos_runner.git
+    tags: [ops, runner]
+  flexnetos_github_app:
+    repo: git@github.com:FlexNetOS/flexnetos_github_app.git
+    tags: [ops, github-app]
+  flexnetos_wiki:
+    repo: git@github.com:FlexNetOS/flexnetos_wiki.git
+    tags: [docs]
+  flexnetos_brain:
+    repo: git@github.com:FlexNetOS/flexnetos_brain.git
+    tags: [docs, data]
+
+  # --- AI / agent tooling (forks + hubs) ---
+  claude-code:
+    repo: git@github.com:FlexNetOS/claude-code.git
+    tags: [ai, forked]
+  codex:
+    repo: git@github.com:FlexNetOS/codex.git
+    tags: [ai, forked]
+  oh-my-claudecode:
+    repo: git@github.com:FlexNetOS/oh-my-claudecode.git
+    tags: [ai, forked]
+  oh-my-pi:
+    repo: git@github.com:FlexNetOS/oh-my-pi.git
+    tags: [ai, forked]
+  ECC:
+    repo: git@github.com:FlexNetOS/ECC.git
+    tags: [ai, forked]
+  Archon:
+    repo: git@github.com:FlexNetOS/Archon.git
+    tags: [ai, forked]
+  prompt_hub:
+    repo: git@github.com:FlexNetOS/prompt_hub.git
+    tags: [ai, prompts]
+  hermes-agent:
+    repo: git@github.com:FlexNetOS/hermes-agent.git
+    tags: [ai, agents, untriaged]
+
+  # --- Tools / automation ---
+  rtk-tokenkill:
+    repo: git@github.com:FlexNetOS/rtk-tokenkill.git
+    tags: [tools, forked]
+  n8n:
+    repo: git@github.com:FlexNetOS/n8n.git
+    tags: [automation, forked]
+  weave:
+    repo: git@github.com:FlexNetOS/weave.git
+    tags: [mcp]
+  lane:
+    repo: git@github.com:FlexNetOS/lane.git
+    tags: [untriaged]
+  icm:
+    repo: git@github.com:FlexNetOS/icm.git
+    tags: [untriaged]
+  grit:
+    repo: git@github.com:FlexNetOS/grit.git
+    tags: [untriaged]
+  obscura:
+    repo: git@github.com:FlexNetOS/obscura.git
+    tags: [untriaged]
+
+  # --- Knowledge / distro ---
+  obsidian-mind:
+    repo: git@github.com:FlexNetOS/obsidian-mind.git
+    tags: [docs, knowledge]
+  lifeos:
+    repo: git@github.com:FlexNetOS/lifeos.git
+    tags: [untriaged]

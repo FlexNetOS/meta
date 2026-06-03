@@ -69,6 +69,30 @@ claude-plugins/
 meta-plugins/
 .github_org/
 
+# FlexNetOS workspace peers (grounded from .github umbrella refactor)
+flexnetos_secrets/
+flexnetos_runner/
+flexnetos_github_app/
+flexnetos_wiki/
+flexnetos_brain/
+claude-code/
+codex/
+oh-my-claudecode/
+oh-my-pi/
+ECC/
+Archon/
+prompt_hub/
+hermes-agent/
+rtk-tokenkill/
+n8n/
+weave/
+lane/
+icm/
+grit/
+obscura/
+obsidian-mind/
+lifeos/
+
 # plugins (built locally, not committed)
 .meta/plugins/
 
