@@ -67,9 +67,13 @@ meta_project_cli/
 meta_rust_cli/
 claude-plugins/
 meta-plugins/
+.github_org/
 
 # plugins (built locally, not committed)
 .meta/plugins/
+
+# meta snapshots (local workspace state)
+.meta-snapshots/
 
 # FlexNetOS
 .kb/.cache/

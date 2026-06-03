@@ -60,3 +60,12 @@ projects:
 
   meta-plugins:
     repo: git@github.com:FlexNetOS/meta-plugins.git
+
+  # Org defaults — community-health fallback + reusable CI (GitHub requires the
+  # ".github" repo name; cloned to .github_org/ locally to avoid colliding with
+  # the meta root's own .github/ directory). Tracked here as a peer.
+  # Refactor in progress: tasks/github-meta-refactor (slim to roles 1 + 6).
+  github_org:
+    repo: git@github.com:FlexNetOS/.github.git
+    path: .github_org
+    tags: [org, ci]
