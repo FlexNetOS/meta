@@ -105,6 +105,7 @@ mcp_hub/
 plugin_hub/
 hooks_hub/
 commands/
+vault_hub/
 
 # plugins (built locally, not committed)
 .meta/plugins/
