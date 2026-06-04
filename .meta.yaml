@@ -4,55 +4,190 @@ defaults:
 projects:
   # Foundation crates (no workspace deps)
   loop_lib:
-    repo: git@github.com:gitkb/loop_lib.git
+    repo: git@github.com:FlexNetOS/loop_lib.git
     provides: [loop-lib]
 
   meta_plugin_protocol:
-    repo: git@github.com:gitkb/meta_plugin_protocol.git
+    repo: git@github.com:FlexNetOS/meta_plugin_protocol.git
     provides: [plugin-protocol]
 
+  meta_plugin_api:
+    repo: git@github.com:FlexNetOS/meta_plugin_api.git
+    provides: [plugin-api]
+
   meta_core:
-    repo: git@github.com:gitkb/meta_core.git
+    repo: git@github.com:FlexNetOS/meta_core.git
     provides: [meta-core]
 
   meta_git_lib:
-    repo: git@github.com:gitkb/meta_git_lib.git
+    repo: git@github.com:FlexNetOS/meta_git_lib.git
     provides: [meta-git-lib]
 
   # Mid-level crates
   loop_cli:
-    repo: git@github.com:gitkb/loop_cli.git
+    repo: git@github.com:FlexNetOS/loop_cli.git
     depends_on: [loop-lib]
 
   meta_cli:
-    repo: git@github.com:gitkb/meta_cli.git
+    repo: git@github.com:FlexNetOS/meta_cli.git
     provides: [meta-cli]
     depends_on: [meta-core, plugin-protocol, loop-lib]
 
   # Top-level crates (depend on meta_cli and/or plugins)
   meta_git_cli:
-    repo: git@github.com:gitkb/meta_git_cli.git
+    repo: git@github.com:FlexNetOS/meta_git_cli.git
     depends_on: [plugin-protocol, meta-git-lib, meta-cli, loop-lib]
 
   meta_project_cli:
-    repo: git@github.com:gitkb/meta_project_cli.git
+    repo: git@github.com:FlexNetOS/meta_project_cli.git
     depends_on: [plugin-protocol, meta-cli, meta-git-lib]
 
   meta_rust_cli:
-    repo: git@github.com:gitkb/meta_rust_cli.git
+    repo: git@github.com:FlexNetOS/meta_rust_cli.git
     depends_on: [plugin-protocol, meta-cli]
 
   meta_mcp:
-    repo: git@github.com:gitkb/meta_mcp.git
+    repo: git@github.com:FlexNetOS/meta_mcp.git
     depends_on: [meta-cli]
 
   # Standalone tools
   agent:
-    repo: git@github.com:gitkb/agent.git
+    repo: git@github.com:FlexNetOS/agent.git
+
+  envctl:
+    repo: https://github.com/drdave-flexnetos/envctl.git
+    tags: [tools, env]
 
   # Non-code repos
   claude-plugins:
-    repo: git@github.com:gitkb/claude-plugins.git
+    repo: git@github.com:FlexNetOS/claude-plugins.git
 
   meta-plugins:
-    repo: git@github.com:gitkb/meta-plugins.git
+    repo: git@github.com:FlexNetOS/meta-plugins.git
+
+  # Org defaults — community-health fallback + reusable CI (GitHub requires the
+  # ".github" repo name; cloned to .github_org/ locally to avoid colliding with
+  # the meta root's own .github/ directory). Tracked here as a peer.
+  # Refactor in progress: tasks/github-meta-refactor (slim to roles 1 + 6).
+  github_org:
+    repo: git@github.com:FlexNetOS/.github.git
+    path: .github_org
+    tags: [org, ci]
+
+  # =====================================================================
+  # FlexNetOS workspace peers — grounded from the .github umbrella refactor.
+  # Content placement is PROVISIONAL: repos are grounded first, content moved
+  # later. Tags marked [untriaged] need classification. See tasks/github-meta-refactor.
+  # =====================================================================
+
+  # --- Extracted operational concerns (new repos; content TBD) ---
+  flexnetos_secrets:
+    repo: git@github.com:FlexNetOS/flexnetos_secrets.git
+    tags: [ops, secrets]
+  flexnetos_runner:
+    repo: git@github.com:FlexNetOS/flexnetos_runner.git
+    tags: [ops, runner]
+  flexnetos_github_app:
+    repo: git@github.com:FlexNetOS/flexnetos_github_app.git
+    tags: [ops, github-app]
+  flexnetos_wiki:
+    repo: git@github.com:FlexNetOS/flexnetos_wiki.git
+    tags: [docs]
+  flexnetos_brain:
+    repo: git@github.com:FlexNetOS/flexnetos_brain.git
+    tags: [docs, data]
+
+  # --- AI / agent tooling (forks + hubs) ---
+  claude-code:
+    repo: git@github.com:FlexNetOS/claude-code.git
+    tags: [ai, forked]
+  codex:
+    repo: git@github.com:FlexNetOS/codex.git
+    tags: [ai, forked]
+  oh-my-claudecode:
+    repo: git@github.com:FlexNetOS/oh-my-claudecode.git
+    tags: [ai, forked]
+  oh-my-pi:
+    repo: git@github.com:FlexNetOS/oh-my-pi.git
+    tags: [ai, forked]
+  ECC:
+    repo: git@github.com:FlexNetOS/ECC.git
+    tags: [ai, forked]
+  Archon:
+    repo: git@github.com:FlexNetOS/Archon.git
+    tags: [ai, forked]
+  prompt_hub:
+    repo: git@github.com:FlexNetOS/prompt_hub.git
+    tags: [ai, prompts]
+  hermes-agent:
+    repo: git@github.com:FlexNetOS/hermes-agent.git
+    tags: [ai, agents, untriaged]
+
+  # --- Tools / automation ---
+  rtk-tokenkill:
+    repo: git@github.com:FlexNetOS/rtk-tokenkill.git
+    tags: [tools, forked]
+  n8n:
+    repo: git@github.com:FlexNetOS/n8n.git
+    tags: [automation, forked]
+  weave:
+    repo: git@github.com:FlexNetOS/weave.git
+    tags: [mcp]
+  lane:
+    repo: git@github.com:FlexNetOS/lane.git
+    tags: [untriaged]
+  icm:
+    repo: git@github.com:FlexNetOS/icm.git
+    tags: [untriaged]
+  grit:
+    repo: git@github.com:FlexNetOS/grit.git
+    tags: [untriaged]
+  obscura:
+    repo: git@github.com:FlexNetOS/obscura.git
+    tags: [untriaged]
+
+  # --- Knowledge / distro ---
+  obsidian-mind:
+    repo: git@github.com:FlexNetOS/obsidian-mind.git
+    tags: [docs, knowledge]
+  lifeos:
+    repo: git@github.com:FlexNetOS/lifeos.git
+    tags: [untriaged]
+
+  # --- Hubs + collections (new empty repos; content TBD) ---
+  template_hub:
+    repo: git@github.com:FlexNetOS/template_hub.git
+    tags: [hub, templates]
+  assets:
+    repo: git@github.com:FlexNetOS/assets.git
+    tags: [assets]
+  flow_hub:
+    repo: git@github.com:FlexNetOS/flow_hub.git
+    tags: [hub, flow]
+  harness_hub:
+    repo: git@github.com:FlexNetOS/harness_hub.git
+    tags: [hub, harness]
+  network_hub:
+    repo: git@github.com:FlexNetOS/network_hub.git
+    tags: [hub, network]
+  my-wiki:
+    repo: git@github.com:FlexNetOS/my-wiki.git
+    tags: [docs, wiki]
+  tool_hub:
+    repo: git@github.com:FlexNetOS/tool_hub.git
+    tags: [hub, tools]
+  database_hub:
+    repo: git@github.com:FlexNetOS/database_hub.git
+    tags: [hub, database]
+  mcp_hub:
+    repo: git@github.com:FlexNetOS/mcp_hub.git
+    tags: [hub, mcp]
+  plugin_hub:
+    repo: git@github.com:FlexNetOS/plugin_hub.git
+    tags: [hub, plugins]
+  hooks_hub:
+    repo: git@github.com:FlexNetOS/hooks_hub.git
+    tags: [hub, hooks]
+  commands:
+    repo: git@github.com:FlexNetOS/commands.git
+    tags: [hub, commands]

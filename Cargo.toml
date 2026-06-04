@@ -8,14 +8,15 @@ members = [
     "meta_git_lib",
     "meta_mcp",
     "meta_plugin_protocol",
+    "meta_plugin_api",
     "meta_rust_cli",
     "meta_project_cli",
 ]
-exclude = ["agent"]
+exclude = ["agent", "envctl"]
 resolver = "2"
 
 [workspace.package]
 version = "0.2.22"
 edition = "2021"
 license = "MIT"
-repository = "https://github.com/gitkb/meta"
+repository = "https://github.com/FlexNetOS/meta"

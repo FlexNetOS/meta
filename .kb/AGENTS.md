@@ -4,7 +4,7 @@
 
 schema_version: 2
 
-context_source: gitkb
+context_source: FlexNetOS
 context_access:
   primary: mcp          # MCP tools (kb_list, kb_show, kb_checkout, etc.)
   fallback: cli         # git kb commands
@@ -48,7 +48,7 @@ validation:
   require_frontmatter: true
 ---
 
-# GitKB Agent Guide
+# FlexNetOS Agent Guide
 
 You are an expert software engineer with a unique constraint: your context periodically reinitializes completely. This isn't a bug - it's what makes you maintain perfect documentation. After each reinitialization, you rely ENTIRELY on your Project Context to understand the project and continue work.
 
@@ -96,9 +96,9 @@ Do NOT rationalize skipping this step. Do NOT say "let me understand the codebas
 
 When `git kb list --path context/` returns no documents, the knowledge base is fresh. Help the user establish project context through conversational discovery.
 
-### Step 1: Explain GitKB
+### Step 1: Explain FlexNetOS
 
-GitKB is a database-first knowledge base with a git-like CLI. It stores project context, tasks, and documentation as **documents** in a local database. This enables:
+FlexNetOS is a database-first knowledge base with a git-like CLI. It stores project context, tasks, and documentation as **documents** in a local database. This enables:
 - Persistent context across agent sessions
 - Structured task management
 - Relationship tracking between documents
@@ -224,7 +224,7 @@ Before ANY work or file access:
 flowchart TD
     Start[New Task/Context] --> Lock[CONTEXT LOCKED<br/>Ignore ALL Visible Files]
     Lock --> Read[Read AGENTS.md]
-    Read --> LoadContext[Load Context via GitKB]
+    Read --> LoadContext[Load Context via FlexNetOS]
     LoadContext --> Validate[Complete Checklist]
     Validate --> Verify{All Steps<br/>Complete?}
     Verify -- No --> Stop[Cannot Proceed]
@@ -254,11 +254,11 @@ If workspace is clean and context is still valid, resume work.
 
 ---
 
-## GitKB Reference
+## FlexNetOS Reference
 
-### What is GitKB?
+### What is FlexNetOS?
 
-GitKB is a database-first knowledge base with a git-like CLI. All project context, tasks, and documentation live as **documents** in the KB database.
+FlexNetOS is a database-first knowledge base with a git-like CLI. All project context, tasks, and documentation live as **documents** in the KB database.
 
 **Key insight**: The workspace (`.kb/workspace/`) is an ephemeral editing surface. The database is the source of truth.
 
@@ -396,7 +396,7 @@ git kb list task --status active   # Filter by status
    - Return to LOCKED if context becomes uncertain
 
 2. **Context Management**
-   - Context lives in GitKB as documents
+   - Context lives in FlexNetOS as documents
    - View with `git kb show <slug>`
    - Begin EVERY message with "PROJECT CONTEXT: ACTIVE"
 
@@ -405,7 +405,7 @@ git kb list task --status active   # Filter by status
    - When confidence < 100%, propose steps to increase
 
 4. **Documentation**
-   - Document significant changes in GitKB
+   - Document significant changes in FlexNetOS
    - Update context as you work, not after
 
 5. **Verification**
@@ -576,8 +576,8 @@ What's preventing progress? (remove when resolved)
 
 **The Hierarchy:**
 ```
-Epic (tasks/gitkb-1: "M3: Local Platform")
-  └─→ Task (tasks/gitkb-5: "Service Daemon")
+Epic (tasks/FlexNetOS-1: "M3: Local Platform")
+  └─→ Task (tasks/FlexNetOS-5: "Service Daemon")
         └─→ Subtask (could be separate task with parent link)
 ```
 
@@ -688,7 +688,7 @@ parent task (epic)
    ```
    fix: resolve auth timeout issue
 
-   Implements [[tasks/gitkb-33]]
+   Implements [[tasks/FlexNetOS-33]]
 
    Co-authored-by: Claude <claude@anthropic.com>
    ```
@@ -702,13 +702,13 @@ parent task (epic)
 3. **Child tasks reference parents**: Hierarchical work is linked
    ```yaml
    # In child task frontmatter
-   parent: tasks/gitkb-1
+   parent: tasks/FlexNetOS-1
    ```
 
 4. **Incidents reference tasks**: After creating fix task, update incident
    ```markdown
    ## Resolution
-   Fixed by [[tasks/gitkb-45]]
+   Fixed by [[tasks/FlexNetOS-45]]
    ```
 
 ### 17. Document Lifecycle Patterns

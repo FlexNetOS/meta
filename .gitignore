@@ -40,6 +40,9 @@ target
 models/
 *.bin
 
+# Release archives (kept locally as install backups, not committed)
+*.tar.gz
+
 # Cache
 .cache/
 
@@ -51,6 +54,7 @@ imported/
 
 # child repositories
 agent/
+envctl/
 loop_cli/
 loop_lib/
 meta_cli/
@@ -59,15 +63,56 @@ meta_git_cli/
 meta_git_lib/
 meta_mcp/
 meta_plugin_protocol/
+meta_plugin_api/
 meta_project_cli/
 meta_rust_cli/
 claude-plugins/
 meta-plugins/
+.github_org/
+
+# FlexNetOS workspace peers (grounded from .github umbrella refactor)
+flexnetos_secrets/
+flexnetos_runner/
+flexnetos_github_app/
+flexnetos_wiki/
+flexnetos_brain/
+claude-code/
+codex/
+oh-my-claudecode/
+oh-my-pi/
+ECC/
+Archon/
+prompt_hub/
+hermes-agent/
+rtk-tokenkill/
+n8n/
+weave/
+lane/
+icm/
+grit/
+obscura/
+obsidian-mind/
+lifeos/
+template_hub/
+assets/
+flow_hub/
+harness_hub/
+network_hub/
+my-wiki/
+tool_hub/
+database_hub/
+mcp_hub/
+plugin_hub/
+hooks_hub/
+commands/
 
 # plugins (built locally, not committed)
 .meta/plugins/
 
-# GitKB
+# meta snapshots (local workspace state)
+.meta-snapshots/
+
+# FlexNetOS
 .kb/.cache/
 .kb/workspace/
 .worktrees/

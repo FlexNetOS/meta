@@ -2,11 +2,11 @@
 name: explore
 description: Explore codebase semantically - find relevant code and documents using natural language search
 allowed-tools:
-  - mcp__gitkb__kb_semantic
-  - mcp__gitkb__kb_search
-  - mcp__gitkb__kb_symbols
-  - mcp__gitkb__kb_callers
-  - mcp__gitkb__kb_callees
+  - mcp__FlexNetOS__kb_semantic
+  - mcp__FlexNetOS__kb_search
+  - mcp__FlexNetOS__kb_symbols
+  - mcp__FlexNetOS__kb_callers
+  - mcp__FlexNetOS__kb_callees
 ---
 
 # /explore <query>

@@ -2,11 +2,11 @@
 name: before-refactor
 description: Safety check before refactoring - shows callers, callees, and impact analysis
 allowed-tools:
-  - mcp__gitkb__kb_callers
-  - mcp__gitkb__kb_callees
-  - mcp__gitkb__kb_impact
-  - mcp__gitkb__kb_symbols
-  - mcp__gitkb__kb_symbol_refs
+  - mcp__FlexNetOS__kb_callers
+  - mcp__FlexNetOS__kb_callees
+  - mcp__FlexNetOS__kb_impact
+  - mcp__FlexNetOS__kb_symbols
+  - mcp__FlexNetOS__kb_symbol_refs
 ---
 
 # /before-refactor <symbol>

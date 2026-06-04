@@ -1,0 +1,23 @@
+{
+  "manifest_version": 1,
+  "id": "FlexNetOS.meta-copilot",
+  "name": "meta-copilot",
+  "display_name": "FlexNetOS Meta Copilot",
+  "version": "0.1.0",
+  "description": "FlexNetOS Copilot plugin for multi-repo workspace management and knowledge workflows using the meta CLI.",
+  "author": {
+    "name": "FlexNetOS",
+    "url": "https://github.com/FlexNetOS"
+  },
+  "homepage": "https://github.com/FlexNetOS/meta",
+  "repository": "https://github.com/FlexNetOS/meta",
+  "license": "MIT",
+  "keywords": ["meta", "copilot", "workspace", "git", "knowledge", "FlexNetOS"],
+  "resources": {
+    "skills": [
+      "../skills/meta-workspace.md",
+      "../skills/FlexNetOS.md"
+    ],
+    "hooks": "../hooks/hooks.json"
+  }
+}

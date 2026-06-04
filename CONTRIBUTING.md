@@ -9,7 +9,7 @@ ci: enforce semantic PR titles
 docs: clarify plugin installation
 ```
 
-If you are working from an internal GitKB task, include the task wikilink in
+If you are working from an internal FlexNetOS task, include the task wikilink in
 commit messages:
 
 ```text

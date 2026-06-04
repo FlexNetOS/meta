@@ -1,0 +1,156 @@
+#!/usr/bin/env python3
+import json
+import os
+import sys
+from pathlib import Path
+
+PLUGIN_INFO = {
+    "name": "copilot",
+    "version": "0.1.0",
+    "commands": [
+        "copilot",
+        "copilot help",
+        "copilot manifest",
+        "copilot skills",
+        "copilot hooks",
+        "copilot summary"
+    ],
+    "description": "FlexNetOS Copilot helper plugin for meta workspace introspection and Copilot resource discovery.",
+}
+
+
+def load_plugin_manifest(base_dir: Path):
+    manifest_path = base_dir / ".copilot-plugin" / "plugin.json"
+    if manifest_path.exists():
+        try:
+            return json.loads(manifest_path.read_text())
+        except Exception:
+            return None
+    return None
+
+
+def load_skills(base_dir: Path):
+    skills_dir = base_dir / "skills"
+    if not skills_dir.exists():
+        return []
+
+    skills = []
+    for path in sorted(skills_dir.glob("*.md")):
+        try:
+            content = path.read_text(errors="ignore")
+            title = path.stem
+            description = ""
+            for line in content.splitlines():
+                if line.startswith("description:"):
+                    description = line.split(":", 1)[1].strip()
+                    break
+            skills.append((path.name, title, description))
+        except Exception:
+            continue
+    return skills
+
+
+def load_hooks(base_dir: Path):
+    hooks_path = base_dir / "hooks" / "hooks.json"
+    if not hooks_path.exists():
+        return None
+    try:
+        return json.loads(hooks_path.read_text())
+    except Exception:
+        return None
+
+
+def find_meta_config(base_dir: Path):
+    candidates = [".meta.yaml", ".meta.yml", ".meta"]
+    for candidate in candidates:
+        path = base_dir / candidate
+        if path.exists():
+            return path
+    return None
+
+
+def print_help():
+    print("meta copilot - FlexNetOS Copilot helper plugin")
+    print()
+    print("Usage: meta copilot <command>")
+    print()
+    print("Commands:")
+    print("  help           Show this help text")
+    print("  manifest       Print the Copilot plugin manifest")
+    print("  skills         List Copilot skill documents")
+    print("  hooks          Show Copilot hook definitions")
+    print("  summary        Summarize the Copilot plugin and workspace state")
+    print()
+    print("This plugin is a local helper for meta workspace and Copilot metadata discovery.")
+
+
+def main():
+    base_dir = Path(__file__).resolve().parent
+    plugin_manifest = load_plugin_manifest(base_dir)
+    skills = load_skills(base_dir)
+    hooks = load_hooks(base_dir)
+    meta_config = find_meta_config(base_dir.parent)
+
+    if "--meta-plugin-info" in sys.argv:
+        sys.stdout.write(json.dumps(PLUGIN_INFO))
+        return 0
+
+    if "--meta-plugin-exec" in sys.argv:
+        request_data = sys.stdin.read()
+        try:
+            request = json.loads(request_data)
+            command = request.get("command", "copilot")
+            args = request.get("args", [])
+        except Exception:
+            command = "copilot"
+            args = []
+    else:
+        args = sys.argv[1:]
+        command = "copilot" if not args else args[0]
+
+    if command in ["help", "--help", "-h"]:
+        print_help()
+        return 0
+
+    if command == "manifest":
+        if plugin_manifest is None:
+            print("No Copilot plugin manifest found at .copilot-plugin/plugin.json")
+            return 1
+        print(json.dumps(plugin_manifest, indent=2))
+        return 0
+
+    if command == "skills":
+        if not skills:
+            print("No Copilot skill files found under copilot-plugin/skills")
+            return 1
+        print("Copilot skills:")
+        for filename, title, description in skills:
+            print(f"- {filename}: {description or title}")
+        return 0
+
+    if command == "hooks":
+        if hooks is None:
+            print("No hook definitions found at copilot-plugin/hooks/hooks.json")
+            return 1
+        print(json.dumps(hooks, indent=2))
+        return 0
+
+    if command == "summary":
+        print("FlexNetOS Copilot helper summary")
+        print("-----------------------------")
+        print(f"Plugin manifest: {'found' if plugin_manifest else 'missing'}")
+        print(f"Skill files: {len(skills)}")
+        print(f"Hooks file: {'found' if hooks is not None else 'missing'}")
+        if meta_config:
+            print(f"Meta config: {meta_config}")
+        else:
+            print("Meta config: not found in current directory")
+        return 0
+
+    # Default to help if no recognized subcommand is given
+    print_help()
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

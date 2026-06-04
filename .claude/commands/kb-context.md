@@ -1,12 +1,12 @@
 ---
 allowed-tools:
-  - mcp__gitkb__kb_context
-  - mcp__gitkb__kb_status
-  - mcp__gitkb__kb_list
-  - mcp__gitkb__kb_show
-  - mcp__gitkb__kb_checkout
-  - mcp__gitkb__kb_create
-  - mcp__gitkb__kb_commit
+  - mcp__FlexNetOS__kb_context
+  - mcp__FlexNetOS__kb_status
+  - mcp__FlexNetOS__kb_list
+  - mcp__FlexNetOS__kb_show
+  - mcp__FlexNetOS__kb_checkout
+  - mcp__FlexNetOS__kb_create
+  - mcp__FlexNetOS__kb_commit
   - Bash(git kb:*)
 description: Load and validate project context, bootstrapping if needed
 ---
