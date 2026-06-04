@@ -191,3 +191,6 @@ projects:
   commands:
     repo: git@github.com:FlexNetOS/commands.git
     tags: [hub, commands]
+  vault_hub:
+    repo: git@github.com:FlexNetOS/vault_hub.git
+    tags: [hub, vault]
