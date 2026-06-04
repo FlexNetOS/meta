@@ -55,7 +55,7 @@ projects:
     repo: git@github.com:FlexNetOS/agent.git
 
   envctl:
-    repo: https://github.com/drdave-flexnetos/envctl.git
+    repo: git@github.com:FlexNetOS/envctl.git
     tags: [tools, env]
 
   # Non-code repos
