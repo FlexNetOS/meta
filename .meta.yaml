@@ -54,6 +54,10 @@ projects:
   agent:
     repo: git@github.com:FlexNetOS/agent.git
 
+  envctl:
+    repo: https://github.com/drdave-flexnetos/envctl.git
+    tags: [tools, env]
+
   # Non-code repos
   claude-plugins:
     repo: git@github.com:FlexNetOS/claude-plugins.git
