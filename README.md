@@ -428,6 +428,8 @@ Meta is a Rust workspace of 10 crates:
 
 Each plugin is both a workspace member and a child repo in the `.meta` manifest — meta manages itself with itself.
 
+> 📇 For a catalog of every MCP server in the workspace (meta-mcp, weave, and the claude.ai connectors) and ready-to-paste configs, see the [`mcp_hub`](https://github.com/FlexNetOS/mcp_hub) registry.
+
 See [docs/architecture_overview.md](docs/architecture_overview.md) for the full design.
 
 ---
