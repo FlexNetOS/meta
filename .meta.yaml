@@ -182,6 +182,7 @@ projects:
   mcp_hub:
     repo: git@github.com:FlexNetOS/mcp_hub.git
     tags: [hub, mcp]
+    meta: true  # nested: mcp_hub hosts forked external MCP servers (e.g. n8n-mcp)
   plugin_hub:
     repo: git@github.com:FlexNetOS/plugin_hub.git
     tags: [hub, plugins]
