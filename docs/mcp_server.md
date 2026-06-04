@@ -2,6 +2,8 @@
 
 The Meta MCP (Model Context Protocol) server provides AI agents with structured access to multi-repository operations. It exposes 29 tools across core operations, git workflows, build/test orchestration, code discovery, and AI-dominance features.
 
+> 📇 Looking for **all** MCP servers in the workspace (meta-mcp, weave, and the claude.ai connectors)? See the [`mcp_hub`](https://github.com/FlexNetOS/mcp_hub) catalog — the canonical place to discover and wire MCP servers org-wide.
+
 ## Installation
 
 The `meta-mcp` binary is included in the standard release package. Install via:
