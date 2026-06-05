@@ -59,6 +59,7 @@ projects:
   # Standalone tools
   agent:
     repo: git@github.com:FlexNetOS/agent.git
+    tags: [ai]   # mission-control: group under the `ai` tab (agent framework)
 
   envctl:
     repo: git@github.com:FlexNetOS/envctl.git
@@ -67,9 +68,11 @@ projects:
   # Non-code repos
   claude-plugins:
     repo: git@github.com:FlexNetOS/claude-plugins.git
+    tags: [ai]   # mission-control: Claude Code plugins -> `ai` tab
 
   meta-plugins:
     repo: git@github.com:FlexNetOS/meta-plugins.git
+    tags: [tools]   # mission-control: dev tooling -> `tools` tab (with envctl)
 
   # Org defaults — community-health fallback + reusable CI (GitHub requires the
   # ".github" repo name; cloned to .github_org/ locally to avoid colliding with
