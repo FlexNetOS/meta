@@ -50,6 +50,12 @@ projects:
     repo: git@github.com:FlexNetOS/meta_mcp.git
     depends_on: [meta-cli]
 
+  # `meta dashboard` — renders the yazelix mission-control layout by shelling
+  # to `envctl dashboard --json` (no envctl crate dep; loose CLI coupling).
+  meta_dashboard_cli:
+    repo: git@github.com:FlexNetOS/meta_dashboard_cli.git
+    depends_on: [plugin-protocol]
+
   # Standalone tools
   agent:
     repo: git@github.com:FlexNetOS/agent.git
