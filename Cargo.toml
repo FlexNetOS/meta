@@ -12,7 +12,7 @@ members = [
     "meta_rust_cli",
     "meta_project_cli",
 ]
-exclude = ["agent", "envctl", "lane"]
+exclude = ["agent", "envctl", "grit", "lane"]
 resolver = "2"
 
 [workspace.package]
