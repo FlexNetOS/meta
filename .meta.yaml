@@ -61,6 +61,10 @@ projects:
     repo: git@github.com:FlexNetOS/agent.git
     tags: [ai]   # mission-control: group under the `ai` tab (agent framework)
 
+  atc:
+    repo: git@github.com:FlexNetOS/atc.git
+    tags: [ai, orchestration, rust]   # mission-control: group under the `ai` tab (agent orchestrator)
+
   envctl:
     repo: git@github.com:FlexNetOS/envctl.git
     tags: [tools, env]

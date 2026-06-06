@@ -54,6 +54,7 @@ imported/
 
 # child repositories
 agent/
+atc/
 envctl/
 loop_cli/
 loop_lib/
