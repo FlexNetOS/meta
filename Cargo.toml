@@ -11,6 +11,8 @@ members = [
     "meta_plugin_api",
     "meta_rust_cli",
     "meta_project_cli",
+    "rtk-tokenkill",
+    "weave",
 ]
 exclude = ["agent", "envctl", "grit", "lane"]
 resolver = "2"
