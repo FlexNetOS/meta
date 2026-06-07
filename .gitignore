@@ -89,6 +89,10 @@ hermes-agent/
 rtk-tokenkill/
 n8n/
 weave/
+weave-harness-loop/
+weave-mcp-daemon-tools/
+weave-presence/
+weave-workspace-split/
 lane/
 icm/
 grit/

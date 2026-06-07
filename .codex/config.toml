@@ -1,0 +1,32 @@
+# Project-scoped Codex runtime layer for the FlexNetOS meta workspace.
+#
+# Repo skills and the plugin marketplace live in `.agents/`; hooks live in
+# `.codex/hooks.json`. Keep `.claude/` as the source surface for Claude and do
+# not mutate it from Codex setup.
+
+project_doc_max_bytes = 32768
+project_doc_fallback_filenames = ["CLAUDE.md"]
+
+developer_instructions = """
+Strict upgrade policy for this meta workspace:
+- Treat dirty files as potentially intentional upgrade state until repo evidence proves otherwise.
+- Do not default to rollback, revert, reset, or lockfile reversal for `.claude/settings.json`, root `Cargo.lock`, or child-repo manifest drift.
+- Preserve the `.claude/settings.json` Bash push permission additions as intentional Claude parity unless the user explicitly asks to remove them.
+- Preserve root `Cargo.lock` upgrade drift when it reflects child workspace member upgrades; fix missing companion changes or validation instead of undoing the lockfile.
+- When asked to fix dirty upgrade state, identify the missing follow-through: manifests, lockfiles, docs, tests, hooks, policy, or commits.
+- Follow `.codex/policies/strict-upgrade.md` and `.codex/rules/strict-upgrade.md`.
+"""
+
+[features]
+hooks = true
+child_agents_md = true
+
+[mcp_servers.meta]
+command = "meta"
+args = ["mcp"]
+enabled = true
+
+[mcp_servers.gitkb]
+command = "git"
+args = ["kb", "mcp"]
+enabled = true

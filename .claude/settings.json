@@ -1,4 +1,11 @@
 {
+  "permissions": {
+    "allow": [
+      "Bash(git push:*)",
+      "Bash(meta git push:*)",
+      "Bash(git -C * push:*)"
+    ]
+  },
   "hooks": {
     "PreCompact": [
       {

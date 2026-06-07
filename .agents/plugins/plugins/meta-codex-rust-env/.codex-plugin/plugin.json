@@ -1,0 +1,7 @@
+{
+  "name": "meta-codex-rust-env",
+  "version": "0.1.0",
+  "description": "Codex parity layer for the FlexNetOS meta workspace: skills, hooks, meta command guidance, and Rust validation tools.",
+  "skills": "./skills/",
+  "hooks": "./hooks/hooks.json"
+}
