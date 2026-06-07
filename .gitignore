@@ -72,6 +72,9 @@ claude-plugins/
 meta-plugins/
 .github_org/
 
+!.agents/skills/meta-plugins/
+!.agents/skills/meta-plugins/SKILL.md
+
 # FlexNetOS workspace peers (grounded from .github umbrella refactor)
 flexnetos_secrets/
 flexnetos_runner/

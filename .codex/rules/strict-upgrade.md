@@ -1,4 +1,7 @@
-# Strict Upgrade Rule
+# Strict Upgrade Rule Notes
+
+The executable Codex rule file is `.codex/rules/strict-upgrade.rules`.
+This Markdown file explains the intent for humans and agent context.
 
 When `.claude/settings.json`, root `Cargo.lock`, or child repo manifests are dirty:
 

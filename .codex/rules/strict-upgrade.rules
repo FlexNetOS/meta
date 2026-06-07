@@ -1,0 +1,51 @@
+# Starlark execpolicy rules for the FlexNetOS meta workspace.
+# These rules make the strict-upgrade policy executable instead of markdown-only.
+
+prefix_rule(
+    pattern = ["git", "reset", "--hard"],
+    decision = "forbidden",
+    justification = "Strict-upgrade workspace: do not hard-reset intended upgrade state; inspect diffs and fix companion changes.",
+    match = [
+        "git reset --hard",
+        "git reset --hard HEAD",
+    ],
+)
+
+prefix_rule(
+    pattern = ["git", "checkout", "--"],
+    decision = "prompt",
+    justification = "Checkout path rollback may discard intentional upgrade state; require explicit confirmation.",
+    match = [
+        "git checkout -- Cargo.lock",
+        "git checkout -- .claude/settings.json",
+    ],
+)
+
+prefix_rule(
+    pattern = ["git", "restore"],
+    decision = "prompt",
+    justification = "Restore may discard intentional upgrade state; require explicit confirmation.",
+    match = [
+        "git restore Cargo.lock",
+        "git restore .claude/settings.json",
+    ],
+)
+
+prefix_rule(
+    pattern = ["rtk", "git", "add"],
+    decision = "allow",
+    justification = "Scoped staging through rtk is allowed for upgrade follow-through.",
+    match = [
+        "rtk git add .codex .agents",
+        "rtk git add .claude/settings.json .gitignore Cargo.lock .agents .codex",
+    ],
+)
+
+prefix_rule(
+    pattern = ["rtk", "git", "commit"],
+    decision = "allow",
+    justification = "Scoped commits through rtk are allowed after verification in this upgrade-first workspace.",
+    match = [
+        "rtk git commit -m feat: add strict Codex upgrade environment",
+    ],
+)
