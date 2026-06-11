@@ -1,10 +1,7 @@
 {
-  "permissions": {
-    "allow": [
-      "Bash(git push:*)",
-      "Bash(meta git push:*)",
-      "Bash(git -C * push:*)"
-    ]
+  "statusLine": {
+    "type": "command",
+    "command": "bash \"${CLAUDE_PROJECT_DIR}/.claude/statusline-command.sh\""
   },
   "hooks": {
     "PreCompact": [
@@ -49,6 +46,24 @@
           }
         ]
       }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "command": "vox -b say \"Terminé.\"",
+            "type": "command"
+          }
+        ],
+        "matcher": ""
+      }
+    ]
+  },
+  "permissions": {
+    "allow": [
+      "Bash(git push:*)",
+      "Bash(meta git push:*)",
+      "Bash(git -C * push:*)"
     ]
   }
 }
