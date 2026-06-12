@@ -1,0 +1,10 @@
+{
+  "schema": "handoff.context_capsule.v1",
+  "project_name": "meta (workspace root)",
+  "role": "Workspace root: .meta.yaml registry, hybrid Cargo workspace (14 members), POLICY v2 exemplar, org CI.",
+  "plane": "foundation",
+  "tier": "exemplar",
+  "northstar": "Meta makes multi-repo feel like monorepo without the downsides; the canon machinery stays green, versioned by the parent distribution.",
+  "next_command": "kb board for planning; hf fleet status (from handoff/) once ADR-0004 verbs land",
+  "source": "ARCHITECTURE-TRUTH.md census 2026-06-12"
+}

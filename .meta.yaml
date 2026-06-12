@@ -282,3 +282,18 @@ projects:
     repo: git@github.com:FlexNetOS/ruflo.git
     provides: [ruflo]
     tags: [ai, rust, wasm, forked]
+
+  # yazelix — terminal environment (zellij+yazi+helix+nushell) homed per ADR-0006
+  # (portability mission 2026-06-12). Genuine fork of luccahuguet/yazelix; pin branch
+  # pin-meta-2026-06-12 records the installed rev e60d15e. envctl's nix-yazelix
+  # component installs from this fork; user config lives in envctl/home/.config/yazelix.
+  yazelix:
+    repo: git@github.com:FlexNetOS/yazelix.git
+    tags: [env, terminal, forked]
+
+  # agent-skills — kasetto skill/MCP source referenced by the global kasetto.yaml
+  # (envctl/home/.config/kasetto/kasetto.yaml). Registered per ADR-0006: everything
+  # meta consumes lives inside meta.
+  agent-skills:
+    repo: git@github.com:FlexNetOS/agent-skills.git
+    tags: [ai, agent-env]
