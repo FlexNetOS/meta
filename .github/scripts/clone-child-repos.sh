@@ -15,6 +15,27 @@ auth_url() {
   fi
 }
 
+# Diagnostic preamble — never prints the token itself. The 4-char prefix
+# identifies the token KIND (ghs_=github.token, ghp_=classic PAT,
+# gith=fine-grained PAT), which tells us whether secrets.PARENT_REPO_PAT
+# actually resolved or the workflow fell back to github.token.
+if [[ -n "${CHILD_CLONE_TOKEN:-}" ]]; then
+  echo "child-clone auth: token present (${#CHILD_CLONE_TOKEN} chars, prefix '${CHILD_CLONE_TOKEN:0:4}')"
+else
+  echo "child-clone auth: token EMPTY — anonymous clones; private repos will fail"
+fi
+
+probe() {
+  local label="$1" slug="$2"
+  if git ls-remote --exit-code "$(auth_url "$slug")" HEAD >/dev/null 2>&1; then
+    echo "probe ${label} (${slug}): OK"
+  else
+    echo "probe ${label} (${slug}): FAIL"
+  fi
+}
+probe public  FlexNetOS/rtk-tokenkill
+probe private FlexNetOS/loop_lib
+
 child_branch="${META_CHILD_BRANCH:-${GITHUB_HEAD_REF:-${GITHUB_REF_NAME:-}}}"
 
 branch_candidates=()
