@@ -63,3 +63,31 @@ through the normal loop, but review the high-severity one.
 - envctl vault development gated by its **separate** USB secret-key device (distinct from the Seed).
 - ~~Cognitum seed plugged but unreachable~~ → superseded by **owner decision B** (storage readable;
   only the data-port replug remains).
+
+## Owner decisions — flexnetos app/runner mission (2026-06-12)
+
+Per **ADR-0008** (flexnetos_github_app + flexnetos_runner two-plane control system) and **ADR-0007**
+(retire flexnetos_secrets → envctl). Both new repos are built at P0 (building + tested).
+
+### D. Create the GitHub App (unblocks live token-mint + webhook e2e — P1+)
+`flexnetos_github_app` cannot mint installation tokens or receive webhooks until a real App exists.
+GitHub UI → Org **FlexNetOS** → Settings → Developer settings → GitHub Apps → New:
+- **Permissions (least privilege):** Checks **write** (required for the merge-gate check-run),
+  Contents **read**, Pull requests **read/write**, Metadata **read**. Webhook **active**; events
+  `pull_request`, `push`, `check_suite`.
+- **Webhook URL:** your tunnel (cloudflared/smee) → forwards to `http://127.0.0.1:8787/webhook`.
+- Generate a **webhook secret** + a **private key (.pem)**; **install** the App on the org repos.
+- Hand me the App ID + installation ID; seal the .pem + webhook secret in envctl's vault
+  (`secretctl import`). Then say the one-liner to wire P1.
+
+### E. Archive the now-empty `flexnetos_secrets` repo (retired per ADR-0007)
+De-registered from `.meta.yaml` (the workspace member list) in the parent PR — reversible, non-org.
+The `.gitignore` entry is **kept** so the leftover empty husk dir stays ignored (agent-guard blocks
+`rm -rf` on a repo root, so the local-dir removal + the GitHub-repo archival are your call):
+`gh api -X PATCH repos/FlexNetOS/flexnetos_secrets -f archived=true` ; then `rm -rf flexnetos_secrets/`.
+
+### F. Visibility — RESOLVED 2026-06-12
+`flexnetos_github_app` flipped **public** (you authorized it) to match the children-stay-public
+policy. Method note (also fixes item C above): this `gh` build rejects
+`gh repo edit --accept-visibility-change-consequences`; the **API form works** —
+`gh api -X PATCH repos/FlexNetOS/<repo> -f visibility=public`.
