@@ -14,11 +14,21 @@ gh repo delete FlexNetOS/shimmy-1 --yes
 gh repo delete FlexNetOS/teri-1 --yes
 ```
 
-## 2. Org-secrets listing blocked (permission classifier)
+## 2. Org-secrets listing blocked (permission classifier) — now with hard evidence
 Phase 4 wanted to confirm `PARENT_REPO_PAT` / `REPO_WRITE_PACKAGES_PAT` are org-level (not repo-level copies). PARENT_REPO_PAT was verified org-level on 2026-06-11; please confirm both:
 ```bash
 gh api orgs/FlexNetOS/actions/secrets --jq '.secrets[] | {name, visibility}'
 ```
+**New evidence (2026-06-12 evening):** `PARENT_REPO_PAT` resolves **empty inside FlexNetOS/meta's own
+workflows** — Release Please (run 27439121673) died with "Input required and not supplied: token". The
+secret's repository-access policy evidently covers child repos but not the parent. A `GITHUB_TOKEN`
+fallback was shipped so the job goes green, but PRs created with `GITHUB_TOKEN` trigger no CI, so
+**release PRs cannot pass required checks / auto-merge until the PAT is granted to `meta`**:
+```bash
+# grant the org secret to the parent repo (repo id via: gh api repos/FlexNetOS/meta --jq .id)
+gh api -X PUT orgs/FlexNetOS/actions/secrets/PARENT_REPO_PAT/repositories/$(gh api repos/FlexNetOS/meta --jq .id)
+```
+Same check (and likely the same grant) needed for `REPO_WRITE_PACKAGES_PAT` used by Trigger Release Build.
 
 ## 3. meta_dashboard_cli inconsistencies (visibility = human-only decision)
 A2-tier code repo that is **private** + default `master` + zero CI, vs 8 public/main canon peers. If intended to follow canon:
