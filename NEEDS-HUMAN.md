@@ -38,7 +38,13 @@ through the normal loop, but review the high-severity one.
    `gh repo delete FlexNetOS/shimmy-1 --yes` · `gh repo delete FlexNetOS/teri-1 --yes`
 2. **Org-secrets listing** (classifier-blocked for agents): confirm `PARENT_REPO_PAT` +
    `REPO_WRITE_PACKAGES_PAT` org-level: `gh api orgs/FlexNetOS/actions/secrets --jq '.secrets[] | {name, visibility}'`
-   — also feeds `incidents/release-please-token-empty`.
+   — also feeds `incidents/release-please-token-unavailable`. **Hard evidence (run 27439121673):**
+   `PARENT_REPO_PAT` resolves **empty inside meta's own workflows** ("Input required and not supplied:
+   token") — the org secret's repository-access policy covers child repos but not the parent. PR #14
+   ships a `GITHUB_TOKEN` fallback (job goes green), but GITHUB_TOKEN-created PRs trigger no CI, so
+   **release PRs cannot pass required checks / auto-merge** until the grant lands:
+   `gh api -X PUT orgs/FlexNetOS/actions/secrets/PARENT_REPO_PAT/repositories/$(gh api repos/FlexNetOS/meta --jq .id)`
+   (same grant likely needed for `REPO_WRITE_PACKAGES_PAT`, used by Trigger Release Build).
 3. **meta_dashboard_cli / meta-plugins visibility** (visibility = human-only by law):
    `gh repo edit FlexNetOS/meta_dashboard_cli --visibility public --accept-visibility-change-consequences`
 4. **meta_plugin_api disposition** (archive preferred; becomes steward-ownable once the kernel verb

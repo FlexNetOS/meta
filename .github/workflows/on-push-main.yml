@@ -30,7 +30,11 @@ jobs:
         id: release
         uses: googleapis/release-please-action@v4
         with:
-          token: ${{ secrets.PARENT_REPO_PAT }}
+          # PARENT_REPO_PAT is an org secret whose repository-access policy does not
+          # currently include this repo, so it resolves empty here ("token not supplied").
+          # GITHUB_TOKEN fallback works but PRs it creates trigger no CI runs, so release
+          # PRs cannot auto-merge until the PAT is granted (NEEDS-HUMAN.md item 2).
+          token: ${{ secrets.PARENT_REPO_PAT || secrets.GITHUB_TOKEN }}
           # Use manifest mode to track version in VERSION file
           config-file: release-please-config.json
           manifest-file: .release-please-manifest.json
