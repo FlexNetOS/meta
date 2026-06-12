@@ -156,3 +156,37 @@ The correct pattern already exists ×3 (template): `~/.local/bin/lane → meta/l
 - Piper voice models + ollama models are multi-GB downloads → bootstrap downloads, never git.
 - Secrets inventory (never in git): ~/.claude/.credentials.json, ~/.config/gh/hosts.yml, keyrings, env-ctl/ secret material → envctl relay/minting is the sanctioned channel (forgotten-directive #1).
 - This phase changed NOTHING. All mutations wait for the ADR + worktrees.
+
+---
+
+## APPLIED (phase 3, 2026-06-12 evening) — live state after the first inversion wave
+
+**40 symlinks now point into meta (was 3).** Archive of every displaced original:
+`~/Desktop/_archives/home-links-2026-06-12/`.
+
+- **Configs linked (18)**: .gitconfig, ghostty, nushell (config.nu + rtk-wrappers.nu), kasetto global
+  yaml, yazelix user config (7 files), systemd units (env-ctl, sqld, repowire), home/bin scripts (3).
+- **Claude global linked (6)**: settings.json (weave hooks now → release build), CLAUDE.md, RTK.md,
+  commands ×3 (speak.md fixed: `vox -b piper`). Smoke: JSON parses, claude --version OK; definitive
+  proof = next session start.
+- **Binaries linked (15)**: meta, meta-git, meta-project, loop, lane (debug→release), grit, envctl,
+  envctl-gui, meta-dashboard, icm (0.10.50=0.10.50), vox (0.14.0=0.14.0); cargo-bin: weave (stale
+  copy KILLED — lease verbs now present, HF_WEAVE_BIN workaround obsolete), grit, secretctl, secretd.
+- **Version guard fired correctly**: rtk SKIPPED — installed 0.42.2 > repo build 0.42.0 (the
+  rtk-tokenkill checkout is behind the installed binary; sync + rebuild + re-run to converge).
+- **kasetto/kst SKIPPED**: local build blocked until the root `workspace.exclude` lands (this PR).
+- **repowire**: unit disabled (was crash-looping on a missing binary, 268MB log) →
+  `incidents/repowire-unit-crash-loop`. Unit file is meta-owned + linked, state `linked/inactive`.
+- **Gotcha learned**: `systemctl --user disable` DELETES a symlinked unit file (treats it as a
+  linked unit) — disable first, link after; the component scripts must handle re-linking.
+- **Daemons survived the conversion**: env-ctl + sqld enabled/active throughout.
+
+**Phase-4 proof (partial, honest)**: branch clone carries bootstrap+audit+registrations; bootstrap
+`--dry-run --phase 0` runs; zero dangling links across ~/.local/bin, ~/.cargo/bin, ~/.config,
+~/.claude. NOT yet proven: full `envctl install` materialization on a virgin `$HOME`.
+
+**Remaining residue (next wave)**: rtk checkout sync; meta-mcp + kasetto/kst release builds + links;
+/usr/local/bin sudo phase (archon, vox root copy, yazelix-* root scripts); absolute-path
+substitution in settings.json/config.nu/shell_bash.sh; work-dir relocations (§C — Downloads/tmp
+pending the handoff cross-ref directive); bashrc legacy PATH dedupe; `wiring.symlink` engine kind
+(Feature Forge); meta_mcp release build.

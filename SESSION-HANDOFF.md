@@ -1,8 +1,66 @@
-# SESSION HANDOFF — org-audit verification + CI-green chain completion
+# SESSION HANDOFF — portability mission (ADR-0006): total internalization wave 1
 
-closed_utc: 2026-06-12 (session 4 — verification mission)
+closed_utc: 2026-06-12 (session 5 — portability mission)
 authoritative_memory: ICM memoir `system-architecture` → `icm memoir show system-architecture`
-resume_point: Phase 0 recall (`org-audit-verification-2026-06-12`, `adr-2026-06-11-open-questions`) → `hf resume` in `~/Desktop/meta/handoff` → continue at "REMAINING".
+resume_point: Phase 0 recall (`meta-portability-2026-06-12`, `adr-2026-06-11-open-questions` r4 item 16) → re-verify live links (`find ~/.local/bin ~/.config ~/.claude -xtype l`) → continue at "REMAINING".
+
+## Session 5 (2026-06-12, late evening) — what happened
+
+**Portability mission (PORTABILITY-SESSION-PROMPT.md): scope is TOTAL** — all work on this system is
+meta work; only IDE apps exempt. Full inventory in [PORTABILITY-AUDIT.md](PORTABILITY-AUDIT.md)
+(including the APPLIED + residue sections).
+
+- **ADR-0006** (handoff/docs, merged d748e45): envctl = the box materializer (adopt-then-extend; stow
+  and `meta env link` rejected); envctl/home/ = canonical home tree; binary canon = release-build
+  symlinks; secrets/state never internalize.
+- **envctl#34 merged f7ec378**: home/ tree (24 reviewed files — public repo, per-file secret review)
+  + manifest/components.d/portability-links.toml (4 components + group).
+- **yazelix homed**: genuine fork FlexNetOS/yazelix + clone at meta/yazelix + pin branch
+  pin-meta-2026-06-12 (= installed rev e60d15e); envctl component URL flipped to the fork.
+- **Applied on-box: 40 symlinks now point into meta (was 3)**; archive of displaced originals at
+  ~/Desktop/_archives/home-links-2026-06-12/. rtk correctly SKIPPED by the never-downgrade guard
+  (installed 0.42.2 > checkout build 0.42.0 — sync rtk-tokenkill then re-run). The stale cargo-bin
+  weave is DEAD (lease verbs present) → `export HF_WEAVE_BIN=...` is now optional.
+- **repowire incident** (`incidents/repowire-unit-crash-loop`): unit crash-looped on a missing binary
+  (268MB log) → disabled, reversible, owner questions filed. GOTCHA: `systemctl --user disable`
+  DELETES symlinked unit files — disable first, link after.
+- meta PR **#14** (Release Please GITHUB_TOKEN fallback + NEEDS-HUMAN evidence; conflict with the
+  parallel session's steward restructure resolved by adopting their structure) and meta PR **#17**
+  (registrations + bootstrap + mission docs + kasetto workspace-exclude) — check both merged green.
+- **Concurrent-writer reality**: a parallel session merged #13/#15/#16 + handoff ADR-0005 while this
+  one ran — rebase before push, expect NEEDS-HUMAN restructures, re-query everything.
+
+## RESUME HERE (next agent)
+
+```bash
+cd ~/Desktop/meta && git pull
+bash scripts/bootstrap.sh --dry-run        # the build-anywhere sequencer (ADR-0006 D8)
+# weave is canonical everywhere now; HF_WEAVE_BIN no longer required (verify: weave lease list)
+```
+
+## REMAINING (portability wave 2, then the HFTASK queue)
+
+- rtk: sync rtk-tokenkill to ≥0.42.2, rebuild, re-run meta-tool-links (converges to a link).
+- meta-mcp release build + link; kasetto/kst build (exclude landed in #17) + links.
+- /usr/local/bin sudo phase: archon, root vox copy, yazelix-* scripts → links (envctl component).
+- Absolute-path substitution pass (settings.json, config.nu, shell_bash.sh) for true any-user portability.
+- Work-dir relocations (audit §C): ~/Downloads/tmp/* — `handoff` dir BLOCKED on the forgotten-directive
+  cross-ref (ADR-0004 source bundle); Desktop strays → archive.
+- Full phase-4 proof: `envctl install` on a virgin $HOME (fresh-clone materialization end-to-end).
+- envctl Feature Forge: native `wiring.symlink` kind replacing the script-kind interim.
+- Then: HFTASK queue (0007 → 0003/0019 → 0010 → 0008/0009 → RuVocal LAST).
+
+## Method rules (unchanged + new this session)
+- Code is truth; recall → VERIFY → act (user directive baked into every prompt).
+- Worktrees for all changes; archive-first for every $HOME mutation; never downgrade (version guard).
+- `systemctl --user disable` deletes symlinked units — disable first, link after.
+- gh: auto-merge needs required checks (envctl has none → direct merge after local gates);
+  `gh pr update-branch` is API-only here (`gh api -X PUT .../update-branch`); API update-branch
+  commits diverge your local PR branch — `git pull --no-rebase` before pushing more.
+- rtk hook filters output (script files + exit codes); vox = `-b piper`; no subagents in
+  RuVector/ruflo/envctl.
+
+---
 
 ## Session 4 (2026-06-12, evening) — what happened
 
