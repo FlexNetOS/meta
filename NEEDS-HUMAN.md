@@ -1,5 +1,10 @@
 # NEEDS-HUMAN — consolidated walls (org-audit mission, 2026-06-12)
 
+> **Verification pass (2026-06-12 evening):** all 7 items below re-checked against live state — **none
+> actioned yet** (shimmy-1/teri-1 still exist, org-secrets unlisted, meta_dashboard_cli/meta-plugins still
+> private, meta_plugin_api unarchived, harness/slim/global_projects_config/demo-repository unregistered,
+> env_manager_agent unrenamed, atc gating unchanged). All commands below remain valid.
+
 Genuine walls only — everything else was retried or routed around. Each entry has the exact command(s) to run.
 
 ## 1. Delete auto-suffix fork artifacts (org-destructive → human)

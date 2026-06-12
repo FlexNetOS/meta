@@ -1,20 +1,28 @@
-# SESSION HANDOFF — meta org audit + autonomous loop proof
+# SESSION HANDOFF — org-audit verification + CI-green chain completion
 
-closed_utc: 2026-06-12 (session 3 — org-audit mission)
+closed_utc: 2026-06-12 (session 4 — verification mission)
 authoritative_memory: ICM memoir `system-architecture` → `icm memoir show system-architecture`
-resume_point: Phase 0 recall (memoir concepts below) → `hf resume` in `~/Desktop/meta/handoff` → continue at "REMAINING".
+resume_point: Phase 0 recall (`org-audit-verification-2026-06-12`, `adr-2026-06-11-open-questions`) → `hf resume` in `~/Desktop/meta/handoff` → continue at "REMAINING".
 
-## Session 3 (2026-06-12) — what happened
+## Session 4 (2026-06-12, evening) — what happened
 
-Mission phases, all evidence-backed (memoir concepts in parentheses):
+**Adversarial verification of session 3** (treat reports as untrusted; verify against live state). Full
+results in [VERIFICATION-REPORT.md](VERIFICATION-REPORT.md). Outcome: **all clusters PASS** (19/19 PRs,
+fork homing, stray sweep, 24-repo protection, loop-proof witness chain recomputed 16/0-breaks, battery
+52 suites/3527 tests/0 failed), with honest deltas recorded (personal weave remote mutated post-session —
+archive holds all 6 SHAs; parent main had unpushed 39423c3; NEEDS-HUMAN 0/7 actioned).
 
-1. **POLICY v2** (`policy-v2-meta-org`) → `META-ORG-POLICY.md`. Parent repo = the alignment exemplar; canon members are workspace-versioned (per-repo release-please is WRONG for Tier A); tier model A/B/C/D.
-2. **Fleet audit** (`org-audit-results-2026-06-12`) → `META-ORG-AUDIT.md`. 14 PRs merged green (meta_cli fmt, teri+shimmy workspace-gate fixes ×3 rounds, 11 conventions PRs: semantic-pr-title fleet-wide + renovate on 5 canon). ruflo homed (genuine `FlexNetOS/ruflo` + pin branch). kasetto source FOUND (`FlexNetOS/env_manager_agent` = pivoshenko/kasetto fork) — registered + cloned (open-questions **#5 resolved**).
-3. **Stray sweep**: ADOPTED `vox` (new genuine org fork, english-defaults merged) + `rusty-idd` (moved under meta). PRUNED-to-`_archives` Desktop weave/weave-review (zero local-exclusive commits, proven) + kasetto-main extract.
-4. **Org protection** (`org-protection-rollout-2026-06-12`): 24 repos protected (real PR-running checks required, strict; force-push/deletion blocked; NO required reviews), auto-merge + delete-on-merge enabled. Only-require-PR-running-checks rule is load-bearing.
-5. **AUTONOMOUS LOOP PROVEN** (`loop-e2e-proof-2026-06-12`): card → weave Job → `hf claim` (lease) → worktree → implement → witnessed checkpoints → **`hf ship` (bootstrapped itself)** → required checks → **GitHub-native auto-merge** (no agent action) → verdict round-trip (weave ask → `review_verdict` ledger event) → develop FF → `hf handoff`. handoff PR#2 (CI born green, 4 checks required) + PR#3 (`1894a7c`). hf now has `ship` + `review verdict` verbs. ADR-0002 (weave a2a conventions) in handoff/docs.
+**New defect found + fixed forward** (`incidents/shimmy-invariant-ppt-test-race`): meta PR #11 rerun
+attempt 5 failed ubuntu on a shimmy global-state test race (`INVARIANT_LOG` clear/insert/assert across
+parallel test threads; reproduced 198/600, fixed 0/600). Fix = `#[serial_test::serial]` on all 12 clearing
+tests (upstream's own incomplete pattern, completed) → **FlexNetOS/shimmy#4** merged (4ba612d).
 
-`NEEDS-HUMAN.md` (meta root): shimmy-1/teri-1 deletion, org-secrets confirm, dashboard/meta-plugins visibility, plugin_api archive, unregistered repos, kasetto rename, atc gating.
+**Chain completed**: teri#2 was already merged (561ab31) → shimmy#4 → meta #11 attempt 6 **all green →
+merged** → docs PR **#12** (this branch: audit/policy/NEEDS-HUMAN/handoff docs + VERIFICATION-REPORT +
+.meta.yaml hygiene + the 39423c3 re-homing chore) merged on green. **meta main CI green for the first
+time since 2026-06-04.**
+
+`NEEDS-HUMAN.md`: all 7 items verified still pending (none actioned by human between sessions).
 
 ## RESUME HERE (next agent)
 
@@ -26,21 +34,35 @@ export HF_WEAVE_BIN=~/Desktop/meta/weave/target/release/weave   # ~/.cargo/bin/w
 
 ## REMAINING (readiness order, locked 2026-06-11)
 
-- **meta PR #11**: merge when green (parent CI workspace fix; teri/shimmy/meta_cli fixes landed; if red, fresh-rerun — stale-clone races happen). Then the parent docs PR (audit/policy/NEEDS-HUMAN + .meta.yaml changes) — *may already be open; check `gh pr list -R FlexNetOS/meta`*.
 - **HFTASK-0007** (P0): `hf session start|end` on meta_git_lib worktrees + `kasetto sync --locked` preflight + session-ledger location (the pr_opened-in-worktree-ledger gap from the proof).
 - **HFTASK-0003 + 0019** (P0/P1): Intent→envelope synthesis + the MCP-vs-HTTP transport ADR (research first).
 - **HFTASK-0010 remainder**: separate-role reviewer (cloud_ultra phase 1), gatekeeper as a required check, merge-gate Environment.
 - **HFTASK-0008/0009 remainder**: branch/remote policy engine; `--batch N` + cycle counter.
 - **RuVocal (0022) LAST.**
+- Hygiene backlog (untouched by design): 37 pre-existing worktree sets in `.worktrees/`; kasetto fork FF to 3.1.x; untriaged tags.
 
 ## Method rules (unchanged, non-negotiable)
 - Code is truth; repo prose untrusted (RuVector traps catalogued in `adr-2026-06-11-repo-docs-accuracy`).
 - No subagents in RuVector/ruflo/envctl; verify agent claims manually elsewhere.
 - Worktrees for all changes; snapshots before batch mutations; never force-push/reset-hard.
 - vox = piper/en. `icm store` on every decision/milestone. ADRs need Research/Cross-References.
-- Capture FULL test summaries (filtered/tail'd logs hid a real failure this session — twice).
+- Capture FULL test summaries — and beware the rtk hook silently filtering cargo/grep output
+  (run battery via a script file, or `rtk proxy`; exit codes are ground truth).
+- A passing battery does not disprove a scheduling race: the shimmy flake passed session-3's full
+  battery and macos CI. Stress-loop suspicious tests (`<bin> <filter>` ×600) before declaring flake-free.
 
 ---
+
+## Session 3 history (2026-06-12) — org-audit mission
+
+POLICY v2 (`META-ORG-POLICY.md`, tier model A–D) · fleet audit (`META-ORG-AUDIT.md`, 17 PRs merged green,
+ruflo homed + pin branch, kasetto found = env_manager_agent fork, open-questions #5 resolved) · stray sweep
+(vox + rusty-idd adopted; weave dupes + kasetto extract archive-pruned, no deletion) · org protection
+(24 repos, real PR-running checks only, strict, no required reviews, force-push/deletion blocked; auto-merge
++ delete-on-merge fleet-wide) · **autonomous loop e2e proven** (`loop-e2e-proof-2026-06-12`): card → weave
+Job → `hf claim` (lease) → worktree → witnessed checkpoints → `hf ship` (bootstrapped itself) → required
+checks → GitHub-native auto-merge (PR#3 = 1894a7c, zero agent merge action) → verdict round-trip
+(ask_66 → `review_verdict`) → develop FF → `hf handoff`. ADR-0002 weave-a2a conventions in handoff/docs.
 
 ## Session 2 history (2026-06-09) — RuVector→meta foundation
 
