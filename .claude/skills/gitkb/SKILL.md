@@ -8,7 +8,7 @@ allowed-tools:
 
 # FlexNetOS Knowledge Base Skill
 
-FlexNetOS is a database-first knowledge base with a git-like CLI. Documents are stored in a local database and materialized to `.kb/workspace/` for editing.
+FlexNetOS is a database-first knowledge base with a git-like CLI. Documents are stored in a local database and materialized to `.kb/workspaces/main/` for editing.
 
 ## Common Gotchas
 
@@ -130,7 +130,7 @@ git kb service status           # Check status
    kb_checkout with slugs: ["tasks/my-task"]
    ```
 
-3. Read the file at `.kb/workspace/tasks/my-task.md`
+3. Read the file at `.kb/workspaces/main/tasks/my-task.md`
 
 4. Make changes and commit:
    ```
@@ -215,7 +215,7 @@ This is more efficient than multiple individual `kb_show` calls.
 
 | Term | Definition |
 |------|------------|
-| **Workspace** | `.kb/workspace/` - Files materialized for editing |
+| **Workspace** | `.kb/workspaces/main/` - Files materialized for editing |
 | **Checkout** | Materialize document from DB to workspace |
 | **Commit** | Sync workspace changes back to database |
 | **Slug** | Human-readable document ID (e.g., `tasks/my-task`) |

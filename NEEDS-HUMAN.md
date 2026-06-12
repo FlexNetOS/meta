@@ -50,6 +50,20 @@ The Write|Edit guard entry activates the new `file_patterns` deny rule (ad-hoc h
 markdown); the SessionStart entry injects the compact resume packet. Both scripts/rules
 ship inert in this PR — these two lines are the on-switch.
 
+### E. Fork `gitkb/gitkb-claude-plugin` into FlexNetOS (classifier-blocked → org infra)
+The claude-plugins marketplace re-point (D1) keeps the gitkb plugin entry on the upstream
+`gitkb` org for now — it still resolves, but the org is unmaintained (supply-chain risk: it can
+vanish or mutate). A FlexNetOS fork pins it. Agent fork creation is classifier-denied (new org
+repo); one command when you approve:
+```bash
+gh repo fork gitkb/gitkb-claude-plugin --org FlexNetOS --clone=false
+# then flip the marketplace source: claude-plugins/.claude-plugin/marketplace.json
+#   "url": "gitkb/gitkb-claude-plugin"  →  "url": "FlexNetOS/gitkb-claude-plugin"
+```
+Related (same family): the kb CLI binary `~/.local/bin/git-kb` is an unpinned 78MB copy with no
+source checkout in the workspace (see [[incidents/kb-workspace-sync-silent-drop]]) — if you want
+it meta-internalized per the portability principle, that fork/vendor decision is also yours.
+
 ## Genuine walls (unchanged from the audit; commands remain valid)
 
 1. **Delete auto-suffix fork artifacts** (irreversible deletion → human):
