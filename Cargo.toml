@@ -16,6 +16,7 @@ members = [
     "shimmy",
 ]
 exclude = [
+    "kasetto",
     "agent",
     "envctl",
     "grit",
