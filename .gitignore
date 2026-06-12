@@ -54,6 +54,7 @@ imported/
 
 # child repositories
 agent/
+atc/
 envctl/
 loop_cli/
 loop_lib/
@@ -68,8 +69,13 @@ meta_plugin_api/
 meta_project_cli/
 meta_rust_cli/
 claude-plugins/
+claude-plugin/
+copilot-plugin/
 meta-plugins/
 .github_org/
+
+!.agents/skills/meta-plugins/
+!.agents/skills/meta-plugins/SKILL.md
 
 # FlexNetOS workspace peers (grounded from .github umbrella refactor)
 flexnetos_secrets/
@@ -88,6 +94,10 @@ hermes-agent/
 rtk-tokenkill/
 n8n/
 weave/
+weave-harness-loop/
+weave-mcp-daemon-tools/
+weave-presence/
+weave-workspace-split/
 lane/
 icm/
 grit/
@@ -107,6 +117,10 @@ plugin_hub/
 hooks_hub/
 commands/
 vault_hub/
+RuVector/
+ruflo/
+shimmy/
+teri/
 
 # plugins (built locally, not committed)
 .meta/plugins/
@@ -120,3 +134,5 @@ vault_hub/
 .worktrees/
 
 .env
+handoff/
+weave-handoff/

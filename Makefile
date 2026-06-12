@@ -6,10 +6,15 @@ include Makefile.context.mk
 .DEFAULT_GOAL := build-all
 
 # Build everything for development (plugins go to .meta/plugins/ for local discovery)
-build-all: build build-plugins
+build-all: build build-plugins build-peers
 
 build:
 	cargo build
+
+# Build peer workspaces that are excluded from the root Cargo workspace
+build-peers: build
+	@echo "Building peer workspaces (ruvector, weave, icm, etc.)..."
+	./target/debug/meta exec --include ruvector,weave,icm,prompt_hub,atc,envctl,lane,oh-my-pi -- cargo build --release
 
 # Build plugins and install to project-local .meta/plugins/ (for development)
 build-plugins:

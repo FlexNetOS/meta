@@ -2,6 +2,8 @@ defaults:
   parallel: true
 
 projects:
+  handoff:
+    repo: git@github.com:FlexNetOS/handoff.git
   # Foundation crates (no workspace deps)
   loop_lib:
     repo: git@github.com:FlexNetOS/loop_lib.git
@@ -59,16 +61,33 @@ projects:
   # Standalone tools
   agent:
     repo: git@github.com:FlexNetOS/agent.git
-    tags: [ai]   # mission-control: group under the `ai` tab (agent framework)
+    provides: [agent]
+    tags: [ai, framework]
+
+  atc:
+    repo: git@github.com:FlexNetOS/atc.git
+    provides: [atc]
+    tags: [ai, orchestration, rust]   # mission-control: group under the `ai` tab (agent orchestrator)
 
   envctl:
     repo: git@github.com:FlexNetOS/envctl.git
+    provides: [envctl]
     tags: [tools, env]
 
   # Non-code repos
   claude-plugins:
     repo: git@github.com:FlexNetOS/claude-plugins.git
     tags: [ai]   # mission-control: Claude Code plugins -> `ai` tab
+
+  claude-plugin:
+    repo: git@github.com:FlexNetOS/meta.git
+    path: claude-plugin
+    tags: [ai, plugin]
+
+  copilot-plugin:
+    repo: git@github.com:FlexNetOS/meta.git
+    path: copilot-plugin
+    tags: [ai, plugin]
 
   meta-plugins:
     repo: git@github.com:FlexNetOS/meta-plugins.git
@@ -124,9 +143,10 @@ projects:
     tags: [ai, forked]
   Archon:
     repo: git@github.com:FlexNetOS/Archon.git
-    tags: [ai, forked]
+    tags: [ai, forked, harness]
   prompt_hub:
     repo: git@github.com:FlexNetOS/prompt_hub.git
+    provides: [prompts]
     tags: [ai, prompts]
   hermes-agent:
     repo: git@github.com:FlexNetOS/hermes-agent.git
@@ -135,19 +155,43 @@ projects:
   # --- Tools / automation ---
   rtk-tokenkill:
     repo: git@github.com:FlexNetOS/rtk-tokenkill.git
-    tags: [tools, forked]
+    provides: [rtk]
+    tags: [tools, ai, optimization]
   n8n:
     repo: git@github.com:FlexNetOS/n8n.git
     tags: [automation, forked]
   weave:
     repo: git@github.com:FlexNetOS/weave.git
-    tags: [mcp]
+    provides: [weave]
+    tags: [mcp, orchestration]
+
+  weave-harness-loop:
+    repo: git@github.com:FlexNetOS/weave.git
+    path: weave-harness-loop
+    tags: [testing, forked]
+
+  weave-mcp-daemon-tools:
+    repo: git@github.com:FlexNetOS/weave.git
+    path: weave-mcp-daemon-tools
+    tags: [mcp, tools, forked]
+
+  weave-presence:
+    repo: git@github.com:FlexNetOS/weave.git
+    path: weave-presence
+    tags: [presence, forked]
+
+  weave-workspace-split:
+    repo: git@github.com:FlexNetOS/weave.git
+    path: weave-workspace-split
+    tags: [workspace, forked]
   lane:
     repo: git@github.com:FlexNetOS/lane.git
-    tags: [untriaged]
+    provides: [lane]
+    tags: [tools, workflow]
   icm:
     repo: git@github.com:FlexNetOS/icm.git
-    tags: [untriaged]
+    provides: [icm]
+    tags: [ai, memory]
   grit:
     repo: git@github.com:FlexNetOS/grit.git
     tags: [untriaged]
@@ -204,3 +248,22 @@ projects:
   vault_hub:
     repo: git@github.com:FlexNetOS/vault_hub.git
     tags: [hub, vault]
+
+  # --- Newly Adopted Repos ---
+  teri:
+    repo: git@github.com:SHA888/teri.git
+    tags: [untriaged, forked]
+  shimmy:
+    repo: git@github.com:Michael-A-Kuykendall/shimmy.git
+    tags: [untriaged, forked]
+
+  ruvector:
+    repo: https://github.com/ruvnet/RuVector.git
+    path: RuVector
+    provides: [ruvector]
+    tags: [ai, rust, wasm, forked]
+
+  ruflo:
+    repo: https://github.com/ruvnet/ruflo.git
+    provides: [ruflo]
+    tags: [ai, rust, wasm, forked]

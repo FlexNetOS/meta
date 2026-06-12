@@ -1,0 +1,79 @@
+{
+  "description": "Codex hooks for the FlexNetOS meta workspace; mirrors the active .claude hook surface and enforces upgrade-preserving workspace discipline.",
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "startup|resume|clear|compact",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "meta context 2>/dev/null",
+            "timeout": 10,
+            "statusMessage": "Loading meta context"
+          }
+        ]
+      },
+      {
+        "matcher": "startup|resume|clear|compact",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "git kb service status --quiet 2>/dev/null || git kb service start 2>/dev/null",
+            "timeout": 10,
+            "statusMessage": "Starting git-kb service"
+          }
+        ]
+      }
+    ],
+    "PreCompact": [
+      {
+        "matcher": "manual|auto",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "meta context 2>/dev/null",
+            "timeout": 10,
+            "statusMessage": "Refreshing meta context"
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "$(git rev-parse --show-toplevel)/agent/target/debug/agent guard",
+            "timeout": 5,
+            "statusMessage": "Checking destructive command policy"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "$(git rev-parse --show-toplevel)/agent/target/debug/agent codex stop",
+            "timeout": 30,
+            "statusMessage": "Checking strict-upgrade workspace handoff"
+          }
+        ]
+      }
+    ],
+    "SubagentStop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "$(git rev-parse --show-toplevel)/agent/target/debug/agent codex stop",
+            "timeout": 30,
+            "statusMessage": "Checking strict-upgrade subagent handoff"
+          }
+        ]
+      }
+    ]
+  }
+}

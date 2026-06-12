@@ -11,8 +11,30 @@ members = [
     "meta_plugin_api",
     "meta_rust_cli",
     "meta_project_cli",
+    "rtk-tokenkill",
+    "teri",
+    "shimmy",
 ]
-exclude = ["agent", "envctl", "grit", "lane"]
+exclude = [
+    "agent",
+    "envctl",
+    "grit",
+    "lane",
+    "RuVector",
+    "icm",
+    "weave",
+    "prompt_hub",
+    "atc",
+    "oh-my-pi",
+    "ruflo",
+    "Archon",
+    "hermes-agent",
+    "codex",
+    "ECC",
+    "n8n",
+    "obsidian-mind",
+    "lifeos",
+]
 resolver = "2"
 
 [workspace.package]
