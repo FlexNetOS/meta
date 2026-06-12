@@ -251,14 +251,14 @@ projects:
 
   # --- Newly Adopted Repos ---
   teri:
-    repo: git@github.com:SHA888/teri.git
+    repo: git@github.com:FlexNetOS/teri.git
     tags: [untriaged, forked]
   shimmy:
-    repo: git@github.com:Michael-A-Kuykendall/shimmy.git
+    repo: git@github.com:FlexNetOS/shimmy.git
     tags: [untriaged, forked]
 
   ruvector:
-    repo: https://github.com/ruvnet/RuVector.git
+    repo: git@github.com:FlexNetOS/meta-ruvector.git
     path: RuVector
     provides: [ruvector]
     tags: [ai, rust, wasm, forked]
