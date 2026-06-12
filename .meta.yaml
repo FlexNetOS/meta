@@ -4,49 +4,60 @@ defaults:
 projects:
   handoff:
     repo: git@github.com:FlexNetOS/handoff.git
+    tags: [orchestration, handoff]
   # Foundation crates (no workspace deps)
   loop_lib:
     repo: git@github.com:FlexNetOS/loop_lib.git
     provides: [loop-lib]
+    tags: [canon]
 
   meta_plugin_protocol:
     repo: git@github.com:FlexNetOS/meta_plugin_protocol.git
     provides: [plugin-protocol]
+    tags: [canon]
 
   meta_plugin_api:
     repo: git@github.com:FlexNetOS/meta_plugin_api.git
     provides: [plugin-api]
+    tags: [canon]
 
   meta_core:
     repo: git@github.com:FlexNetOS/meta_core.git
     provides: [meta-core]
+    tags: [canon]
 
   meta_git_lib:
     repo: git@github.com:FlexNetOS/meta_git_lib.git
     provides: [meta-git-lib]
+    tags: [canon]
 
   # Mid-level crates
   loop_cli:
     repo: git@github.com:FlexNetOS/loop_cli.git
     depends_on: [loop-lib]
+    tags: [canon]
 
   meta_cli:
     repo: git@github.com:FlexNetOS/meta_cli.git
     provides: [meta-cli]
     depends_on: [meta-core, plugin-protocol, loop-lib]
+    tags: [canon]
 
   # Top-level crates (depend on meta_cli and/or plugins)
   meta_git_cli:
     repo: git@github.com:FlexNetOS/meta_git_cli.git
     depends_on: [plugin-protocol, meta-git-lib, meta-cli, loop-lib]
+    tags: [canon]
 
   meta_project_cli:
     repo: git@github.com:FlexNetOS/meta_project_cli.git
     depends_on: [plugin-protocol, meta-cli, meta-git-lib]
+    tags: [canon]
 
   meta_rust_cli:
     repo: git@github.com:FlexNetOS/meta_rust_cli.git
     depends_on: [plugin-protocol, meta-cli]
+    tags: [canon]
 
   meta_mcp:
     repo: git@github.com:FlexNetOS/meta_mcp.git
@@ -165,25 +176,6 @@ projects:
     provides: [weave]
     tags: [mcp, orchestration]
 
-  weave-harness-loop:
-    repo: git@github.com:FlexNetOS/weave.git
-    path: weave-harness-loop
-    tags: [testing, forked]
-
-  weave-mcp-daemon-tools:
-    repo: git@github.com:FlexNetOS/weave.git
-    path: weave-mcp-daemon-tools
-    tags: [mcp, tools, forked]
-
-  weave-presence:
-    repo: git@github.com:FlexNetOS/weave.git
-    path: weave-presence
-    tags: [presence, forked]
-
-  weave-workspace-split:
-    repo: git@github.com:FlexNetOS/weave.git
-    path: weave-workspace-split
-    tags: [workspace, forked]
   lane:
     repo: git@github.com:FlexNetOS/lane.git
     provides: [lane]
@@ -249,6 +241,28 @@ projects:
     repo: git@github.com:FlexNetOS/vault_hub.git
     tags: [hub, vault]
 
+  # kasetto — the agent-environment provisioner (installed binary 3.1.0). The org
+  # fork of pivoshenko/kasetto lives under the historical name env_manager_agent;
+  # registered here as `kasetto` (resolves open-questions #5: canonical source located).
+  kasetto:
+    repo: git@github.com:FlexNetOS/env_manager_agent.git
+    path: kasetto
+    provides: [kasetto]
+    tags: [tools, agent-env, forked]
+
+  # vox — text-to-speech feedback tool (piper backend, English). Org fork of
+  # rtk-ai/vox; the operative fix/english-defaults work is merged into fork main.
+  vox:
+    repo: git@github.com:FlexNetOS/vox.git
+    provides: [vox]
+    tags: [tools, voice, forked]
+
+  # rusty-idd — intent-driven development tool (genuine org repo, default develop).
+  # Adopted from ~/Desktop/idd-merge-idd during the 2026-06-12 stray sweep.
+  rusty-idd:
+    repo: git@github.com:FlexNetOS/rusty-idd.git
+    tags: [tools, idd]
+
   # --- Newly Adopted Repos ---
   teri:
     repo: git@github.com:FlexNetOS/teri.git
@@ -264,6 +278,6 @@ projects:
     tags: [ai, rust, wasm, forked]
 
   ruflo:
-    repo: https://github.com/ruvnet/ruflo.git
+    repo: git@github.com:FlexNetOS/ruflo.git
     provides: [ruflo]
     tags: [ai, rust, wasm, forked]
