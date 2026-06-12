@@ -72,3 +72,14 @@ This project uses FlexNetOS for knowledge management.
 <!-- vox:start -->
 After completing a significant task, call `vox "short summary in English"` to give a spoken summary.
 <!-- vox:end -->
+
+## Harness: Handoff Continuity (FIX-6 enforcement kit)
+
+**Goal:** the handoff kernel (`hf` + `.handoff/`) is the only continuity path — packets are rendered from the witnessed ledger, never hand-written.
+
+**Trigger:** for any session start/end, checkpoint, resume, or handoff work, use the `handoff-discipline` skill (slash commands: `/handoff` `/resume` `/mint` `/checkpoint` `/fleet`). Verifying a CLI change → `verifier-cli` skill. Deciding a queued approval → `handoff-steward` agent (witnessed verdicts only, scope law applies).
+
+**Change history:**
+| Date | Change | Target | Reason |
+|------|--------|--------|--------|
+| 2026-06-12 | Initial kit | 5 commands, 2 skills, steward agent, 2 hook scripts, guard file-rule, p7-conformance CI, HARNESS-UPGRADE-KIT v2 | FIX-6: owner-flagged handoff-convention drift; ADR-0004 enforcement |
