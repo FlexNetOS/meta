@@ -94,10 +94,6 @@ hermes-agent/
 rtk-tokenkill/
 n8n/
 weave/
-weave-harness-loop/
-weave-mcp-daemon-tools/
-weave-presence/
-weave-workspace-split/
 lane/
 icm/
 grit/
@@ -121,6 +117,9 @@ RuVector/
 ruflo/
 shimmy/
 teri/
+kasetto/
+vox/
+rusty-idd/
 
 # plugins (built locally, not committed)
 .meta/plugins/
