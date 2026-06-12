@@ -19,7 +19,7 @@
       {
         "hooks": [
           {
-            "command": "./target/debug/agent guard",
+            "command": "\"${CLAUDE_PROJECT_DIR}/agent/target/debug/agent\" guard",
             "timeout": 5,
             "type": "command"
           }
