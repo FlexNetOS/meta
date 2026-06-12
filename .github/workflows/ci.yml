@@ -9,6 +9,10 @@ on:
 
 env:
   CARGO_TERM_COLOR: always
+  # Child repos under FlexNetOS are private — clones must authenticate.
+  # PARENT_REPO_PAT is the org-level cross-repo token; github.token only
+  # covers public children (fallback for forks without the secret).
+  CHILD_CLONE_TOKEN: ${{ secrets.PARENT_REPO_PAT || github.token }}
 
 jobs:
   test:
