@@ -119,10 +119,11 @@ projects:
   # later. Tags marked [untriaged] need classification. See tasks/github-meta-refactor.
   # =====================================================================
 
-  # --- Extracted operational concerns (new repos; content TBD) ---
-  flexnetos_secrets:
-    repo: git@github.com:FlexNetOS/flexnetos_secrets.git
-    tags: [ops, secrets]
+  # --- Extracted operational concerns (new repos) ---
+  # flexnetos_secrets RETIRED → envctl (ADR-0007): envctl already owns the vault /
+  # secretd / broker / relay + the ProviderMint GitHub-token seam, so a second store
+  # would be split-brain. Empty-repo archival is a NEEDS-HUMAN owner decision.
+  # flexnetos_github_app + flexnetos_runner are built at P0 per ADR-0008.
   flexnetos_runner:
     repo: git@github.com:FlexNetOS/flexnetos_runner.git
     tags: [ops, runner]
