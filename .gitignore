@@ -120,6 +120,8 @@ teri/
 kasetto/
 vox/
 rusty-idd/
+yazelix/
+agent-skills/
 
 # plugins (built locally, not committed)
 .meta/plugins/
