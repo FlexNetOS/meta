@@ -51,7 +51,7 @@
       {
         "hooks": [
           {
-            "command": "vox -b say \"Terminé.\"",
+            "command": "vox \"Done.\"",
             "type": "command"
           }
         ],

@@ -68,3 +68,7 @@ RUST_LOG=meta_git_cli::ssh_setup=debug meta git push
 This project uses FlexNetOS for knowledge management.
 
 @.kb/AGENTS.md
+
+<!-- vox:start -->
+After completing a significant task, call `vox "short summary in English"` to give a spoken summary.
+<!-- vox:end -->
