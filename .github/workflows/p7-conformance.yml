@@ -1,0 +1,84 @@
+name: P7 Conformance
+
+# Policy P7 (META-ORG-POLICY.md) + ADR-0004: the .handoff continuity layer is the
+# only handoff path. Two gates:
+#   1. handoff-md-lint  — PRs may not ADD handoff-style markdown outside .handoff/
+#   2. capsule-schema   — every .handoff/context/capsule.json present must carry
+#                         the required handoff.context_capsule.v1 fields
+# NOTE: switch capsule validation to `hf fleet status --check` once the kernel
+# verb lands (FIX-3 tranche) — this python validator is the bootstrap.
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  handoff-md-lint:
+    name: No ad-hoc handoff markdown (ADR-0004 §1)
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Check added files for handoff-style names outside .handoff/
+        run: |
+          set -euo pipefail
+          git fetch origin "${{ github.base_ref }}" --depth=1
+          added=$(git diff --name-only --diff-filter=A "origin/${{ github.base_ref }}...HEAD" || true)
+          [ -n "$added" ] || { echo "no added files"; exit 0; }
+          bad=$(echo "$added" \
+            | grep -E '(^|/)([A-Z0-9_-]*HANDOFF[A-Z0-9_-]*|[A-Z0-9_-]+-PROMPT[A-Z0-9_-]*)\.md$' \
+            | grep -Ev '(^|/)\.handoff/' || true)
+          if [ -n "$bad" ]; then
+            echo "::error::New handoff-style markdown outside .handoff/ violates ADR-0004 §1 / policy P7.36:"
+            echo "$bad"
+            echo "Render packets with the kernel instead: /handoff (hf handoff + packet render)."
+            exit 1
+          fi
+          echo "OK — no ad-hoc handoff files added"
+
+  capsule-schema:
+    name: Capsule schema (handoff.context_capsule.v1)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Validate every capsule.json in the tree
+        run: |
+          python3 - <<'PY'
+          import json, glob, sys
+
+          REQUIRED = ["project_name", "role", "plane", "northstar", "next_command"]
+
+          files = [
+              f for f in glob.glob("**/.handoff/context/capsule.json", recursive=True)
+              if "/.worktrees/" not in f and not f.startswith(".worktrees/")
+          ]
+          if not files:
+              print("::error::no .handoff/context/capsule.json found — parent must carry one (policy P7.32)")
+              sys.exit(1)
+
+          bad = 0
+          for f in sorted(files):
+              try:
+                  c = json.load(open(f))
+              except Exception as e:
+                  print(f"::error file={f}::invalid JSON: {e}")
+                  bad += 1
+                  continue
+              missing = [k for k in REQUIRED if not c.get(k)]
+              if missing:
+                  print(f"::error file={f}::missing required capsule fields: {missing}")
+                  bad += 1
+              else:
+                  print(f"ok {f} ({c['plane']}/{c['role']})")
+
+          print(f"validated {len(files)} capsule(s), {bad} invalid")
+          sys.exit(1 if bad else 0)
+          PY

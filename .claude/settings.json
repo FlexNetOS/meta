@@ -13,6 +13,15 @@
             "type": "command"
           }
         ]
+      },
+      {
+        "hooks": [
+          {
+            "command": "bash \"${CLAUDE_PROJECT_DIR}/.claude/hooks/hf-checkpoint.sh\"",
+            "timeout": 15,
+            "type": "command"
+          }
+        ]
       }
     ],
     "PreToolUse": [
@@ -52,6 +61,16 @@
         "hooks": [
           {
             "command": "vox \"Done.\"",
+            "type": "command"
+          }
+        ],
+        "matcher": ""
+      },
+      {
+        "hooks": [
+          {
+            "command": "bash \"${CLAUDE_PROJECT_DIR}/.claude/hooks/hf-checkpoint.sh\"",
+            "timeout": 15,
             "type": "command"
           }
         ],

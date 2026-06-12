@@ -32,6 +32,24 @@ Unlocks: 114-tool MCP, hardware witness anchoring of the fleet ledger, custody-s
 https://github.com/FlexNetOS/meta/security/dependabot — renovate is live; the steward folds its PRs
 through the normal loop, but review the high-severity one.
 
+### D. Two settings.json hook entries (classifier-blocked twice → scope law)
+The FIX-6 kit wires `hf` into the session lifecycle. Two of four hook entries landed
+(PreCompact + Stop → `hf-checkpoint.sh`); the classifier denies agent edits that touch
+`.claude/settings.json`'s permission-bearing config for the remaining two. Apply by hand
+(or grant a settings-edit permission rule and say "apply the FIX-6 hooks"):
+```jsonc
+// .claude/settings.json → "PreToolUse" array, after the "Bash" matcher entry:
+{ "hooks": [ { "command": "\"${CLAUDE_PROJECT_DIR}/agent/target/debug/agent\" guard",
+               "timeout": 5, "type": "command" } ],
+  "matcher": "Write|Edit" }
+// .claude/settings.json → "SessionStart" array, after the kb-service entry:
+{ "hooks": [ { "command": "bash \"${CLAUDE_PROJECT_DIR}/.claude/hooks/hf-resume.sh\"",
+               "timeout": 10, "type": "command" } ] }
+```
+The Write|Edit guard entry activates the new `file_patterns` deny rule (ad-hoc handoff
+markdown); the SessionStart entry injects the compact resume packet. Both scripts/rules
+ship inert in this PR — these two lines are the on-switch.
+
 ## Genuine walls (unchanged from the audit; commands remain valid)
 
 1. **Delete auto-suffix fork artifacts** (irreversible deletion → human):
@@ -69,7 +87,7 @@ through the normal loop, but review the high-severity one.
 Per **ADR-0008** (flexnetos_github_app + flexnetos_runner two-plane control system) and **ADR-0007**
 (retire flexnetos_secrets → envctl). Both new repos are built at P0 (building + tested).
 
-### D. Create the GitHub App (unblocks live token-mint + webhook e2e — P1+)
+### G. Create the GitHub App (unblocks live token-mint + webhook e2e — P1+)
 `flexnetos_github_app` cannot mint installation tokens or receive webhooks until a real App exists.
 GitHub UI → Org **FlexNetOS** → Settings → Developer settings → GitHub Apps → New:
 - **Permissions (least privilege):** Checks **write** (required for the merge-gate check-run),
@@ -80,13 +98,13 @@ GitHub UI → Org **FlexNetOS** → Settings → Developer settings → GitHub A
 - Hand me the App ID + installation ID; seal the .pem + webhook secret in envctl's vault
   (`secretctl import`). Then say the one-liner to wire P1.
 
-### E. Archive the now-empty `flexnetos_secrets` repo (retired per ADR-0007)
+### H. Archive the now-empty `flexnetos_secrets` repo (retired per ADR-0007)
 De-registered from `.meta.yaml` (the workspace member list) in the parent PR — reversible, non-org.
 The `.gitignore` entry is **kept** so the leftover empty husk dir stays ignored (agent-guard blocks
 `rm -rf` on a repo root, so the local-dir removal + the GitHub-repo archival are your call):
 `gh api -X PATCH repos/FlexNetOS/flexnetos_secrets -f archived=true` ; then `rm -rf flexnetos_secrets/`.
 
-### F. Visibility — RESOLVED 2026-06-12
+### I. Visibility — RESOLVED 2026-06-12
 `flexnetos_github_app` flipped **public** (you authorized it) to match the children-stay-public
 policy. Method note (also fixes item C above): this `gh` build rejects
 `gh repo edit --accept-visibility-change-consequences`; the **API form works** —
