@@ -67,20 +67,44 @@
 29. **AI gatekeeper as REQUIRED STATUS CHECK** on protected branches. Verdicts ride out-of-band (weave permission-ask + `review_verdict` event in hf's ledger — weave ReviewItem has NO verdict field by design). **Never bot-approve a PR** — that bypasses protection.
 30. **Branch protection on A/B default branches** with each repo's real CI checks required (Phase-4 rollout; weave/master = the proven template: 6 checks, fail-closed, PR #61 evidence).
 
+## P7 — The `.handoff` continuity layer (ALL tiers, tiered depth)
+
+> Design frozen in handoff **ADR-0003** (kb↔handoff seam) + **ADR-0004** (fleet rollout). Added 2026-06-12.
+
+31. **Presence.** Every `.meta.yaml` member hosts `.handoff/` at repo root. Tier **A/B** full layout:
+    `context/capsule.json` (REQUIRED), `tasks/`, `packets/`, `README.md`; optional `hooks/hooks.toml` +
+    `policies/rules.toml` where the repo runs autonomous loops. Tier **C forks + D hubs**: stub =
+    `context/capsule.json` + `README.md` — exactly one commit, merge-safe across upstream syncs,
+    **no CI/policy forcing** (Tier C discipline unchanged).
+32. **Capsule contract** (`handoff.context_capsule.v1`): REQUIRED fields `project_name`, `role`,
+    `plane`, `northstar`, `next_command` — seeded from the ARCHITECTURE-TRUTH census; kept accurate
+    (the docs-are-traps rule P5.22 applies to capsules too).
+33. **No binary state in git.** Per-repo `.handoff/` is git-committed text only. ONE witnessed fleet
+    ledger lives at the orchestration home (`handoff/.handoff/ledger.db`); worktree/session ledgers are
+    ephemeral and checkpoint back (ADR-0004 §3; session events = `handoff.session_event.v1`).
+34. **Cards are minted, derived views.** `.handoff/tasks/` holds only cards minted from kb planning
+    tasks (`hf task mint --from-kb`, ADR-0003); card statuses are rewritten from ledger truth at
+    checkpoint (`--sync-cards`). The kb board owns planning; precedence **Git > ledger > cards** unchanged.
+35. **Aggregation.** `hf fleet status` joins capsules+cards (git) with fleet-ledger events. Git is the
+    sync transport — no daemons, no new services.
+36. **Rival conventions deprecated for new state** (`_workspace/`, `.lane-loop/`, `/wrap-up`):
+    migrate opportunistically per the ADR-0004 migration list; never bulk-delete history.
+
 ---
 
-## Current deviations snapshot (2026-06-12, feeds META-ORG-AUDIT.md)
+## Current deviations snapshot (2026-06-12 evening — post protection-rollout + P7 adoption)
+
+Resolved since the morning snapshot (evidence: VERIFICATION-REPORT.md clusters A/D): branch protection
+live on 24 repos + auto-merge/delete-branch-on-merge enabled; semantic-pr-title propagated to all
+canon children; renovate.json landed on the 5 gap repos; `.meta.yaml` canon entries tagged.
 
 | Deviation | Where | Severity |
 |---|---|---|
-| No branch protection anywhere except weave/master | all A/B | P6.30 — Phase 4 work |
-| `allow_auto_merge: false`, `delete_branch_on_merge: false` | all 10 canon | Phase 4 work |
-| semantic-pr-title.yml parent-only | 10/10 canon children | P4.17 propagation |
-| renovate.json missing | loop_lib, loop_cli, meta_core, meta_plugin_protocol, meta_git_lib | P4.18 |
 | `.kb/` absent | all canon children | P5.23 (policy-relaxed for thin members) |
-| meta_plugin_api: no workflows, stub | meta_plugin_api | P3.12 disposition needed |
-| `.meta.yaml` member entries lack `tags:` | all 10 canon | P1.2 (canon repos untagged) |
+| meta_plugin_api: no workflows, stub | meta_plugin_api | P3.12 disposition needed (NEEDS-HUMAN #4) |
 | claude-plugin/copilot-plugin are parent path-aliases (`repo: meta`) yet listed in `.gitignore` | parent | cosmetic; clarify in audit |
+| `.handoff/` presence 1/58 | fleet-wide | P7.31 — rollout in progress (tasks/fleet-handoff-rollout) |
+| Loop-state convention split (`_workspace/`, `.lane-loop/`, `/wrap-up`) | weave, prompt_hub, ECC, n8n, rusty-idd, lane, .github_org | P7.36 — opportunistic migration |
 
 ## Research / Cross-References
 
