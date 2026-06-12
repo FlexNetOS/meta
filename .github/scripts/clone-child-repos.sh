@@ -91,8 +91,11 @@ clone_child meta_plugin_api
 clone_child meta_rust_cli
 clone_child meta_project_cli
 clone_child rtk-tokenkill
-# Third-party forks compiled into the workspace; not yet forked into
-# FlexNetOS (tracked as policy debt — local checkouts may carry mods
-# these upstream clones don't have).
-clone_child teri SHA888/teri
-clone_child shimmy Michael-A-Kuykendall/shimmy
+# Third-party tools homed as genuine FlexNetOS forks so the workspace
+# builds from org-controlled sources. The fork mains carry the
+# meta-fit patch (shimmy drops its standalone [workspace] root, which
+# otherwise collides with the meta workspace). Keep upstream synced
+# via each repo's `upstream` remote (Michael-A-Kuykendall/shimmy,
+# SHA888/teri) — re-apply the patch on sync.
+clone_child teri
+clone_child shimmy
