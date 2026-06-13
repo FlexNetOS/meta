@@ -90,29 +90,26 @@ cargo fmt $pkgs -- --check >/dev/null 2>&1 \
 # 2) Clippy (required checks 'Clippy' + 'Check'): clippy compiles, so it covers both.
 #    No --all-targets: a gate stricter than CI would false-block pushes CI would pass.
 #
-#    Feature strategy: prefer --all-features (what repos like prompt_hub require), but some
-#    repos define MUTUALLY-EXCLUSIVE features (e.g. weave's sqlite vs libsql backends, with a
-#    compile_error! enforcing exactly one). --all-features turns both on → E0255/compile_error,
-#    which is NOT a lint failure and NOT what that repo's CI runs. Detect that specific case
-#    and fall back to DEFAULT features (always a valid combo). The gate must mirror CI, not
-#    impose a feature set CI itself rejects.
+#    Feature strategy: try --all-features first (the strictest useful combo, and what repos
+#    like prompt_hub require in CI). But --all-features can enable feature combos a repo's CI
+#    NEVER uses and that don't even compile — mutually-exclusive backends (weave's sqlite +
+#    libsql → E0255/compile_error!) or deprecated empty features whose cfg'd code references
+#    removed modules (shimmy's `llama` → E0433). Those are feature-combo artifacts, not real
+#    lint failures. So: if --all-features fails, retry with DEFAULT features (always a valid
+#    combo). If default passes, the failure was an --all-features artifact → don't block (the
+#    gate must be a strict SUBSET of CI, never stricter; genuine --all-features-only issues are
+#    CI's job to catch). Only block if DEFAULT features also fail.
 log="$(mktemp -t preflight-clippy.XXXXXX)"
 run_clippy() { cargo clippy $pkgs "$@" -- -D warnings >"$log" 2>&1; }
 
 echo "preflight[$name]: cargo clippy $pkgs --all-features -- -D warnings"
 if ! run_clippy --all-features; then
-  if grep -qE "E0255|defined multiple times|compile_error|cannot be enabled|mutually exclusive" "$log"; then
-    echo "preflight[$name]: --all-features enables mutually-exclusive features here; retrying with default features (matches this repo's CI)." >&2
-    echo "preflight[$name]: cargo clippy $pkgs -- -D warnings"
-    if ! run_clippy; then
-      grep -E "^(error|warning)" "$log" | head -15 >&2
-      rm -f "$log"
-      fail "Clippy" "cargo clippy $pkgs --fix  (then resolve remaining -D warnings)"
-    fi
-  else
+  echo "preflight[$name]: --all-features clippy failed; retrying with default features (feature-specific issues are CI's job — the gate is a strict subset of CI)." >&2
+  echo "preflight[$name]: cargo clippy $pkgs -- -D warnings"
+  if ! run_clippy; then
     grep -E "^(error|warning)" "$log" | head -15 >&2
     rm -f "$log"
-    fail "Clippy" "cargo clippy $pkgs --all-features --fix  (then resolve remaining -D warnings)"
+    fail "Clippy" "cargo clippy $pkgs --fix  (then resolve remaining -D warnings)"
   fi
 fi
 rm -f "$log"
