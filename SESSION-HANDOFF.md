@@ -1,3 +1,61 @@
+# SESSION HANDOFF — session 6 (FIX-MISSION)
+
+closed_utc: 2026-06-13 (session 6 — FIX-MISSION; began Fable 5, continued Opus 4.8 after Fable outage)
+authoritative_memory: ICM `context-meta` 01KV03Z2R1… (FIX-MISSION COMPLETE) + the witnessed fleet ledger
+resume_point: `/resume` (hf resume packet) → confirm prompt_hub#77 merged → then the owner queue
+  (NEEDS-HUMAN.md A–E, G–H, walls) and the next tranche (MiroFish P1, HFTASK front-door) — all owner-gated/separate.
+
+## Session 6 — what happened (FIX-MISSION, owner-granted)
+
+Executed FIX-MISSION-PROMPT.md end-to-end via the proven loop (worktree → PR → witnessed checkpoint →
+native auto-merge; monitors, not sleep). Owner mid-session directive: **"fix all the issues, upgrade
+only, no downgrades"** — honored (the one deferred item, shimmy banner, was un-deferred and fixed).
+
+**All six FIX tasks shipped:**
+- **FIX-1 teri** (teri#3, merged): clap parses before config so `--help`/`--version` work keyless
+  (exit 0; usage errors exit 2); missing-key error states the **envctl injection contract** (vault-held
+  key, child-env only — never raw `export`); new `src/preflight.rs` refuses stub/canned inference
+  backends (shimmy SafeTensors placeholder marker) before any pipeline work; README/TODO de-overclaimed,
+  CLAUDE.md → autonomous-ops (D10). 152 tests; 6 CLI surfaces driven.
+- **FIX-2 resume count** (handoff session, handoff#10): `hf resume --json` now recomputes live —
+  verified on master, append → 237/238 == ledger truth (root cause was stale-packet echo, not witness math).
+- **FIX-3 kernel verbs** (handoff session, handoff#11): `hf task mint --from-kb`, `checkpoint
+  --sync-cards` (D3: 6 cards → done), terminal `hf done`. `fleet status` + `packet render --prompt`
+  are the handoff session's cycle-3 lane; the FIX-6 kit degrades gracefully until they land.
+- **FIX-4 kb silent drop** (RESOLVED; meta#21): root cause = git-kb 0.2.10 reads `.kb/workspaces/main/`
+  while all docs said `.kb/workspace/` (strace-proven). Backfilled the 4 dropped docs through the
+  working path; re-pointed `.kb/AGENTS.md` + `.claude/skills/gitkb`; legacy dir → `.bak`.
+- **FIX-5 small PRs**: claude-plugins#1 (marketplace → FlexNetOS/meta), vault_hub#2 (de-vendor kasetto
+  → registry.json), shimmy#5 (serve banner = true post-discovery count, two branches DRY'd).
+- **FIX-6 enforcement kit** (meta#20 + agent#2 + harness_hub#2, LIVE): `/handoff /resume /mint
+  /checkpoint /fleet`; skills `handoff-discipline` + `verifier-cli`; `handoff-steward` agent;
+  Stop/PreCompact `hf` hooks; **agent-guard `[[file_patterns]]`** denying new `*HANDOFF*/*-PROMPT*.md`
+  outside `.handoff/` (141 tests; driven live at the parent surface); `p7-conformance.yml` CI;
+  HARNESS-UPGRADE-KIT v2 (`_workspace/` → `.handoff/loop/`).
+
+**Four stuck P7 seed PRs** (Phase 0): meta#15, atc#2 (ubuntu runner + Linux inode-pin test fix),
+rusty-idd#39 (golden `retry_on_failure`) — all merged. **prompt_hub#77** was blocked by prompt_hub's
+**own pre-existing red `main` CI** (not the seed) → prompt_hub#78 greens main (braille
+`.len()`→`.chars().count()`, `mobile`/`touch` forbid attrs, ~15 `hub.rs`/`offline.rs` intra-doc links),
+unblocking #77 + the dependabot stack #63–76.
+
+## New owner-queue items (added to NEEDS-HUMAN.md — do NOT self-authorize)
+- **D** — two `.claude/settings.json` hook entries (PreToolUse `Write|Edit` guard activation +
+  SessionStart `hf-resume.sh`); classifier-gated for agents. Scripts/rules ship inert; these two lines
+  are the on-switch.
+- **E** — FlexNetOS fork of `gitkb/gitkb-claude-plugin` (org infra, classifier-gated); marketplace
+  gitkb entry stays upstream until then.
+
+## Method notes (carried)
+- Concurrent sessions: hf/src single-writer = the handoff session (coordinated via weave when up; MCP
+  was down late session — coordinated via PRs/ledger). Always re-verify `git log` HEAD after pulls —
+  sibling-session untracked files block ff-pulls.
+- Worktree nesting under meta needs a temporary standalone `[workspace]` shim (CI's P2.13 trick) to
+  build/test, reverted before commit.
+- rtk hook rewrites bare `cargo`/`grep`/`curl`; use `rtk proxy <cmd>` for raw output.
+
+---
+
 # SESSION HANDOFF — portability mission (ADR-0006): total internalization wave 1
 
 closed_utc: 2026-06-12 (session 5 — portability mission)
