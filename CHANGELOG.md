@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.24](https://github.com/FlexNetOS/meta/compare/v0.2.23...v0.2.24) (2026-06-13)
+
+
+### Bug Fixes
+
+* **preflight:** scope fmt/clippy to the repo's own packages ([#27](https://github.com/FlexNetOS/meta/issues/27)) ([8cb998c](https://github.com/FlexNetOS/meta/commit/8cb998c191f02bd6528025456fa345b902b0d2df))
+
 ## [0.2.23](https://github.com/FlexNetOS/meta/compare/v0.2.22...v0.2.23) (2026-06-13)
 
 
