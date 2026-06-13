@@ -190,3 +190,38 @@ The correct pattern already exists ×3 (template): `~/.local/bin/lane → meta/l
 substitution in settings.json/config.nu/shell_bash.sh; work-dir relocations (§C — Downloads/tmp
 pending the handoff cross-ref directive); bashrc legacy PATH dedupe; `wiring.symlink` engine kind
 (Feature Forge); meta_mcp release build.
+
+---
+
+## APPLIED (wave 2, 2026-06-13) — second inversion + portability-defect pass
+
+Resumed the mission; wave-1 confirmed live (32 symlinks into meta, audit+bootstrap+yazelix
+registration present, main CI green @ `bf68d57`, Release-Please fallback PR#14 merged).
+
+- **rtk: DONE** (by the rtk-lock PR) — installed `0.42.4` == repo, `~/.local/bin/rtk` now a
+  symlink into `meta/target/release/rtk`. The version-guard skip from wave 1 is resolved.
+- **meta-mcp: link-inverted.** Built `target/release/meta-mcp` from current source; the stale
+  Jun-2 copy was archived to `~/Desktop/_archives/home-links-2026-06-13/.local/bin/meta-mcp` and
+  `~/.local/bin/meta-mcp` now symlinks the build. (No `--version` — it's a stdio MCP server, so
+  the version-guard can't compare; it's an internal workspace tool, newest-from-source is canon.)
+- **kasetto/kst: HELD — would DOWNGRADE.** The `meta/kasetto` checkout builds `3.0.0` but the
+  installed binaries are `3.1.0`. The version guard correctly refuses. **Blocked on fast-forwarding
+  the `FlexNetOS/kasetto` fork to 3.1.x**, then build + link. (Carry-over task; do NOT link 3.0.0.)
+- **settings.json absolute paths = BY DESIGN, not a defect.** `settings.json` is a rendered
+  artifact from `.claude/settings.json.tmpl` (`${META_ROOT}` substituted per machine, TASK-0005);
+  the `.tmpl` is the portable source of truth. No action needed.
+- **config.nu / shell_bash.sh: de-hardcoded** (envctl PR#42). `config.nu` sources
+  `rtk-wrappers.nu` by relative sibling path; `shell_bash.sh` launches rtk-monitor via `$HOME`.
+- **`meta-tool-links` detect bug fixed** (envctl PR#42). The old detect short-circuited on
+  `[ -L meta ]` alone, so a newly-built tool (meta-mcp) never re-triggered convergence — it stayed
+  a copy. Detect now checks `meta meta-mcp loop lane grit`; version-guarded externals stay excluded.
+- **Downloads/tmp/handoff cross-ref CLEARED** (forgotten-directive #2). It is the *original* Ark
+  Handoff Ledger PRD/design package (24 files, not a git repo, Jun 2-9). `meta/handoff` is the
+  *realized superset* (90 files, the `hf` Rust kernel + ledger + 22 HFTASKs). The PRD spec is
+  preserved in meta as `handoff/docs/Continuity_Ledger_Kernel_PRD.md`. **meta is NOT a downgrade.**
+  Disposition: `~/Downloads/tmp/handoff` is superseded source material → archive (don't delete).
+
+**Still pending (wave 3)**: kasetto fork FF → 3.1.x then link kasetto/kst; `/usr/local/bin` sudo
+phase (archon, vox root copy, yazelix-* root scripts) = **needs sudo / human**; `~/.bashrc` 10×
+`export PATH` dedupe; `wiring.symlink` native engine kind (Feature Forge); full virgin-`$HOME`
+`envctl install` materialization proof.
