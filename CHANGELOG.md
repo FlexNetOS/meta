@@ -1,5 +1,29 @@
 # Changelog
 
+## [0.2.23](https://github.com/FlexNetOS/meta/compare/v0.2.22...v0.2.23) (2026-06-13)
+
+
+### Features
+
+* add GitKB Copilot plugin with workspace management and knowledge workflows ([67cb754](https://github.com/FlexNetOS/meta/commit/67cb7549342f04d8718d0ceb1abeb56e4e824b18))
+* add strict Codex upgrade environment ([02e8330](https://github.com/FlexNetOS/meta/commit/02e83303fd42d8dfe0fcfbef5bdcbb070418a12c))
+* **claude:** repo-owned statusLine via project settings ([79f53f3](https://github.com/FlexNetOS/meta/commit/79f53f33a21479b2d03a684936cd8ac7f6fe0fcf))
+* complete Codex seven-layer surface ([8596d81](https://github.com/FlexNetOS/meta/commit/8596d8121842543bc1dd58297ebaa1a31a0e1792))
+* **harness:** FIX-6 handoff enforcement kit — kernel is the only handoff path ([#20](https://github.com/FlexNetOS/meta/issues/20)) ([be96dab](https://github.com/FlexNetOS/meta/commit/be96dabf6624936ddfdc9bd7fa5510aaf5149eee))
+* **portability:** register yazelix+agent-skills, bootstrap sequencer, mission docs ([#17](https://github.com/FlexNetOS/meta/issues/17)) ([cb394ad](https://github.com/FlexNetOS/meta/commit/cb394adeb678060d725aa2226a696923a1a3a828))
+* **scripts:** pre-push preflight gate across the Rust workspace (auto-merge guard) ([#25](https://github.com/FlexNetOS/meta/issues/25)) ([09513d8](https://github.com/FlexNetOS/meta/commit/09513d8452284623b199c5122fddbe273f0fb6dc))
+
+
+### Bug Fixes
+
+* **.claude:** repair broken git-kb SessionStart hook (service -&gt; guarded background serve) ([bf68d57](https://github.com/FlexNetOS/meta/commit/bf68d57c6d0c0d2855dad0c1dcaefefe8908ccee))
+* **.claude:** restore FIX-6 slash commands dropped by over-broad .gitignore ([#24](https://github.com/FlexNetOS/meta/issues/24)) ([8bb310b](https://github.com/FlexNetOS/meta/commit/8bb310b569c9e5d284d46bc9948571975becc0d3))
+* **ci:** authenticate child-repo clones + sync clone list with workspace members ([#10](https://github.com/FlexNetOS/meta/issues/10)) ([42f7c69](https://github.com/FlexNetOS/meta/commit/42f7c690ead00d0d22fe4f1747c86ad73fc4eb53))
+* **ci:** clone shimmy+teri from FlexNetOS forks (resolves multiple-workspace-roots) ([#11](https://github.com/FlexNetOS/meta/issues/11)) ([b12f3c7](https://github.com/FlexNetOS/meta/commit/b12f3c7ab4f44709ee7ac80eb2776328e5771115))
+* **ci:** fall back to GITHUB_TOKEN when PARENT_REPO_PAT is unavailable ([#14](https://github.com/FlexNetOS/meta/issues/14)) ([7ed2244](https://github.com/FlexNetOS/meta/commit/7ed224400345d05343684e2d13cdbc2558a93bb6))
+* portable agent guard hook path via CLAUDE_PROJECT_DIR ([dfd01d7](https://github.com/FlexNetOS/meta/commit/dfd01d7736b11cf02783b22a7348e78c6f36d945))
+* **vox:** English everywhere, kill the French regressions ([6c13ac0](https://github.com/FlexNetOS/meta/commit/6c13ac08c5be2ee72fd675e6bdde90d1cb48f45c))
+
 ## [0.2.22](https://github.com/gitkb/meta/compare/v0.2.21...v0.2.22) (2026-05-19)
 
 
