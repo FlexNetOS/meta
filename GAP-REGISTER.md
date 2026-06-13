@@ -27,12 +27,22 @@
 
 | Defect | Owner | Defect | Owner |
 |---|---|---|---|
-| D1 claude-plugins dead gitkb sources | W5 (small PR) | D7 meta-plugins example payload | W5/P4 |
-| D2 vault_hub vendored kasetto | W1 (de-vendor PR) | D8 .github_org MANIFEST drift | github-meta-refactor task (kb, ACTIVE) |
-| D3 handoff 22 stale cards | P4 (card-sync design) | D9 lifeos dead-path handoff | P4 rollout fixes it |
-| D4 12 husk repos | NEEDS-HUMAN #5 family + steward (P6) | D10 teri stale TODO/CLAUDE.md | W4 |
-| D5 prompt_hub identity drift | W7 | D11 harness_hub misattribution | W5 |
-| D6 kasetto fork lag + inert workflows | W1 | D12 shimmy stale AGENTS.md/workflows | W4 (vehicle decision) |
+| ✅ D1 claude-plugins dead gitkb sources | RESOLVED — claude-plugins#1 (meta plugin → FlexNetOS/meta; gitkb plugin fork = NEEDS-HUMAN E) | D7 meta-plugins example payload | W5/P4 |
+| ✅ D2 vault_hub vendored kasetto | RESOLVED — vault_hub#2 (registry.json → FlexNetOS/kasetto) | D8 .github_org MANIFEST drift | github-meta-refactor task (kb, ACTIVE) |
+| ✅ D3 handoff 22 stale cards | RESOLVED — handoff#11 `hf checkpoint --sync-cards` (6 merged cards → done; terminal `hf done` verb added) | ✅ D9 lifeos dead-path handoff | superseded by capsule (P7 rollout) |
+| D4 12 husk repos | NEEDS-HUMAN #5 family + steward | D10 teri stale TODO/CLAUDE.md | ✅ RESOLVED — teri#3 (TODO regenerated, README de-overclaimed, CLAUDE.md → autonomous-ops) |
+| 🟡 D5 prompt_hub identity drift | main CI greened (prompt_hub#78: braille tests, forbid attrs, intra-doc links — unblocks #77 + dependabot stack); identity rename still W7 | D11 harness_hub misattribution | W5 |
+| D6 kasetto fork lag + inert workflows | W1 | 🟡 D12 shimmy: banner FIXED (shimmy#5); stale AGENTS.md/workflows still W4 |
+
+**D12 shimmy boot-banner mismatch — RESOLVED (shimmy#5, 2026-06-12):** `shimmy serve` printed
+`📦 Models: {} available` from `print_startup_diagnostics(...)` using `state.registry.list().len()`
+— the **pre-discovery** manual count — before `registry.auto_register_discovered()` ran, so a fresh
+boot read "Models: 0 available" while `/v1/models` then served the discovered set (and the real count
+was printed a second time after "Starting server"). Fix: resolve the serving state with discovery
+once, up front; pass the true `available_models.len()` to the diagnostic; print once; the two
+near-identical post-discovery branches collapse into one (DRY). Verified `--features fast`:
+diagnostics tests + serve-count test pass, fmt/clippy clean. (shimmy's stale AGENTS.md/workflows
+remain W4 vehicle work.)
 
 ## W8 — RuVector integration scoreboard (item 11's evidence; from the 314-crate ledger + memoir, code-verified anchors)
 
