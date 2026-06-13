@@ -1,0 +1,60 @@
+# Workspace Census 2026-06-12 (session d5d1e86e)
+
+- **commands            ** D/in-development  [none              ] hub                       README Catalog header still says "No entries yet" despite a table row; snippets/
+- **flow_hub            ** D/empty-or-stub  [none              ] hub                       Single-commit scaffold from template_hub standard; default branch is master (not
+- **database_hub        ** D/empty-or-stub  [none              ] hub                       FlexNetOS-original (origin only, no upstream); default branch master; validate.p
+- **flexnetos_runner    ** B/empty-or-stub  [none              ] ops                       Clone of an empty GitHub repo (FlexNetOS/flexnetos_runner) — remote branch is go
+- **assets              ** D/empty-or-stub  [none              ] other                     Branch master has no commits and origin/master is gone (remote likely empty on G
+- **flexnetos_github_app** B/empty-or-stub  [none              ] ops                       Cloned ~Jun 3 from an apparently empty remote (empty FETCH_HEAD, zero remote-tra
+- **flexnetos_wiki      ** D/empty-or-stub  [none              ] knowledge-docs            Remote appears empty too (0-byte FETCH_HEAD, no remote refs); only residue is .g
+- **flexnetos_secrets   ** B/empty-or-stub  [none              ] ops                       Zero commits and remote tracking branch gone (GitHub remote likely empty too); o
+- **Archon              ** C/active        [none              ] harness                   Pure tracking fork, zero FlexNetOS-authored commits in recent history; local bra
+- **claude-code         ** C/active        [none              ] harness                   Origin rewritten to FlexNetOS/claude-code with no upstream remote; local harness
+- **flexnetos_brain     ** B/empty-or-stub  [none              ] other                     Registered workspace member but a husk since 2026-06-03 — master tracks origin/m
+- **codex               ** C/active        [none              ] harness                   Fork of openai/codex with no upstream remote configured; divergence is one fresh
+- **ECC                 ** C/active        [working           ] harness                   _workspace/ loop state (HANDOFF/backlog/loop_state, committed 2026-06-11, marked
+- **atc                 ** C/active        [none              ] continuity-orchestration  Upstream is harmony-labs/gitkb-era code by Matt Walters (Mar 2026), migrated int
+- **claude-plugins      ** C/stale         [none              ] harness                   Unmodified gitkb fork (no upstream remote, origin=FlexNetOS): marketplace.json s
+- **hooks_hub           ** D/empty-or-stub  [none              ] hub                       FlexNetOS-original (origin only, no upstream remote), default branch master; sca
+- **agent               ** C/active        [none              ] harness                   Upstream is the dead gitkb org (Matt Walters, same author family as the canon me
+- **icm                 ** C/active        [none              ] rtk-tooling               Fork of rtk-ai/icm with origin=FlexNetOS/icm and no upstream remote; tracks upst
+- **grit                ** C/active        [none              ] rtk-tooling               Origin is FlexNetOS/grit but README badges and commit authors identify upstream 
+- **loop_lib            ** A/active        [none              ] foundation                No README; lineage harmony-labs→gitkb→FlexNetOS in commit history but origin-onl
+- **kasetto             ** C/active        [none              ] env-control               Fork renamed env_manager_agent in FlexNetOS org but dir is kasetto; last 20 comm
+- **harness_hub         ** D/active        [none              ] hub                       upgrade-kits/ documents the loop harness pattern (mirror of ~/Desktop/meta/HARNE
+- **loop_cli            ** A/active        [none              ] foundation                Origin-only remote FlexNetOS/loop_cli; history shows harmony-labs→gitkb→FlexNetO
+- **.github_org         ** D/active        [working           ] hub                       MIGRATION.md (latest commit) dissolves the umbrella into meta peers; admits .git
+- **hermes-agent        ** C/active        [none              ] agentic-os                Upstream identity NousResearch/hermes-agent but only origin=FlexNetOS remote set
+- **mcp_hub             ** D/active        [none              ] hub                       Nested meta repo (meta: true in parent) hosting forked external MCP servers as c
+- **meta_cli            ** A/active        [none              ] foundation                No README.md at all; origin-only remote (FlexNetOS/meta_cli, no upstream); notif
+- **meta_core           ** A/active        [none              ] foundation                No README at all; commit history shows org lineage harmony-labs -> gitkb -> Flex
+- **lifeos              ** B/in-development  [broken-or-stale   ] agentic-os                HANDOFF.md/TODO.md (2026-05-25) reference dead path ~/repos/ubuntu-lifeos and v0
+- **lane                ** B/active        [working           ] network                   lane-loop (.lane-loop/ + _workspace/backlog.md+loop_state.md, adapted from weave
+- **meta_git_cli        ** A/active        [none              ] foundation                No README at all; origin-only remote FlexNetOS/meta_git_cli (gitkb upstream org 
+- **meta-plugins        ** D/empty-or-stub  [none              ] hub                       Descends from Matt Walters' gitkb/harmony-labs registry (no upstream remote, onl
+- **meta_git_lib        ** A/active        [none              ] foundation                No README; origin-only remote FlexNetOS/meta_git_lib (history shows migration of
+- **meta_plugin_api     ** A/active        [none              ] foundation                No README and no CI workflows; origin-only remote under FlexNetOS (no upstream);
+- **meta_plugin_protocol** A/active        [none              ] foundation                No README; single-file crate; lineage harmony-labs→gitkb→FlexNetOS in commit mes
+- **handoff             ** B/in-development 🏠 [working           ] continuity-orchestration  Builds only with sibling RuVector checkout (rvf-crypto path dep); active.md/pack
+- **meta_project_cli    ** A/active        [none              ] foundation                No README; origin-only FlexNetOS remote (no upstream); commit 030c800 re-pointed
+- **meta_mcp            ** A/active        [none              ] foundation                No README; only 7 tracked files; origin-only remote FlexNetOS/meta_mcp with harm
+- **meta_dashboard_cli  ** A/active        [none              ] env-control               No README and no CI workflows; deliberately Cargo-standalone (empty [workspace] 
+- **meta_rust_cli       ** A/active        [none              ] foundation                No README at all; origin-only remote git@github.com:FlexNetOS/meta_rust_cli.git 
+- **my-wiki             ** D/empty-or-stub  [none              ] knowledge-docs            Remote tracking branch [gone] (remote likely empty too); only artifact is .git/g
+- **network_hub         ** D/empty-or-stub  [none              ] network                   Latest commit added 69 lines of Rust-networking-tool references to README only w
+- **plugin_hub          ** D/active        [none              ] hub                       FlexNetOS-original (origin only, no upstream); default branch master; only 2 com
+- **obscura             ** C/active        [none              ] env-control               Pure mirror fork: all 50 commits by upstream authors (SGavrl/h4ckf0r0day et al.)
+- **oh-my-pi            ** C/active        [none              ] harness                   Pristine upstream mirror: every commit authored upstream (can1357 et al.), zero 
+- **shimmy              ** C/active        [none              ] foundation                Upstream AGENTS.md is stale residue — describes the upstream author's shimmy-pri
+- **template_hub        ** D/in-development  [none              ] hub                       FlexNetOS-original (origin only, no upstream); one scaffold commit on master (no
+- **rtk-tokenkill       ** C/active        [none              ] rtk-tooling               Fork of rtk-ai/rtk (Patrick Szymkowiak; upstream PR #2002 in history) with only 
+- **tool_hub            ** D/active        [none              ] hub                       FlexNetOS-original (origin git@github.com:FlexNetOS/tool_hub.git, no upstream); 
+- **n8n                 ** C/active        [working           ] harness                   Loop in deliberate stand-down (HANDOFF 2026-06-07: no autonomous work left; back
+- **teri                ** C/active        [none              ] agentic-os                Fork of SHA888/teri (itself a rewrite of Python MiroFish); no .github/workflows 
+- **prompt_hub          ** B/in-development  [working           ] agentic-os                Loop state lives in _workspace/ not .handoff/ (cycle 82, P1 13/13, committed Jun
+- **vox                 ** C/active        [none              ] rtk-tooling               Fork of rtk-ai/vox (origin=FlexNetOS/vox, upstream=rtk-ai) with intentional drif
+- **oh-my-claudecode    ** C/active        [none              ] harness                   Clean upstream mirror (synced ~2026-05-28, no upstream remote configured); stale
+- **obsidian-mind       ** C/active        [none              ] knowledge-docs            Unmodified third-party fork (upstream author Brenno Ferrari, no upstream remote,
+- **vault_hub           ** D/active        [none              ] hub                       Not a git fork — kasetto is vendored (no upstream remote); two placeholder AI co
+- **rusty-idd           ** B/active        [working           ] harness                   On develop (main=protected promotion trunk); _workspace ralph-loop ran 25 cycles
+- **weave               ** B/active        [working           ] continuity-orchestration  Loop residue is fresh and reconciled: _workspace/loop_state.md (2026-06-11, 31 c

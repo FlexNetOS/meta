@@ -3902,7 +3902,7 @@ dependencies = [
 
 [[package]]
 name = "rtk"
-version = "0.42.0"
+version = "0.42.4"
 dependencies = [
  "anyhow",
  "automod",
