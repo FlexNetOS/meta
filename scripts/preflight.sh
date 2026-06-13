@@ -88,28 +88,67 @@ cargo fmt $pkgs -- --check >/dev/null 2>&1 \
   || fail "Format" "cargo fmt $pkgs"
 
 # 2) Clippy (required checks 'Clippy' + 'Check'): clippy compiles, so it covers both.
-#    No --all-targets: a gate stricter than CI would false-block pushes CI would pass.
 #
-#    Feature strategy: try --all-features first (the strictest useful combo, and what repos
-#    like prompt_hub require in CI). But --all-features can enable feature combos a repo's CI
-#    NEVER uses and that don't even compile — mutually-exclusive backends (weave's sqlite +
-#    libsql → E0255/compile_error!) or deprecated empty features whose cfg'd code references
-#    removed modules (shimmy's `llama` → E0433). Those are feature-combo artifacts, not real
-#    lint failures. So: if --all-features fails, retry with DEFAULT features (always a valid
-#    combo). If default passes, the failure was an --all-features artifact → don't block (the
-#    gate must be a strict SUBSET of CI, never stricter; genuine --all-features-only issues are
-#    CI's job to catch). Only block if DEFAULT features also fail.
-log="$(mktemp -t preflight-clippy.XXXXXX)"
-run_clippy() { cargo clippy $pkgs "$@" -- -D warnings >"$log" 2>&1; }
+#    PER-REPO CI MIRROR: the gate mirrors THIS repo's OWN CI clippy flags so it is an exact
+#    SUBSET of that repo's CI — never stricter (won't false-block), never weaker (won't miss
+#    what CI catches). We detect the repo's CI clippy invocation in .github/workflows/*.yml:
+#      * if a CI clippy line uses --all-targets → we add --all-targets too. This LINTS TEST
+#        CODE. Repos like handoff use it; without mirroring it, a test-code lint (e.g. a
+#        needless &borrow in a #[cfg(test)] assert) passes preflight but FAILS CI (PR #30).
+#      * if a CI clippy line uses --all-features → we keep our --all-features axis (default).
+#        If no CI clippy line is found (or no .github/workflows), we keep current behavior
+#        (--all-features) so repos without detectable CI never regress.
+#
+#    Feature strategy (the --all-features axis only): try --all-features first (the strictest
+#    useful combo, and what repos like prompt_hub require in CI). But --all-features can enable
+#    feature combos a repo's CI NEVER uses and that don't even compile — mutually-exclusive
+#    backends (weave's sqlite + libsql → E0255/compile_error!) or deprecated empty features
+#    whose cfg'd code references removed modules (shimmy's `llama` → E0433). Those are
+#    feature-combo artifacts, not real lint failures. So: if --all-features fails, retry with
+#    DEFAULT features (always a valid combo). If default passes, the failure was an
+#    --all-features artifact → don't block (genuine --all-features-only issues are CI's job).
+#    The --all-targets axis is NOT subject to this fallback: an --all-targets failure is a real
+#    test-code lint that IS in CI and SHOULD block. --all-targets is always carried into both
+#    the --all-features attempt and the default-features retry.
+#
+#    Detect this repo's CI clippy flags. ROBUST DETECTION: scan EVERY real `cargo clippy`
+#    RUN STEP across ALL .github/workflows/*.yml and OR the flag across them — a flag is
+#    mirrored if ANY clippy run-step in ANY workflow uses it.
+#      * ANCHOR TO `run:` STEPS: match only `^\s*(- )?run:.*cargo clippy`. A bare
+#        `grep 'cargo clippy'` OVER-detects: it matches NON-command text — e.g. a JS string
+#        literal `` `cargo clippy --all-targets` `` inside a github.rest.issues.createComment
+#        body (prompt_hub/.github/workflows/external-ai-apis.yml:205, PROSE not a step).
+#        prompt_hub's ONLY real clippy step is ci.yml:79 `run: cargo clippy --workspace
+#        --all-features` (NO --all-targets). The bare grep would mirror --all-targets onto
+#        prompt_hub → a gate STRICTER than its CI → a latent false-block (fires on the first
+#        #[cfg(test)]-only lint) on shared infra gating ~28 Rust repos. Anchoring to `run:`
+#        command lines fixes this WITHOUT losing any real clippy step.
+#      * A naive `head -1` also UNDER-detects: the first match can be a YAML
+#        `name: cargo clippy ...` label (ruflo) or a non-all-targets run line while a sibling
+#        workflow DOES use --all-targets (RuVector ci/clippy-fmt/release). OR-across-all-run-
+#        steps is conservative on the catch axis and still never adds a flag NO CI uses (no
+#        false-block) — neither over-detect (prompt_hub) nor under-detect (ruflo/RuVector).
+ci_clippy_lines="$(grep -hE '^[[:space:]]*(- )?run:.*cargo clippy' "$repo_root"/.github/workflows/*.yml 2>/dev/null)"
+targets_flag=""
+case "$ci_clippy_lines" in
+  *--all-targets*) targets_flag="--all-targets" ;;
+esac
+if [ -n "$targets_flag" ]; then
+  echo "preflight[$name]: CI uses --all-targets (lints test code) → mirroring it."
+fi
 
-echo "preflight[$name]: cargo clippy $pkgs --all-features -- -D warnings"
+log="$(mktemp -t preflight-clippy.XXXXXX)"
+# shellcheck disable=SC2086  # $targets_flag is "" or "--all-targets" (intentional word-split).
+run_clippy() { cargo clippy $pkgs $targets_flag "$@" -- -D warnings >"$log" 2>&1; }
+
+echo "preflight[$name]: cargo clippy $pkgs $targets_flag --all-features -- -D warnings"
 if ! run_clippy --all-features; then
-  echo "preflight[$name]: --all-features clippy failed; retrying with default features (feature-specific issues are CI's job — the gate is a strict subset of CI)." >&2
-  echo "preflight[$name]: cargo clippy $pkgs -- -D warnings"
+  echo "preflight[$name]: --all-features clippy failed; retrying with default features (feature-combo issues are CI's job — the gate is a strict subset of CI)." >&2
+  echo "preflight[$name]: cargo clippy $pkgs $targets_flag -- -D warnings"
   if ! run_clippy; then
     grep -E "^(error|warning)" "$log" | head -15 >&2
     rm -f "$log"
-    fail "Clippy" "cargo clippy $pkgs --fix  (then resolve remaining -D warnings)"
+    fail "Clippy" "cargo clippy $pkgs $targets_flag --fix  (then resolve remaining -D warnings)"
   fi
 fi
 rm -f "$log"
