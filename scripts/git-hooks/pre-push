@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+# pre-push — meta-managed preflight gate. Installed by scripts/install-preflight-hooks.sh.
+# Do not edit in place; edit scripts/git-hooks/pre-push in the meta repo and re-run the
+# installer. The @PREFLIGHT@ line is rewritten to the absolute meta path at install time.
+set -uo pipefail
+
+repo_root="$(git rev-parse --show-toplevel 2>/dev/null || pwd)"
+
+# Prefer a repo-local gate (keeps independently-cloned repos self-contained);
+# otherwise fall back to the meta-shared preflight runner.
+local_gate="$repo_root/scripts/preflight.sh"
+meta_gate="@PREFLIGHT@"
+
+if [ -x "$local_gate" ]; then
+  exec bash "$local_gate" "$repo_root"
+elif [ -f "$meta_gate" ]; then
+  exec bash "$meta_gate" "$repo_root"
+else
+  # No gate available (meta moved / standalone clone without one) — never block.
+  exit 0
+fi

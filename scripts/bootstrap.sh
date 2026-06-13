@@ -99,3 +99,14 @@ if phase 5; then
   run meta git status || true
   say "done. Portability contract: real file in meta, symlink outside. See PORTABILITY-AUDIT.md"
 fi
+
+# ---- phase 6: pre-push preflight gates --------------------------------------------
+if phase 6; then
+  say "phase 6: install pre-push preflight hooks (auto-merge guard) across Rust repos"
+  if [ "$DRY_RUN" = 1 ]; then
+    run bash "$META_ROOT/scripts/install-preflight-hooks.sh" --dry-run
+  else
+    run bash "$META_ROOT/scripts/install-preflight-hooks.sh" || \
+      echo "WARN: preflight hook install reported issues — re-run scripts/install-preflight-hooks.sh"
+  fi
+fi

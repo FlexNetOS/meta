@@ -83,3 +83,13 @@ After completing a significant task, call `vox "short summary in English"` to gi
 | Date | Change | Target | Reason |
 |------|--------|--------|--------|
 | 2026-06-12 | Initial kit | 5 commands, 2 skills, steward agent, 2 hook scripts, guard file-rule, p7-conformance CI, HARNESS-UPGRADE-KIT v2 | FIX-6: owner-flagged handoff-convention drift; ADR-0004 enforcement |
+
+## Auto-merge + pre-push preflight gate
+
+**Standing rule:** every PR gets GitHub auto-merge armed (`gh pr merge <n> --auto --squash`) — the pipeline is push → PR → self-merge on green. A PR self-blocks (`mergeStateStatus=BLOCKED`) when any *required* check fails, and the usual silent culprit is **Format** (`cargo fmt --check`) failing while tests are green.
+
+**The gate:** `scripts/preflight.sh` runs the fast required checks locally (`cargo fmt --all --check`, then `cargo clippy --workspace --all-features -- -D warnings` — clippy covers `Check`). It is deliberately a *subset* of CI (never stricter, so it can't false-block); tests/audit/deny stay in CI. `scripts/install-preflight-hooks.sh` installs it as a `pre-push` hook into every Rust repo (idempotent; honors an existing `core.hooksPath`; never clobbers a foreign hook). Wired into `scripts/bootstrap.sh` phase 6 so fresh clones get it.
+
+- Install/refresh across the workspace: `bash scripts/install-preflight-hooks.sh`
+- Bypass once (emergency): `SKIP_PREFLIGHT=1 git push` or `git push --no-verify`
+- A repo whose `main` already fails `clippy --all-features` (e.g. unused-import errors) will have all pushes blocked until main is green — that's correct (it can't auto-merge either); fix main or bypass.
