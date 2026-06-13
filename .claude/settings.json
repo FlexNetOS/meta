@@ -49,7 +49,7 @@
       {
         "hooks": [
           {
-            "command": "git kb service status --quiet 2>/dev/null || git kb service start 2>/dev/null",
+            "command": "pgrep -f 'git-kb serve' >/dev/null 2>&1 || (nohup git kb serve >/dev/null 2>&1 &)",
             "timeout": 10,
             "type": "command"
           }
