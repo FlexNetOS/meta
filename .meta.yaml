@@ -242,11 +242,12 @@ projects:
     repo: git@github.com:FlexNetOS/vault_hub.git
     tags: [hub, vault]
 
-  # kasetto — the agent-environment provisioner (installed binary 3.1.0). The org
-  # fork of pivoshenko/kasetto lives under the historical name env_manager_agent;
-  # registered here as `kasetto` (resolves open-questions #5: canonical source located).
+  # kasetto — the agent-environment provisioner. The org fork of pivoshenko/kasetto was
+  # renamed env_manager_agent -> FlexNetOS/kasetto (2026-06-13); `main` synced UP to upstream
+  # v3.2.0 (pre-sync FlexNetOS divergence preserved on branch
+  # flexnetos-divergence-backup-2026-06-13 + archived as a git bundle in .archives/).
   kasetto:
-    repo: git@github.com:FlexNetOS/env_manager_agent.git
+    repo: git@github.com:FlexNetOS/kasetto.git
     path: kasetto
     provides: [kasetto]
     tags: [tools, agent-env, forked]

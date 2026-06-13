@@ -42,6 +42,8 @@ models/
 
 # Release archives (kept locally as install backups, not committed)
 *.tar.gz
+*.bundle
+.archives/
 
 # Cache
 .cache/
