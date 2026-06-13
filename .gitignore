@@ -111,7 +111,7 @@ database_hub/
 mcp_hub/
 plugin_hub/
 hooks_hub/
-commands/
+/commands/
 vault_hub/
 RuVector/
 ruflo/
