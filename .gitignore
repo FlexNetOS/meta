@@ -104,6 +104,7 @@ template_hub/
 assets/
 flow_hub/
 harness_hub/
+harness-agent-rs/
 network_hub/
 my-wiki/
 tool_hub/

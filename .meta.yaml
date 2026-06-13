@@ -213,6 +213,9 @@ projects:
   harness_hub:
     repo: git@github.com:FlexNetOS/harness_hub.git
     tags: [hub, harness]
+  harness-agent-rs:
+    repo: git@github.com:FlexNetOS/harness-agent-rs.git
+    tags: [ai, harness, rust, runtime, port]
   network_hub:
     repo: git@github.com:FlexNetOS/network_hub.git
     tags: [hub, network]
