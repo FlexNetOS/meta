@@ -190,7 +190,7 @@ projects:
     tags: [untriaged]
   obscura:
     repo: git@github.com:FlexNetOS/obscura.git
-    tags: [untriaged]
+    tags: [network, ai, browser]   # network plane: governed web-egress engine for AI agents (lane↔obscura seam, ADR-0001)
 
   # --- Knowledge / distro ---
   obsidian-mind:
