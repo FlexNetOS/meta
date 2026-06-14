@@ -169,7 +169,7 @@ A2 mission-control surface, runtime-coupled to envctl on PATH, deliberately Carg
 | flexnetos_wiki | 5-Feature:knowledge | D | empty | — | none | Empty wiki placeholder |
 | my-wiki | 5-Feature:knowledge | D | empty | — | none | Empty personal-wiki placeholder |
 | lane | 5-Feature:network | B | active | — | working | Local-domain TLS reverse proxy (myapp.test→ports); loop legitimately TERMINAL DONE |
-| obscura | 5-Feature:network | C | active | — | none | Rust headless browser engine (V8, CDP, Puppeteer/Playwright drop-in); lane's web-access upgrade per vision |
+| obscura | 5-Feature:network | B | active | — | none | Rust headless browser engine (V8, CDP, Puppeteer/Playwright drop-in); lane's web-access upgrade. INTEGRATED (2026-06-14): build/test green (271→282), custom-CA trust, lane↔obscura seam (ADR-0001) reconciled to its real CLI, MCP surface verified, network_hub-registered. Owned (C→B). |
 | network_hub | 5-Feature:network | D | empty | — | none | Network-topology catalog scaffold; README prose drifting ahead of empty registry |
 | flexnetos_github_app | 5-Feature:ops | B | empty | — | none | Unborn; ADR-0001's candidate home for the trusted merge-gate writer |
 | flexnetos_runner | 5-Feature:ops | B | empty | — | none | Unborn runner placeholder |
