@@ -90,10 +90,14 @@ A2 mission-control surface, runtime-coupled to envctl on PATH, deliberately Carg
   **kasetto** (C, fork of pivoshenko/kasetto via FlexNetOS/env_manager_agent): declarative agent-asset
   provisioner (bins `kasetto`/`kst`); fork at 3.0.0 vs installed 3.1.0; release workflows wired to
   upstream secrets (inert in fork).
-- **Network:** **lane** (B): TLS-terminating local-domain reverse proxy (myapp.test → ports) — loop
-  TERMINAL DONE legitimately. **obscura** (C): **headless browser engine in Rust** (7 crates:
-  dom/net/browser/cdp/js/mcp/cli; real V8; CDP; Puppeteer/Playwright drop-in) — per vision, lane's
-  web-access upgrade; pure mirror fork today (zero org commits). network_hub = empty registry.
+- **Network:** **lane** (B): TLS-terminating local-domain reverse proxy (myapp.test → ports) PLUS the
+  full W2 network plane — governed web egress (`lane web`: a GovernedProxy with deny-by-default
+  webpolicy, upstream chaining, optional path-level TLS-MITM) and the cross-machine **lane relay**
+  (iroh p2p, governance-across-the-link; ADR-0002 IMPLEMENTED). **obscura** (B, was C): **headless
+  browser engine in Rust** (8 crates: dom/net/browser/cdp/js/mcp/cli + core; real V8; CDP;
+  Puppeteer/Playwright drop-in) — lane's web-access upgrade, now ESTATE-INTEGRATED (build/test green,
+  custom-CA trust, lane↔obscura seam ADR-0001, MCP verified, network_hub-registered). network_hub =
+  obscura registered (was empty).
 - **Harness plane (10):** Archon (Bun/TS DAG workflow engine for coding agents — the harness-builder
   candidate, pure tracking fork today), ECC (multi-harness agent OS + Rust TUI), agent (guard/score/
   codex hooks — load-bearing as parent's PreToolUse guard), claude-code (vendor reference fork),
