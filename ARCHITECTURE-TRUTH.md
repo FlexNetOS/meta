@@ -90,10 +90,14 @@ A2 mission-control surface, runtime-coupled to envctl on PATH, deliberately Carg
   **kasetto** (C, fork of pivoshenko/kasetto via FlexNetOS/env_manager_agent): declarative agent-asset
   provisioner (bins `kasetto`/`kst`); fork at 3.0.0 vs installed 3.1.0; release workflows wired to
   upstream secrets (inert in fork).
-- **Network:** **lane** (B): TLS-terminating local-domain reverse proxy (myapp.test → ports) — loop
-  TERMINAL DONE legitimately. **obscura** (C): **headless browser engine in Rust** (7 crates:
-  dom/net/browser/cdp/js/mcp/cli; real V8; CDP; Puppeteer/Playwright drop-in) — per vision, lane's
-  web-access upgrade; pure mirror fork today (zero org commits). network_hub = empty registry.
+- **Network:** **lane** (B): TLS-terminating local-domain reverse proxy (myapp.test → ports) PLUS the
+  full W2 network plane — governed web egress (`lane web`: a GovernedProxy with deny-by-default
+  webpolicy, upstream chaining, optional path-level TLS-MITM) and the cross-machine **lane relay**
+  (iroh p2p, governance-across-the-link; ADR-0002 IMPLEMENTED). **obscura** (B, was C): **headless
+  browser engine in Rust** (8 crates: dom/net/browser/cdp/js/mcp/cli + core; real V8; CDP;
+  Puppeteer/Playwright drop-in) — lane's web-access upgrade, now ESTATE-INTEGRATED (build/test green,
+  custom-CA trust, lane↔obscura seam ADR-0001, MCP verified, network_hub-registered). network_hub =
+  obscura registered (was empty).
 - **Harness plane (10):** Archon (Bun/TS DAG workflow engine for coding agents — the harness-builder
   candidate, pure tracking fork today), ECC (multi-harness agent OS + Rust TUI), agent (guard/score/
   codex hooks — load-bearing as parent's PreToolUse guard), claude-code (vendor reference fork),
@@ -169,7 +173,7 @@ A2 mission-control surface, runtime-coupled to envctl on PATH, deliberately Carg
 | flexnetos_wiki | 5-Feature:knowledge | D | empty | — | none | Empty wiki placeholder |
 | my-wiki | 5-Feature:knowledge | D | empty | — | none | Empty personal-wiki placeholder |
 | lane | 5-Feature:network | B | active | — | working | Local-domain TLS reverse proxy (myapp.test→ports); loop legitimately TERMINAL DONE |
-| obscura | 5-Feature:network | C | active | — | none | Rust headless browser engine (V8, CDP, Puppeteer/Playwright drop-in); lane's web-access upgrade per vision |
+| obscura | 5-Feature:network | B | active | — | none | Rust headless browser engine (V8, CDP, Puppeteer/Playwright drop-in); lane's web-access upgrade. INTEGRATED (2026-06-14): build/test green (271→282), custom-CA trust, lane↔obscura seam (ADR-0001) reconciled to its real CLI, MCP surface verified, network_hub-registered. Owned (C→B). |
 | network_hub | 5-Feature:network | D | empty | — | none | Network-topology catalog scaffold; README prose drifting ahead of empty registry |
 | flexnetos_github_app | 5-Feature:ops | B | empty | — | none | Unborn; ADR-0001's candidate home for the trusted merge-gate writer |
 | flexnetos_runner | 5-Feature:ops | B | empty | — | none | Unborn runner placeholder |
