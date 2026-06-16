@@ -191,6 +191,10 @@ projects:
   obscura:
     repo: git@github.com:FlexNetOS/obscura.git
     tags: [network, ai, browser]   # network plane: governed web-egress engine for AI agents (lane↔obscura seam, ADR-0001)
+  network-control:
+    repo: git@github.com:FlexNetOS/network-control.git
+    provides: [netctl, netctl-gui]
+    tags: [tools, network]   # network plane: pure-Rust net control suite; composes lane (spine) + ruvector crates
 
   # --- Knowledge / distro ---
   obsidian-mind:
