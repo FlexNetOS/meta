@@ -1,5 +1,18 @@
 name: Semantic PR Title
 
+# Thin caller — delegates to the FlexNetOS org umbrella reusable so the
+# Conventional-Commit type policy lives in ONE place (the org `.github` repo)
+# and every FlexNetOS repo, including this meta root, inherits the same list.
+# This is the intended inheritance direction: the org repo SERVES meta's CI,
+# it does not replace meta's own `.github/` directory.
+#
+# ACTIVATION GATE (do not merge until both are true):
+#   1. FlexNetOS/.github_org is production-grade, AND
+#   2. it has been renamed back to FlexNetOS/.github (ADR-0002 end state).
+# Until the rename, the `uses:` ref below resolves via GitHub's rename
+# redirect (the repo is public); after the rename it is exact. No edit needed
+# at flip time. Optionally pin `@main` to a release tag once the org repo cuts one.
+
 on:
   pull_request_target:
     types: [opened, edited, synchronize, reopened, ready_for_review]
@@ -13,23 +26,8 @@ concurrency:
 
 jobs:
   validate:
-    name: Semantic PR Title
-    runs-on: ubuntu-latest
-    steps:
-      - uses: amannn/action-semantic-pull-request@48f256284bd46cdaab1048c3721360e808335d50 # v6.1.1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          types: |
-            build
-            chore
-            ci
-            deps
-            docs
-            feat
-            fix
-            perf
-            refactor
-            revert
-            style
-            test
+    # Reusable default `types` == the 12 types this repo previously listed inline
+    # (build, chore, ci, deps, docs, feat, fix, perf, refactor, revert, style,
+    # test) — verified byte-identical before conversion, so the input is omitted.
+    # GITHUB_TOKEN is auto-provided to the called workflow; no `secrets:` needed.
+    uses: FlexNetOS/.github/.github/workflows/semantic-pr-title.yml@main
