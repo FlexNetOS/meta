@@ -1,16 +1,7 @@
 name: Semantic PR Title
 
-# Thin caller — delegates to the FlexNetOS org umbrella reusable so the
-# Conventional-Commit type policy lives in ONE place (the org `.github` repo)
-# and every FlexNetOS repo, including this meta root, inherits the same list.
-# This is the intended inheritance direction: the org repo SERVES meta's CI,
-# it does not replace meta's own `.github/` directory.
-#
-# ACTIVATION GATE (do not merge until both are true):
-#   1. FlexNetOS/.github_org is production-grade, AND
-#   2. it has been renamed back to FlexNetOS/.github (ADR-0002 end state).
-# Pinned to a tested org workflow commit so meta does not inherit transient
-# token regressions from the org workflow default branch.
+# Keep this required check self-contained so PRs do not depend on a reusable
+# workflow being visible and runnable during pull_request_target evaluation.
 
 on:
   pull_request_target:
@@ -25,8 +16,16 @@ concurrency:
 
 jobs:
   validate:
-    # Reusable default `types` == the 12 types this repo previously listed inline
-    # (build, chore, ci, deps, docs, feat, fix, perf, refactor, revert, style,
-    # test) — verified byte-identical before conversion, so the input is omitted.
-    uses: FlexNetOS/.github/.github/workflows/semantic-pr-title.yml@cb97372259d9fb5210dfad2346b578e6b9a8fa63
-    secrets: inherit
+    runs-on: ubuntu-latest
+    steps:
+      - name: Validate PR title
+        env:
+          PR_TITLE: ${{ github.event.pull_request.title }}
+        run: |
+          pattern='^(build|chore|ci|deps|docs|feat|fix|perf|refactor|revert|style|test)(\([A-Za-z0-9._/-]+\))?!?: .+'
+          if [[ ! "$PR_TITLE" =~ $pattern ]]; then
+            echo "::error::PR title must follow Conventional Commit format."
+            echo "Received: $PR_TITLE"
+            echo "Expected: type(scope): summary or type: summary"
+            exit 1
+          fi
