@@ -2,6 +2,8 @@ defaults:
   parallel: true
 
 projects:
+  network-control:
+    repo: git@github.com:FlexNetOS/network-control.git
   handoff:
     repo: git@github.com:FlexNetOS/handoff.git
     tags: [orchestration, handoff]
@@ -279,7 +281,7 @@ projects:
 
   ruvector:
     repo: git@github.com:FlexNetOS/meta-ruvector.git
-    path: RuVector
+    path: meta-ruvector
     # GOLD = the CRATES ONLY. Everything else in this repo (npm/ui/examples/runtime/
     # NAPI/docs) is out of scope and must NEVER be wired into meta — using anything
     # outside the crates breaks the build and burns months. The crates below are the

@@ -12,7 +12,6 @@ members = [
     "meta_rust_cli",
     "meta_project_cli",
     "rtk-tokenkill",
-    "teri",
     "shimmy",
 ]
 exclude = [
@@ -21,7 +20,11 @@ exclude = [
     "envctl",
     "grit",
     "lane",
-    "RuVector",
+    "meta-ruvector",
+    # teri is its own multi-crate workspace (agent/api/graph/memory/... grew during
+    # the MiroFish->teri port); it cannot also be a member of the outer meta
+    # workspace ("multiple workspace roots" error). Build it via its own workspace.
+    "teri",
     "icm",
     "weave",
     "prompt_hub",
