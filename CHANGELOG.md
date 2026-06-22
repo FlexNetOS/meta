@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.2.25](https://github.com/FlexNetOS/meta/compare/v0.2.24...v0.2.25) (2026-06-22)
+
+
+### Bug Fixes
+
+* **codex:** repair meta runtime startup ([26fffc5](https://github.com/FlexNetOS/meta/commit/26fffc54da982a80e1b9e7733b411d398b7bcc53))
+* **codex:** repair meta runtime startup ([c96b087](https://github.com/FlexNetOS/meta/commit/c96b087085f9f7c7af4703d1158ebe4d46b7d578))
+
 ## [0.2.24](https://github.com/FlexNetOS/meta/compare/v0.2.23...v0.2.24) (2026-06-13)
 
 
