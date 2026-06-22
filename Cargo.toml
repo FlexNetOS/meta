@@ -21,6 +21,7 @@ exclude = [
     "envctl",
     "grit",
     "lane",
+    "meta-ruvector",
     "RuVector",
     "icm",
     "weave",

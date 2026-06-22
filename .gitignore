@@ -116,6 +116,10 @@ plugin_hub/
 hooks_hub/
 /commands/
 vault_hub/
+# ruvector canonical clone (see .meta.yaml `ruvector` -> path: meta-ruvector)
+meta-ruvector/
+# RuVector/: legacy stale clone of the same repo, flagged for removal; kept
+# ignored until removed so the parent tree stays clean.
 RuVector/
 ruflo/
 shimmy/
