@@ -306,6 +306,11 @@ projects:
       - ruvector-core              # vector compute core
     tags: [ai, rust, wasm, forked, crates-only]
 
+  meta_hardware:
+    repo: git@github.com:FlexNetOS/meta-hardware.git
+    path: meta-hardware
+    tags: [hardware, firmware, esp32, ruvector]
+
   ruflo:
     repo: git@github.com:FlexNetOS/ruflo.git
     provides: [ruflo]
