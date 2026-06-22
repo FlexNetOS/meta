@@ -9,9 +9,8 @@ name: Semantic PR Title
 # ACTIVATION GATE (do not merge until both are true):
 #   1. FlexNetOS/.github_org is production-grade, AND
 #   2. it has been renamed back to FlexNetOS/.github (ADR-0002 end state).
-# Until the rename, the `uses:` ref below resolves via GitHub's rename
-# redirect (the repo is public); after the rename it is exact. No edit needed
-# at flip time. Optionally pin `@main` to a release tag once the org repo cuts one.
+# Pinned to a tested org workflow commit so meta does not inherit transient
+# token regressions from the org workflow default branch.
 
 on:
   pull_request_target:
@@ -29,5 +28,5 @@ jobs:
     # Reusable default `types` == the 12 types this repo previously listed inline
     # (build, chore, ci, deps, docs, feat, fix, perf, refactor, revert, style,
     # test) — verified byte-identical before conversion, so the input is omitted.
-    uses: FlexNetOS/.github/.github/workflows/semantic-pr-title.yml@main
+    uses: FlexNetOS/.github/.github/workflows/semantic-pr-title.yml@cb97372259d9fb5210dfad2346b578e6b9a8fa63
     secrets: inherit
