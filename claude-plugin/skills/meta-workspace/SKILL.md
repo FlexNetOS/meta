@@ -12,7 +12,7 @@ This project is a **meta repository** - a parent repo that manages a graph of ch
 When you begin working in a meta repo, discover its structure:
 
 ```bash
-meta project list --json
+rtk meta project list --json
 ```
 
 This returns repos, paths, and tags. Use this to:
@@ -20,11 +20,11 @@ This returns repos, paths, and tags. Use this to:
 - Identify available tags for filtering operations
 - Understand the project graph
 
-Run `meta git status` to see the current state across all repos.
+Run `rtk meta git status` to see the current state across all repos.
 
 ## Why This Matters for You (Claude)
 
-In a meta repo, changes often span multiple repositories. Using `meta` commands instead of plain `git` lets you:
+In a meta repo, changes often span multiple repositories. Using `rtk meta` commands instead of plain `git` lets you:
 - **Operate on all repos with one command** - fewer tool calls, less context
 - **Maintain consistency** - same commit message, same branch across repos
 - **Never miss a repo** - meta tracks them all
@@ -55,10 +55,10 @@ YAML is also supported (`.meta.yaml` or `.meta.yml`).
 
 ```bash
 # List all projects in this workspace
-meta project list
+rtk meta project list
 
-# See git status across ALL repos at once
-meta git status
+# See rtk git status across ALL repos at once
+rtk meta git status
 ```
 
 ## Filtering by Tag
@@ -67,13 +67,13 @@ When projects have tags, filter operations:
 
 ```bash
 # Only frontend repos
-meta --tag frontend git status
+rtk meta --tag frontend git status
 
 # Multiple tags (comma-separated)
-meta --tag backend,api exec -- make test
+rtk meta --tag backend,api exec -- rtk make test
 
 # Exclude specific repos
-meta --exclude legacy-service git pull
+rtk meta --exclude legacy-service git pull
 ```
 
 ## Nested Meta Repos
@@ -82,10 +82,10 @@ Meta repos can contain other meta repos. Use `--recursive` to operate on the ent
 
 ```bash
 # Clone a meta repo and ALL nested meta repos
-meta git clone <url> --recursive
+rtk meta git clone <url> --recursive
 
 # Status across entire graph
-meta --recursive git status
+rtk meta --recursive git status
 ```
 
 The `--depth N` flag limits recursion depth.
@@ -94,11 +94,11 @@ The `--depth N` flag limits recursion depth.
 
 | Command | What It Does |
 |---------|--------------|
-| `meta git status` | Git status in ALL repos |
-| `meta git clone <url>` | Clone meta repo + all children |
-| `meta exec -- <cmd>` | Run command in all repos |
-| `meta project list` | List all child projects |
-| `meta init claude` | Install these skills |
+| `rtk meta git status` | Git status in ALL repos |
+| `rtk meta git clone <url>` | Clone meta repo + all children |
+| `rtk meta exec -- <cmd>` | Run command in all repos |
+| `rtk meta project list` | List all child projects |
+| `rtk meta init claude` | Install these skills |
 
 ## MCP Tools for Workspace Discovery
 
@@ -113,8 +113,8 @@ When the meta MCP server is available, these tools provide structured JSON for p
 
 ## Efficiency Tips
 
-- **One command, all repos**: `meta git status` replaces N individual `cd && git status` calls
-- **Targeted operations**: `meta --include repo1,repo2 exec -- cmd` operates on exactly the repos you need
-- **Tag-based filtering**: `meta --tag backend exec -- cargo test` scopes to tagged repos
+- **One command, all repos**: `rtk meta git status` replaces N individual `cd && rtk git status` calls
+- **Targeted operations**: `rtk meta --include repo1,repo2 exec -- cmd` operates on exactly the repos you need
+- **Tag-based filtering**: `rtk meta --tag backend exec -- rtk cargo test` scopes to tagged repos
 - **Dependency awareness**: `meta_analyze_impact <repo>` shows who depends on a repo before you modify it — prevents cascading fix-up commits
-- **Session start**: Always run `meta project list --json` first to get the workspace map
+- **Session start**: Always run `rtk meta project list --json` first to get the workspace map

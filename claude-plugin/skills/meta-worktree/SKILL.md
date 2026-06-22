@@ -40,22 +40,22 @@ A "worktree set" is a named collection of git worktrees, one per repo, all shari
 
 ```bash
 # Create worktree set with specific repos
-meta worktree create auth-fix --repo backend --repo frontend
+rtk meta git worktree create auth-fix --repo backend --repo frontend
 
 # Create with all repos in the workspace
-meta worktree create full-task --all
+rtk meta git worktree create full-task --all
 
 # Specify branch name (default: task name)
-meta worktree create my-task --repo api --branch feature/my-feature
+rtk meta git worktree create my-task --repo api --branch feature/my-feature
 
 # Per-repo branch override
-meta worktree create review --repo api:main --repo worker:develop
+rtk meta git worktree create review --repo api:main --repo worker:develop
 
 # Start from a specific tag/SHA/branch
-meta worktree create incident-42 v2.3.1 --repo api
+rtk meta git worktree create incident-42 v2.3.1 --repo api
 
 # Start from a GitHub PR's head branch
-meta worktree create review --from-pr org/api#42 --repo api
+rtk meta git worktree create review --from-pr org/api#42 --repo api
 ```
 
 ## Agent/CI Features
@@ -64,16 +64,16 @@ For headless and multi-agent environments:
 
 ```bash
 # Mark as ephemeral (for automatic cleanup)
-meta worktree create ci-check --all --ephemeral
+rtk meta git worktree create ci-check --all --ephemeral
 
 # Set TTL for automatic expiration
-meta worktree create ci-check --all --ttl 1h
+rtk meta git worktree create ci-check --all --ttl 1h
 
 # Store custom metadata
-meta worktree create ci-check --all --meta agent=review-bot --meta run_id=abc123
+rtk meta git worktree create ci-check --all --meta agent=review-bot --meta run_id=abc123
 
 # Atomic create + run + destroy
-meta worktree exec --ephemeral lint-check --all -- make lint
+rtk meta git worktree exec --ephemeral lint-check --all -- make lint
 ```
 
 ### TTL Formats
@@ -87,31 +87,31 @@ meta worktree exec --ephemeral lint-check --all -- make lint
 
 ```bash
 # List all worktree sets
-meta worktree list
-meta worktree list --json
+rtk meta git worktree list
+rtk meta git worktree list --json
 
 # Show detailed status of a worktree
-meta worktree status auth-fix
+rtk meta git worktree status auth-fix
 
 # Show diff vs base branch
-meta worktree diff auth-fix --base main
+rtk meta git worktree diff auth-fix --base main
 
 # Add a repo to existing worktree
-meta worktree add auth-fix --repo another-service
+rtk meta git worktree add auth-fix --repo another-service
 ```
 
 ## Executing Commands
 
 ```bash
 # Run command in all repos of a worktree set
-meta worktree exec auth-fix -- cargo test
+rtk meta git worktree exec auth-fix -- rtk cargo test
 
 # Filter repos
-meta worktree exec auth-fix --include backend -- make build
-meta worktree exec auth-fix --exclude legacy -- npm test
+rtk meta git worktree exec auth-fix --include backend -- make build
+rtk meta git worktree exec auth-fix --exclude legacy -- npm test
 
 # Run in parallel
-meta worktree exec auth-fix --parallel -- cargo build
+rtk meta git worktree exec auth-fix --parallel -- rtk cargo build
 ```
 
 ## Context Detection
@@ -120,16 +120,16 @@ When your cwd is inside a `.worktrees/<name>/` directory, meta automatically sco
 
 ```bash
 cd .worktrees/auth-fix/backend
-meta exec -- cargo test       # runs in auth-fix's repos, not primary checkout
-meta git status               # plugin dispatch works in worktrees
-meta --tag cli exec -- pwd    # tag filtering works in worktrees
-meta --parallel exec -- build # parallel execution works in worktrees
+rtk meta exec -- rtk cargo test       # runs in auth-fix's repos, not primary checkout
+rtk meta git status               # plugin dispatch works in worktrees
+rtk meta --tag cli exec -- rtk pwd    # tag filtering works in worktrees
+rtk meta --parallel exec -- rtk build # parallel execution works in worktrees
 ```
 
 **Include root repo for full features:** When creating worktrees, include `--repo .` to ensure the `.meta.yaml` config is available inside the worktree. This gives full meta features (tags, plugins, parallel, ignore list) without needing to walk up to the primary checkout:
 
 ```bash
-meta worktree create auth-fix --repo . --repo backend --repo frontend
+rtk meta git worktree create auth-fix --repo . --repo backend --repo frontend
 ```
 
 If root repo is not in the worktree, meta will still find config by walking up to the primary checkout directory.
@@ -137,21 +137,21 @@ If root repo is not in the worktree, meta will still find config by walking up t
 **Override with `--primary`:** Use `--primary` to bypass worktree context detection and operate on the primary checkout:
 
 ```bash
-meta exec --primary -- cargo test  # uses primary checkout paths
+rtk meta exec --primary -- rtk cargo test  # uses primary checkout paths
 ```
 
 ## Cleanup
 
 ```bash
 # Destroy a worktree set
-meta worktree destroy auth-fix
+rtk meta git worktree destroy auth-fix
 
 # Force destroy (even with uncommitted changes)
-meta worktree destroy auth-fix --force
+rtk meta git worktree destroy auth-fix --force
 
 # Prune expired/orphaned worktrees
-meta worktree prune
-meta worktree prune --dry-run  # preview without removing
+rtk meta git worktree prune
+rtk meta git worktree prune --dry-run  # preview without removing
 ```
 
 ## Lifecycle Hooks
@@ -186,7 +186,7 @@ All worktree metadata is stored at `~/.meta/worktree.json`:
 steps:
   - name: Review PR
     run: |
-      meta worktree exec --ephemeral review-${{ github.run_id }} \
+      rtk meta git worktree exec --ephemeral review-${{ github.run_id }} \
         --from-pr ${{ github.repository }}#${{ github.event.pull_request.number }} \
         --all --json \
         --meta agent=review-bot \
@@ -232,4 +232,4 @@ steps:
 
 - **Always commit before destroying**: Uncommitted changes in worktree repos are lost on `destroy`
 - **Include root repo**: `--repo .` gives full meta features (tags, plugins, parallel, ignore list) inside the worktree
-- **Ephemeral for CI**: `meta worktree exec --ephemeral` creates, runs, and destroys in one atomic operation
+- **Ephemeral for CI**: `rtk meta git worktree exec --ephemeral` creates, runs, and destroys in one atomic operation

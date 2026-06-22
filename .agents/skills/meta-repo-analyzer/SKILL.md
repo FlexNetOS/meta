@@ -8,7 +8,7 @@ description: Deep research skill for reviewing target repositories, understandin
 When activated, follow this deep research and organization methodology:
 
 1. **Information Gathering & Synchronization**
-   - **Sync:** Pull the latest updates for the target repository and any related context repositories using `git pull` or `meta git update`.
+   - **Sync:** Pull the latest updates for the target repository and any related context repositories using `rtk git pull` or `rtk meta git update`.
    - **Discover:** Identify the repository's core files: `README.md`, `Cargo.toml`, `package.json`, or architecture docs.
    - **Read:** Consume these documents to understand the repository's stated purpose, its level of abstraction (e.g., L1 primitive, L2 orchestrator, L3 builder), and its dependencies.
 
