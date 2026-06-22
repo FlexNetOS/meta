@@ -29,5 +29,5 @@ jobs:
     # Reusable default `types` == the 12 types this repo previously listed inline
     # (build, chore, ci, deps, docs, feat, fix, perf, refactor, revert, style,
     # test) — verified byte-identical before conversion, so the input is omitted.
-    # GITHUB_TOKEN is auto-provided to the called workflow; no `secrets:` needed.
     uses: FlexNetOS/.github/.github/workflows/semantic-pr-title.yml@main
+    secrets: inherit
