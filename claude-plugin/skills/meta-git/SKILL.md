@@ -9,30 +9,30 @@ Git operations across multiple repositories. One command operates on ALL repos i
 
 ## The Core Insight
 
-**Use `meta git` instead of `git`** when you want to operate across the workspace:
+**Use `rtk meta git` instead of `git`** when you want to operate across the workspace:
 
 ```bash
-# Instead of running git status in each repo...
-meta git status    # Shows status for ALL repos at once
+# Instead of running rtk git status in each repo...
+rtk meta git status    # Shows status for ALL repos at once
 
 # Instead of committing in each repo...
-meta git commit -m "feat: update"    # Commits in ALL dirty repos
+rtk meta git commit -m "feat: update"    # Commits in ALL dirty repos
 ```
 
 ## Cloning a Meta Repo
 
 ```bash
 # Clone meta repo and all child repos defined in .meta
-meta git clone <url>
+rtk meta git clone <url>
 
 # Clone recursively (if child repos are also meta repos)
-meta git clone <url> --recursive
+rtk meta git clone <url> --recursive
 
 # Control parallelism
-meta git clone <url> --parallel 8
+rtk meta git clone <url> --parallel 8
 
 # Shallow clone
-meta git clone <url> --depth 1
+rtk meta git clone <url> --depth 1
 ```
 
 **How it works**: Meta clones the parent, reads `.meta`, then queues and clones all children in parallel. With `--recursive`, it repeats for any child that has its own `.meta`.
@@ -41,7 +41,7 @@ meta git clone <url> --depth 1
 
 ```bash
 # Pull latest + clone any missing repos
-meta git update
+rtk meta git update
 ```
 
 This is the "sync workspace" command - ensures you have all repos at latest.
@@ -52,16 +52,16 @@ Before making sweeping changes, create a snapshot:
 
 ```bash
 # Save current state of ALL repos
-meta git snapshot create before-refactor
+rtk meta git snapshot create before-refactor
 
 # See what snapshots exist
-meta git snapshot list
+rtk meta git snapshot list
 
 # Preview what restore would do
-meta --dry-run git snapshot restore before-refactor
+rtk meta --dry-run git snapshot restore before-refactor
 
 # Actually restore (auto-stashes uncommitted work)
-meta git snapshot restore before-refactor
+rtk meta git snapshot restore before-refactor
 ```
 
 **What snapshots capture per repo:**
@@ -76,13 +76,13 @@ meta git snapshot restore before-refactor
 All standard git commands work:
 
 ```bash
-meta git pull
-meta git push
-meta git fetch
-meta git checkout -b feature/new-thing
-meta git add .
-meta git diff
-meta git log --oneline -5
+rtk meta git pull
+rtk meta git push
+rtk meta git fetch
+rtk meta git checkout -b feature/new-thing
+rtk meta git add .
+rtk meta git diff
+rtk meta git log --oneline -5
 ```
 
 ## Filtering
@@ -91,39 +91,39 @@ Target specific repos:
 
 ```bash
 # By tag
-meta --tag backend git status
+rtk meta --tag backend git status
 
 # By name
-meta --include api,web git push
+rtk meta --include api,web git push
 
 # Exclude repos
-meta --exclude legacy git pull
+rtk meta --exclude legacy git pull
 ```
 
 ## Workflow Patterns
 
 ### Starting Work
 ```bash
-meta git status              # What's the current state?
-meta git snapshot create wip # Save state before changes
-meta git pull                # Get latest
+rtk meta git status              # What's the current state?
+rtk meta git snapshot create wip # Save state before changes
+rtk meta git pull                # Get latest
 ```
 
 ### After Making Changes
 ```bash
-meta git status              # Review changes across repos
-meta git add .               # Stage in all repos
-meta git commit -m "feat: ..." # Commit with shared message
-meta git push                # Push all repos
+rtk meta git status              # Review changes across repos
+rtk meta git add .               # Stage in all repos
+rtk meta git commit -m "feat: ..." # Commit with shared message
+rtk meta git push                # Push all repos
 ```
 
 ### Safe Batch Refactoring
 ```bash
-meta git snapshot create before-changes
+rtk meta git snapshot create before-changes
 # ... make changes across repos ...
-meta git status              # Review
+rtk meta git status              # Review
 # If something went wrong:
-meta git snapshot restore before-changes
+rtk meta git snapshot restore before-changes
 ```
 
 ## SSH Optimization
@@ -131,7 +131,7 @@ meta git snapshot restore before-changes
 For faster parallel operations:
 
 ```bash
-meta git setup-ssh
+rtk meta git setup-ssh
 ```
 
 Configures SSH connection multiplexing for reuse across parallel git operations.
@@ -143,13 +143,13 @@ When the meta MCP server is available, these tools provide structured JSON outpu
 | Tool | Purpose |
 |------|---------|
 | `meta_git_multi_commit` | Per-repo commit messages in one call (for audit trails when changes differ) |
-| `meta_git_status` | Structured git status across all repos |
+| `meta_git_status` | Structured rtk git status across all repos |
 | `meta_git_diff` | Structured diff output |
 | `meta_git_branch` | Branch info across repos |
 
 ## Efficiency Tips
 
-- **Targeted commits**: `meta --include repo1,repo2 git commit -m "msg"` commits in exactly the repos you want
-- **Tag-based push**: `meta --tag backend git push` pushes only tagged repos
+- **Targeted commits**: `rtk meta --include repo1,repo2 git commit -m "msg"` commits in exactly the repos you want
+- **Tag-based push**: `rtk meta --tag backend git push` pushes only tagged repos
 - **Per-repo messages**: Use `meta_git_multi_commit` when changes in different repos need different commit messages
-- **One-call status**: `meta git status` replaces N individual `cd && git status` sequences
+- **One-call status**: `rtk meta git status` replaces N individual `cd && rtk git status` sequences

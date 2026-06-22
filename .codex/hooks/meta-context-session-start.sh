@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-meta context 2>/dev/null | python3 -c '
+rtk meta context 2>/dev/null | rtk python3 -c '
 import json
 import sys
 

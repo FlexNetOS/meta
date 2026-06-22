@@ -9,28 +9,28 @@ Execute any command across all repositories in the workspace. Meta extends `loop
 
 ## The Execution Model
 
-`meta exec` runs a command in each repo directory:
+`rtk meta exec` runs a command in each repo directory:
 
 ```bash
 # Run 'make build' in every repo
-meta exec -- make build
+rtk meta exec -- rtk make build
 
 # Run any shell command
-meta exec -- ls -la
+rtk meta exec -- rtk ls -la
 
 # Commands with arguments
-meta exec -- npm install --save-dev typescript
+rtk meta exec -- rtk npm install --save-dev typescript
 ```
 
 The `--` separates meta options from the command to execute. The `--` is optional unless your command starts with `-`.
 
 ```bash
 # These are equivalent:
-meta exec make test
-meta exec -- make test
+rtk meta exec rtk make test
+rtk meta exec -- rtk make test
 
 # Use -- when command starts with dash:
-meta exec -- --version
+rtk meta exec -- rtk --version
 ```
 
 ## Parallel vs Sequential
@@ -39,10 +39,10 @@ By default, commands run sequentially with live output. Use `--parallel` for con
 
 ```bash
 # Sequential (default) - see output as it happens
-meta exec -- cargo build
+rtk meta exec -- rtk cargo build
 
 # Parallel - faster, grouped output after completion
-meta --parallel git status
+rtk meta --parallel git status
 ```
 
 Parallel mode:
@@ -56,16 +56,16 @@ Control which repos run the command. These options come from `loop`:
 
 ```bash
 # Only include specific directories (overrides config)
-meta --include api,worker git status
+rtk meta --include api,worker git status
 
 # Exclude specific directories (adds to ignores)
-meta --exclude legacy-service git push
+rtk meta --exclude legacy-service git push
 
 # Filter by tag (meta-specific, applied before loop filtering)
-meta --tag backend exec -- make deploy
+rtk meta --tag backend exec -- rtk make deploy
 
 # Combine: tag filter + directory filter
-meta --tag backend --include api git status
+rtk meta --tag backend --include api git status
 ```
 
 **Filter precedence:**
@@ -78,7 +78,7 @@ meta --tag backend --include api git status
 Preview what would happen without executing:
 
 ```bash
-meta --dry-run exec -- rm -rf node_modules
+rtk meta --dry-run exec -- rtk rm -rf node_modules
 ```
 
 Shows which repos would run the command, with `[DRY RUN]` prefix.
@@ -88,7 +88,7 @@ Shows which repos would run the command, with `[DRY RUN]` prefix.
 Get structured output for parsing:
 
 ```bash
-meta --json exec -- git rev-parse HEAD
+rtk meta --json exec -- rtk git rev-parse HEAD
 ```
 
 Returns JSON with:
@@ -98,7 +98,7 @@ Returns JSON with:
   "results": [
     {
       "directory": "./api",
-      "command": "git rev-parse HEAD",
+      "command": "rtk git rev-parse HEAD",
       "success": true,
       "exit_code": 0,
       "stdout": "abc123...\n"
@@ -118,7 +118,7 @@ Returns JSON with:
 Suppress all output:
 
 ```bash
-meta --silent exec -- npm install
+rtk meta --silent exec -- rtk npm install
 ```
 
 ## Global Options Reference
@@ -139,56 +139,56 @@ meta --silent exec -- npm install
 
 ### Build Everything
 ```bash
-meta exec -- cargo build --release
+rtk meta exec -- rtk cargo build --release
 ```
 
 ### Run Tests (Parallel for Speed)
 ```bash
-meta --parallel git status
-meta --parallel exec -- cargo test
+rtk meta --parallel git status
+rtk meta --parallel exec -- rtk cargo test
 ```
 
 ### Update Dependencies Selectively
 ```bash
 # Only frontend repos
-meta --tag frontend exec -- npm update
+rtk meta --tag frontend exec -- rtk npm update
 
 # Exclude slow repos
-meta exec -- cargo update --exclude large-monorepo
+rtk meta exec -- rtk cargo update --exclude large-monorepo
 ```
 
 ### Find Files Across Repos
 ```bash
-meta exec -- find . -name "*.rs" -type f | head -20
+rtk meta exec -- rtk find . -name "*.rs" -type f | rtk head -20
 ```
 
 ### Clean Build Artifacts
 ```bash
-meta exec -- cargo clean
-meta exec -- rm -rf node_modules dist
+rtk meta exec -- rtk cargo clean
+rtk meta exec -- rtk rm -rf node_modules dist
 ```
 
 ## When to Use Exec vs Plugins
 
-| Use `meta exec` | Use Plugin (e.g., `meta git`) |
+| Use `rtk meta exec` | Use Plugin (e.g., `rtk meta git`) |
 |-----------------|-------------------------------|
 | Generic shell commands | Git operations |
 | Build/test commands | Commands needing special handling |
 | One-off scripts | Operations with meta-specific logic |
 | npm/cargo/make | Clone, update, snapshot |
 
-Plugins intercept command patterns and provide enhanced behavior. `meta git clone` doesn't run `git clone` in each repo—it reads `.meta` and clones the entire graph.
+Plugins intercept command patterns and provide enhanced behavior. `rtk meta git clone` doesn't run `rtk git clone` in each repo—it reads `.meta` and clones the entire graph.
 
 ## Worktree Context Detection
 
-When your cwd is inside a `.worktrees/<name>/` directory, `meta exec` automatically scopes to the worktree's repos instead of the primary checkout:
+When your cwd is inside a `.worktrees/<name>/` directory, `rtk meta exec` automatically scopes to the worktree's repos instead of the primary checkout:
 
 ```bash
 cd .worktrees/auth-fix/backend
-meta exec -- cargo test    # runs in auth-fix's repos
+rtk meta exec -- rtk cargo test    # runs in auth-fix's repos
 
 # Override with --primary to use primary checkout paths
-meta exec --primary -- cargo test
+rtk meta exec --primary -- rtk cargo test
 ```
 
 This is filesystem-based detection—no store dependency. See `meta-worktree.md` for full worktree management.
@@ -198,4 +198,4 @@ This is filesystem-based detection—no store dependency. See `meta-worktree.md`
 - **Target precisely**: Use `--include`/`--exclude`/`--tag` to run commands in exactly the repos you need — avoids running commands you'll have to undo
 - **Dependency order**: Use `--ordered` for dependency-aware build/test order (respects `depends_on` in `.meta.yaml`)
 - **Avoid unnecessary parallel**: Don't use `--parallel` for operations with cross-repo dependencies — sequential with `--ordered` is safer
-- **Dry run first**: `meta --dry-run exec -- dangerous-command` shows what would happen before committing
+- **Dry run first**: `rtk meta --dry-run exec -- rtk dangerous-command` shows what would happen before committing
