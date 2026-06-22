@@ -1,11 +1,10 @@
-<skill>
-<name>meta-repo-analyzer</name>
-<description>
-Deep research skill for reviewing target repositories, understanding their architecture, and logically organizing them within the FlexNetOS/meta framework. Use this skill when asked to evaluate a new or existing repository, define its relationship to other meta components (like hubs or core libs), or determine its tags and placement in `.meta.yaml`.
-</description>
-</skill>
+---
+name: meta-repo-analyzer
+description: Deep research skill for reviewing target repositories, understanding their architecture, and logically organizing them within the FlexNetOS/meta framework. Use this skill when asked to evaluate a new or existing repository, define its relationship to other meta components like hubs or core libs, or determine its tags and placement in `.meta.yaml`.
+---
 
-<instructions>
+# meta-repo-analyzer
+
 When activated, follow this deep research and organization methodology:
 
 1. **Information Gathering & Synchronization**
@@ -29,4 +28,3 @@ When activated, follow this deep research and organization methodology:
    - **Architecture Fit:** Where it sits in the L1/L2/L3 abstraction stack and its relation to context repos.
    - **Organization Recommendation:** Specific `.meta.yaml` entry and tagging strategy.
    - **Usage Guide:** A brief explanation of how to use it within the `meta` workspace.
-</instructions>
