@@ -57,6 +57,7 @@
 22. **Docs accuracy (docs-are-traps rule):** README/CLAUDE.md must match code; when prose ≠ code, code wins and the contradiction is flagged to the `system-architecture` memoir. Tier C fork prose is untrusted by default (RuVector catalogue).
 23. **`.kb/` FlexNetOS knowledge base** — canon expectation. Reality 2026-06-12: absent in ALL canon repos (parent has it). v2 stance: REQUIRED at parent + standalone-workable B repos; OPTIONAL for thin members worked exclusively through the meta checkout.
 24. **agent-guard + rules:** parent `.claude/settings.json` guard hook (`${CLAUDE_PROJECT_DIR}/agent/target/debug/agent guard`) + `.claude/rules/*` govern the workspace; B repos that are opened standalone (weave, envctl, prompt_hub, handoff) carry their own.
+25. **Backup retention (never-delete, compressed, out-of-tree):** tool-generated safe-write backups (`*.idd-bak-*` from the `rusty-idd`/`hf` `next_backup_path`, and any future snapshot-before-overwrite artifact) are **never deleted** — they are relocated into one compressed append-only store per repo at `meta/.backups/<repo>/` (git-ignored, local-only, mirrored off-machine by the operator) and logged in `index.tsv`. `*.idd-bak-*` MUST be git-ignored in every repo running that path; **zero tracked backup files**. Automated via `meta/scripts/idd-backup-sweep.sh` (dry-run by default, `--apply`). Full policy: **`META-BACKUP-POLICY.md`**.
 
 ## P6 — The handoff addition (autonomy layer; A/B)
 
