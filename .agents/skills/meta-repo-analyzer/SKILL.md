@@ -1,15 +1,14 @@
-<skill>
-<name>meta-repo-analyzer</name>
-<description>
-Deep research skill for reviewing target repositories, understanding their architecture, and logically organizing them within the FlexNetOS/meta framework. Use this skill when asked to evaluate a new or existing repository, define its relationship to other meta components (like hubs or core libs), or determine its tags and placement in `.meta.yaml`.
-</description>
-</skill>
+---
+name: meta-repo-analyzer
+description: Deep research skill for reviewing target repositories, understanding their architecture, and logically organizing them within the FlexNetOS/meta framework. Use this skill when asked to evaluate a new or existing repository, define its relationship to other meta components like hubs or core libs, or determine its tags and placement in `.meta.yaml`.
+---
 
-<instructions>
+# meta-repo-analyzer
+
 When activated, follow this deep research and organization methodology:
 
 1. **Information Gathering & Synchronization**
-   - **Sync:** Pull the latest updates for the target repository and any related context repositories using `git pull` or `meta git update`.
+   - **Sync:** Pull the latest updates for the target repository and any related context repositories using `rtk git pull` or `rtk meta git update`.
    - **Discover:** Identify the repository's core files: `README.md`, `Cargo.toml`, `package.json`, or architecture docs.
    - **Read:** Consume these documents to understand the repository's stated purpose, its level of abstraction (e.g., L1 primitive, L2 orchestrator, L3 builder), and its dependencies.
 
@@ -29,4 +28,3 @@ When activated, follow this deep research and organization methodology:
    - **Architecture Fit:** Where it sits in the L1/L2/L3 abstraction stack and its relation to context repos.
    - **Organization Recommendation:** Specific `.meta.yaml` entry and tagging strategy.
    - **Usage Guide:** A brief explanation of how to use it within the `meta` workspace.
-</instructions>

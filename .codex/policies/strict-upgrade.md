@@ -13,7 +13,7 @@ This workspace is upgrade-first. Dirty files are not rollback targets by default
 
 ## Current Intentional Upgrade State
 
-- `.claude/settings.json` includes Bash push permission allowances for `git push`, `meta git push`, and `git -C * push`.
+- `.claude/settings.json` includes Bash push permission allowances for `rtk git push`, `rtk meta git push`, and `rtk git -C * push`.
 - Root `Cargo.lock` may include generated dependency changes from child workspace member upgrades, including `rtk-tokenkill` and other workspace members.
 
 ## Wrong Default

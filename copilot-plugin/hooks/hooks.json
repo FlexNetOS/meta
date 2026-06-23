@@ -1,16 +1,4 @@
 {
   "description": "Copilot workspace safety hooks for FlexNetOS meta CLI operations",
-  "hooks": {
-    "Stop": [
-      {
-        "hooks": [
-          {
-            "type": "prompt",
-            "prompt": "This is a meta-repo workspace managed by the `meta` CLI. Before allowing the Copilot agent to stop, verify workspace state across all child repositories.\n\n1. Run `meta git status` to check for modified, staged, or untracked files.\n2. Confirm the agent has reviewed `meta project list` to understand the repo graph.\n3. If changes span more than one repo, ensure the agent considered dependent repos and cross-repo impact.\n\nBlock stop if:\n- The agent modified repos without acknowledging workspace scope.\n- The agent failed to consider dependent repos or project tags.\n\nAllow stop if:\n- No repos were modified.\n- The agent explicitly handed back to the user for review.\n",
-            "timeout": 30
-          }
-        ]
-      }
-    ]
-  }
+  "hooks": {}
 }

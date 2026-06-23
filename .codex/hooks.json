@@ -7,7 +7,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "meta context 2>/dev/null",
+            "command": "rtk bash \"$HOME/Desktop/meta/.codex/hooks/meta-context-session-start.sh\"",
             "timeout": 10,
             "statusMessage": "Loading meta context"
           }
@@ -18,7 +18,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "git kb service status --quiet 2>/dev/null || git kb service start 2>/dev/null",
+            "command": "rtk bash -lc 'rtk git kb service status --quiet >/dev/null 2>/dev/null || rtk git kb service start >/dev/null 2>/dev/null'",
             "timeout": 10,
             "statusMessage": "Starting git-kb service"
           }
@@ -31,7 +31,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "meta context 2>/dev/null",
+            "command": "rtk meta context >/dev/null 2>/dev/null",
             "timeout": 10,
             "statusMessage": "Refreshing meta context"
           }
@@ -44,7 +44,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "$(git rev-parse --show-toplevel)/agent/target/debug/agent guard",
+            "command": "rtk \"$HOME/Desktop/meta/agent/target/debug/agent\" guard",
             "timeout": 5,
             "statusMessage": "Checking destructive command policy"
           }
@@ -56,7 +56,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "$(git rev-parse --show-toplevel)/agent/target/debug/agent codex stop",
+            "command": "rtk \"$HOME/Desktop/meta/agent/target/debug/agent\" codex stop",
             "timeout": 30,
             "statusMessage": "Checking strict-upgrade workspace handoff"
           }
@@ -68,7 +68,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "$(git rev-parse --show-toplevel)/agent/target/debug/agent codex stop",
+            "command": "rtk \"$HOME/Desktop/meta/agent/target/debug/agent\" codex stop",
             "timeout": 30,
             "statusMessage": "Checking strict-upgrade subagent handoff"
           }

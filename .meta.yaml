@@ -2,6 +2,8 @@ defaults:
   parallel: true
 
 projects:
+  network-control:
+    repo: git@github.com:FlexNetOS/network-control.git
   handoff:
     repo: git@github.com:FlexNetOS/handoff.git
     tags: [orchestration, handoff]
@@ -190,7 +192,11 @@ projects:
     tags: [untriaged]
   obscura:
     repo: git@github.com:FlexNetOS/obscura.git
-    tags: [untriaged]
+    tags: [network, ai, browser]   # network plane: governed web-egress engine for AI agents (lane↔obscura seam, ADR-0001)
+  network-control:
+    repo: git@github.com:FlexNetOS/network-control.git
+    provides: [netctl, netctl-gui]
+    tags: [tools, network]   # network plane: pure-Rust net control suite; composes lane (spine) + ruvector crates
 
   # --- Knowledge / distro ---
   obsidian-mind:
@@ -245,11 +251,12 @@ projects:
     repo: git@github.com:FlexNetOS/vault_hub.git
     tags: [hub, vault]
 
-  # kasetto — the agent-environment provisioner (installed binary 3.1.0). The org
-  # fork of pivoshenko/kasetto lives under the historical name env_manager_agent;
-  # registered here as `kasetto` (resolves open-questions #5: canonical source located).
+  # kasetto — the agent-environment provisioner. The org fork of pivoshenko/kasetto was
+  # renamed env_manager_agent -> FlexNetOS/kasetto (2026-06-13); `main` synced UP to upstream
+  # v3.2.0 (pre-sync FlexNetOS divergence preserved on branch
+  # flexnetos-divergence-backup-2026-06-13 + archived as a git bundle in .archives/).
   kasetto:
-    repo: git@github.com:FlexNetOS/env_manager_agent.git
+    repo: git@github.com:FlexNetOS/kasetto.git
     path: kasetto
     provides: [kasetto]
     tags: [tools, agent-env, forked]
@@ -277,9 +284,35 @@ projects:
 
   ruvector:
     repo: git@github.com:FlexNetOS/meta-ruvector.git
-    path: RuVector
-    provides: [ruvector]
-    tags: [ai, rust, wasm, forked]
+    path: meta-ruvector
+    # GOLD = the CRATES ONLY. Everything else in this repo (npm/ui/examples/runtime/
+    # NAPI/docs) is out of scope and must NEVER be wired into meta — using anything
+    # outside the crates breaks the build and burns months. The crates below are the
+    # adopted set from the 314/314 crate walk (RUVECTOR-RUNBOOK.md) + the meta-need
+    # adoption map (RUVECTOR-META-MAPPING-S1.md §2 ADOPT). Consume them as path deps
+    # (default-features off), nothing else.
+    provides:
+      - ruvector-verified          # evidence/completion: Lean ProofAttestation / AgentContract (HFTASK-0004)
+      - rvf-crypto                 # tamper-evident witness chain (SHAKE-256) — the ledger witness
+      - rvf-runtime                # append-only RVF segments = vector-native event ledger (RVF v2, HFTASK-0006)
+      - rvf-types                  # the .rvf format hub (governance vocab: Budget/Authority/Attestation)
+      - ruvector-coherence         # HNSW health/drift monitor (handoff-drift)
+      - ruvector-perception        # BoundaryPredictor / DeltaWitness (handoff-drift)
+      - ruvector-temporal-tensor   # delta-chain + WitnessEvent (alternate ledger)
+      - cognitum-gate-tilezero     # decide(ActionContext)->Permit/Deny/Defer + WitnessReceipt (policy, HFTASK-0017)
+      - cognitum-gate-kernel       # per-tile anytime-valid mincut e-value gate (policy HW root)
+      - ruvector-dag               # QuDAG governed task DAG (governance, NOT query-plan)
+      - ruvector-domain-expansion  # contextual-bandit next-task router (HFTASK-0018)
+      - ruvector-postgres          # pgvector front door (RuVocal, HFTASK-0022)
+      - neural-trader-coherence    # CoherenceGate / WitnessReceipt (domain gate pattern)
+      - rvagent-core               # Rust-native agent runtime (a2a/acp/mcp/cli)
+      - ruvector-core              # vector compute core
+    tags: [ai, rust, wasm, forked, crates-only]
+
+  meta_hardware:
+    repo: git@github.com:FlexNetOS/meta-hardware.git
+    path: meta-hardware
+    tags: [hardware, firmware, esp32, ruvector]
 
   ruflo:
     repo: git@github.com:FlexNetOS/ruflo.git

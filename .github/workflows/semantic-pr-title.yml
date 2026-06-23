@@ -1,5 +1,8 @@
 name: Semantic PR Title
 
+# Keep this required check self-contained so PRs do not depend on a reusable
+# workflow being visible and runnable during pull_request_target evaluation.
+
 on:
   pull_request_target:
     types: [opened, edited, synchronize, reopened, ready_for_review]
@@ -13,23 +16,16 @@ concurrency:
 
 jobs:
   validate:
-    name: Semantic PR Title
     runs-on: ubuntu-latest
     steps:
-      - uses: amannn/action-semantic-pull-request@48f256284bd46cdaab1048c3721360e808335d50 # v6.1.1
+      - name: Validate PR title
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          types: |
-            build
-            chore
-            ci
-            deps
-            docs
-            feat
-            fix
-            perf
-            refactor
-            revert
-            style
-            test
+          PR_TITLE: ${{ github.event.pull_request.title }}
+        run: |
+          pattern='^(build|chore|ci|deps|docs|feat|fix|perf|refactor|revert|style|test)(\([A-Za-z0-9._/-]+\))?!?: .+'
+          if [[ ! "$PR_TITLE" =~ $pattern ]]; then
+            echo "::error::PR title must follow Conventional Commit format."
+            echo "Received: $PR_TITLE"
+            echo "Expected: type(scope): summary or type: summary"
+            exit 1
+          fi

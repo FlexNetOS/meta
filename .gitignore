@@ -42,12 +42,50 @@ models/
 
 # Release archives (kept locally as install backups, not committed)
 *.tar.gz
+*.bundle
+.archives/
 
 # Cache
 .cache/
 
 .context-old/
 imported/
+
+# Local agent/runtime state
+.claude/backups/
+.claude/cache/
+.claude/file-history/
+.claude/paste-cache/
+.claude/plans/
+.claude/plugins/
+.claude/projects/
+.claude/sessions/
+.claude/shell-snapshots/
+.claude/tasks/
+.claude/telemetry/
+.credentials.json
+.github/.agent/
+.handoff/active.md
+.handoff/context/*.md
+.handoff/ledger.db*
+.handoff/locks/
+.handoff/loop/findings/
+.handoff/packets/latest.md
+.handoff/packets/session-*.json
+.handoff/tasks/*.json
+.junie/
+.kb/docs/
+.kb/workspace*.bak/
+.last-*
+.meta.yaml.bak.*
+.toolchains/
+history.jsonl
+mcp-needs-auth-cache.json
+settings.json
+settings.json.bak*
+settings.json.*.bak
+stats-cache.json
+statusline-command.sh
 
 # AI
 .aider*
@@ -89,6 +127,7 @@ oh-my-claudecode/
 oh-my-pi/
 ECC/
 Archon/
+harness-agent-rs/
 prompt_hub/
 hermes-agent/
 rtk-tokenkill/
@@ -98,6 +137,7 @@ lane/
 icm/
 grit/
 obscura/
+network-control/
 obsidian-mind/
 lifeos/
 template_hub/
@@ -114,7 +154,11 @@ plugin_hub/
 hooks_hub/
 /commands/
 vault_hub/
-RuVector/
+# ruvector canonical clone (see .meta.yaml `ruvector` -> path: meta-ruvector)
+# (the legacy stale RuVector/ clone was archived to ~/Desktop/meta-archive/ and removed)
+meta-ruvector/
+meta-hardware/
+RuVector
 ruflo/
 shimmy/
 teri/
@@ -123,6 +167,10 @@ vox/
 rusty-idd/
 yazelix/
 agent-skills/
+
+# Local meta worktrees and recovery clones
+mr-*/
+network-control-wk/
 
 # plugins (built locally, not committed)
 .meta/plugins/
