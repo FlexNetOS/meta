@@ -155,9 +155,10 @@ projects:
   ECC:
     repo: git@github.com:FlexNetOS/ECC.git
     tags: [ai, forked]
-  Archon:
-    repo: git@github.com:FlexNetOS/Archon.git
-    tags: [ai, forked, harness]
+  meta-yard:
+    repo: git@github.com:FlexNetOS/meta-yard.git
+    meta: true  # nested: Tier Y yard (Archon, MiroFish) — ported-from/not-adopted source, out of root build (P8.y)
+    tags: [yard, nested]
   prompt_hub:
     repo: git@github.com:FlexNetOS/prompt_hub.git
     provides: [prompts]
