@@ -155,9 +155,10 @@ projects:
   ECC:
     repo: git@github.com:FlexNetOS/ECC.git
     tags: [ai, forked]
-  Archon:
-    repo: git@github.com:FlexNetOS/Archon.git
-    tags: [ai, forked, harness]
+  meta-yard:
+    repo: git@github.com:FlexNetOS/meta-yard.git
+    meta: true  # nested: Tier Y yard (Archon, MiroFish) — ported-from/not-adopted source, out of root build (P8.y)
+    tags: [yard, nested]
   prompt_hub:
     repo: git@github.com:FlexNetOS/prompt_hub.git
     provides: [prompts]
@@ -285,12 +286,18 @@ projects:
   ruvector:
     repo: git@github.com:FlexNetOS/meta-ruvector.git
     path: meta-ruvector
-    # GOLD = the CRATES ONLY. Everything else in this repo (npm/ui/examples/runtime/
-    # NAPI/docs) is out of scope and must NEVER be wired into meta — using anything
-    # outside the crates breaks the build and burns months. The crates below are the
-    # adopted set from the 314/314 crate walk (RUVECTOR-RUNBOOK.md) + the meta-need
-    # adoption map (RUVECTOR-META-MAPPING-S1.md §2 ADOPT). Consume them as path deps
-    # (default-features off), nothing else.
+    # crates-only adoption — POLICY P8.a (all-crates mode). GOLD = the CRATES ONLY:
+    # everything else in this repo (npm/ui/examples/runtime/NAPI/docs) is OUT OF SCOPE
+    # and must NEVER be wired into meta — using anything outside crates/ breaks the
+    # build and burns months. ALL crates under crates/ are adopted and wired as path
+    # deps (default-features off), EXCEPT the `reserved:` ESP32 xtensa firmware crates
+    # which live in meta-hardware and cannot build host-green (ruvLLM/esp32 non-flash
+    # stays here — it builds host-green). Set derived from RUVECTOR-CRATE-LEDGER.md.
+    adopt: all-crates                 # wire every crate under crates/ except `reserved:` (P8.39)
+    reserved:
+      - esp32-flash                   # ESP32-S3 xtensa firmware → meta-hardware (P8.39)
+      - esp32-mmwave-sensor           # ESP32-S3 xtensa firmware → meta-hardware (P8.39)
+    # provides: = notable-crates index (NON-exhaustive; full adopted set = all crates/ minus reserved):
     provides:
       - ruvector-verified          # evidence/completion: Lean ProofAttestation / AgentContract (HFTASK-0004)
       - rvf-crypto                 # tamper-evident witness chain (SHAKE-256) — the ledger witness
