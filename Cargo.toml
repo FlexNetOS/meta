@@ -17,6 +17,14 @@ members = [
 exclude = [
     "kasetto",
     "agent",
+    # envctl is meta's ENVIRONMENT MANAGER — a first-class meta member, NOT excluded from
+    # meta. It is wired in via `.meta.yaml` (tags:[tools,env]), the `meta env` plugin (envctl
+    # ships the `meta-env` binary), `meta exec/git/worktree`, and the `envctl` CI job. It owns
+    # its OWN [workspace] to hold its no-C dependency pins (ring-only rustls, libsql-remote,
+    # pure-Rust crypto — the security boundary it enforces), and Cargo cannot nest a workspace
+    # as a `members` entry ("multiple workspace roots") — so it is listed here as a pure BUILD
+    # MECHANIC. Build it via its own workspace, within the meta tree (it path-deps loop_lib +
+    # meta_plugin_protocol). Same pattern as weave / meta_dashboard_cli.
     "envctl",
     "grit",
     "lane",
