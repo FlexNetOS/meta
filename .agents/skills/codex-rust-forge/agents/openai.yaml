@@ -1,0 +1,4 @@
+interface:
+  display_name: "Codex Rust Forge"
+  short_description: "Build complex Codex workflows as Rust plus mlua projects."
+  default_prompt: "Use $codex-rust-forge to design and generate a production-ready Rust+mlua Codex workflow."
