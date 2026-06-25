@@ -9,15 +9,23 @@ on:
 
 env:
   CARGO_TERM_COLOR: always
-  # Child repos under FlexNetOS are private — clones must authenticate.
-  # PARENT_REPO_PAT is the org-level cross-repo token; github.token only
-  # covers public children (fallback for forks without the secret).
-  CHILD_CLONE_TOKEN: ${{ secrets.PARENT_REPO_PAT || github.token }}
+
+# Runner policy: the Linux (ubuntu-latest) matrix legs run on the FlexNetOS
+# self-hosted LOCAL runner for the trusted (non-fork) path; fork PRs and the
+# macOS/Windows legs stay on GitHub-hosted runners (the local box is Linux and
+# cannot run them). Matrix job names are preserved so the branch-protection
+# required checks (Test (ubuntu-latest), Test (macos-latest), ...) keep
+# reporting — collapsing the matrix would orphan them and permanently BLOCK PRs.
+# Auth policy: child-repo clones authenticate as the `flexnetos-github-app`
+# GitHub App (installation token = 5000 req/hr) instead of an unauthenticated
+# clone (60 req/hr). The mint step is fail-safe: if the App secrets are not
+# set, it is skipped (continue-on-error) and the token falls back to the
+# existing PAT, then github.token — so CI never regresses below today.
 
 jobs:
   test:
     name: Test
-    runs-on: ${{ matrix.os }}
+    runs-on: ${{ (matrix.os == 'ubuntu-latest' && !(github.event_name == 'pull_request' && github.event.pull_request.head.repo.fork)) && fromJSON('["self-hosted","linux","x64","local","flexnetos"]') || matrix.os }}
     strategy:
       fail-fast: false
       matrix:
@@ -26,8 +34,19 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v6
 
+      - name: Mint GitHub App token (5000/hr; falls back to PAT)
+        id: app-token
+        continue-on-error: true
+        uses: actions/create-github-app-token@v1
+        with:
+          app-id: ${{ secrets.FLEXNETOS_APP_ID }}
+          private-key: ${{ secrets.FLEXNETOS_APP_PRIVATE_KEY }}
+          owner: FlexNetOS
+
       - name: Clone child repos
         shell: bash
+        env:
+          CHILD_CLONE_TOKEN: ${{ steps.app-token.outputs.token || secrets.PARENT_REPO_PAT || github.token }}
         run: .github/scripts/clone-child-repos.sh
 
       - name: Install Rust toolchain
@@ -43,12 +62,23 @@ jobs:
 
   clippy:
     name: Clippy
-    runs-on: ubuntu-latest
+    runs-on: ${{ (github.event_name == 'pull_request' && github.event.pull_request.head.repo.fork) && 'ubuntu-latest' || fromJSON('["self-hosted","linux","x64","local","flexnetos"]') }}
     steps:
       - name: Checkout
         uses: actions/checkout@v6
 
+      - name: Mint GitHub App token (5000/hr; falls back to PAT)
+        id: app-token
+        continue-on-error: true
+        uses: actions/create-github-app-token@v1
+        with:
+          app-id: ${{ secrets.FLEXNETOS_APP_ID }}
+          private-key: ${{ secrets.FLEXNETOS_APP_PRIVATE_KEY }}
+          owner: FlexNetOS
+
       - name: Clone child repos
+        env:
+          CHILD_CLONE_TOKEN: ${{ steps.app-token.outputs.token || secrets.PARENT_REPO_PAT || github.token }}
         run: .github/scripts/clone-child-repos.sh
 
       - name: Install Rust toolchain
@@ -66,7 +96,7 @@ jobs:
 
   integration:
     name: Integration Tests
-    runs-on: ${{ matrix.os }}
+    runs-on: ${{ (matrix.os == 'ubuntu-latest' && !(github.event_name == 'pull_request' && github.event.pull_request.head.repo.fork)) && fromJSON('["self-hosted","linux","x64","local","flexnetos"]') || matrix.os }}
     strategy:
       fail-fast: false
       matrix:
@@ -75,7 +105,18 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v6
 
+      - name: Mint GitHub App token (5000/hr; falls back to PAT)
+        id: app-token
+        continue-on-error: true
+        uses: actions/create-github-app-token@v1
+        with:
+          app-id: ${{ secrets.FLEXNETOS_APP_ID }}
+          private-key: ${{ secrets.FLEXNETOS_APP_PRIVATE_KEY }}
+          owner: FlexNetOS
+
       - name: Clone child repos
+        env:
+          CHILD_CLONE_TOKEN: ${{ steps.app-token.outputs.token || secrets.PARENT_REPO_PAT || github.token }}
         run: .github/scripts/clone-child-repos.sh
 
       - name: Install Rust toolchain
@@ -99,7 +140,7 @@ jobs:
       - name: Install bats
         run: |
           if [ "$RUNNER_OS" = "Linux" ]; then
-            sudo apt-get update && sudo apt-get install -y bats
+            command -v bats >/dev/null 2>&1 || { sudo apt-get update && sudo apt-get install -y bats; }
           else
             brew install bats-core
           fi
@@ -146,12 +187,23 @@ jobs:
 
   format:
     name: Format
-    runs-on: ubuntu-latest
+    runs-on: ${{ (github.event_name == 'pull_request' && github.event.pull_request.head.repo.fork) && 'ubuntu-latest' || fromJSON('["self-hosted","linux","x64","local","flexnetos"]') }}
     steps:
       - name: Checkout
         uses: actions/checkout@v6
 
+      - name: Mint GitHub App token (5000/hr; falls back to PAT)
+        id: app-token
+        continue-on-error: true
+        uses: actions/create-github-app-token@v1
+        with:
+          app-id: ${{ secrets.FLEXNETOS_APP_ID }}
+          private-key: ${{ secrets.FLEXNETOS_APP_PRIVATE_KEY }}
+          owner: FlexNetOS
+
       - name: Clone child repos
+        env:
+          CHILD_CLONE_TOKEN: ${{ steps.app-token.outputs.token || secrets.PARENT_REPO_PAT || github.token }}
         run: .github/scripts/clone-child-repos.sh
 
       - name: Install Rust toolchain
@@ -161,4 +213,3 @@ jobs:
 
       - name: Check formatting
         run: cargo fmt --all -- --check
-# Testing CI with config fix
