@@ -109,6 +109,41 @@ jobs:
         run: bats tests/*.bats
         shell: bash
 
+  envctl:
+    # envctl is meta's environment manager. It builds as its OWN workspace (it owns its no-C
+    # pins) but path-deps loop_lib + meta_plugin_protocol, so it resolves only WITHIN the meta
+    # tree — this job clones the children (incl. envctl) and builds/tests it in place, closing
+    # the gap where meta never verified its own env manager. Linux-only (envctl targets the box).
+    name: envctl (meta-tree build)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Clone child repos
+        run: .github/scripts/clone-child-repos.sh
+
+      - name: Install Rust toolchain
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          components: clippy
+
+      - name: Cache Rust
+        uses: Swatinem/rust-cache@v2
+
+      - name: Build + test envctl (its own workspace, resolved within the meta tree)
+        run: |
+          cd envctl
+          cargo build -p envctl-engine -p envctl --bin meta-env
+          cargo test -p envctl-engine
+          cargo clippy -p envctl-engine -p envctl --bin meta-env -- -D warnings
+          bash ci/gates/no-c.sh
+        shell: bash
+
+      - name: Verify the meta-env plugin speaks the protocol
+        run: cd envctl && ./target/debug/meta-env --meta-plugin-info | jq .name
+        shell: bash
+
   format:
     name: Format
     runs-on: ubuntu-latest
