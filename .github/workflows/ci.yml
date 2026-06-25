@@ -10,9 +10,12 @@ on:
 env:
   CARGO_TERM_COLOR: always
 
-# Runner policy: run on the FlexNetOS self-hosted LOCAL runner for the trusted
-# (non-fork) path; fall back to GitHub-hosted ubuntu-latest only for fork PRs
-# (which cannot reach the local runner or org secrets). Mirrors envctl's CI.
+# Runner policy: the Linux (ubuntu-latest) matrix legs run on the FlexNetOS
+# self-hosted LOCAL runner for the trusted (non-fork) path; fork PRs and the
+# macOS/Windows legs stay on GitHub-hosted runners (the local box is Linux and
+# cannot run them). Matrix job names are preserved so the branch-protection
+# required checks (Test (ubuntu-latest), Test (macos-latest), ...) keep
+# reporting — collapsing the matrix would orphan them and permanently BLOCK PRs.
 # Auth policy: child-repo clones authenticate as the `flexnetos-github-app`
 # GitHub App (installation token = 5000 req/hr) instead of an unauthenticated
 # clone (60 req/hr). The mint step is fail-safe: if the App secrets are not
@@ -22,7 +25,11 @@ env:
 jobs:
   test:
     name: Test
-    runs-on: ${{ (github.event_name == 'pull_request' && github.event.pull_request.head.repo.fork) && 'ubuntu-latest' || fromJSON('["self-hosted","linux","x64","local","flexnetos"]') }}
+    runs-on: ${{ (matrix.os == 'ubuntu-latest' && !(github.event_name == 'pull_request' && github.event.pull_request.head.repo.fork)) && fromJSON('["self-hosted","linux","x64","local","flexnetos"]') || matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
     steps:
       - name: Checkout
         uses: actions/checkout@v6
@@ -48,7 +55,7 @@ jobs:
       - name: Cache Rust
         uses: Swatinem/rust-cache@v2
         with:
-          shared-key: "test-linux"
+          shared-key: "test-${{ matrix.os }}"
 
       - name: Run tests
         run: cargo test --workspace
@@ -89,7 +96,11 @@ jobs:
 
   integration:
     name: Integration Tests
-    runs-on: ${{ (github.event_name == 'pull_request' && github.event.pull_request.head.repo.fork) && 'ubuntu-latest' || fromJSON('["self-hosted","linux","x64","local","flexnetos"]') }}
+    runs-on: ${{ (matrix.os == 'ubuntu-latest' && !(github.event_name == 'pull_request' && github.event.pull_request.head.repo.fork)) && fromJSON('["self-hosted","linux","x64","local","flexnetos"]') || matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest]
     steps:
       - name: Checkout
         uses: actions/checkout@v6
@@ -114,7 +125,7 @@ jobs:
       - name: Cache Rust
         uses: Swatinem/rust-cache@v2
         with:
-          shared-key: "integration-linux"
+          shared-key: "integration-${{ matrix.os }}"
 
       - name: Build workspace
         run: cargo build --workspace
@@ -128,8 +139,10 @@ jobs:
 
       - name: Install bats
         run: |
-          if ! command -v bats >/dev/null 2>&1; then
-            sudo apt-get update && sudo apt-get install -y bats
+          if [ "$RUNNER_OS" = "Linux" ]; then
+            command -v bats >/dev/null 2>&1 || { sudo apt-get update && sudo apt-get install -y bats; }
+          else
+            brew install bats-core
           fi
         shell: bash
 
