@@ -333,6 +333,12 @@ projects:
   yazelix:
     repo: git@github.com:FlexNetOS/yazelix.git
     tags: [env, terminal, forked]
+  # ohmyzsh — config framework for the meta-owned zsh (.toolchains/zsh, built by
+  # the envctl `zsh` component). NOT a binary source (omz requires a pre-existing
+  # zsh); it's the $ZDOTDIR config layer wired by the envctl `ohmyzsh` component.
+  ohmyzsh:
+    repo: git@github.com:FlexNetOS/ohmyzsh.git
+    tags: [env, shell, forked]
 
   # agent-skills — kasetto skill/MCP source referenced by the global kasetto.yaml
   # (envctl/home/.config/kasetto/kasetto.yaml). Registered per ADR-0006: everything
