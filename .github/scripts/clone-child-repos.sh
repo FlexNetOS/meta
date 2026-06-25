@@ -99,3 +99,8 @@ clone_child rtk-tokenkill
 # SHA888/teri) — re-apply the patch on sync.
 clone_child teri
 clone_child shimmy
+
+# envctl — meta's environment manager. Excluded from the root [workspace] (it owns its own
+# workspace for its no-C pins) but built/tested in the dedicated `envctl` CI job below, which
+# needs it cloned at meta/envctl so its path-deps (loop_lib, meta_plugin_protocol) resolve.
+clone_child envctl
