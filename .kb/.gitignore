@@ -1,7 +1,13 @@
+# Track the durable TEXT store (documents/commits/refs/manifest.json = source of
+# truth) so the KB survives clone/reclaim. Ignore ONLY the rebuildable index cache
+# (`git-kb reindex` regenerates it) and ephemeral working state. Same rule as
+# `.handoff` (track text; never commit binary rebuild caches). See META-ORG-POLICY
+# P5.23 (.kb/store durability). NOTE: `git-kb init` ignores `store/` wholesale by
+# default — that makes the KB non-durable and MUST be overridden in every member.
 .backup/
 .cache/
 backups/
 cache/
-store/
+store/stashes/
 workspaces/
 worktrees/

@@ -1,6 +1,6 @@
 # META-ORG-POLICY.md — POLICY v2 (FlexNetOS meta workspace)
 
-**Status:** active · synthesized 2026-06-12 · supersedes implicit canon-v1 conventions
+**Status:** active · synthesized 2026-06-12 · **P8 added 2026-06-22** (crates-only wiring + meta-yard) · supersedes implicit canon-v1 conventions
 **Method:** code-verified against the 10 canon repos + parent meta repo + live `gh api` state on 2026-06-12. No prose trusted without a file/symbol/API check. See Research/Cross-References at the bottom.
 **Scope:** every member of `.meta.yaml` (64 projects), tiered. The parent repo `FlexNetOS/meta` is the **policy exemplar** — the rusty-idd alignment items are already landed there and are propagated outward by this policy.
 
@@ -12,8 +12,10 @@
 |------|------------|---------------|
 | **A** | The 10 canon repos: `loop_lib`, `loop_cli`, `meta_cli`, `meta_core`, `meta_plugin_protocol`, `meta_plugin_api` (legacy stub), `meta_git_lib`, `meta_git_cli`, `meta_project_cli`, `meta_rust_cli` (+ parent `meta` as exemplar; `meta_mcp`, `meta_dashboard_cli`, `meta-plugins` are post-canon A-track) | Full policy P1–P6 |
 | **B** | FlexNetOS-owned tools: weave, envctl, prompt_hub, handoff, lane, icm, rtk-tokenkill, atc, agent, obscura, dashboards, mcp/meta plugins, hubs-with-code | Full policy P1–P6 (version strategy = standalone) |
-| **C** | Forked upstream: ruvector, ruflo, claude-code, codex, n8n, Archon, ECC, oh-my-claudecode, oh-my-pi, shimmy, teri, grit, hermes-agent, weave-* forks | P1 only + pin/drift notes. **Do NOT force FlexNetOS CI onto forks.** |
+| **C** | Forked upstream: ruvector, ruflo, claude-code, codex, n8n, ECC, oh-my-claudecode, oh-my-pi, shimmy, teri, grit, hermes-agent, weave-* forks | P1 only + pin/drift notes. **Do NOT force FlexNetOS CI onto forks.** |
+| **C-partial** | A Tier C fork we adopt **only the Rust crates from** (today: `ruvector`→`meta-ruvector`). Tagged `crates-only`. | P1 + **P8** (crates-only wiring). CI/policy exempt like C. |
 | **D** | Hubs/docs/assets: template_hub, *_hub, my-wiki, flexnetos_* (docs/ops), assets, commands | P1 + docs-accuracy (P5.22) |
+| **Y** | **Yard** — ported-from / reference / not-adopted-as-is source (today: `Archon`, `MiroFish`). Hosted in the nested **`meta-yard`** repo, **out of the root build/CI/workspace**. | P1 (identity only) + **P8.y**. Never wired into the meta build. |
 
 ---
 
@@ -56,7 +58,9 @@
 21. **Makefile, not Justfile.**
 22. **Docs accuracy (docs-are-traps rule):** README/CLAUDE.md must match code; when prose ≠ code, code wins and the contradiction is flagged to the `system-architecture` memoir. Tier C fork prose is untrusted by default (RuVector catalogue).
 23. **`.kb/` FlexNetOS knowledge base** — canon expectation. Reality 2026-06-12: absent in ALL canon repos (parent has it). v2 stance: REQUIRED at parent + standalone-workable B repos; OPTIONAL for thin members worked exclusively through the meta checkout.
+    - **23a. `.kb/store` durability (2026-06-25):** where a `.kb/` exists, `.kb/store/` is **git-tracked TEXT** (documents/commits/refs/`manifest.json` = the source of truth) so the KB survives clone/reclaim and is reviewable in PRs. Ignore ONLY the rebuildable index (`.kb/.cache/`, `cache/`) and ephemeral surfaces (`workspaces/`, `worktrees/`, `store/stashes/`, `backups/`). Same rule as `.handoff` (P7): track text, never commit binary rebuild caches; `git-kb reindex` rebuilds `.cache` from the store. **`git-kb init`'s tool default ignores `store/` wholesale — that makes the KB non-durable (nothing committed/pushed, lost on clone) and MUST be corrected in every member.** Rollout is fleet-wide (like the P7 `.handoff` rollout); `scripts/check-kb-store-tracked.sh` reports violators. Before committing a store, run `git-kb verify` (and `git-kb repair` if a tip is stale) so an inconsistent store is never frozen into git.
 24. **agent-guard + rules:** parent `.claude/settings.json` guard hook (`${CLAUDE_PROJECT_DIR}/agent/target/debug/agent guard`) + `.claude/rules/*` govern the workspace; B repos that are opened standalone (weave, envctl, prompt_hub, handoff) carry their own.
+25. **Backup retention (never-delete, compressed, out-of-tree):** tool-generated safe-write backups (`*.idd-bak-*` from the `rusty-idd`/`hf` `next_backup_path`, and any future snapshot-before-overwrite artifact) are **never deleted** — they are relocated into one compressed append-only store per repo at `meta/.backups/<repo>/` (git-ignored, local-only, mirrored off-machine by the operator) and logged in `index.tsv`. `*.idd-bak-*` MUST be git-ignored in every repo running that path; **zero tracked backup files**. Automated via `meta/scripts/idd-backup-sweep.sh` (dry-run by default, `--apply`). Full policy: **`META-BACKUP-POLICY.md`**.
 
 ## P6 — The handoff addition (autonomy layer; A/B)
 
@@ -90,6 +94,63 @@
 36. **Rival conventions deprecated for new state** (`_workspace/`, `.lane-loop/`, `/wrap-up`):
     migrate opportunistically per the ADR-0004 migration list; never bulk-delete history.
 
+## P8 — Partial adoption: crates-only wiring & the meta-yard (added 2026-06-22)
+
+> Codifies the previously-ad-hoc `ruvector` convention (the `.meta.yaml` "GOLD = the CRATES ONLY"
+> comment) into named, enforceable policy. Two complementary mechanisms: **crates-only wiring** (we keep
+> a fork but consume only its Rust crates) and the **yard** (we keep source we do *not* wire at all).
+
+### P8.a — Crates-only adoption (Tier C-partial)
+
+When we want **parts of a fork that are clean Cargo crates** (not the whole repo), do **not** invent a new
+mechanism and do **not** vendor/copy code — adopt it as a `crates-only` fork:
+
+37. **One canonical clone.** Exactly **one** working copy of the fork exists in the workspace, under its
+    `path:` (ruvector → `meta-ruvector`). No second checkout of the same upstream (no `RuVector/` *and*
+    `meta-ruvector/`). The `.meta.yaml` key may differ from the path, but the path is singular and
+    authoritative.
+38. **`crates-only` tag + scope law.** The `.meta.yaml` entry carries `tags: [..., forked, crates-only]`.
+    **In-scope = the `crates/` tree only.** Everything else in the fork (npm/ui/examples/runtime/NAPI/
+    docs/scripts) is **out-of-scope and forbidden to wire** — importing anything outside `crates/` is a
+    policy violation (the "burns months" lesson). Out-of-scope trees are never added to the root workspace.
+39. **Adopted set is explicit, one of two modes:**
+    - *allowlist* — `provides:` enumerates the exact crates adopted; nothing else may be path-depended.
+    - *all-crates* — `adopt: all-crates` adopts **every** crate under `crates/` **except** those named in
+      `reserved:`. This is ruvector's mode: **all ~250 crates are wired**, reserved = the two ESP32 xtensa
+      firmware crates that live in `meta-hardware` (`esp32-flash`, `esp32-mmwave-sensor`) and cannot build
+      host-green. (`ruvLLM/esp32` non-flash stays in `meta-ruvector` — it *does* build host-green.)
+40. **Consumption = Cargo path-dep, `default-features = false`.** Adopted crates are wired as path deps
+    (or as root-workspace members when the whole set is adopted), default-features off unless a consumer
+    explicitly opts a feature in. Heavy/optional backends (wasm/napi/pg/cuda) stay behind features so the
+    default `cargo build` of the meta workspace stays green.
+41. **Drift is pinned, upstream is `upstream`** (P1.5 unchanged): `origin` = FlexNetOS fork, third-party
+    source stays as `upstream`, never silently pulled. CI/release/hooks (P4/P5) are **not** forced onto the
+    fork; `.handoff/` is a Tier-C stub (P7.31).
+
+### P8.y — The yard (Tier Y / `meta-yard`)
+
+When we want source for **reference or because we ported *from* it**, but do **not** plan to adopt it
+as-is (and it is not cleanly crate-separable), it goes to the **yard** instead of cluttering the active
+workspace:
+
+42. **`meta-yard` is a nested meta repo** (`FlexNetOS/meta-yard`, registered in the root `.meta.yaml` with
+    `meta: true`). It owns its own `.meta.yaml` listing the parked repos (Archon, MiroFish, …). Recursive
+    ops (`meta git update -r`, `meta project list -r`) still see it; default (non-recursive) ops do not.
+43. **Out of the root build/CI/workspace.** Yard members are **never** root Cargo `members`, never wired as
+    deps, never gated by meta CI. They carry P1 identity only (genuine `FlexNetOS/` repo, `upstream` kept).
+44. **Promotion is explicit.** Moving a repo *out* of the yard (to adopt it, or to adopt its crates via
+    P8.a) is a deliberate re-tier with its own PR — nothing is silently graduated. Porting *from* a yard
+    member records the source commit in the port's parity ledger; the yard copy is the provenance anchor.
+
+### P8.v — Validator (`meta` enforcement hook)
+
+45. `meta` ships a workspace validator (wired into `scripts/preflight.sh` and a CI check) that fails when:
+    - a Cargo **path-dep points into a `crates-only` repo at a crate not permitted** by its `provides:`
+      allowlist, or — in `all-crates` mode — at a `reserved:` crate or a path **outside** `crates/`;
+    - a **yard** member appears as a root Cargo `member`/dependency or under root CI;
+    - two checkouts resolve to the **same upstream** (the "one canonical clone" rule, P8.37).
+    The validator is advisory-in-`preflight` (subset gate, never stricter than CI) and blocking in CI.
+
 ---
 
 ## Current deviations snapshot (2026-06-12 evening — post protection-rollout + P7 adoption)
@@ -105,6 +166,10 @@ canon children; renovate.json landed on the 5 gap repos; `.meta.yaml` canon entr
 | claude-plugin/copilot-plugin are parent path-aliases (`repo: meta`) yet listed in `.gitignore` | parent | cosmetic; clarify in audit |
 | `.handoff/` presence 1/58 | fleet-wide | P7.31 — rollout in progress (tasks/fleet-handoff-rollout) |
 | Loop-state convention split (`_workspace/`, `.lane-loop/`, `/wrap-up`) | weave, prompt_hub, ECC, n8n, rusty-idd, lane, .github_org | P7.36 — opportunistic migration |
+| ruvector crates declared (`provides:`) but **not yet wired** as path-deps; now `adopt: all-crates` | meta-ruvector | P8.39/40 — wiring task open (all crates minus 2 reserved) |
+| stray duplicate `RuVector/` checkout of meta-ruvector on disk (unregistered, carries WIP) | parent worktree | P8.37 — one-canonical-clone; remove after WIP committed |
+| `meta-yard` not yet created; Archon/MiroFish still in active workspace | parent, Archon, MiroFish | P8.y — yard creation task open |
+| P8 validator (`meta` hook) not yet implemented | meta_cli / preflight | P8.v — implementation task open |
 
 ## Research / Cross-References
 

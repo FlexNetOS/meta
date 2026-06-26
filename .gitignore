@@ -51,6 +51,10 @@ models/
 .context-old/
 imported/
 
+# Backup retention store (META-BACKUP-POLICY.md): never-delete compressed
+# safe-write backups, local-only, mirrored off-machine — never committed.
+.backups/
+
 # Local agent/runtime state
 .claude/backups/
 .claude/cache/
@@ -126,7 +130,7 @@ codex/
 oh-my-claudecode/
 oh-my-pi/
 ECC/
-Archon/
+meta-yard/
 harness-agent-rs/
 prompt_hub/
 hermes-agent/
@@ -166,6 +170,7 @@ kasetto/
 vox/
 rusty-idd/
 yazelix/
+ohmyzsh/
 agent-skills/
 
 # Local meta worktrees and recovery clones

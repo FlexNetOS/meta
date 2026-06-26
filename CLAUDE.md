@@ -35,6 +35,10 @@ meta exec -r cargo test  # Runs across all nested repos
 
 **What `meta` does:** Clones all child repos, runs commands across them in parallel (`meta exec`), manages git worktrees across the entire workspace (`meta worktree`), and provides project-level coordination.
 
+## Environment manager: envctl
+
+`envctl` is a first-class meta peer member (registered in `.meta.yaml`, `tags: [tools, env]`) and **meta's agentic environment manager**. Every tool, dependency, provider, vendor, CLI, and config that meta uses is installed **into meta** by envctl — `meta/.toolchains/` under `$META_ROOT` — with **no system-depth or user-global installs**. Anything meta uses lives in meta, portable wherever meta is cloned; global paths (`~/.local/bin`, `~/.config`, `~/.claude`) hold only symlinks pointing INTO meta, never the reverse. See `envctl/` and the portability ADRs (`envctl/docs/adr-install-locations-and-local-state.md`, `adr-meta-tool-location-and-portability.md`).
+
 ## Logging & Debugging
 
 The meta CLI uses the `log` crate with `env_logger`. Use `RUST_LOG` to control debug output:
