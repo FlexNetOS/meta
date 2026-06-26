@@ -2,8 +2,10 @@ name: runner-smoke
 
 # Throwaway self-hosted-runner verification probe (no production impact).
 # Triggers on push to a smoke/runner-** branch and on manual dispatch.
-# The 2-leg matrix (fail-fast off) forces BOTH org-scoped fxrun runners on the
-# local host to pick up work concurrently, proving end-to-end job execution.
+# Two legs with DIFFERENT label sets disambiguate a label-match failure:
+#   - minimal: only [self-hosted] (every self-hosted runner always has it)
+#   - full   : the exact ci.yml trusted-path set
+# Whichever leg a runner picks up tells us which label set actually matches.
 on:
   push:
     branches: ['smoke/runner-**']
@@ -18,15 +20,18 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        leg: [a, b]
-    # Exact trusted-path label set from .github/workflows/ci.yml.
-    runs-on: ["self-hosted", "linux", "x64", "local", "flexnetos"]
+        include:
+          - leg: minimal
+            labels: '["self-hosted"]'
+          - leg: full
+            labels: '["self-hosted", "linux", "x64", "local", "flexnetos"]'
+    runs-on: ${{ fromJSON(matrix.labels) }}
     steps:
       - name: Identify runner + prove local execution
         run: |
           echo "leg            : ${{ matrix.leg }}"
+          echo "labels         : ${{ matrix.labels }}"
           echo "RUNNER_NAME    : ${RUNNER_NAME:-<unset>}"
           echo "host           : $(hostname)"
-          echo "work dir       : ${RUNNER_WORKSPACE:-$PWD}"
           uname -a
           echo "fxrun smoke OK on $(hostname) runner=${RUNNER_NAME:-?} leg=${{ matrix.leg }}"
