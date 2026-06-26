@@ -20,6 +20,11 @@ agent codex install-prompts
 
 Then restart Codex and type `/prompts:`.
 
+Checked-in prompt templates include:
+
+- `/prompts:kb-note` — create durable git-kb notes under `meta/.kb`/`notes/` and verify `.kb/store` is committed, not invisible state.
+- `/prompts:meta-status`, `/prompts:meta-upgrade`, `/prompts:meta-worker`, and `/prompts:codex-rust-forge` — existing meta/workflow entrypoints.
+
 Claude auxiliary workflow parity:
 
 - `.claude/skills/explore/SKILL.md`, `.claude/skills/understand/SKILL.md`, `.claude/skills/before-refactor/SKILL.md`, and `.claude/rules/code-intelligence.md` are exposed through `$gitkb`.

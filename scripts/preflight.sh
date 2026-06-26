@@ -43,6 +43,12 @@ fail() {
 
 cd "$repo_root" || exit 0
 
+if [ -f "$repo_root/scripts/check-codex-kb-note-wiring.sh" ]; then
+  echo "preflight[$name]: checking Codex git-kb note wiring"
+  bash "$repo_root/scripts/check-codex-kb-note-wiring.sh" "$repo_root" \
+    || fail "Codex KB note wiring" "bash scripts/check-codex-kb-note-wiring.sh"
+fi
+
 # Scope to THIS repo's own packages. Cargo walks UP to the outermost workspace, so in the
 # meta tree a member repo's `cargo fmt --all` / `clippy --workspace` would lint the *entire*
 # meta workspace (other sibling repos) — far stricter than that repo's standalone CI, which

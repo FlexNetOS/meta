@@ -23,6 +23,16 @@ env:
 # existing PAT, then github.token — so CI never regresses below today.
 
 jobs:
+  agent-wiring:
+    name: Agent Wiring
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Verify Codex git-kb note wiring
+        run: bash scripts/check-codex-kb-note-wiring.sh
+
   test:
     name: Test
     runs-on: ${{ (matrix.os == 'ubuntu-latest' && !(github.event_name == 'pull_request' && github.event.pull_request.head.repo.fork)) && fromJSON('["self-hosted","linux","x64","local","flexnetos"]') || matrix.os }}
