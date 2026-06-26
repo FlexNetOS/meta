@@ -1,0 +1,32 @@
+name: runner-smoke
+
+# Throwaway self-hosted-runner verification probe (no production impact).
+# Triggers on push to a smoke/runner-** branch and on manual dispatch.
+# The 2-leg matrix (fail-fast off) forces BOTH org-scoped fxrun runners on the
+# local host to pick up work concurrently, proving end-to-end job execution.
+on:
+  push:
+    branches: ['smoke/runner-**']
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  smoke:
+    name: fxrun smoke
+    strategy:
+      fail-fast: false
+      matrix:
+        leg: [a, b]
+    # Exact trusted-path label set from .github/workflows/ci.yml.
+    runs-on: ["self-hosted", "linux", "x64", "local", "flexnetos"]
+    steps:
+      - name: Identify runner + prove local execution
+        run: |
+          echo "leg            : ${{ matrix.leg }}"
+          echo "RUNNER_NAME    : ${RUNNER_NAME:-<unset>}"
+          echo "host           : $(hostname)"
+          echo "work dir       : ${RUNNER_WORKSPACE:-$PWD}"
+          uname -a
+          echo "fxrun smoke OK on $(hostname) runner=${RUNNER_NAME:-?} leg=${{ matrix.leg }}"
