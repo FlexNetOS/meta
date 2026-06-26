@@ -4,6 +4,8 @@ defaults:
 projects:
   network-control:
     repo: git@github.com:FlexNetOS/network-control.git
+    provides: [netctl, netctl-gui]
+    tags: [tools, network]   # network plane: pure-Rust net control suite; composes lane (spine) + ruvector crates
   handoff:
     repo: git@github.com:FlexNetOS/handoff.git
     tags: [orchestration, handoff]
@@ -63,12 +65,16 @@ projects:
 
   meta_mcp:
     repo: git@github.com:FlexNetOS/meta_mcp.git
+    provides: [meta-mcp]
+    tags: [tools, mcp]
     depends_on: [meta-cli]
 
   # `meta dashboard` — renders the yazelix mission-control layout by shelling
   # to `envctl dashboard --json` (no envctl crate dep; loose CLI coupling).
   meta_dashboard_cli:
     repo: git@github.com:FlexNetOS/meta_dashboard_cli.git
+    provides: [meta-dashboard-cli]
+    tags: [tools, dashboard]
     depends_on: [plugin-protocol]
 
   # Standalone tools
@@ -165,7 +171,7 @@ projects:
     tags: [ai, prompts]
   hermes-agent:
     repo: git@github.com:FlexNetOS/hermes-agent.git
-    tags: [ai, agents, untriaged]
+    tags: [ai, agents]
 
   # --- Tools / automation ---
   rtk-tokenkill:
@@ -190,14 +196,11 @@ projects:
     tags: [ai, memory]
   grit:
     repo: git@github.com:FlexNetOS/grit.git
-    tags: [untriaged]
+    provides: [grit]
+    tags: [ai, rust, orchestration]
   obscura:
     repo: git@github.com:FlexNetOS/obscura.git
     tags: [network, ai, browser]   # network plane: governed web-egress engine for AI agents (lane↔obscura seam, ADR-0001)
-  network-control:
-    repo: git@github.com:FlexNetOS/network-control.git
-    provides: [netctl, netctl-gui]
-    tags: [tools, network]   # network plane: pure-Rust net control suite; composes lane (spine) + ruvector crates
 
   # --- Knowledge / distro ---
   obsidian-mind:
@@ -205,7 +208,8 @@ projects:
     tags: [docs, knowledge]
   lifeos:
     repo: git@github.com:FlexNetOS/lifeos.git
-    tags: [untriaged]
+    provides: [lifeos]
+    tags: [ai, tools, docs]
 
   # --- Hubs + collections (new empty repos; content TBD) ---
   template_hub:
@@ -278,10 +282,12 @@ projects:
   # --- Newly Adopted Repos ---
   teri:
     repo: git@github.com:FlexNetOS/teri.git
-    tags: [untriaged, forked]
+    provides: [teri]
+    tags: [ai, rust, forked]
   shimmy:
     repo: git@github.com:FlexNetOS/shimmy.git
-    tags: [untriaged, forked]
+    provides: [shimmy]
+    tags: [ai, rust, network, forked]
 
   ruvector:
     repo: git@github.com:FlexNetOS/meta-ruvector.git
@@ -299,21 +305,183 @@ projects:
       - esp32-mmwave-sensor           # ESP32-S3 xtensa firmware → meta-hardware (P8.39)
     # provides: = notable-crates index (NON-exhaustive; full adopted set = all crates/ minus reserved):
     provides:
-      - ruvector-verified          # evidence/completion: Lean ProofAttestation / AgentContract (HFTASK-0004)
-      - rvf-crypto                 # tamper-evident witness chain (SHAKE-256) — the ledger witness
-      - rvf-runtime                # append-only RVF segments = vector-native event ledger (RVF v2, HFTASK-0006)
-      - rvf-types                  # the .rvf format hub (governance vocab: Budget/Authority/Attestation)
-      - ruvector-coherence         # HNSW health/drift monitor (handoff-drift)
-      - ruvector-perception        # BoundaryPredictor / DeltaWitness (handoff-drift)
-      - ruvector-temporal-tensor   # delta-chain + WitnessEvent (alternate ledger)
-      - cognitum-gate-tilezero     # decide(ActionContext)->Permit/Deny/Defer + WitnessReceipt (policy, HFTASK-0017)
-      - cognitum-gate-kernel       # per-tile anytime-valid mincut e-value gate (policy HW root)
-      - ruvector-dag               # QuDAG governed task DAG (governance, NOT query-plan)
-      - ruvector-domain-expansion  # contextual-bandit next-task router (HFTASK-0018)
-      - ruvector-postgres          # pgvector front door (RuVocal, HFTASK-0022)
-      - neural-trader-coherence    # CoherenceGate / WitnessReceipt (domain gate pattern)
-      - rvagent-core               # Rust-native agent runtime (a2a/acp/mcp/cli)
-      - ruvector-core              # vector compute core
+      - codex-env  # Codex-compatible execution environment adapter
+      - cognitum-gate-kernel  # per-tile anytime-valid mincut e-value gate (policy HW root)
+      - cognitum-gate-tilezero  # decide(ActionContext)->Permit/Deny/Defer + WitnessReceipt (policy, HFTASK-0017)
+      - emergent-time  # Wheeler-DeWitt, Page-Wootters entropic structural proper time
+      - hailort-sys  # Hailo RT system bindings for Pi 5 AI HAT+ hardware acceleration
+      - mcp-brain  # Brain MCP tooling and protocol integration
+      - mcp-brain-server  # Central brain MCP server for collective knowledge retrieval
+      - mcp-gate  # Access gate/proxy for MCP server management
+      - neural-trader-coherence  # CoherenceGate / WitnessReceipt (domain gate pattern)
+      - neural-trader-core  # Neural market analysis engine core
+      - neural-trader-replay  # Market scenario replay engine
+      - neural-trader-strategies  # Trading strategy library and backtester
+      - neural-trader-wasm  # Neural trader WASM bindings for browser dashboards
+      - photonlayer-bench  # PhotonLayer benchmarking suite
+      - photonlayer-cli  # PhotonLayer command-line interface
+      - photonlayer-core  # PhotonLayer optical-frontend computing simulator core
+      - photonlayer-ruvector  # PhotonLayer <-> ruvector bridge integration
+      - photonlayer-wasm  # PhotonLayer WASM bindings for browser visualization
+      - prime-radiant  # Prime number theory driven computation substrate
+      - ruos-thermal  # Pi 5 thermal supervisor daemon
+      - ruvector-acorn  # Persistent vector storage engine with ACID guarantees
+      - ruvector-acorn-wasm  # Acorn WASM bindings for browser persistence
+      - ruvector-agent-memory  # Agent knowledge store with HNSW retrieval
+      - ruvector-attention  # Unified attention kernel library (multi-head, grouped-query)
+      - ruvector-attention-node  # Attention N-API node bindings
+      - ruvector-attention-unified-wasm  # Unified attention WASM runtime
+      - ruvector-attention-wasm  # Attention WASM bindings for browser inference
+      - ruvector-attn-mincut  # Min-cut based attention pruning
+      - ruvector-bench  # Unified benchmarking infrastructure across all ruvector crates
+      - ruvector-bet4-ivf-bench  # IVF-BET4 benchmark suite for vector search comparison
+      - ruvector-cli
+      - ruvector-cluster  # Vector cluster formation and management
+      - ruvector-cnn  # Convolutional neural network layer library for vector processing
+      - ruvector-cnn-wasm  # CNN WASM bindings for browser inference
+      - ruvector-cognitive-container  # Cognitive state container with session management
+      - ruvector-coherence  # HNSW health/drift monitor (handoff-drift)
+      - ruvector-coherence-hnsw  # Coherence-driven HNSW index optimizer
+      - ruvector-collections  # Multi-index vector collections manager
+      - ruvector-consciousness  # Integrated information theory (Phi) computation engine
+      - ruvector-consciousness-wasm  # Consciousness metric WASM bindings
+      - ruvector-core  # vector compute core
+      - ruvector-crv
+      - ruvector-dag  # QuDAG governed task DAG (governance, NOT query-plan)
+      - ruvector-dag-wasm
+      - ruvector-decompiler
+      - ruvector-decompiler-wasm
+      - ruvector-delta-consensus  # Delta consensus protocol for distributed deltas
+      - ruvector-delta-core  # Core delta-compression algorithm engine
+      - ruvector-delta-graph  # Causal delta graph structures
+      - ruvector-delta-index  # Delta-aware vector index with causal windows
+      - ruvector-delta-wasm  # Delta-compression WASM bindings
+      - ruvector-diskann  # DiskANN external-memory HNSW for billion-scale search
+      - ruvector-diskann-node  # DiskANN N-API node bindings
+      - ruvector-dither  # Stochastic dithering for vector quantization
+      - ruvector-domain-expansion  # Contextual-bandit next-task router (already listed above)
+      - ruvector-domain-expansion-wasm
+      - ruvector-economy-wasm  # Vector economy (resource tracking) WASM bindings
+      - ruvector-exotic-wasm  # Exotic math operations WASM bindings
+      - ruvector-filter  # Vector query filter expressions engine
+      - ruvector-fpga-transformer
+      - ruvector-fpga-transformer-wasm
+      - ruvector-gnn  # General-purpose GNN layer library (GCN, GAT, SAGE)
+      - ruvector-gnn-node  # GNN N-API node bindings
+      - ruvector-gnn-rerank  # GNN-based result reranking
+      - ruvector-gnn-wasm  # GNN WASM bindings for browser
+      - ruvector-graph  # Core graph data structure library
+      - ruvector-graph-condense  # Graph condensation via dynamic min-cut
+      - ruvector-graph-condense-wasm  # Graph condensation WASM bindings
+      - ruvector-graph-node  # Graph node runtime (N-API bindings)
+      - ruvector-graph-transformer  # Graph neural network transformer layers
+      - ruvector-graph-transformer-node  # Graph transformer N-API bindings
+      - ruvector-graph-transformer-wasm  # Graph transformer WASM bindings
+      - ruvector-graph-wasm  # Graph WASM bindings for browser
+      - ruvector-hailo  # Hailo NPU inference backend for vector operations
+      - ruvector-hailo-cluster  # Multi-Hailo cluster orchestration
+      - ruvector-hnsw-repair  # HNSW index repair and recovery utilities
+      - ruvector-hybrid  # Hybrid sparse-dense search: BM25 + ANN + RRF/ScoreFusion (ADR-256)
+      - ruvector-kalshi  # Kalshi prediction market data adapter and strategy engine
+      - ruvector-learning-wasm  # Learning algorithms WASM bindings
+      - ruvector-math  # Vector math primitives (linear algebra, probability)
+      - ruvector-math-wasm  # Math WASM bindings for browser
+      - ruvector-maxsim  # MaxSim vector similarity deduplication engine
+      - ruvector-metrics
+      - ruvector-mincut  # Min-cut community detection library
+      - ruvector-mincut-gated-transformer  # Gated transformer with min-cut regularization
+      - ruvector-mincut-gated-transformer-wasm  # Gated transformer min-cut WASM bindings
+      - ruvector-mincut-node
+      - ruvector-mincut-wasm  # Min-cut WASM bindings
+      - ruvector-mmwave  # mmWave radar sensor integration and signal processing
+      - ruvector-nervous-system
+      - ruvector-nervous-system-wasm
+      - ruvector-node  # Vector node runtime (N-API bindings)
+      - ruvector-perception  # BoundaryPredictor / DeltaWitness (handoff-drift)
+      - ruvector-profiler  # Vector computation profiling and benchmarking utilities
+      - ruvector-proof-gate  # Formal proof gate for verified vector operations
+      - ruvector-rabitq  # RaBitQ 1-bit quantized nearest-neighbor search
+      - ruvector-rabitq-wasm  # RaBitQ WASM bindings for browser search
+      - ruvector-raft  # RAFT consensus for vector state machines
+      - ruvector-rairs
+      - ruvector-replication  # Vector index replication protocol
+      - ruvector-robotics  # Robotics motion planning and control library
+      - ruvector-router-cli  # CLI front-end for the vector router engine
+      - ruvector-router-core  # Vector routing engine core with adaptive pathfinding
+      - ruvector-router-ffi  # Foreign function interface bindings for vector router
+      - ruvector-router-wasm  # Vector router WASM bindings for browser navigation
+      - ruvector-rulake  # RULAKE persistent vector store
+      - ruvector-server  # Vector server daemon with HTTP/WS API
+      - ruvector-snapshot  # Vector snapshot backup/restore
+      - ruvector-solver  # Vector optimization solver library
+      - ruvector-solver-node  # Solver N-API node bindings
+      - ruvector-solver-wasm  # Solver WASM bindings for browser optimization
+      - ruvector-sona  # Sona memory consolidation with hierarchical compression
+      - ruvector-sparse-inference  # Sparse model inference with masked discrete diffusion
+      - ruvector-sparsifier  # Spectral graph sparsification library
+      - ruvector-sparsifier-wasm  # Sparsifier WASM bindings
+      - ruvector-temporal-coherence
+      - ruvector-temporal-tensor  # delta-chain + WitnessEvent (alternate ledger)
+      - ruvector-temporal-tensor-wasm
+      - ruvector-tiny-dancer-core  # Tiny-dancer lightweight vector operations core
+      - ruvector-tiny-dancer-node  # Tiny-dancer N-API node bindings
+      - ruvector-tiny-dancer-wasm  # Tiny-dancer WASM bindings for browser
+      - ruvector-verified  # Lean ProofAttestation / AgentContract (HFTASK-0004)
+      - ruvector-verified-wasm  # Verified computation WASM runtime for browser attestation
+      - ruvector-wasm
+      - ruvix-aarch64  # AArch64-specific CPU/MMU/timer code
+      - ruvix-bcm2711  # BCM2711 (Pi 4) specific hardware interfaces
+      - ruvix-bench  # Benchmarks for the OS kernel subsystems
+      - ruvix-boot  # Boot protocol and startup code
+      - ruvix-cap  # Capability-based access control subsystem
+      - ruvix-cli  # CLI tooling for the kernel build/test workflow
+      - ruvix-demo  # Demonstration programs and examples for the OS
+      - ruvix-dma  # DMA controller abstraction and transfer engine
+      - ruvix-drivers  # Peripheral drivers (UART, SPI, I2C, GPIO)
+      - ruvix-dtb  # Device tree blob parser and accessor
+      - ruvix-fs  # Filesystem abstraction (FAT32, ext4 stubs)
+      - ruvix-hal  # Hardware abstraction layer (AArch64)
+      - ruvix-integration  # Integration tests for the kernel
+      - ruvix-net  # Network stack for bare-metal operation
+      - ruvix-nucleus  # Kernel nucleus with interrupt handling
+      - ruvix-physmem  # Physical memory management
+      - ruvix-proof  # Proof system for kernel invariants
+      - ruvix-queue  # Synchronization queue primitives (lock-free)
+      - ruvix-region  # Memory region allocator and manager
+      - ruvix-sched  # CFS-like scheduler implementation
+      - ruvix-shell  # Bare-metal shell (interactive command interpreter)
+      - ruvix-smp  # Symmetric multiprocessing support
+      - ruvix-types  # Core types, traits, and macros for the RustOS kernel
+      - ruvix-vecgraph  # Vector graph substrate for cognitive operations
+      - ruvllm  # Rust-native LLM inference engine (GGUF format)
+      - ruvllm-cli  # Command-line interface for ruvllm inference
+      - ruvllm-wasm  # ruvllm WASM bindings for browser inference
+      - ruvllm_retrieval_diffusion  # Retrieval LM + masked discrete diffusion on the kernel
+      - ruvllm_sparse_attention  # Sparse attention kernel for Hailo-10H cluster (ADR-183/190)
+      - rvagent-a2a  # Agent-to-Agent communication protocol implementation
+      - rvagent-acp  # Anthropic Claude Protocol (ACP) client library
+      - rvagent-backends  # LLM backend providers (Anthropic, OpenAI, Ollama, etc.)
+      - rvagent-cli  # ruAgent command-line interface
+      - rvagent-core  # Rust-native agent runtime (a2a/acp/mcp/cli)
+      - rvagent-mcp  # Model Context Protocol (MCP) client library
+      - rvagent-middleware  # Agent middleware pipeline and hooks system
+      - rvagent-subagents  # Sub-agent management and delegation framework
+      - rvagent-tools  # Built-in tool library for agent action execution
+      - rvagent-wasm  # ruAgent WASM bindings for browser-based agents
+      - rvf-crypto  # tamper-evident witness chain (SHAKE-256) — the ledger witness
+      - rvf-ebpf  # RVF eBPF acceleration layer
+      - rvf-federation  # RVF federation/cross-node sync
+      - rvf-index  # RVF index structures for fast lookups
+      - rvf-kernel  # RVF kernel core logic and engine
+      - rvf-launch
+      - rvf-manifest  # RVF manifest/schema for segment definitions
+      - rvf-quant  # RVF quantization utilities
+      - rvf-runtime  # append-only RVF segments = vector-native event ledger (RVF v2, HFTASK-0006)
+      - rvf-server  # RVF server runtime / daemon
+      - rvf-types  # the .rvf format hub (governance vocab: Budget/Authority/Attestation)
+      - rvf-wire  # RVF wire format serialization/deserialization
+      - rvlite  # RLite lightweight in-memory key-value store with Lua scripting
+      - thermorust  # Thermal management and power regulation library
     tags: [ai, rust, wasm, forked, crates-only]
 
   meta_hardware:
