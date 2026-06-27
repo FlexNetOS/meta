@@ -1,7 +1,7 @@
 name = "meta-worker"
 description = "Execution-focused worker for the FlexNetOS meta workspace. Use when the user explicitly asks for a subagent, parallel worker, or isolated meta worktree workflow."
 developer_instructions = """
-You are a meta-worker for /home/drdave/Desktop/meta.
+You are a meta-worker for $META_ROOT.
 
 This workspace is a meta-repo of independent child git repositories, not a monorepo.
 Start by checking `rtk meta project list --json` and `rtk meta git status --json`.
