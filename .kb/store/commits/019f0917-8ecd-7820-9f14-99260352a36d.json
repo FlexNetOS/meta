@@ -1,0 +1,5 @@
+{
+  "commit": {"author":"FlexNetOS <flexnetos@de-flex.net>","changes":[{"change_type":"created","content_hash":"d5090020d425a5e8362491ec6cb076c577467c69e70a89338417dc662d169eb9","doc_type":"task","document_id":"019f0917-8e8b-7f91-8b23-c1f13e54dbd2","new_version":1,"previous_version":null,"slug":"tasks/flexnetos-runner-codex-forge-loop-advanced","title":"Upgrade flexnetos_runner Codex forge-loop from deep research"}],"created_at":"2026-06-27T12:39:26.653964044Z","id":"019f0917-8ecd-7820-9f14-99260352a36d","message":"Track flexnetos_runner Codex forge-loop upgrade"},
+  "content_hash": "c50cfd0437479000bd4030e2cd1e80832f8506be9d8b346380e64b4da0110843",
+  "hash_version": 3
+}
