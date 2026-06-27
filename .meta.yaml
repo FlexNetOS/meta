@@ -289,6 +289,17 @@ projects:
     provides: [shimmy]
     tags: [ai, rust, network, forked]
 
+  # --- Inference / GPU eval forks (Tier C; origin=FlexNetOS, upstream=source, drift pinned) ---
+  cellm:
+    repo: git@github.com:FlexNetOS/cellm.git
+    tags: [ai, rust, inference, forked]   # upstream jeffasante/cellm — mobile-first pure-Rust LLM engine (CPU/Metal/Vulkan, no CUDA); CLI/FFI/WASM, no HTTP server
+  cuda-oxide:
+    repo: git@github.com:FlexNetOS/cuda-oxide.git
+    tags: [gpu, rust, forked]   # upstream NVlabs/cuda-oxide — rustc backend, Rust→PTX AOT via llc-21 (sm_120a verified); teri's documented nightly GPU codegen path (RUNBOOK §3.1)
+  inferrs:
+    repo: git@github.com:FlexNetOS/inferrs.git
+    tags: [ai, rust, inference, forked]   # upstream ericcurtin/inferrs — candle-based TurboQuant server; OpenAI/Anthropic/Ollama APIs, CUDA/ROCm/Metal/Vulkan/CPU
+
   ruvector:
     repo: git@github.com:FlexNetOS/meta-ruvector.git
     path: meta-ruvector
