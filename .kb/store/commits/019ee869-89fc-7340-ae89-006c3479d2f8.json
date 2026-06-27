@@ -1,0 +1,5 @@
+{
+  "commit": {"author":"FlexNetOS <flexnetos@de-flex.net>","changes":[{"change_type":"modified","content_hash":"5d64a773db3c302242f054e3d2beb924817fd068d61edb55bfbaa11697167e0c","doc_type":"task","document_id":"019ee82b-aa41-7880-819b-60306a102932","metadata_changes":[{"field":"status","new_value":"active","old_value":"backlog"}],"new_version":2,"previous_commit_id":"019ee82c-20b2-7562-8b00-c13dbba091a1","previous_hash":"01573af1dd79632d611438617cd874ff535d3a4d4127eb405d0efe3f80c04dca","previous_version":1,"slug":"tasks/hftask-0059","title":"v1 concurrent-writers test fails on Windows (SQLite WAL busy_timeout not robust under CI load)"}],"created_at":"2026-06-21T04:21:31.246012973Z","id":"019ee869-89fc-7340-ae89-006c3479d2f8","message":"handoff write-back: tasks/hftask-0059 claimed → active"},
+  "content_hash": "be6f372419ec69ec44aa662dc595bc25b40d24fa3527261038d44344f0d147cb",
+  "hash_version": 3
+}

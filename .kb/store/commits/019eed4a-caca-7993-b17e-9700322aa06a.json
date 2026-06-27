@@ -1,0 +1,5 @@
+{
+  "commit": {"author":"FlexNetOS <flexnetos@de-flex.net>","changes":[{"change_type":"created","content_hash":"ef0cbfecad3b6271a2cae6558f1b58da8935c42b9fcc1326d74e4175522cfc58","doc_type":"task","document_id":"019eed48-0445-7b43-8514-8d76c8c644f6","new_version":1,"previous_version":null,"slug":"tasks/meta-main-ci-green","title":"Green meta main CI — real upgrades, no downgrades (Format+Test+Build failing)"}],"created_at":"2026-06-22T03:06:02.308506937Z","id":"019eed4a-caca-7993-b17e-9700322aa06a","message":"card: meta-main-ci-green — CI greened by #40; broaden to issue audit"},
+  "content_hash": "c748825737ac2a8880382162c4811647c8833572a6fe9c2d406b22c38f5d7c5e",
+  "hash_version": 3
+}

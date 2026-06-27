@@ -1,0 +1,5 @@
+{
+  "commit": {"author":"FlexNetOS <flexnetos@de-flex.net>","changes":[{"change_type":"created","content_hash":"df661ad4991b6aeb0b416a4c57526aba7c9b6437945b80ac0b60c0e1668016f5","doc_type":"task","document_id":"019e963e-8386-7d61-a947-0cca333b3667","new_version":1,"previous_version":null,"slug":"tasks/logs-lines-tail","title":"lane logs -n/--lines N (tail last N matching records)"}],"created_at":"2026-06-05T05:26:06.267244438Z","id":"019e963e-eac7-7ce0-b8b9-b86fbda1519f","message":"Spec: lane logs -n/--lines N (tail last N matching records)"},
+  "content_hash": "7169e28031fe8811750551057a346a9a699476ceb15db7f57fb5ba885aeea1d2",
+  "hash_version": 3
+}

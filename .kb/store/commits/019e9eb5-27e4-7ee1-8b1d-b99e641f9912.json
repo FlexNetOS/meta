@@ -1,0 +1,5 @@
+{
+  "commit": {"author":"FlexNetOS <flexnetos@de-flex.net>","changes":[{"change_type":"created","content_hash":"1f219807b667b604383e182c1b2dedd9612b21dcf185c9698c336c0fadefed65","doc_type":"task","document_id":"019e9eb4-3dd8-7f92-8adc-1c8a9c5105f3","new_version":1,"previous_version":null,"slug":"integrate-top-gitkb-migration-finds-atc-gh-config","title":"Integrate top gitkb migration finds: atc, gh-config-cli, workflow-rust-* into FlexNetOS meta"}],"created_at":"2026-06-06T20:52:12.872504457Z","id":"019e9eb5-27e4-7ee1-8b1d-b99e641f9912","message":"Add integration plan for top gitkb finds (atc, gh-config-cli, workflow-rust-*)"},
+  "content_hash": "13463df10a519801bb39d790bba30266344c2f37d6e07cf2da10fef7a1e7b36e",
+  "hash_version": 3
+}

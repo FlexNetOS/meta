@@ -1,0 +1,5 @@
+{
+  "commit": {"author":"FlexNetOS <flexnetos@de-flex.net>","changes":[{"change_type":"created","content_hash":"f087320b162b01b648e2fa4562920006b2b7119e9ebb42a08bff0b68d9005a0e","doc_type":"task","document_id":"019e9fa8-46c8-7302-a3dd-6aac239b6728","new_version":1,"previous_version":null,"slug":"install-kimi-and-ollama-for-meta-workspace","title":"Install Kimi and Ollama for meta workspace"}],"created_at":"2026-06-07T01:18:06.277173519Z","id":"019e9fa8-95cb-7942-8566-c89057ef9a40","message":"Task: install Kimi and Ollama for meta workspace"},
+  "content_hash": "2f1bfeb41750fba494b839fdb77a724542073aef9e5722e4c3ef2fc78cacd791",
+  "hash_version": 3
+}

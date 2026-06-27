@@ -1,0 +1,5 @@
+{
+  "commit": {"author":"FlexNetOS <flexnetos@de-flex.net>","changes":[{"change_type":"created","content_hash":"1cc2be45673a92ffbdcff5c1ccd641b0261d2a25a5862a81a320fc8ae87c94bf","doc_type":"task","document_id":"019eba06-fb48-76a1-b462-583bc35aac6e","new_version":1,"previous_version":null,"slug":"tasks/commit-and-merge-workspace-20260611","title":"Commit all workspace changes and merge feature branches"}],"created_at":"2026-06-12T04:22:09.312471748Z","id":"019eba10-e2ac-7f31-a1a9-1a6bfdc3bcff","message":"Task: commit-and-merge workspace sweep 2026-06-11 — done with evidence"},
+  "content_hash": "40db3bdbd2b7ef9967f2358c6e1e4be1a27369c1e66f04d92b8ed0f5bc5cd1cf",
+  "hash_version": 3
+}

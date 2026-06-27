@@ -1,0 +1,5 @@
+{
+  "commit": {"author":"FlexNetOS <flexnetos@de-flex.net>","changes":[{"change_type":"created","content_hash":"aec70c75520b81d5d576e9dd833f188aeacdffe55e1f4a7f0fdc63df7429cdd4","doc_type":"task","document_id":"019ec0f1-666e-7b83-ba8c-eb3ab4675b3b","new_version":1,"previous_version":null,"slug":"tasks/libsql-baton-refresh","title":"libSQL Hrana baton-refresh: reconnect on invalid baton"}],"created_at":"2026-06-13T12:25:58.098302201Z","id":"019ec0f2-305a-7b92-9002-bd4e82189ab6","message":"task: libsql baton-refresh fix (done, PR #53)"},
+  "content_hash": "a7cb7736a70784bf262672906fef74654e932ad519852341ac56c5dc75011fbf",
+  "hash_version": 3
+}

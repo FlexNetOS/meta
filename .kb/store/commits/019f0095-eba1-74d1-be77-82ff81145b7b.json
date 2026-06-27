@@ -1,0 +1,5 @@
+{
+  "commit": {"author":"repair <noreply@gitkb>","changes":[{"change_type":"modified","content_hash":"a1c10580b1fd7b3a98fd514f3d2176508a1af66a11a54b7b64be7dc970fb1bd1","document_id":"019e9e84-fa29-7982-bb40-202ba4c705b1","new_version":3,"previous_commit_id":"019e9e9d-690f-72e3-b214-594e1a6a9d91","previous_hash":"d9511a38e1705f31466736bfd187b4c8d5437a604dfb7e0b3cdd064245a00856","previous_version":2,"slug":"obsolete/meta-as-source-of-truth-meta-generated-ci-dashboar"}],"created_at":"2026-06-25T21:00:53.025310388Z","id":"019f0095-eba1-74d1-be77-82ff81145b7b","message":"Canonicalize per-doc chain for obsolete/meta-as-source-of-truth-meta-generated-ci-dashboar"},
+  "content_hash": "81fb4e3fd0281b4cd2e08bce0aedcfb3a6fa31f0730083df6dd6adb786380831",
+  "hash_version": 3
+}

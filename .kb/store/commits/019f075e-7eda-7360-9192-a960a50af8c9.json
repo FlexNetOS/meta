@@ -1,0 +1,5 @@
+{
+  "commit": {"author":"FlexNetOS <flexnetos@de-flex.net>","changes":[{"change_type":"created","content_hash":"0bdd93b5d4afc36cdc8bc81158cf645a14429bef58f84f9add2d1db79e64e7de","doc_type":"task","document_id":"019f075e-04ae-7e90-9bc3-c208235cc078","new_version":1,"previous_version":null,"slug":"tasks/claude-component-inventory","title":"Detailed per-component inventory of all active .claude configs"}],"created_at":"2026-06-27T04:37:41.190139537Z","id":"019f075e-7eda-7360-9192-a960a50af8c9","message":"Add deferred task: detailed per-component .claude inventory (follow-up to mcp_hub#5 census)"},
+  "content_hash": "161e2f4eee836f2526a432ae73af1537be2655deb94fccbcca6216c2da4c933e",
+  "hash_version": 3
+}

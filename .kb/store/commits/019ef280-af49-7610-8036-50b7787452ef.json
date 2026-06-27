@@ -1,0 +1,5 @@
+{
+  "commit": {"author":"FlexNetOS <flexnetos@de-flex.net>","changes":[{"change_type":"created","content_hash":"f74a731bea72313972eb716c1982e5983358956ee00c9ec13688efde3f5e7ebd","doc_type":"task","document_id":"019ef27d-f8e0-7ee1-9188-d8f54ad136ca","new_version":1,"previous_version":null,"slug":"tasks/envctl-github-transport-truth","title":"Route verified GitHub transport doctrine into envctl"}],"created_at":"2026-06-23T03:23:00.272914706Z","id":"019ef280-af49-7610-8036-50b7787452ef","message":"Add envctl GitHub transport task"},
+  "content_hash": "fc8b9dfdea291b32e79960be3f8252c843650040d9ac5bb13b7dfdc3f217aa03",
+  "hash_version": 3
+}

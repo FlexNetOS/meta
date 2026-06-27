@@ -1,0 +1,5 @@
+{
+  "commit": {"author":"FlexNetOS <flexnetos@de-flex.net>","changes":[{"change_type":"created","content_hash":"9dcec2e78620a4e21185d73e0eb220a2caffd5167ba322af7a8ae5d9f60ccf36","doc_type":"task","document_id":"019ed918-aadd-7780-aa23-38df3c459a20","new_version":1,"previous_version":null,"slug":"tasks/hftask-0006","title":"RVF ledger v2"}],"created_at":"2026-06-18T05:00:34.513942255Z","id":"019ed91a-3756-7103-88e3-0ca3c0ade0e5","message":"Create task HFTASK-0006: RVF ledger v2\n\nCo-authored-by: Claude <claude@anthropic.com>"},
+  "content_hash": "9c6afbf4fb53e6ac702de4b3cdea12d8de007b91408cad6f9c07a1e2ab2883da",
+  "hash_version": 3
+}

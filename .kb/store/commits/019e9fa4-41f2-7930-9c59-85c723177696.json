@@ -1,0 +1,5 @@
+{
+  "commit": {"author":"FlexNetOS <flexnetos@de-flex.net>","changes":[{"change_type":"created","content_hash":"75468cc04eadbd28cbe7fd7f757f293cfdb069d61f4aabd1573a5f26544820a5","doc_type":"task","document_id":"019e9fa4-194b-7480-b8e7-9b11ca3e56ee","new_version":1,"previous_version":null,"slug":"add-providers","title":"Add providers"}],"created_at":"2026-06-07T01:13:22.669601247Z","id":"019e9fa4-41f2-7930-9c59-85c723177696","message":"Feature request: add providers"},
+  "content_hash": "4228715550772b30a33b19d0b87e5894ba57b827e251b962becef5ba49de9458",
+  "hash_version": 3
+}

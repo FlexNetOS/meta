@@ -1,0 +1,5 @@
+{
+  "commit": {"author":"FlexNetOS <flexnetos@de-flex.net>","changes":[{"change_type":"modified","content_hash":"bca20f49625363252f7d0d42e8caaf370fc24ee42983122a049da7db2bfb0209","doc_type":"task","document_id":"019eed02-acd3-7a53-a5ce-51eeeee0f07e","metadata_changes":[{"field":"status","new_value":"active","old_value":"draft"}],"new_version":2,"previous_commit_id":"019eed03-34b1-7ed2-ab7c-669bd9de3f03","previous_hash":"344462984eeba3fb0ffd6fca09fdd28e9279f1fb65915cdbf4d3d0212c299ab0","previous_version":1,"slug":"tasks/ruvector-archive-retire-stale-clone","title":"Archive + retire the stale RuVector clone (keep compressed safe backup)"}],"created_at":"2026-06-22T01:49:39.512986021Z","id":"019eed04-dd42-7ed2-941f-705d173e864d","message":"handoff write-back: tasks/ruvector-archive-retire-stale-clone claimed → active"},
+  "content_hash": "c0f4061dcbf15f28dedc8574b133b828d5ebefea3c4be6c98fb78f8be64d0f9c",
+  "hash_version": 3
+}

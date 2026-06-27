@@ -1,0 +1,5 @@
+{
+  "commit": {"author":"repair <noreply@gitkb>","changes":[{"change_type":"modified","content_hash":"f82a110d4a8600495bea8ffbf21d2a77e4f6450171e51b56ccc893a7fc4ba5cd","document_id":"019e9ea5-b3db-7481-bc28-d1321a9af09a","new_version":2,"previous_commit_id":"019e9ea6-92f2-73e1-8cd0-4896dac625d7","previous_hash":"745f83ed7a3228176cb55bb4184f7ae9648288f759e94a9a575bda4a470fdbb8","previous_version":1,"slug":"gitkb-to-flexnetos-migration-briefing-26-repos"}],"created_at":"2026-06-25T21:00:52.929977318Z","id":"019f0095-eb41-7b70-adbd-00f6cbbaf033","message":"Canonicalize per-doc chain for gitkb-to-flexnetos-migration-briefing-26-repos"},
+  "content_hash": "0044a687171fa94ff55ccff1c5088844a25a16f2cacf4244563250817cb421b7",
+  "hash_version": 3
+}

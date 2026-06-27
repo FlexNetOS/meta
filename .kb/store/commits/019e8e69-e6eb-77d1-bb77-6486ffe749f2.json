@@ -1,0 +1,5 @@
+{
+  "commit": {"author":"FlexNetOS <flexnetos@de-flex.net>","changes":[{"change_type":"created","content_hash":"7f8d31b52df205457de410b6491db0a33be481195116790ef7b26d72dcb3798d","doc_type":"task","document_id":"019e8e68-835f-77f2-82ee-93a0a55fd011","new_version":1,"previous_version":null,"slug":"tasks/github-meta-refactor","title":"Refactor FlexNetOS/.github umbrella into meta workspace"}],"created_at":"2026-06-03T16:56:05.578135923Z","id":"019e8e69-e6eb-77d1-bb77-6486ffe749f2","message":"Add plan: refactor FlexNetOS/.github umbrella into meta workspace"},
+  "content_hash": "c9c9f36c2783012f0bcdcfbe57ffb3a6486c28748f8b478291a67977557066ae",
+  "hash_version": 3
+}

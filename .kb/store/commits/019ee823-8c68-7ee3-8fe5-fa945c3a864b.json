@@ -1,0 +1,5 @@
+{
+  "commit": {"author":"FlexNetOS <flexnetos@de-flex.net>","changes":[{"change_type":"created","content_hash":"aab5437975424cc04d89673a1453ceab32505ac36624f3b0785ea7f844a4a8c3","doc_type":"task","document_id":"019ee823-0ebd-7d63-8fc0-c54daa5068d2","new_version":1,"previous_version":null,"slug":"tasks/hftask-0058","title":"Serialize RVF-backed ledger v2 tests (fix FsyncFailed flake under workspace parallelism)"}],"created_at":"2026-06-21T03:05:04.349481039Z","id":"019ee823-8c68-7ee3-8fe5-fa945c3a864b","message":"Mint HFTASK-0058: serialize RVF-backed ledger v2 tests (FsyncFailed flake)"},
+  "content_hash": "b34e18bf8b56c24cfd7432e58ba7a185bf8bbe5a43b4da299f060a505bf79ac3",
+  "hash_version": 3
+}

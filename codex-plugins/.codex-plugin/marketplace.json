@@ -1,0 +1,20 @@
+{
+  "name": "flexnetos-codex",
+  "interface": {
+    "displayName": "FlexNetOS Codex"
+  },
+  "plugins": [
+    {
+      "name": "meta",
+      "source": {
+        "source": "local",
+        "path": "./plugins/meta"
+      },
+      "policy": {
+        "installation": "INSTALLED_BY_DEFAULT",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Developer Tools"
+    }
+  ]
+}

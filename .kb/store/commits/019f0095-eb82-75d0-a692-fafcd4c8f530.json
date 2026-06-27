@@ -1,0 +1,5 @@
+{
+  "commit": {"author":"repair <noreply@gitkb>","changes":[{"change_type":"modified","content_hash":"00ef21c34c833a7368f7fb7a81962bfbb81d10887cad833438a92621db322a79","document_id":"019e9eb4-3dd8-7f92-8adc-1c8a9c5105f3","new_version":3,"previous_commit_id":"019e9ec4-9183-7490-997e-24cb33da95d6","previous_hash":"5866d3cf28627a04273c4d75db883c8b5c65df53a9bec7c4cf1a3b7bf60bef5f","previous_version":2,"slug":"obsolete/integrate-top-gitkb-migration-finds-atc-gh-config"}],"created_at":"2026-06-25T21:00:52.994594170Z","id":"019f0095-eb82-75d0-a692-fafcd4c8f530","message":"Canonicalize per-doc chain for obsolete/integrate-top-gitkb-migration-finds-atc-gh-config"},
+  "content_hash": "2712fbef301954d48a567d60f60c583068d7b9068922618e0bc617071e4a8a32",
+  "hash_version": 3
+}
