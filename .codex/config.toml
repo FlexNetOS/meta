@@ -8,6 +8,8 @@ project_doc_max_bytes = 32768
 project_doc_fallback_filenames = ["CLAUDE.md"]
 project_root_markers = [".git", ".meta.yaml"]
 suppress_unstable_features_warning = true
+default_permissions = "meta-workspace"
+
 
 developer_instructions = """
 Strict upgrade policy for this meta workspace:
@@ -18,6 +20,58 @@ Strict upgrade policy for this meta workspace:
 - When asked to fix dirty upgrade state, identify the missing follow-through: manifests, lockfiles, docs, tests, hooks, policy, or commits.
 - Follow `.codex/policies/strict-upgrade.md` and `.codex/rules/strict-upgrade.md`.
 """
+
+
+[permissions.meta-read-only]
+description = "Read-only meta workspace profile with limited network for documentation and source lookup."
+extends = ":read-only"
+
+[permissions.meta-read-only.workspace_roots]
+"/home/drdave/Desktop/meta" = true
+
+[permissions.meta-read-only.network]
+enabled = true
+
+[permissions.meta-read-only.network.domains]
+"developers.openai.com" = "allow"
+"api.openai.com" = "allow"
+"github.com" = "allow"
+"*.github.com" = "allow"
+"objects.githubusercontent.com" = "allow"
+
+[permissions.meta-workspace]
+description = "Default FlexNetOS meta workspace profile: write inside workspace roots, deny env/secrets, allow vetted developer network endpoints."
+extends = ":workspace"
+
+[permissions.meta-workspace.workspace_roots]
+"/home/drdave/Desktop/meta" = true
+
+[permissions.meta-workspace.filesystem.":workspace_roots"]
+"**/.env" = "deny"
+"**/.env.*" = "deny"
+"**/*secret*" = "deny"
+"**/*token*" = "deny"
+".codex" = "read"
+".codex/tmp" = "write"
+".local/share/codex" = "read"
+".local/state/codex" = "write"
+
+[permissions.meta-workspace.network]
+enabled = true
+
+[permissions.meta-workspace.network.domains]
+"api.openai.com" = "allow"
+"developers.openai.com" = "allow"
+"github.com" = "allow"
+"*.github.com" = "allow"
+"objects.githubusercontent.com" = "allow"
+"registry.npmjs.org" = "allow"
+"crates.io" = "allow"
+"static.crates.io" = "allow"
+
+[permissions.meta-full-trusted]
+description = "Explicit high-trust escape hatch for owner-approved meta maintenance only."
+extends = ":danger-full-access"
 
 [features]
 hooks = true
