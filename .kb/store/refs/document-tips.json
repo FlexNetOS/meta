@@ -252,6 +252,11 @@
       "tip_commit_id": "019f091c-c4de-78a2-a3ed-a13de8650a7e"
     },
     {
+      "document_id": "019f0a74-78af-7680-aa2f-eadc22bb7644",
+      "slug": "tasks/meta-fleet-push-sync-path",
+      "tip_commit_id": "019f0a74-78ea-77b1-b190-ffad65b92976"
+    },
+    {
       "document_id": "1f4da360-5cfa-40dd-90f4-2d183ff78fe1",
       "slug": "obsolete/index",
       "tip_commit_id": "019f0095-eb5c-7cd2-a4f9-e51d19feb335"
