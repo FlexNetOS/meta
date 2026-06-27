@@ -48,7 +48,7 @@ This task now also tracks the advanced baseline research loop and the model/swar
 - Merged envctl Rust Codex routing and `codex-global-baseline` component in FlexNetOS/envctl PR #295 (`47774f7c005a694b15faf201ebc8499f980d116a`).
 - Researched official Codex GitHub Action, permissions, and subagents docs plus `RoggeOhta/awesome-codex-cli` and `Yeachan-Heo/oh-my-codex`.
 - Added advanced baseline upgrades: permission profiles, global/project custom agents, Codex Action PR review workflow, research-loop prompt, plugin skill, and research decision document.
-- Added model/swarm routing baseline: background terminal/tool-output limits, generated model catalog entries for `gpt-5.5`, `gpt-5.4-mini`, `gpt-5.4`, `gpt-5.3-codex-spark`, and owner-requested `gpt-5.6-{sol,terra,luna}` aliases; hook wrapper now exports communication, swarm tag, model, background-terminal, and remote-control variables.
+- Added model/swarm routing baseline: background terminal/tool-output limits, generated model catalog entries for `gpt-5.5`, `gpt-5.4-mini`, `gpt-5.4-nano`, `gpt-5.4`, `gpt-5.3-codex-spark`, and owner-requested `gpt-5.6-{sol,terra,luna}` aliases; hook wrapper now exports communication, swarm tag, model, background-terminal, and remote-control variables.
 
 ## Completion Evidence
 
@@ -58,6 +58,6 @@ This task now also tracks the advanced baseline research loop and the model/swar
 - `codex plugin list` shows `meta@flexnetos-codex`, `gitkb@gitkb`, `meta@gitkb`, and `harness@harness-marketplace` installed/enabled.
 - `codex mcp list` shows `meta`, `gitkb`, `icm`, `vox`, `context7`, `weave`, and `openaiDeveloperDocs` enabled.
 - `$CODEX_HOME/config.toml` includes `default_permissions = "meta-workspace"`, permission profiles, `[agents]`, `background_terminal_max_timeout`, `tool_output_token_limit`, and `openaiDeveloperDocs` MCP.
-- `$CODEX_HOME/model-catalog.json` includes `gpt-5.5`, `gpt-5.4-mini`, `gpt-5.4`, `gpt-5.3-codex-spark`, `gpt-5.6-sol`, `gpt-5.6-terra`, and `gpt-5.6-luna`.
+- `$CODEX_HOME/model-catalog.json` includes `gpt-5.5`, `gpt-5.4-mini`, `gpt-5.4-nano`, `gpt-5.4`, `gpt-5.3-codex-spark`, `gpt-5.6-sol`, `gpt-5.6-terra`, and `gpt-5.6-luna`.
 - `$CODEX_HOME/agents/` includes `meta-worker`, `pr-explorer`, `reviewer`, `docs-researcher`, and `codex-baseline-researcher` TOML files.
 - `.codex/hooks/with-meta-env.sh` exports `FXN_AGENT_COMMUNICATION`, `FXN_AGENT_TEAM_SWARM`, `FXN_AGENT_TEAM_SWARM_MODEL_TAGS`, `FXN_CODEX_MODEL_SOL`, `FXN_CODEX_MODEL_TERRA`, `FXN_CODEX_MODEL_LUNA`, and `FXN_CODEX_REMOTE_CONTROL`.
