@@ -1,8 +1,11 @@
 {
   "mcpServers": {
     "meta": {
-      "command": "meta-mcp",
-      "args": []
+      "command": "bash",
+      "args": [
+        "-lc",
+        "ROOT=\"${META_ROOT:-/home/drdave/Desktop/meta}\"; export META_ROOT=\"$ROOT\"; export PATH=\"$ROOT/usr/bin:$ROOT/.local/bin:$PATH\"; for c in \"$ROOT/usr/bin/meta-mcp\" \"$ROOT/.local/bin/meta-mcp\"; do [ -x \"$c\" ] && exec \"$c\"; done; exec meta-mcp"
+      ]
     }
   }
 }
