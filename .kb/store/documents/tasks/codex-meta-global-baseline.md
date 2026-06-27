@@ -11,7 +11,7 @@ priority: medium
 
 Build Codex into a first-class meta agent surface: global Codex settings owned by meta/envctl, a Codex-native meta plugin, complete baseline tools/configs/features, and verification across the meta workspace.
 
-This task now also tracks the advanced baseline research loop: official Codex docs stay primary, community repos are cross-referenced for patterns, and every accepted idea must become an envctl-owned or plugin/project-owned baseline surface with validation.
+This task now also tracks the advanced baseline research loop and the model/swarm routing baseline: official Codex docs stay primary, community repos are cross-referenced for patterns, and every accepted idea must become an envctl-owned or plugin/project-owned baseline surface with validation.
 
 ## Goals
 
@@ -21,6 +21,7 @@ This task now also tracks the advanced baseline research loop: official Codex do
 - Ensure all intended Codex features, MCPs, plugins, hooks, variables, permission profiles, and custom agents are activated/set.
 - Verify every meta repo has the required baseline trust/config coverage.
 - Keep a reusable research loop for future Codex baseline upgrades.
+- Make subagents, helper tools, background terminal limits, model aliases, swarm tags, communication hooks, and remote-control state explicit in the baseline.
 
 ## Acceptance Criteria
 
@@ -35,6 +36,9 @@ This task now also tracks the advanced baseline research loop: official Codex do
 - [x] Focused custom subagents are present project-locally and generated globally.
 - [x] Codex Action PR-review workflow and prompt are present.
 - [x] Reusable baseline research prompt and plugin skill are present.
+- [x] `background_terminal_max_timeout` and `tool_output_token_limit` are set in the global/project Codex baseline.
+- [x] Model catalog includes current public OpenAI/Codex routing plus owner-requested `gpt-5.6-sol`, `gpt-5.6-terra`, and `gpt-5.6-luna` workspace aliases.
+- [x] Hook-launched agent processes receive FlexNetOS communication, swarm model-tag, and remote-control state variables from `.codex/hooks/with-meta-env.sh`.
 
 ## Progress Log
 
@@ -44,6 +48,7 @@ This task now also tracks the advanced baseline research loop: official Codex do
 - Merged envctl Rust Codex routing and `codex-global-baseline` component in FlexNetOS/envctl PR #295 (`47774f7c005a694b15faf201ebc8499f980d116a`).
 - Researched official Codex GitHub Action, permissions, and subagents docs plus `RoggeOhta/awesome-codex-cli` and `Yeachan-Heo/oh-my-codex`.
 - Added advanced baseline upgrades: permission profiles, global/project custom agents, Codex Action PR review workflow, research-loop prompt, plugin skill, and research decision document.
+- Added model/swarm routing baseline: background terminal/tool-output limits, generated model catalog entries for `gpt-5.5`, `gpt-5.4-mini`, `gpt-5.4`, `gpt-5.3-codex-spark`, and owner-requested `gpt-5.6-{sol,terra,luna}` aliases; hook wrapper now exports communication, swarm tag, model, background-terminal, and remote-control variables.
 
 ## Completion Evidence
 
@@ -52,5 +57,7 @@ This task now also tracks the advanced baseline research loop: official Codex do
 - `codex features list` reports all stable/experimental features true.
 - `codex plugin list` shows `meta@flexnetos-codex`, `gitkb@gitkb`, `meta@gitkb`, and `harness@harness-marketplace` installed/enabled.
 - `codex mcp list` shows `meta`, `gitkb`, `icm`, `vox`, `context7`, `weave`, and `openaiDeveloperDocs` enabled.
-- `$CODEX_HOME/config.toml` includes `default_permissions = "meta-workspace"`, permission profiles, `[agents]`, and `openaiDeveloperDocs` MCP.
+- `$CODEX_HOME/config.toml` includes `default_permissions = "meta-workspace"`, permission profiles, `[agents]`, `background_terminal_max_timeout`, `tool_output_token_limit`, and `openaiDeveloperDocs` MCP.
+- `$CODEX_HOME/model-catalog.json` includes `gpt-5.5`, `gpt-5.4-mini`, `gpt-5.4`, `gpt-5.3-codex-spark`, `gpt-5.6-sol`, `gpt-5.6-terra`, and `gpt-5.6-luna`.
 - `$CODEX_HOME/agents/` includes `meta-worker`, `pr-explorer`, `reviewer`, `docs-researcher`, and `codex-baseline-researcher` TOML files.
+- `.codex/hooks/with-meta-env.sh` exports `FXN_AGENT_COMMUNICATION`, `FXN_AGENT_TEAM_SWARM`, `FXN_AGENT_TEAM_SWARM_MODEL_TAGS`, `FXN_CODEX_MODEL_SOL`, `FXN_CODEX_MODEL_TERRA`, `FXN_CODEX_MODEL_LUNA`, and `FXN_CODEX_REMOTE_CONTROL`.

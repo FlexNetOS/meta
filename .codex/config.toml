@@ -8,7 +8,14 @@ project_doc_max_bytes = 32768
 project_doc_fallback_filenames = ["CLAUDE.md"]
 project_root_markers = [".git", ".meta.yaml"]
 suppress_unstable_features_warning = true
+background_terminal_max_timeout = 300000
+tool_output_token_limit = 12000
 default_permissions = "meta-workspace"
+
+# FlexNetOS/meta hook env contract exported by .codex/hooks/with-meta-env.sh:
+# FXN_CODEX_MODEL_DEFAULT=gpt-5.5, FXN_CODEX_MODEL_FAST=gpt-5.4-mini
+# FXN_CODEX_MODEL_SOL=gpt-5.6-sol, FXN_CODEX_MODEL_TERRA=gpt-5.6-terra, FXN_CODEX_MODEL_LUNA=gpt-5.6-luna
+# FXN_AGENT_COMMUNICATION=enabled, FXN_AGENT_TEAM_SWARM=enabled, FXN_CODEX_REMOTE_CONTROL=app-host-required
 
 
 developer_instructions = """
