@@ -1,0 +1,9 @@
+# >>> envctl wild-linker (Epic H TASK-0054) >>>
+[target.x86_64-unknown-linux-gnu]
+linker = "clang"
+rustflags = ["-Clink-arg=--ld-path=wild"]
+# <<< envctl wild-linker (Epic H TASK-0054) <<<
+# >>> envctl kache (Epic H TASK-0055) >>>
+[build]
+rustc-wrapper = "kache"
+# <<< envctl kache (Epic H TASK-0055) <<<
