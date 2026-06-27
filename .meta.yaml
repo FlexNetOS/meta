@@ -130,20 +130,16 @@ projects:
   # --- Extracted operational concerns (new repos) ---
   # flexnetos_secrets RETIRED → envctl (ADR-0007): envctl already owns the vault /
   # secretd / broker / relay + the ProviderMint GitHub-token seam, so a second store
-  # would be split-brain. Empty-repo archival is a NEEDS-HUMAN owner decision.
+  # would be split-brain.
   # flexnetos_github_app + flexnetos_runner are built at P0 per ADR-0008.
+  # flexnetos_wiki + flexnetos_brain REMOVED 2026-06-27 (owner): empty repos (0 commits),
+  # deleted from the org + unregistered. See prompt_hub docs/plans/meta-fleet-integration.md §G7.
   flexnetos_runner:
     repo: git@github.com:FlexNetOS/flexnetos_runner.git
     tags: [ops, runner]
   flexnetos_github_app:
     repo: git@github.com:FlexNetOS/flexnetos_github_app.git
     tags: [ops, github-app]
-  flexnetos_wiki:
-    repo: git@github.com:FlexNetOS/flexnetos_wiki.git
-    tags: [docs]
-  flexnetos_brain:
-    repo: git@github.com:FlexNetOS/flexnetos_brain.git
-    tags: [docs, data]
 
   # --- AI / agent tooling (forks + hubs) ---
   claude-code:
@@ -215,9 +211,7 @@ projects:
   template_hub:
     repo: git@github.com:FlexNetOS/template_hub.git
     tags: [hub, templates]
-  assets:
-    repo: git@github.com:FlexNetOS/assets.git
-    tags: [assets]
+  # assets REMOVED 2026-06-27 (owner): empty repo (0 commits), deleted + unregistered.
   flow_hub:
     repo: git@github.com:FlexNetOS/flow_hub.git
     tags: [hub, flow]
@@ -230,9 +224,7 @@ projects:
   network_hub:
     repo: git@github.com:FlexNetOS/network_hub.git
     tags: [hub, network]
-  my-wiki:
-    repo: git@github.com:FlexNetOS/my-wiki.git
-    tags: [docs, wiki]
+  # my-wiki REMOVED 2026-06-27 (owner): empty repo (0 commits), deleted + unregistered.
   tool_hub:
     repo: git@github.com:FlexNetOS/tool_hub.git
     tags: [hub, tools]
