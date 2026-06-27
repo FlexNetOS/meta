@@ -1,0 +1,5 @@
+{
+  "commit": {"author":"FlexNetOS <flexnetos@de-flex.net>","changes":[{"change_type":"created","content_hash":"bdf4a25e9f4e20bf274ae6bbb02d6205fd8d3bc4fd359f0425ab9c48800a6571","doc_type":"task","document_id":"019f0a74-78af-7680-aa2f-eadc22bb7644","new_version":1,"previous_version":null,"slug":"tasks/meta-fleet-push-sync-path","title":"Find automated meta fleet push/sync path"}],"created_at":"2026-06-27T19:00:33.117262146Z","id":"019f0a74-78ea-77b1-b190-ffad65b92976","message":"task: find meta fleet push sync path"},
+  "content_hash": "793dfa77739ad11db74038ad180e8843fdad3683dc2f6bb8d24a01c093ae31b5",
+  "hash_version": 3
+}
