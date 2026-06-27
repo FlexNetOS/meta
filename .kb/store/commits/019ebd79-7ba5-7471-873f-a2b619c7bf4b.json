@@ -1,0 +1,5 @@
+{
+  "commit": {"author":"FlexNetOS <flexnetos@de-flex.net>","changes":[{"change_type":"created","content_hash":"afde6f7fa5164a82ddd722856a2960b31ac88d853c18f5e50690cdab7c67d483","doc_type":"task","document_id":"019ebd79-097c-7f71-86d1-0f6e06c9c38e","new_version":1,"previous_version":null,"slug":"tasks/fleet-handoff-rollout","title":"Fleet .handoff rollout (P7)"}],"created_at":"2026-06-12T20:15:15.873693306Z","id":"019ebd79-7ba5-7471-873f-a2b619c7bf4b","message":"Plan fleet .handoff rollout (P7) — ADR-0003/0004"},
+  "content_hash": "ddb6842edd823d4d29fc505287c18a28354059be68de08b823532bbb7d43c30e",
+  "hash_version": 3
+}

@@ -1,0 +1,5 @@
+{
+  "commit": {"author":"FlexNetOS <flexnetos@de-flex.net>","changes":[{"change_type":"created","content_hash":"a6377660c0ed73a87a7b6946403ce6204b1e02eea82ad379659d053a92d7e0a2","doc_type":"task","document_id":"019ea301-30b3-7f63-8a6f-d4cd215aae57","new_version":1,"previous_version":null,"slug":"tasks/codex-rust-env","title":"Build Codex Rust environment parity"}],"created_at":"2026-06-07T16:53:48.785421779Z","id":"019ea301-4077-7f31-901b-27d913f8a020","message":"Track Codex Rust environment parity work"},
+  "content_hash": "84e80c2f33701c08746255d7672ed47329d577fc33bf6fdb19c43c5c9bbf7195",
+  "hash_version": 3
+}

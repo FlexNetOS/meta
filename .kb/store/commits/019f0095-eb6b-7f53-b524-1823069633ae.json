@@ -1,0 +1,5 @@
+{
+  "commit": {"author":"repair <noreply@gitkb>","changes":[{"change_type":"modified","content_hash":"473ba7eda33a35816dbb7c8b7d81c57a1a80b1ba652169c1b53cf0101f3cd599","document_id":"019e9fa8-46c8-7302-a3dd-6aac239b6728","new_version":2,"previous_commit_id":"019e9fa8-95cb-7942-8566-c89057ef9a40","previous_hash":"f087320b162b01b648e2fa4562920006b2b7119e9ebb42a08bff0b68d9005a0e","previous_version":1,"slug":"obsolete/install-kimi-and-ollama-for-meta-workspace"}],"created_at":"2026-06-25T21:00:52.971500609Z","id":"019f0095-eb6b-7f53-b524-1823069633ae","message":"Canonicalize per-doc chain for obsolete/install-kimi-and-ollama-for-meta-workspace"},
+  "content_hash": "bb07f4ab35e5432286ee3164cfd81501216e2b4f4172afe539d37f3a80a624a8",
+  "hash_version": 3
+}

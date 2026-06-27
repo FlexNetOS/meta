@@ -1,0 +1,5 @@
+{
+  "commit": {"author":"repair <noreply@gitkb>","changes":[{"change_type":"created","content_hash":"c8b6d5d9f87c7f7fd5f2dbbfc6d98b5a5c9bec37bd4c380dea99dbce42ea1c7b","document_id":"1f4da360-5cfa-40dd-90f4-2d183ff78fe1","new_version":1,"previous_version":null,"slug":"obsolete/index"}],"created_at":"2026-06-25T21:00:52.956243424Z","id":"019f0095-eb5c-7cd2-a4f9-e51d19feb335","message":"Canonicalize per-doc chain for obsolete/index"},
+  "content_hash": "a83a6ffebd5f8a131b5170ca48eaa57a025ea6e85433651dc32fbaba3d3397e8",
+  "hash_version": 3
+}

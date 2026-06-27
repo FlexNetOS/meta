@@ -1,0 +1,5 @@
+{
+  "commit": {"author":"FlexNetOS <flexnetos@de-flex.net>","changes":[{"change_type":"created","content_hash":"7899b253fee059f5dd9539b3fcebc8b93da4a1d0f7afd0d2bc3a1fa112f64210","doc_type":"task","document_id":"019e9ea4-4ae1-7753-9ddd-5add1e705149","new_version":1,"previous_version":null,"slug":"rename-claude-code-plugin-marketplace-gitkb-flexne","title":"Rename Claude Code plugin marketplace gitkb -> flexnetos"}],"created_at":"2026-06-06T20:34:19.168200237Z","id":"019e9ea4-c5ad-7f63-8c49-4f01d6b656a6","message":"Add follow-up task: rename plugin marketplace gitkb -> flexnetos (deferred from org fix)"},
+  "content_hash": "8896a3f4f0213c958ae6d65ec327969c22cba7a3ded70b1e6f3934376c11fa6c",
+  "hash_version": 3
+}

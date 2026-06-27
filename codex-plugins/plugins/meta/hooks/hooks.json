@@ -1,0 +1,66 @@
+{
+  "description": "FlexNetOS meta hooks for Codex plugin sessions",
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "rtk bash -lc 'd=${META_ROOT:-$PWD}; while [ \"$d\" != / ]; do [ -f \"$d/.meta.yaml\" ] || [ -f \"$d/.meta.yml\" ] || [ -f \"$d/.meta\" ] && break; d=$(dirname \"$d\"); done; [ \"$d\" != / ] || exit 0; cd \"$d\" && rtk meta context >/dev/null 2>/dev/null || true'",
+            "timeout": 10,
+            "statusMessage": "Loading FlexNetOS meta context"
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "rtk bash -lc 'd=${META_ROOT:-$PWD}; while [ \"$d\" != / ]; do [ -f \"$d/.meta.yaml\" ] || [ -f \"$d/.meta.yml\" ] || [ -f \"$d/.meta\" ] && break; d=$(dirname \"$d\"); done; [ \"$d\" != / ] || exit 0; [ -x \"$d/agent/target/debug/agent\" ] || exit 0; exec \"$d/agent/target/debug/agent\" guard'",
+            "timeout": 5,
+            "statusMessage": "Checking FlexNetOS destructive command policy"
+          }
+        ]
+      }
+    ],
+    "PreCompact": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "rtk meta context >/dev/null 2>/dev/null || true",
+            "timeout": 10,
+            "statusMessage": "Refreshing FlexNetOS meta context"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "rtk bash -lc 'd=${META_ROOT:-$PWD}; while [ \"$d\" != / ]; do [ -f \"$d/.meta.yaml\" ] || [ -f \"$d/.meta.yml\" ] || [ -f \"$d/.meta\" ] && break; d=$(dirname \"$d\"); done; [ \"$d\" != / ] || exit 0; [ -x \"$d/agent/target/debug/agent\" ] || exit 0; exec \"$d/agent/target/debug/agent\" codex stop'",
+            "timeout": 30,
+            "statusMessage": "Checking FlexNetOS Codex handoff"
+          }
+        ]
+      }
+    ],
+    "SubagentStop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "rtk bash -lc 'd=${META_ROOT:-$PWD}; while [ \"$d\" != / ]; do [ -f \"$d/.meta.yaml\" ] || [ -f \"$d/.meta.yml\" ] || [ -f \"$d/.meta\" ] && break; d=$(dirname \"$d\"); done; [ \"$d\" != / ] || exit 0; [ -x \"$d/agent/target/debug/agent\" ] || exit 0; exec \"$d/agent/target/debug/agent\" codex stop'",
+            "timeout": 30,
+            "statusMessage": "Checking FlexNetOS Codex subagent handoff"
+          }
+        ]
+      }
+    ]
+  }
+}

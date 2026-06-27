@@ -1,0 +1,5 @@
+{
+  "commit": {"author":"FlexNetOS <flexnetos@de-flex.net>","changes":[{"change_type":"created","content_hash":"0db4a855a061b7bd0ae540658f46eb787a68661cc6b48f77b4736b834f9e7da6","doc_type":"incident","document_id":"019ebd8e-0a38-7560-a858-4c08c4193984","new_version":1,"previous_version":null,"slug":"incidents/kb-workspace-sync-silent-drop","title":"kb workspace edits silently dropped: status/diff/commit see clean while disk differs"}],"created_at":"2026-06-12T20:37:50.844538287Z","id":"019ebd8e-2880-7e43-a31a-50a8072e8846","message":"Report incident: kb workspace edits silently dropped (status/commit see clean while disk differs; task bodies empty after commit)"},
+  "content_hash": "bc3d66490d52ab2dca3f2c77169451b6b6942579f7661f5445f13e7bcd7da472",
+  "hash_version": 3
+}

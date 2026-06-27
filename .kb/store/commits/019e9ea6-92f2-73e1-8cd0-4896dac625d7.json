@@ -1,0 +1,5 @@
+{
+  "commit": {"author":"FlexNetOS <flexnetos@de-flex.net>","changes":[{"change_type":"created","content_hash":"745f83ed7a3228176cb55bb4184f7ae9648288f759e94a9a575bda4a470fdbb8","doc_type":"reference","document_id":"019e9ea5-b3db-7481-bc28-d1321a9af09a","new_version":1,"previous_version":null,"slug":"gitkb-to-flexnetos-migration-briefing-26-repos","title":"gitkb to FlexNetOS migration briefing (26 repos)"}],"created_at":"2026-06-06T20:36:17.232241596Z","id":"019e9ea6-92f2-73e1-8cd0-4896dac625d7","message":"Add gitkb->FlexNetOS migration briefing (26 repos, research team + verified drift check)"},
+  "content_hash": "b6d766194e3011098deff0ea76a4c232ce37ca9f7b4286245414352e70efa38c",
+  "hash_version": 3
+}

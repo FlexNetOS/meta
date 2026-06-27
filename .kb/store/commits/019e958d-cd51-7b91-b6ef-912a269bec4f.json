@@ -1,0 +1,5 @@
+{
+  "commit": {"author":"FlexNetOS <flexnetos@de-flex.net>","changes":[{"change_type":"created","content_hash":"e69ee65d7f1236529cce2cc600367da5b4f7cb869b9d592ad49b66854e634337","doc_type":"note","document_id":"019e958d-cd51-7b91-b6ef-9132a433fbc4","new_version":1,"previous_version":null,"slug":"tasks/doctor-json-flag","title":"Spec: `lane doctor --json`"}],"created_at":"2026-06-05T02:12:38.848767593Z","id":"019e958d-cd51-7b91-b6ef-912a269bec4f","message":"Spec: lane doctor --json"},
+  "content_hash": "0b96132ce7a1a4dc93a45097aa260af720796065d33e9f7295e740f12ef4408f",
+  "hash_version": 3
+}

@@ -1,0 +1,5 @@
+{
+  "commit": {"author":"repair <noreply@gitkb>","changes":[{"change_type":"modified","content_hash":"caff4d2bbf6d875637459ce367948a8afa5b321539792606611a6f644252ca04","document_id":"019e9fa4-194b-7480-b8e7-9b11ca3e56ee","new_version":2,"previous_commit_id":"019e9fa4-41f2-7930-9c59-85c723177696","previous_hash":"75468cc04eadbd28cbe7fd7f757f293cfdb069d61f4aabd1573a5f26544820a5","previous_version":1,"slug":"obsolete/add-providers"}],"created_at":"2026-06-25T21:00:52.945298619Z","id":"019f0095-eb51-7691-8a56-9c067a1ab0b3","message":"Canonicalize per-doc chain for obsolete/add-providers"},
+  "content_hash": "0cb6831c20260c4ea6acf347a1e79c40ec05c68e58d127d91933094c0dd370ca",
+  "hash_version": 3
+}

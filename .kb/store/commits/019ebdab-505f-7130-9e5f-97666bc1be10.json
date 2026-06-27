@@ -1,0 +1,5 @@
+{
+  "commit": {"author":"FlexNetOS <flexnetos@de-flex.net>","changes":[{"change_type":"created","content_hash":"40eb8cb7900bcc4b5dcabf1243e7d68bd2b64dd0c4d4f32de7a5a23b00c3639b","doc_type":"incident","document_id":"019ebda8-e63b-78c0-aae7-740a4bbdc58e","new_version":1,"previous_version":null,"slug":"incidents/repowire-unit-crash-loop","title":"repowire.service crash-loops: binary absent, 268MB daemon.log"}],"created_at":"2026-06-12T21:09:41.590735444Z","id":"019ebdab-505f-7130-9e5f-97666bc1be10","message":"Incident: repowire crash-loop documented + unit disabled (reversible)"},
+  "content_hash": "7706abdcdf3f1e456a18a1b0c637cf7e6528d0e98e3374f284619be9f494120b",
+  "hash_version": 3
+}

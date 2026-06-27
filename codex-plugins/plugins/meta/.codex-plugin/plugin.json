@@ -1,0 +1,39 @@
+{
+  "name": "meta",
+  "version": "0.1.0",
+  "description": "First-class Codex support for the FlexNetOS meta workspace: meta CLI skills, GitKB memory, MCP routing, and upgrade-safe hooks.",
+  "author": {
+    "name": "FlexNetOS",
+    "url": "https://github.com/FlexNetOS"
+  },
+  "homepage": "https://github.com/FlexNetOS/meta",
+  "repository": "https://github.com/FlexNetOS/meta",
+  "license": "MIT",
+  "keywords": [
+    "codex",
+    "meta",
+    "multi-repo",
+    "gitkb",
+    "flexnetos"
+  ],
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json",
+  "interface": {
+    "displayName": "FlexNetOS Meta",
+    "shortDescription": "Meta workspace tools for Codex.",
+    "longDescription": "Adds Codex-native skills and MCP routing for FlexNetOS meta workspaces, including meta CLI discipline, GitKB-backed context, cross-repo safety, and upgrade-preserving hooks.",
+    "developerName": "FlexNetOS",
+    "category": "Developer Tools",
+    "capabilities": [
+      "MCP",
+      "Skills",
+      "Hooks",
+      "Multi-repo"
+    ],
+    "defaultPrompt": [
+      "Show meta workspace status.",
+      "Plan a safe cross-repo change.",
+      "Load GitKB context for this task."
+    ]
+  }
+}

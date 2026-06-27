@@ -1,0 +1,5 @@
+{
+  "commit": {"author":"FlexNetOS <flexnetos@de-flex.net>","changes":[{"change_type":"modified","content_hash":"3f802e15610c3f45c506720d666f48c3d07c2c87ae771f1c4f3aa01d8c305b32","doc_type":"task","document_id":"019eed02-ace4-7d71-bfc4-93ab0bdfaada","metadata_changes":[{"field":"status","new_value":"active","old_value":"draft"}],"new_version":2,"previous_commit_id":"019eed03-34b1-7ed2-ab7c-669bd9de3f03","previous_hash":"3f6f06e3778633b3446248bd4dffeb6c8a935c5c80ac6486143e6da5efa08167","previous_version":1,"slug":"tasks/teri-meta-workspace-root-fix","title":"Fix teri<->meta workspace-root conflict (teri is a nested workspace, not a meta member)"}],"created_at":"2026-06-22T02:07:22.512750340Z","id":"019eed15-1599-73a1-8ae4-dd356592574c","message":"handoff write-back: tasks/teri-meta-workspace-root-fix claimed → active"},
+  "content_hash": "86e34b5c5e69d704e993aba4f4b2af777339d8b28b146fd382903e59ba897030",
+  "hash_version": 3
+}
