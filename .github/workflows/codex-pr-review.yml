@@ -1,0 +1,74 @@
+name: Codex PR review
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, ready_for_review]
+  workflow_dispatch:
+    inputs:
+      ref:
+        description: Optional ref to review
+        required: false
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  codex-review:
+    if: ${{ github.event_name == 'workflow_dispatch' || github.event.pull_request.head.repo.full_name == github.repository }}
+    runs-on: ubuntu-latest
+    outputs:
+      final_message: ${{ steps.run_codex.outputs.final-message }}
+    env:
+      OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: ${{ github.event.inputs.ref || (github.event_name == 'pull_request' && format('refs/pull/{0}/merge', github.event.pull_request.number) || github.ref) }}
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Skip when OpenAI key is unavailable
+        if: ${{ env.OPENAI_API_KEY == '' }}
+        run: echo "OPENAI_API_KEY is not configured; skipping Codex review."
+
+      - name: Run Codex review
+        id: run_codex
+        if: ${{ env.OPENAI_API_KEY != '' }}
+        uses: openai/codex-action@v1
+        with:
+          openai-api-key: ${{ env.OPENAI_API_KEY }}
+          prompt-file: .github/codex/prompts/review.md
+          output-file: codex-output.md
+          sandbox: read-only
+          safety-strategy: drop-sudo
+          codex-args: '["--output-schema", "{\"type\":\"object\",\"properties\":{\"summary\":{\"type\":\"string\"},\"findings\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"severity\":{\"type\":\"string\"},\"path\":{\"type\":\"string\"},\"line\":{\"type\":\"integer\"},\"issue\":{\"type\":\"string\"},\"recommendation\":{\"type\":\"string\"}},\"required\":[\"severity\",\"path\",\"issue\",\"recommendation\"],\"additionalProperties\":false}}},\"required\":[\"summary\",\"findings\"],\"additionalProperties\":false}"]'
+
+      - name: Upload Codex review artifact
+        if: ${{ always() && hashFiles('codex-output.md') != '' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: codex-review
+          path: codex-output.md
+
+  post-feedback:
+    if: ${{ github.event_name == 'pull_request' && needs.codex-review.outputs.final_message != '' }}
+    needs: codex-review
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+      pull-requests: write
+    steps:
+      - name: Post Codex feedback
+        uses: actions/github-script@v7
+        env:
+          CODEX_FINAL_MESSAGE: ${{ needs.codex-review.outputs.final_message }}
+        with:
+          github-token: ${{ github.token }}
+          script: |
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.payload.pull_request.number,
+              body: process.env.CODEX_FINAL_MESSAGE,
+            });

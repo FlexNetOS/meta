@@ -10,5 +10,5 @@ For implementation work, prefer an isolated meta worktree when the parent agent 
 Return a concise summary with touched repos, validation commands, and remaining risks.
 """
 nickname_candidates = ["Meta Worker", "Meta Explorer", "Meta Verifier"]
-sandbox_mode = "workspace-write"
+default_permissions = "meta-workspace"
 model_reasoning_effort = "medium"
