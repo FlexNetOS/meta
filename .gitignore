@@ -165,6 +165,9 @@ meta-hardware/
 RuVector
 ruflo/
 shimmy/
+cellm/
+cuda-oxide/
+inferrs/
 teri/
 kasetto/
 vox/
