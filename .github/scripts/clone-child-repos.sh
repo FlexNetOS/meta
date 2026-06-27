@@ -103,4 +103,11 @@ clone_child shimmy
 # envctl — meta's environment manager. Excluded from the root [workspace] (it owns its own
 # workspace for its no-C pins) but built/tested in the dedicated `envctl` CI job below, which
 # needs it cloned at meta/envctl so its path-deps (loop_lib, meta_plugin_protocol) resolve.
-clone_child envctl
+# Windows cannot check out envctl today because that repo deliberately contains Codex prompt
+# filenames with ':' (invalid on NTFS). The root meta workspace does not include envctl, and the
+# dedicated envctl CI job is Linux-only, so skip only this non-workspace child on Windows.
+if [[ "${RUNNER_OS:-}" == "Windows" ]]; then
+  echo "Skipping envctl clone on Windows (not a root workspace member; contains NTFS-invalid prompt filenames)"
+else
+  clone_child envctl
+fi
