@@ -11,6 +11,9 @@ The previous meta env audit concluded that Nix/Yazelix must be treated as an exp
 
 The research pass found that `nix-portable` already solves the key missing primitive: a rootless, installation-free Nix with `/nix/store` virtualized from a user-selected location via `NP_LOCATION`, using `nix`, `bwrap`, or `proot`. Bundlers such as `nix bundle`, nix-bundle, nix-appimage, and nix-bundle-dir solve immutable distribution shapes, but they do not replace mutable profile/update/config ownership for the everyday Yazelix developer runtime.
 
+
+Verification update (2026-06-28): envctl already has an additive `nix-portable` component in `envctl/manifest/components.d/epic-h-toolchains.toml`. This ADR therefore requires reusing that component as the first provider implementation. A new payload root or installer must not be built from scratch before the existing component is classified, wrapped, and proof-tested.
+
 ## Decision
 
 Introduce a `YazelixRuntimeProvider` adapter in envctl with three lanes:

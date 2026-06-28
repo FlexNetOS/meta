@@ -26,7 +26,8 @@ Deep research corrective path for Yazelix Nix-store confinement and portability 
 - [x] Plan names the corrective bridge and provider lanes.
 - [x] Plan includes concrete filesystem roots, provider env, and verification criteria.
 - [x] ROADMAP and draft ADR are promoted.
-- [ ] Feature Forge implementation builds the provider detector/wrapper/proof harness.
+- [x] Verification confirms envctl already has a nix-portable component to reuse.
+- [ ] Feature Forge implementation reuses envctl's existing nix-portable component and builds the provider detector/wrapper/proof harness.
 
 ## Context
 
@@ -38,3 +39,4 @@ Deep research corrective path for Yazelix Nix-store confinement and portability 
 ## Progress Log
 
 - 2026-06-28: Researched current Yazelix docs, nix-portable, nix-bundle, nix-appimage, nix-bundle-dir, and Nix bundle docs. Concluded the bridge is a `YazelixRuntimeProvider` adapter with `system-nix`, `nix-portable`, and `bundle` lanes; nix-portable is the confinement/portability lane, bundle tools are release-artifact lanes.
+- 2026-06-28: Verification pass found envctl already has `[[component]] id = "nix-portable"` in `envctl/manifest/components.d/epic-h-toolchains.toml`; implementation must reuse that component and add provider classification/wrapper/proof rather than building nix-portable support from scratch. Verification report: `.handoff/loop/plan/reports/yazelix-nix-portable-reuse-verification.md`.

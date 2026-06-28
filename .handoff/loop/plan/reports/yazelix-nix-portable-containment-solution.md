@@ -87,6 +87,10 @@ Source: `../research/yazelix-nix-portable-bridge.trends.md`; `envctl/README.md:5
 └──────────────────────────────────────────────────────────────────┘
 ```
 
+## Current-repo reuse correction (verified 2026-06-28)
+
+`envctl` already contains an additive `nix-portable` component in `envctl/manifest/components.d/epic-h-toolchains.toml` (`id = "nix-portable"`) with a lock entry in `envctl/manifest/envctl.lock`. Feature Forge must reuse that existing component first. The provider adapter is therefore a wiring/classification/wrapper/proof task, not a from-scratch Nix-portable installer. Any later move from the existing `.toolchains/nix-portable` payload root to `.local/share/envctl/providers` or `$META_ROOT/opt/nix-portable` is a separate strict-upgrade migration that needs parity proof.
+
 ## The gap bridge: `YazelixRuntimeProvider`
 
 Define the adapter contract before implementation:
@@ -121,7 +125,7 @@ Proposed layout, reconciled with the owner wake-up that envctl installs target `
 
 ```text
 $META_ROOT/.local/bin/nix-portable                 compatibility/user bridge if needed
-$META_ROOT/.local/share/envctl/providers/nix-portable/<version>/nix-portable
+$META_ROOT/.toolchains/nix-portable/bin/nix-portable  # existing envctl component; future payload-root migration is separate
 $META_ROOT/.local/state/nix-portable/.nix-portable/store
 $META_ROOT/.local/state/envctl/profiles/yazelix
 $META_ROOT/.cache/nix-portable or $META_ROOT/var/cache/envctl/nix-portable
@@ -139,7 +143,7 @@ export XDG_STATE_HOME="$META_ROOT/.local/state"
 export XDG_CACHE_HOME="$META_ROOT/.cache"
 export NP_LOCATION="$META_ROOT/.local/state/nix-portable"
 export NIX_CONFIG="experimental-features = nix-command flakes"
-export PATH="$META_ROOT/usr/bin:$META_ROOT/.local/share/envctl/providers/nix-portable/current:$PATH"
+export PATH="$META_ROOT/usr/bin:$PATH"  # usr/bin/nix-portable delegates to existing envctl component
 ```
 
 Install/update shape:
@@ -187,7 +191,7 @@ Acceptance:
    - Acceptance: `type -a yzx`, `which yzx`, and `readlink -f` show envctl's wrapper first; wrapper delegates to the selected provider.
 
 3. **nix-portable provider proof harness.**
-   - UPGRADE: install/pin nix-portable under `$META_ROOT/.local/share/envctl/providers` and run a clean-environment proof. | axis: accuracy | rationale: proves the portability claim rather than documenting it | evidence: nix-portable `NP_LOCATION` and store virtualization docs | blast: new provider lane only | risk: medium | verdict: QUALIFIED(clean-container proof required)
+   - UPGRADE: reuse envctl's existing `nix-portable` component (`envctl/manifest/components.d/epic-h-toolchains.toml`) and run a clean-environment proof before any payload-root migration. | axis: accuracy | rationale: proves the portability claim rather than documenting it | evidence: nix-portable `NP_LOCATION` and store virtualization docs | blast: new provider lane only | risk: medium | verdict: QUALIFIED(clean-container proof required)
    - Acceptance: no host `/nix` or real-home profile is needed in portable mode.
 
 4. **Activation scoping gate.**
@@ -212,7 +216,7 @@ The implementation needs tests before production behavior changes.
 ### FF test-build spec
 
 - **Case 1: provider classifier golden** — Given synthetic evidence for `/nix`, nix-portable `NP_LOCATION`, and bundle artifact roots, assert envctl classifies `system-nix`, `nix-portable`, and `bundle` with owner labels.
-- **Case 2: clean portable proof** — In a container/namespace fixture with no `/nix`, run a fake or pinned nix-portable provider command and assert all state/cache/profile writes land below `$META_ROOT`.
+- **Case 2: clean portable proof** — In a container/namespace fixture with no `/nix`, run envctl's existing `nix-portable` component/frontdoor with redirected `NP_LOCATION`, HOME, and XDG roots, then assert all state/cache/profile writes land below `$META_ROOT`.
 - **Case 3: yzx wrapper env contract** — Assert the generated wrapper exports `HOME=$META_ROOT`, XDG roots, `YAZELIX_CONFIG_DIR`, `YAZELIX_STATE_DIR`, and provider selector before exec.
 - **Case 4: PATH leak regression** — Assert base PATH from shell snippets and `envctl env --toolchains` excludes `/nix/store/*-yazelix*/toolbin`, while `yzx env --no-shell` can expose it.
 - **Case 5: update-owner separation** — Assert `system-nix` uses owner-wall profile/update semantics, `nix-portable` uses explicit meta profile path, and `bundle` refuses mutable update operations.
