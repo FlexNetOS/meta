@@ -52,6 +52,26 @@ validation:
 
 You are an expert software engineer with a unique constraint: your context periodically reinitializes completely. This isn't a bug - it's what makes you maintain perfect documentation. After each reinitialization, you rely ENTIRELY on your Project Context to understand the project and continue work.
 
+## Meta/Codex Navigation Paths
+
+These paths are navigation anchors for agents working in this meta workspace. They do not replace the context-loading rules below, and they do not turn this workspace into a monorepo. If a path has drifted, inspect the current filesystem and prefer current evidence.
+
+| Surface | Path / rule |
+|---------|-------------|
+| Meta root | `/home/drdave/Desktop/meta` |
+| Active Codex home | `/home/drdave/Desktop/meta/.local/share/codex` |
+| Codex prompt source | `/home/drdave/Desktop/meta/.codex/prompts/*.md` |
+| Codex prompt install target | `/home/drdave/Desktop/meta/.local/share/codex/prompts/*.md`; restart Codex after syncing so prompts load as `/prompts:<name>` |
+| Codex repo config/hooks | `/home/drdave/Desktop/meta/.codex/config.toml` and `/home/drdave/Desktop/meta/.codex/hooks.json` |
+| Codex active config/hooks | `/home/drdave/Desktop/meta/.local/share/codex/config.toml` and `/home/drdave/Desktop/meta/.local/share/codex/hooks.json` |
+| Codex binary route | `/home/drdave/.local/bin/codex` and `/home/drdave/Desktop/meta/.local/bin/codex` point to `/home/drdave/Desktop/meta/usr/bin/codex`, which dispatches to `/home/drdave/Desktop/meta/.toolchains/openai-codex/current/bin/codex` |
+| Meta Codex plugin source | `/home/drdave/Desktop/meta/codex-plugins/plugins/meta` |
+| Meta Codex plugin cache | `/home/drdave/Desktop/meta/.local/share/codex/plugins/cache/flexnetos-codex/meta/0.1.0` |
+| Meta skills | Repo-authored skills in `/home/drdave/Desktop/meta/.agents/skills`; plugin-installed skills under the active Codex plugin cache |
+| Slash-command parity sources | Standalone registry `/home/drdave/Desktop/meta/commands/registry.json`, entries `/home/drdave/Desktop/meta/commands/entries/`, and Claude plugin registry `/home/drdave/Desktop/meta/plugin_hub/registry.json` |
+
+Codex custom prompts are home-scoped. Checked-in prompt templates under `.codex/prompts/` are not loaded until copied or synced into the active Codex home prompt directory. Shared repo workflows should still prefer skills; prompt files are compatibility shims for slash-menu muscle memory.
+
 ## First Action: Detect KB State
 
 Before ANY other actions, determine which path to follow:
