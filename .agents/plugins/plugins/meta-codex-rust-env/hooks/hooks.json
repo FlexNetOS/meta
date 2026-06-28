@@ -1,5 +1,4 @@
 {
-  "description": "Plugin-bundled mirror of the project Codex hooks. Project .codex/hooks.json is the active local source; this file lets the plugin expose the same lifecycle surface.",
   "hooks": {
     "PreToolUse": [
       {

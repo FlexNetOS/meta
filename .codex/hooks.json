@@ -1,5 +1,4 @@
 {
-  "description": "Codex hooks for the FlexNetOS meta workspace; mirrors the active .claude hook surface and enforces upgrade-preserving workspace discipline.",
   "hooks": {
     "SessionStart": [
       {

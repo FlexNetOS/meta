@@ -1,4 +1,3 @@
 {
-  "description": "Multi-repo workspace safety hooks for the meta CLI",
   "hooks": {}
 }
