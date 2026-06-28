@@ -17,7 +17,7 @@ The prior Harmony correction repeated the same mistake it documented: failed/emp
 - [x] Reports/ADR/spec/KB distinguish opened evidence from unverified or failed retrieval.
 - [x] Source evidence ledger lists exact opened sources for .context, obsolete KB docs, .handoff census, and GitHub redirects.
 - [x] Anti-repeat rule says failed retrieval means stop/no claim/no completion.
-- [ ] Root commit and PR head verified after fix.
+- [x] Root commit and PR head verified after fix.
 
 ## Links
 
@@ -38,3 +38,9 @@ The prior Harmony correction repeated the same mistake it documented: failed/emp
 - Updated the gap report and ADR to downgrade unverified registry/key and bundle-performance claims.
 - Updated KB incident/task/spec so failed retrieval blocks claims, commits-as-complete, and completion.
 
+
+## Completion Evidence
+
+- Root commit: `5d8479a3c345a28bf120028ed0719805889f1cc8` (`docs: add Harmony evidence gate correction`).
+- PR: https://github.com/FlexNetOS/meta/pull/91 at head `5d8479a3c345a28bf120028ed0719805889f1cc8` when verified.
+- Verification: `git diff --cached --check` passed before commit; branch push updated origin; `gh pr view` reported PR #91 head and last commit as `5d8479a3c345a28bf120028ed0719805889f1cc8`.
