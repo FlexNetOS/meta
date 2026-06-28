@@ -29,7 +29,9 @@ require_file .kb/.gitignore
 
 require_grep '^\[mcp_servers\.gitkb\]' .codex/config.toml 'Codex gitkb MCP server stanza'
 require_grep 'command[[:space:]]*=[[:space:]]*"git"' .codex/config.toml 'Codex gitkb MCP command'
-require_grep 'args[[:space:]]*=[[:space:]]*\[[[:space:]]*"kb"[[:space:]]*,[[:space:]]*"mcp"[[:space:]]*\]' .codex/config.toml 'Codex gitkb MCP args'
+require_grep 'args[[:space:]]*=[[:space:]]*\[[[:space:]]*"kb"[[:space:]]*,[[:space:]]*"mcp"([[:space:]]*,[[:space:]]*"[^"]+")*[[:space:]]*\]' .codex/config.toml 'Codex gitkb MCP args'
+require_grep '"--force"' .codex/config.toml 'Codex gitkb MCP force flag'
+require_grep '"--quiet"' .codex/config.toml 'Codex gitkb MCP quiet flag'
 
 require_grep 'git kb service' .codex/hooks.json 'Codex git-kb service hook'
 require_grep 'service[[:space:]]+(start|serve)' .codex/hooks.json 'Codex git-kb service start hook'

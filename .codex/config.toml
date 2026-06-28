@@ -36,9 +36,12 @@ required = false
 startup_timeout_sec = 10
 tool_timeout_sec = 60
 
+[mcp_servers.meta.tools.meta_get_file_tree]
+approval_mode = "approve"
+
 [mcp_servers.gitkb]
 command = "git"
-args = ["kb", "mcp"]
+args = ["kb", "mcp", "--force", "--quiet"]
 enabled = true
 required = false
 startup_timeout_sec = 10
