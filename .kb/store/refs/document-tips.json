@@ -5,6 +5,36 @@
       "document_id": "019f0ef2-9067-7e72-873e-0e22b6c73ac7",
       "slug": "incidents/foundation-drift-kb-first-redirect",
       "tip_commit_id": "019f0ef2-b8b0-7f43-a68f-34c3eed843dd"
+    },
+    {
+      "document_id": "019f0f63-2670-7bb3-ab3d-5e5879945559",
+      "slug": "incidents/harmony-correction-evidence-gate-failure",
+      "tip_commit_id": "019f0f65-64be-7510-8466-194aac51d2e4"
+    },
+    {
+      "document_id": "019f0f59-4fa3-7000-9fe8-ecd4474057e3",
+      "slug": "incidents/harmony-source-truth-gap-hunt-correction",
+      "tip_commit_id": "019f0f63-f017-75c0-ba6b-eeddf210fffc"
+    },
+    {
+      "document_id": "019f0f50-71d7-7551-861a-620670e237f5",
+      "slug": "specs/envctl-database-first-release-control-plane",
+      "tip_commit_id": "019f0f63-f017-75c0-ba6b-eeddf210fffc"
+    },
+    {
+      "document_id": "019f0f04-a973-76e1-9da6-e70b1c7a227e",
+      "slug": "tasks/meta-env-layout-containment-audit",
+      "tip_commit_id": "019f0f04-bc3b-78d1-8b04-d7d5b6139725"
+    },
+    {
+      "document_id": "019f0f4f-5c97-7c10-8c31-c4cdfcf62d00",
+      "slug": "tasks/meta-harmony-portable-release-envctl-db-first",
+      "tip_commit_id": "019f0f63-f017-75c0-ba6b-eeddf210fffc"
+    },
+    {
+      "document_id": "019f0f2c-5586-7f63-8240-6beb538a7f65",
+      "slug": "tasks/yazelix-nix-portable-containment-bridge",
+      "tip_commit_id": "019f0f3a-eeca-7740-8627-b4e689cb1d4a"
     }
   ]
 }

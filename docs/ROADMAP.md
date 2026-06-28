@@ -1,0 +1,10 @@
+# Roadmap
+
+| Date | Target | Recommendation | Confidence | Upgrades (by axis) | Plan |
+|------|--------|----------------|------------|--------------------|------|
+| 2026-06-28 | meta-env-install | Keep envctl FHS/XDG root; converge frontdoors; classify Nix/Yazelix as host-prereq provider with meta activation wrapper | High | quality:4 speed:0 accuracy:0 governance+settings+config:2 | [plan](../.handoff/loop/plan/reports/meta-env-install-containment-plan.md) |
+| 2026-06-28 | meta-env-install | test-build: 5 cases closing layout/PATH/Nix-owner/generated-root coverage gaps | accuracy:2 quality:3 | → Feature Forge | [test plan](../.handoff/loop/plan/reports/meta-env-install-containment-plan.md#test-strategy--coverage) |
+| 2026-06-28 | yazelix-nix-portable-bridge | Add Yazelix Runtime Provider Adapter: system-nix owner-wall, nix-portable confinement bridge, bundle artifact lane | Medium-High | quality:3 speed:1 accuracy:1 governance+settings+config:1 | [plan](../.handoff/loop/plan/reports/yazelix-nix-portable-containment-solution.md) |
+| 2026-06-28 | yazelix-nix-portable-bridge | test-build: 6 cases covering provider classification, clean portable proof, wrapper env, PATH leak, update owner, titan artifact measurement | accuracy:3 quality:3 | → Feature Forge | [test plan](../.handoff/loop/plan/reports/yazelix-nix-portable-containment-solution.md#test-strategy--coverage) |
+| 2026-06-28 | meta-harmony-portable-release-envctl-db-first | Create Meta Harmony release foundation and make envctl database-first for portable Yazelix/meta releases | Medium-High | quality:4 speed:2 accuracy:3 governance+settings+config:5 | [plan](../.handoff/loop/plan/reports/meta-harmony-portable-release-envctl-db-first-gap-hunt.md) |
+| 2026-06-28 | envctl-database-first-release-control-plane | test-build: import manifests to DB rows, generate TOML/JSON/YAML, CLI table widget preview, secrets as refs only, drift gate | accuracy:4 quality:4 | → Feature Forge | [spec](../.kb/store/documents/specs/envctl-database-first-release-control-plane.md) |

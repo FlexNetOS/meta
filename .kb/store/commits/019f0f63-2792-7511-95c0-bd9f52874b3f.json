@@ -1,0 +1,5 @@
+{
+  "commit": {"author":"FlexNetOS <flexnetos@de-flex.net>","changes":[{"change_type":"created","content_hash":"ff77916f4cc94b2ceb786aadfb73adca55669a2a63d03f1fccb7314b8d763e6c","doc_type":"incident","document_id":"019f0f63-2670-7bb3-ab3d-5e5879945559","new_version":1,"previous_version":null,"slug":"incidents/harmony-correction-evidence-gate-failure","title":"Fix Harmony correction evidence-gate failure"}],"created_at":"2026-06-28T17:59:44.139795871Z","id":"019f0f63-2792-7511-95c0-bd9f52874b3f","message":"incident(kb): track Harmony evidence gate failure"},
+  "content_hash": "83954dc5640f596cc69aca294d6b17946bfa9893843b15faa6f5004ac12b3164",
+  "hash_version": 3
+}
