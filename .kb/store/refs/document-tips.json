@@ -10,6 +10,16 @@
       "document_id": "019f0f2c-5586-7f63-8240-6beb538a7f65",
       "slug": "tasks/yazelix-nix-portable-containment-bridge",
       "tip_commit_id": "019f0f3a-eeca-7740-8627-b4e689cb1d4a"
+    },
+    {
+      "document_id": "019f0f4f-5c97-7c10-8c31-c4cdfcf62d00",
+      "slug": "tasks/meta-harmony-portable-release-envctl-db-first",
+      "tip_commit_id": "019f0f51-d85b-72e2-b3b1-0fcbf0038ba3"
+    },
+    {
+      "document_id": "019f0f50-71d7-7551-861a-620670e237f5",
+      "slug": "specs/envctl-database-first-release-control-plane",
+      "tip_commit_id": "019f0f51-d85b-72e2-b3b1-0fcbf0038ba3"
     }
   ]
 }
