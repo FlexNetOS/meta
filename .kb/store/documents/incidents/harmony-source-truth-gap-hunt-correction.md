@@ -34,6 +34,13 @@ Previous gap hunt missed `.context/` and did not open archival KB docs returned 
 - [x] Updated KB task/spec to require `.context` + archival KB reconciliation.
 - [ ] Future implementation initializes/adopts `meta-harmony` only after lineage reconciliation.
 
+
+## Completion Evidence
+
+- Root commit: `2bd171cf62e1f14c79a0977efc7cb3a3b1be1208` (`docs: correct Harmony source truth handling`).
+- PR: https://github.com/FlexNetOS/meta/pull/91 on branch `codex/meta-env-layout-audit-20260628111631`.
+- Verification: staged diff check passed before commit; correction markers present in report, ADR, KB incident/task/spec; branch push and PR head verified.
+
 ## Prevention Rule
 
 For any future gap hunt/source-truth/release/harmony/distribution task, open `.context`, `.handoff`, matching KB search results including `obsolete/`, and live GitHub remotes before creating repos or asserting missing/current state.
