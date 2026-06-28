@@ -41,6 +41,7 @@ The prior Harmony correction repeated the same mistake it documented: failed/emp
 
 ## Completion Evidence
 
-- Root commit: `5d8479a3c345a28bf120028ed0719805889f1cc8` (`docs: add Harmony evidence gate correction`).
-- PR: https://github.com/FlexNetOS/meta/pull/91 at head `5d8479a3c345a28bf120028ed0719805889f1cc8` when verified.
-- Verification: `git diff --cached --check` passed before commit; branch push updated origin; `gh pr view` reported PR #91 head and last commit as `5d8479a3c345a28bf120028ed0719805889f1cc8`.
+- Content fix commit: `5d8479a3c345a28bf120028ed0719805889f1cc8` (`docs: add Harmony evidence gate correction`).
+- Follow-up evidence commit: `eb6ea4c8aa898a7321dd63c121e9e66f3e96ef8d` (`docs: record Harmony evidence gate completion`).
+- PR: https://github.com/FlexNetOS/meta/pull/91. The live PR head must be verified with `gh pr view` after the final push; do not treat this document as self-referential proof of the current head.
+- Verification completed before the evidence commit: `git diff --cached --check` passed; branch push updated origin; `gh pr view` reported PR #91 head and last commit for the content fix commit.
