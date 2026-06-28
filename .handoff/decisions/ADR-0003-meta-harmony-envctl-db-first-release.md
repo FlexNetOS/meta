@@ -11,9 +11,12 @@ The Yazelix/Nix bridge work identified three runtime lanes: `system-nix`, existi
 
 Envctl already has a mature secret/cert logical schema for vault data, but its component/config/manifest layer is still file-first TOML/JSON plus generated runtime state. This allows drift between DB-like truth, manifests, generated artifacts, and UI/CLI state.
 
+
+Correction update (2026-06-28): this ADR depends on `meta-harmony-source-truth-correction.md`. `.context/` and archival KB docs are live source evidence for distribution lineage. `FlexNetOS/meta-harmony` is a new placeholder repo; it must be initialized only after reconciling `harmony-labs/meta` -> `gitkb/meta` -> `FlexNetOS` lineage and existing `.context` distribution requirements.
+
 ## Decision
 
-Create/use `FlexNetOS/meta-harmony` as the release orchestration repo and make envctl database-first for release/config/control-plane rows. Meta Harmony plans releases; envctl stores and verifies typed rows; generated TOML/JSON/YAML/Nix/npm/Cargo artifacts are projections from database tables.
+Create/use `FlexNetOS/meta-harmony` as a lineage-aware release orchestration repo and make envctl database-first for release/config/control-plane rows. Meta Harmony plans releases; envctl stores and verifies typed rows; generated TOML/JSON/YAML/Nix/npm/Cargo artifacts are projections from database tables.
 
 Portable Yazelix/meta releases are installed from release artifacts first. The foundation artifact lane uses Nix bundle/bundler experiments for immutable release assets and envctl's existing `nix-portable` provider for mutable/off-`/nix` runtime semantics. Crates.io and napi-rs/npm are first-class package targets, with tokens/keys brokered by envctl/secretd and never checked into generated files.
 

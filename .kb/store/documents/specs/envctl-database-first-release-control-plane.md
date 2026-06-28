@@ -20,6 +20,18 @@ Envctl must become database-first for configs, certs, secrets, keys, variables, 
 - Keep secrets/keys brokered; generated artifacts never contain plaintext tokens.
 - Support Meta Harmony release orchestration for Yazelix/Nix/meta/envctl portable releases.
 
+
+## Source Evidence Preflight
+
+Before any generated release/control-plane artifact is created, envctl/meta-harmony must load and reconcile source evidence from:
+
+- `.kb` active and archival documents returned by `git kb search <topic> --json`.
+- `.context/CONTEXT.md` and `.context/tasks/*` distribution docs.
+- `.handoff/census-*` and relevant handoff architecture reports.
+- live `.meta.yaml` repo graph and GitHub redirect/remote state.
+
+A namespace such as `obsolete/` is metadata only. A claim is obsolete only when a current authoritative source explicitly supersedes that specific claim.
+
 ## Proposed Tables
 
 | Table | Purpose |
@@ -76,4 +88,4 @@ The CLI table widget must be schema-aware, keyboard-driven, preview-by-default, 
 - [ ] CLI widget can edit a provider/component/config row in preview mode.
 - [ ] GUI table view uses the same engine APIs.
 - [ ] Secrets/certs/keys are references only in generated outputs.
-- [ ] Meta Harmony can consume release graph rows and emit a portable Yazelix release plan.
+- [ ] Meta Harmony can consume release graph rows and emit a portable Yazelix release plan after `.context`, archival KB, handoff census, and GitHub redirect evidence are reconciled.

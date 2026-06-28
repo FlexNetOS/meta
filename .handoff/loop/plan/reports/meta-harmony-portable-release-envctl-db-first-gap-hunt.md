@@ -1,3 +1,7 @@
+# Correction notice (2026-06-28)
+
+This report was corrected by `meta-harmony-source-truth-correction.md`. The original pass missed `.context/` and did not open archival KB docs returned by `git kb search harmony`. Treat `.context/CONTEXT.md`, `.context/tasks/cicd-distribution-gaps.md`, `obsolete/meta-as-source-of-truth-meta-generated-ci-dashboar`, and `.handoff/census-workspace-arch.*` as required source evidence for release/harmony work. `FlexNetOS/meta-harmony` is a new placeholder repo, not a pre-existing KB-defined source of truth.
+
 # Gap hunt: Meta Harmony portable release foundation and envctl database-first drift repair
 
 - Date: 2026-06-28
@@ -7,7 +11,7 @@
 
 ## Verdict
 
-The release foundation should be **release-first, database-first, and repo-reuse-first**:
+After correction, the release foundation should be **release-first, database-first, lineage-aware, and repo-reuse-first**:
 
 1. **Portable install foundation:** start from release artifacts, not source rebuilds. The immediate foundation is a Yazelix/Nix portable release lane using `nix bundle`/nix-bundle family as the artifact producer and envctl's existing `nix-portable` component as the runtime/confinement provider.
 2. **Full package graph:** package the full Yazelix terminal runtime, its Nix closure, the meta parent repo release metadata, and envctl manifests as one versioned release graph. Do not collapse these into one source repo.
@@ -30,7 +34,7 @@ Confidence: **Medium-High** for path/architecture; **Medium** for release-artifa
 | release bundling | Nix manual says `nix bundle` packs a closure into a Linux self-extracting executable; `nix-community/nix-bundle` exists but is old and has namespace/startup/size caveats. | USE as artifact experiment, not mutable runtime owner |
 | npm/napi | napi-rs builds Rust Node-API addons and organizes platform artifacts for npm publication; npm recommends trusted publishing/OIDC for CI/CD publishing and granular tokens when needed. | USE for Node package surface, with envctl token broker |
 | crates.io | Cargo publishing is permanent per version, recommends `cargo publish --dry-run`, tags, changelog, and token secrecy; teams can own crates via GitHub org/team. | USE for Rust package surface, with envctl token broker |
-| meta-harmony repo | Missing before this pass; created as private `FlexNetOS/meta-harmony`. | CREATED, needs initialization/adoption |
+| meta-harmony repo | Missing in FlexNetOS before this pass; created as private `FlexNetOS/meta-harmony`. Existing `harmony-labs/meta` redirects to `gitkb/meta`, and `.context` preserves harmony-labs distribution paths. | CREATED as placeholder; needs lineage reconciliation before initialization/adoption |
 | envctl DB | Secrets vault schema already models `meta`, `secrets`, `keyslots`, `relay_policies`, `relay_bearers`, `audit_log`, `ca_key`, `certs`; runtime state still uses JSON and manifests. | PARTIAL: expand DB-first beyond secrets |
 
 ## Portable release design: installed from release first
@@ -105,7 +109,7 @@ Package graph invariant: **meta parent coordinates; envctl installs/verifies; Ya
 - Artifact verifiers: checksum/signature/SBOM, closure diff, startup timing, hardware capability probe.
 - Integration: consumes GitKB specs and envctl DB tables; emits generated `.meta.yaml` patch suggestions, envctl manifests, JSON/YAML/TOML, GitHub release notes, npm/crates publish plans.
 
-Creation status: repo exists privately at `https://github.com/FlexNetOS/meta-harmony`; it still needs initialization, clone/adoption into `.meta.yaml`, README, Cargo workspace decision, and release CLI skeleton.
+Creation status: repo exists privately at `https://github.com/FlexNetOS/meta-harmony`; it is a placeholder created from this task, not a pre-existing KB-defined source of truth. It still needs lineage reconciliation against `.context` and harmony-labs/gitkb history before initialization, clone/adoption into `.meta.yaml`, README, Cargo workspace decision, and release CLI skeleton.
 
 ## Crates.io + napi/npm key model
 
@@ -131,7 +135,7 @@ This design is **container-like for reproducibility**, but **not container-shape
 
 ## Gaps and conflicts
 
-1. **Release repo exists but is empty.** Need initialize `meta-harmony`, then adopt it into `.meta.yaml` only after clone/path exists to avoid another missing-repo status failure.
+1. **Release repo exists but is empty and lineage is unresolved.** Need reconcile `.context` harmony-labs/gitkb distribution strategy, then initialize `meta-harmony`, then adopt it into `.meta.yaml` only after clone/path exists to avoid another missing-repo status failure.
 2. **nix-bundle naming/source ambiguity.** User cited `matthewbauer/nix-bundle`; current active repo is `nix-community/nix-bundle` with maintainer Matthew Bauer. Treat `nix-community/nix-bundle` as the source unless a fork is explicitly required.
 3. **nix-bundle age/caveats.** It is useful precedent but not a sufficient foundation alone; must compare with `nix bundle` default bundlers, `DavHau/nix-portable` bundler support, nix-appimage, and bundle-dir.
 4. **envctl DB scope is partial.** Secrets/certs already have a logical schema; manifests/config variables remain TOML/JSON/source-first. Need a unifying envctl state/config DB.

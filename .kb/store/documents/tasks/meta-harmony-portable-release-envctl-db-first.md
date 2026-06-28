@@ -27,7 +27,7 @@ Gap hunt current paths and solutions for portable release foundation: nix-bundle
 - [x] Gap-hunt architecture report written.
 - [x] Draft ADR written.
 - [x] KB spec for envctl database-first release control plane created.
-- [ ] Meta-harmony repo initialized and adopted into `.meta.yaml` after local clone exists.
+- [ ] Meta-harmony repo initialized and adopted into `.meta.yaml` only after `.context` + archival KB + harmony-labs/gitkb lineage reconciliation is encoded.
 - [ ] First measured Yazelix portable release artifact built.
 - [ ] envctl DB-first CLI/UI table implementation built.
 
@@ -41,3 +41,8 @@ Gap hunt current paths and solutions for portable release foundation: nix-bundle
 ## Progress Log
 
 - 2026-06-28: Created private GitHub repo `FlexNetOS/meta-harmony`, wrote gap hunt report and ADR, and created KB spec for envctl database-first release control plane. Found envctl already has secret/cert DB schema, but component/config/provider/manifest/artifact layers remain file-first and need table-backed projections.
+
+
+## Source Truth Correction
+
+- 2026-06-28: Correction incident `incidents/harmony-source-truth-gap-hunt-correction` found the original gap hunt missed `.context/` and failed to open archival KB docs returned by `git kb search harmony`. `FlexNetOS/meta-harmony` is a new placeholder, not a pre-existing KB-defined source of truth. Before initialization/adoption, reconcile `.context/tasks/cicd-distribution-gaps.md`, `.context/CONTEXT.md`, `obsolete/meta-as-source-of-truth-meta-generated-ci-dashboar`, and `.handoff/census-workspace-arch.*`.

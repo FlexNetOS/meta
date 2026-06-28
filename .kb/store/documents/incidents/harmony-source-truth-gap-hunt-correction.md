@@ -1,0 +1,39 @@
+---
+id: 019f0f59-4fa3-7000-9fe8-ecd4474057e3
+slug: incidents/harmony-source-truth-gap-hunt-correction
+title: "Correct Harmony source-of-truth gap hunt misses"
+type: incident
+status: active
+priority: high
+tags: [codex, correction, harmony, source-of-truth]
+---
+
+# Overview
+
+Previous gap hunt missed `.context/` and did not open archival KB docs returned by `git kb search harmony` before creating the Meta Harmony report/repo. It also described docs as obsolete even though their claims had not been refuted or superseded.
+
+## Root Cause
+
+- Treated KB namespace `obsolete/` as semantic staleness instead of archival metadata.
+- Followed KB-first but failed to reconcile `.context`, `.handoff`, docs, and live GitHub redirects.
+- Did not distinguish a new placeholder repo from a pre-existing source-of-truth repo.
+
+## Source-of-truth findings
+
+- `.context/CONTEXT.md` and `.context/tasks/cicd-distribution-gaps.md` define legacy-active distribution requirements: GitHub Releases, install scripts, Homebrew tap, cargo-binstall, crates.io token setup.
+- `obsolete/meta-as-source-of-truth-meta-generated-ci-dashboar` still contains live migration lessons about harmony-labs -> gitkb -> FlexNetOS org references and generated CI source-of-truth.
+- `.handoff/census-workspace-arch.*` records harmony-labs/gitkb lineage across several repos.
+- `gh repo view harmony-labs/meta` resolves to `gitkb/meta`; harmony-labs paths are redirect/migration evidence, not simply missing.
+- `FlexNetOS/meta-harmony` exists now, but is a new placeholder requiring lineage reconciliation before adoption.
+
+## Corrective Actions
+
+- [x] Wrote `.handoff/loop/plan/reports/meta-harmony-source-truth-correction.md`.
+- [x] Updated the Meta Harmony gap-hunt report with a correction notice.
+- [x] Updated ADR-0003 with lineage/source-truth correction.
+- [x] Updated KB task/spec to require `.context` + archival KB reconciliation.
+- [ ] Future implementation initializes/adopts `meta-harmony` only after lineage reconciliation.
+
+## Prevention Rule
+
+For any future gap hunt/source-truth/release/harmony/distribution task, open `.context`, `.handoff`, matching KB search results including `obsolete/`, and live GitHub remotes before creating repos or asserting missing/current state.
