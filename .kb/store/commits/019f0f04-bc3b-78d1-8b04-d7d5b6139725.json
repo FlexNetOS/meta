@@ -1,0 +1,5 @@
+{
+  "commit": {"author":"FlexNetOS <flexnetos@de-flex.net>","changes":[{"change_type":"created","content_hash":"73395694c71efa7e8a6c08889b1a2b6e14bf0991575a11da4d5a2501ee7df936","doc_type":"task","document_id":"019f0f04-a973-76e1-9da6-e70b1c7a227e","new_version":1,"previous_version":null,"slug":"tasks/meta-env-layout-containment-audit","title":"Audit meta env install layout and envctl containment"}],"created_at":"2026-06-28T16:16:36.291164392Z","id":"019f0f04-bc3b-78d1-8b04-d7d5b6139725","message":"task(kb): track meta env layout containment audit"},
+  "content_hash": "bc260d2792d97907ac4704991d3f7ddb8af8a0786a0ae3824aad759edcac2391",
+  "hash_version": 3
+}
