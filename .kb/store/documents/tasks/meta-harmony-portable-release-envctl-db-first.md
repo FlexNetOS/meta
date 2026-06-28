@@ -46,3 +46,7 @@ Gap hunt current paths and solutions for portable release foundation: nix-bundle
 ## Source Truth Correction
 
 - 2026-06-28: Correction incident `incidents/harmony-source-truth-gap-hunt-correction` found the original gap hunt missed `.context/` and failed to open archival KB docs returned by `git kb search harmony`. `FlexNetOS/meta-harmony` is a new placeholder, not a pre-existing KB-defined source of truth. Before initialization/adoption, reconcile `.context/tasks/cicd-distribution-gaps.md`, `.context/CONTEXT.md`, `obsolete/meta-as-source-of-truth-meta-generated-ci-dashboar`, and `.handoff/census-workspace-arch.*`.
+
+## Evidence Gate Amendment
+
+- 2026-06-28: Related incident `incidents/harmony-correction-evidence-gate-failure` found that the first correction pass repeated the same error by patching after failed/no-output source retrieval. Future work on this task must maintain a source-evidence ledger. Claims about crates.io/npm ownership, publish keys, and Yazelix bundle performance are unverified until measured/queried directly.

@@ -14,17 +14,22 @@
     {
       "document_id": "019f0f4f-5c97-7c10-8c31-c4cdfcf62d00",
       "slug": "tasks/meta-harmony-portable-release-envctl-db-first",
-      "tip_commit_id": "019f0f5a-db00-7563-9338-9d2761af918c"
+      "tip_commit_id": "019f0f63-f017-75c0-ba6b-eeddf210fffc"
     },
     {
       "document_id": "019f0f50-71d7-7551-861a-620670e237f5",
       "slug": "specs/envctl-database-first-release-control-plane",
-      "tip_commit_id": "019f0f5a-db00-7563-9338-9d2761af918c"
+      "tip_commit_id": "019f0f63-f017-75c0-ba6b-eeddf210fffc"
     },
     {
       "document_id": "019f0f59-4fa3-7000-9fe8-ecd4474057e3",
       "slug": "incidents/harmony-source-truth-gap-hunt-correction",
-      "tip_commit_id": "019f0f5d-cf39-7b62-a0ac-e1889668e575"
+      "tip_commit_id": "019f0f63-f017-75c0-ba6b-eeddf210fffc"
+    },
+    {
+      "document_id": "019f0f63-2670-7bb3-ab3d-5e5879945559",
+      "slug": "incidents/harmony-correction-evidence-gate-failure",
+      "tip_commit_id": "019f0f64-52b3-73b0-a5bc-53ac220935ec"
     }
   ]
 }

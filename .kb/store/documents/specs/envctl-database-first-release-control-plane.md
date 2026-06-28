@@ -32,6 +32,9 @@ Before any generated release/control-plane artifact is created, envctl/meta-harm
 
 A namespace such as `obsolete/` is metadata only. A claim is obsolete only when a current authoritative source explicitly supersedes that specific claim.
 
+
+Hard gate: each source-evidence item must have captured command output or a file/line citation before it can support a generated artifact, ADR, repo creation/adoption, or completion claim. Failed, empty, or truncated retrieval must be recorded as `UNVERIFIED` and blocks dependent release planning until resolved or explicitly scoped out.
+
 ## Proposed Tables
 
 | Table | Purpose |

@@ -12,6 +12,9 @@ The Yazelix/Nix bridge work identified three runtime lanes: `system-nix`, existi
 Envctl already has a mature secret/cert logical schema for vault data, but its component/config/manifest layer is still file-first TOML/JSON plus generated runtime state. This allows drift between DB-like truth, manifests, generated artifacts, and UI/CLI state.
 
 
+
+Evidence-gate correction (2026-06-28): the first correction pass was not sufficient because failed/no-output source retrieval was followed by confident patching. This ADR is therefore draft-only until release/key/bundle claims are backed by opened evidence or marked unverified. Opened lineage evidence supports: `.context` distribution requirements, archival KB migration/source-truth lessons, `.handoff` harmony-labs/gitkb/FlexNetOS lineage, and GitHub redirects. Unverified: actual FlexNetOS crates.io/npm ownership/key state and measured Yazelix bundle performance.
+
 Correction update (2026-06-28): this ADR depends on `meta-harmony-source-truth-correction.md`. `.context/` and archival KB docs are live source evidence for distribution lineage. `FlexNetOS/meta-harmony` is a new placeholder repo; it must be initialized only after reconciling `harmony-labs/meta` -> `gitkb/meta` -> `FlexNetOS` lineage and existing `.context` distribution requirements.
 
 ## Decision

@@ -1,3 +1,11 @@
+# Evidence-gate amendment (2026-06-28)
+
+This report is now amended because the first correction pass repeated the same class of error it described. The pre-compact transcript shows the correction pass hit failed/no-output retrieval while trying to open exact obsolete KB docs, then still said it had found the root cause and patched/committed. That behavior was wrong.
+
+Hard correction: **evidence retrieval gates claims, writes, commits, and completion.** If a source lookup fails, returns no output, or only gives a truncated display, the claim stays `UNVERIFIED` and the agent must not write a confident correction from it.
+
+The source ledger below was re-run after that failure and now records opened evidence, not inferred evidence.
+
 # Correction: Harmony source-of-truth gap hunt audit
 
 - Date: 2026-06-28
@@ -14,6 +22,20 @@ The previous Meta Harmony gap hunt contained useful architecture work, but its e
 4. `FlexNetOS/meta-harmony` is a **new placeholder/release-orchestrator repo**, not a pre-existing meta-defined truth. Its initialization/adoption is blocked until lineage reconciliation is complete.
 
 ## Source-of-truth trace
+
+### Evidence opened in the fix-now pass
+
+| Evidence class | Opened source / command result | What it proves | Status |
+|---|---|---|---|
+| KB search exact slugs | `git kb list --json` and `git kb search harmony --json` returned `obsolete/meta-as-source-of-truth-meta-generated-ci-dashboar` and `obsolete/integrate-top-gitkb-migration-finds-atc-gh-config`. | The previous truncated table was not enough; exact slugs must come from JSON or full output. | OPENED |
+| Archival KB source | `git kb show obsolete/meta-as-source-of-truth-meta-generated-ci-dashboar` lines 14-24, 80-111, 153-180. | `.meta.yaml`/typed workspace model as source truth; prior harmony-labs -> gitkb org migration; gitkb -> FlexNetOS hardcoded-ref drift; generated CI/protection plan. | OPENED |
+| Archival migration task | `git kb show obsolete/integrate-top-gitkb-migration-finds-atc-gh-config` lines 14-22, 24-55, 102-116, 141-148. | Migration primitive, history-preserving FlexNetOS repo creation, re-pointing `gitkb/` and `harmony-labs/`, and related Homebrew/CI migration scope. | OPENED |
+| `.context` release surface | `.context/CONTEXT.md` lines 36-40 and `.context/tasks/cicd-distribution-gaps.md` lines 23-33, 37-75, 91-130. | Existing distribution strategy: install script, Homebrew, cargo-binstall, cargo install, GitHub Releases, crates/Homebrew tokens, and harmony-labs URLs. | OPENED |
+| `.handoff` lineage | `.handoff/census-workspace-arch.md` and `.handoff/census-workspace-arch.json` matches for `harmony-labs`, `gitkb`, `FlexNetOS`. | Multiple repos record harmony-labs -> gitkb -> FlexNetOS lineage and origin-only FlexNetOS remotes. | OPENED |
+| GitHub redirects | `gh repo view harmony-labs/meta` resolves as `gitkb/meta`; `harmony-labs/homebrew-tap` resolves as `gitkb/homebrew-tap`; `FlexNetOS/meta-harmony` is private and empty. | `harmony-labs/*` is redirect/migration evidence, while `FlexNetOS/meta-harmony` is a new empty placeholder. | OPENED |
+| Registry/key ownership | No crates.io/npm ownership or key-state command was run in the fix-now pass. | Any FlexNetOS crates/npm ownership/key statement remains design guidance only, not verified current state. | UNVERIFIED |
+| Bundle measurement | No Yazelix portable bundle build or benchmark was run. | Speed/hardware/container-benefit statements remain hypotheses until measured. | UNVERIFIED |
+
 
 | Surface | Evidence | Correct interpretation |
 |---|---|---|
@@ -56,6 +78,7 @@ For any future “gap hunt,” “source of truth,” “foundation,” “relea
 3. Treat path/namespace/status labels as metadata, not truth. A doc is obsolete only if a current authoritative source explicitly supersedes the specific claim.
 4. For external org/repo claims, verify redirects/remotes with `gh repo view` or equivalent before declaring missing.
 5. Separate **created placeholder** from **pre-existing source-of-truth** in reports and ADRs.
+6. **Failed/no-output/truncated retrieval is a stop condition:** record it as `UNVERIFIED`; do not patch, commit, or mark complete from that source until the exact evidence is opened or the report explicitly scopes the claim out.
 
 ## Corrected planning stance
 

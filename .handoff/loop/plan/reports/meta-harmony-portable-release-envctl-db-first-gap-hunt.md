@@ -1,3 +1,9 @@
+# Evidence-gate correction notice (2026-06-28)
+
+The first correction to this report was itself incomplete: the agent hit failed/no-output lookup while trying to open exact obsolete KB docs, then still patched and marked completion. Treat `meta-harmony-source-truth-correction.md` as amended by its **Evidence-gate amendment**. Current rule: failed retrieval blocks confident claims and completion.
+
+Opened evidence now includes `.context/CONTEXT.md`, `.context/tasks/cicd-distribution-gaps.md`, exact KB archival docs `obsolete/meta-as-source-of-truth-meta-generated-ci-dashboar` and `obsolete/integrate-top-gitkb-migration-finds-atc-gh-config`, `.handoff/census-workspace-arch.*`, and GitHub redirect checks for `harmony-labs/*`, `gitkb/*`, and `FlexNetOS/meta-harmony`. Crates/npm ownership/key state and Yazelix bundle measurements remain **UNVERIFIED**.
+
 # Correction notice (2026-06-28)
 
 This report was corrected by `meta-harmony-source-truth-correction.md`. The original pass missed `.context/` and did not open archival KB docs returned by `git kb search harmony`. Treat `.context/CONTEXT.md`, `.context/tasks/cicd-distribution-gaps.md`, `obsolete/meta-as-source-of-truth-meta-generated-ci-dashboar`, and `.handoff/census-workspace-arch.*` as required source evidence for release/harmony work. `FlexNetOS/meta-harmony` is a new placeholder repo, not a pre-existing KB-defined source of truth.
@@ -11,7 +17,7 @@ This report was corrected by `meta-harmony-source-truth-correction.md`. The orig
 
 ## Verdict
 
-After correction, the release foundation should be **release-first, database-first, lineage-aware, and repo-reuse-first**:
+After evidence-gated correction, the release foundation should be **release-first, database-first, lineage-aware, and repo-reuse-first**:
 
 1. **Portable install foundation:** start from release artifacts, not source rebuilds. The immediate foundation is a Yazelix/Nix portable release lane using `nix bundle`/nix-bundle family as the artifact producer and envctl's existing `nix-portable` component as the runtime/confinement provider.
 2. **Full package graph:** package the full Yazelix terminal runtime, its Nix closure, the meta parent repo release metadata, and envctl manifests as one versioned release graph. Do not collapse these into one source repo.
@@ -19,7 +25,7 @@ After correction, the release foundation should be **release-first, database-fir
 4. **Dual package surface:** use FlexNetOS crates.io ownership for Rust crates and napi-rs/npm for Node-facing release surfaces; envctl/secretd should broker the crates.io/npm tokens or OIDC flows, not leak them into files.
 5. **Envctl drift fix:** envctl must become database-first for component config/certs/secrets/keys/variables/release artifacts. TOML/JSON/YAML/manifests become generated projections from typed tables, not the only source of truth.
 
-Confidence: **Medium-High** for path/architecture; **Medium** for release-artifact feasibility until one measured Yazelix+nix bundle is built and timed on current hardware.
+Confidence: **Medium** for path/architecture because lineage evidence is now opened but release implementation is still only planned; **Low-to-Medium** for release-artifact feasibility until one measured Yazelix+nix bundle is built and timed on current hardware. Crates/npm ownership and key state are **UNVERIFIED**.
 
 ## Current defined paths and solutions
 
@@ -32,8 +38,8 @@ Confidence: **Medium-High** for path/architecture; **Medium** for release-artifa
 | Yazelix runtime contract | `yazelix/docs/contracts/runtime_root_contract.md` separates `YAZELIX_RUNTIME_DIR`, `YAZELIX_CONFIG_DIR`, `YAZELIX_STATE_DIR`, process activation state. | OK: use as adapter contract |
 | Yazelix distribution tiers | `yazelix/docs/contracts/runtime_distribution_capability_tiers.md` defines installer/Home Manager/package/runtime-root-only tiers and explicit update owners. | OK: map envctl providers to tiers |
 | release bundling | Nix manual says `nix bundle` packs a closure into a Linux self-extracting executable; `nix-community/nix-bundle` exists but is old and has namespace/startup/size caveats. | USE as artifact experiment, not mutable runtime owner |
-| npm/napi | napi-rs builds Rust Node-API addons and organizes platform artifacts for npm publication; npm recommends trusted publishing/OIDC for CI/CD publishing and granular tokens when needed. | USE for Node package surface, with envctl token broker |
-| crates.io | Cargo publishing is permanent per version, recommends `cargo publish --dry-run`, tags, changelog, and token secrecy; teams can own crates via GitHub org/team. | USE for Rust package surface, with envctl token broker |
+| npm/napi | napi-rs builds Rust Node-API addons and organizes platform artifacts for npm publication; npm recommends trusted publishing/OIDC for CI/CD publishing and granular tokens when needed. | DESIGN OPTION only until FlexNetOS npm scope/package/key ownership is verified |
+| crates.io | Cargo publishing is permanent per version, recommends `cargo publish --dry-run`, tags, changelog, and token secrecy; teams can own crates via GitHub org/team. | DESIGN OPTION only until FlexNetOS crates.io crate/team/token ownership is verified |
 | meta-harmony repo | Missing in FlexNetOS before this pass; created as private `FlexNetOS/meta-harmony`. Existing `harmony-labs/meta` redirects to `gitkb/meta`, and `.context` preserves harmony-labs distribution paths. | CREATED as placeholder; needs lineage reconciliation before initialization/adoption |
 | envctl DB | Secrets vault schema already models `meta`, `secrets`, `keyslots`, `relay_policies`, `relay_bearers`, `audit_log`, `ca_key`, `certs`; runtime state still uses JSON and manifests. | PARTIAL: expand DB-first beyond secrets |
 
@@ -131,7 +137,7 @@ Sources: Cargo Book publishing docs, npm CI/CD docs, napi-rs docs.
 | Hardware access | no opaque container boundary by default; host interfaces declared | Enables GPU, display, ptys, USB, and local hardware with fewer passthrough hacks |
 | Rollback | release graph row + checksums + envctl provider selection | Fast switch between provider/artifact versions |
 
-This design is **container-like for reproducibility**, but **not container-shaped as the primary runtime**. It avoids container image rebuild latency, reduces mount/passthrough surprises, and keeps all hardware access explicit and testable.
+This design is **container-like for reproducibility**, but **not container-shaped as the primary runtime**. The speed/hardware benefits are not proven yet; they are hypotheses that require the first measured Yazelix portable artifact and host-interface benchmark.
 
 ## Gaps and conflicts
 

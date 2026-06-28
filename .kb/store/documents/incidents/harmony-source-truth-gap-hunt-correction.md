@@ -41,6 +41,15 @@ Previous gap hunt missed `.context/` and did not open archival KB docs returned 
 - PR: https://github.com/FlexNetOS/meta/pull/91 on branch `codex/meta-env-layout-audit-20260628111631`.
 - Verification: staged diff check passed before commit; correction markers present in report, ADR, KB incident/task/spec; branch push and PR head verified.
 
+
+## Correction-of-correction: evidence gate failure
+
+The first correction pass repeated the same behavioral mistake: its transcript shows failed/no-output lookup while trying to open exact obsolete KB docs, followed by confident patching, commit/push, and completion. That invalidates the prior `Completion Evidence` as a behavioral proof; it only proves files were committed, not that the evidence gate was followed.
+
+Fix rule added: source retrieval is a hard gate. Failed, empty, or truncated lookup means `UNVERIFIED`; no confident claim, no correction write, no commit-as-complete, and no completion until exact evidence is opened or the claim is explicitly scoped out.
+
+Linked incident: [[incidents/harmony-correction-evidence-gate-failure]].
+
 ## Prevention Rule
 
-For any future gap hunt/source-truth/release/harmony/distribution task, open `.context`, `.handoff`, matching KB search results including `obsolete/`, and live GitHub remotes before creating repos or asserting missing/current state.
+For any future gap hunt/source-truth/release/harmony/distribution task, open `.context`, `.handoff`, matching KB search results including `obsolete/`, and live GitHub remotes before creating repos or asserting missing/current state. If any required lookup fails, returns no output, or is truncated, stop and mark the dependent claim `UNVERIFIED` instead of patching or completing from inference.
