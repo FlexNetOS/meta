@@ -1,0 +1,5 @@
+{
+  "commit": {"author":"FlexNetOS <flexnetos@de-flex.net>","changes":[{"change_type":"created","content_hash":"19c23d120aebe154017b07d6ca550f9abe511c6fecc70113460b901f9d4ee81f","doc_type":"task","document_id":"019f0f2c-5586-7f63-8240-6beb538a7f65","new_version":1,"previous_version":null,"slug":"tasks/yazelix-nix-portable-containment-bridge","title":"Research Yazelix Nix portable containment bridge"}],"created_at":"2026-06-28T16:59:51.709384783Z","id":"019f0f2c-569e-7de0-b471-0e06d4adcd98","message":"task(kb): track Yazelix Nix portability bridge research"},
+  "content_hash": "8e59349c90d37bcef4b1ee68cd2340f38ac635311570a8fd9b6a9c57b0eab4f3",
+  "hash_version": 3
+}
