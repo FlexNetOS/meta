@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+meta_root="${PHASE15_META_ROOT:-}"
+if [[ -z "$meta_root" ]]; then
+  meta_root="$(pwd -P)"
+fi
+meta_root="$(cd "$meta_root" && pwd -P)"
+current_dir="$(pwd -P)"
+
+if [[ "$current_dir" != "$meta_root" ]]; then
+  echo "phase1.5 init: skip non-root repo ${current_dir}"
+  exit 0
+fi
+
+echo "phase1.5 init: initializing GitKB/Codex at ${current_dir}"
+
+init_log="$(mktemp)"
+trap 'rm -f "$init_log"' EXIT
+if git-kb init --no-verify --name "FlexNetOS Meta" >"$init_log" 2>&1; then
+  cat "$init_log"
+else
+  status=$?
+  cat "$init_log"
+  if grep -q "Knowledge base already initialized" "$init_log"; then
+    echo "phase1.5 init: git-kb init already initialized; treating as idempotent success"
+  else
+    exit "$status"
+  fi
+fi
+
+git-kb init codex
