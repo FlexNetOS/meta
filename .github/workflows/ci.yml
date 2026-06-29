@@ -67,12 +67,23 @@ jobs:
         with:
           shared-key: "test-${{ matrix.os }}"
 
-      - name: Install kache rustc wrapper
+      - name: Install Rust CI tool wrappers
         shell: bash
         env:
           CARGO_BUILD_RUSTC_WRAPPER: ""
           RUSTC_WRAPPER: ""
         run: |
+          if [ "${RUNNER_OS:-}" = "Linux" ] && ! command -v wild >/dev/null 2>&1; then
+            (
+              cd "${RUNNER_TEMP:-/tmp}"
+              cargo install wild-linker --version 0.9.0 --locked
+            )
+            echo "$HOME/.cargo/bin" >> "$GITHUB_PATH"
+            export PATH="$HOME/.cargo/bin:$PATH"
+          fi
+          if [ "${RUNNER_OS:-}" = "Linux" ]; then
+            command -v wild
+          fi
           if ! command -v kache >/dev/null 2>&1; then
             cargo install kache --version 0.6.0 --locked
           fi
@@ -112,12 +123,23 @@ jobs:
         with:
           shared-key: "clippy"
 
-      - name: Install kache rustc wrapper
+      - name: Install Rust CI tool wrappers
         shell: bash
         env:
           CARGO_BUILD_RUSTC_WRAPPER: ""
           RUSTC_WRAPPER: ""
         run: |
+          if [ "${RUNNER_OS:-}" = "Linux" ] && ! command -v wild >/dev/null 2>&1; then
+            (
+              cd "${RUNNER_TEMP:-/tmp}"
+              cargo install wild-linker --version 0.9.0 --locked
+            )
+            echo "$HOME/.cargo/bin" >> "$GITHUB_PATH"
+            export PATH="$HOME/.cargo/bin:$PATH"
+          fi
+          if [ "${RUNNER_OS:-}" = "Linux" ]; then
+            command -v wild
+          fi
           if ! command -v kache >/dev/null 2>&1; then
             cargo install kache --version 0.6.0 --locked
           fi
@@ -159,12 +181,23 @@ jobs:
         with:
           shared-key: "integration-${{ matrix.os }}"
 
-      - name: Install kache rustc wrapper
+      - name: Install Rust CI tool wrappers
         shell: bash
         env:
           CARGO_BUILD_RUSTC_WRAPPER: ""
           RUSTC_WRAPPER: ""
         run: |
+          if [ "${RUNNER_OS:-}" = "Linux" ] && ! command -v wild >/dev/null 2>&1; then
+            (
+              cd "${RUNNER_TEMP:-/tmp}"
+              cargo install wild-linker --version 0.9.0 --locked
+            )
+            echo "$HOME/.cargo/bin" >> "$GITHUB_PATH"
+            export PATH="$HOME/.cargo/bin:$PATH"
+          fi
+          if [ "${RUNNER_OS:-}" = "Linux" ]; then
+            command -v wild
+          fi
           if ! command -v kache >/dev/null 2>&1; then
             cargo install kache --version 0.6.0 --locked
           fi
@@ -215,12 +248,23 @@ jobs:
       - name: Cache Rust
         uses: Swatinem/rust-cache@v2
 
-      - name: Install kache rustc wrapper
+      - name: Install Rust CI tool wrappers
         shell: bash
         env:
           CARGO_BUILD_RUSTC_WRAPPER: ""
           RUSTC_WRAPPER: ""
         run: |
+          if [ "${RUNNER_OS:-}" = "Linux" ] && ! command -v wild >/dev/null 2>&1; then
+            (
+              cd "${RUNNER_TEMP:-/tmp}"
+              cargo install wild-linker --version 0.9.0 --locked
+            )
+            echo "$HOME/.cargo/bin" >> "$GITHUB_PATH"
+            export PATH="$HOME/.cargo/bin:$PATH"
+          fi
+          if [ "${RUNNER_OS:-}" = "Linux" ]; then
+            command -v wild
+          fi
           if ! command -v kache >/dev/null 2>&1; then
             cargo install kache --version 0.6.0 --locked
           fi
@@ -265,12 +309,23 @@ jobs:
         with:
           components: rustfmt
 
-      - name: Install kache rustc wrapper
+      - name: Install Rust CI tool wrappers
         shell: bash
         env:
           CARGO_BUILD_RUSTC_WRAPPER: ""
           RUSTC_WRAPPER: ""
         run: |
+          if [ "${RUNNER_OS:-}" = "Linux" ] && ! command -v wild >/dev/null 2>&1; then
+            (
+              cd "${RUNNER_TEMP:-/tmp}"
+              cargo install wild-linker --version 0.9.0 --locked
+            )
+            echo "$HOME/.cargo/bin" >> "$GITHUB_PATH"
+            export PATH="$HOME/.cargo/bin:$PATH"
+          fi
+          if [ "${RUNNER_OS:-}" = "Linux" ]; then
+            command -v wild
+          fi
           if ! command -v kache >/dev/null 2>&1; then
             cargo install kache --version 0.6.0 --locked
           fi
