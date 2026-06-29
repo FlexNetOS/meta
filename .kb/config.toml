@@ -2,6 +2,9 @@
 
 [sync.remotes]
 
+[repos]
+strategy = "meta"
+
 [code]
 index_threads = 0
 
