@@ -47,6 +47,18 @@ required = false
 startup_timeout_sec = 10
 tool_timeout_sec = 60
 
+[mcp_servers.gitkb.tools.kb_status]
+approval_mode = "approve"
+
+[mcp_servers.gitkb.tools.kb_list]
+approval_mode = "approve"
+
+[mcp_servers.gitkb.tools.kb_board]
+approval_mode = "approve"
+
+[mcp_servers.gitkb.tools.kb_search]
+approval_mode = "approve"
+
 [mcp_servers.openaiDeveloperDocs]
 url = "https://developers.openai.com/mcp"
 enabled = true
