@@ -67,6 +67,17 @@ jobs:
         with:
           shared-key: "test-${{ matrix.os }}"
 
+      - name: Install kache rustc wrapper
+        shell: bash
+        env:
+          CARGO_BUILD_RUSTC_WRAPPER: ""
+          RUSTC_WRAPPER: ""
+        run: |
+          if ! command -v kache >/dev/null 2>&1; then
+            cargo install kache --version 0.6.0 --locked
+          fi
+          kache --version
+
       - name: Run tests
         run: cargo test --workspace
 
@@ -100,6 +111,17 @@ jobs:
         uses: Swatinem/rust-cache@v2
         with:
           shared-key: "clippy"
+
+      - name: Install kache rustc wrapper
+        shell: bash
+        env:
+          CARGO_BUILD_RUSTC_WRAPPER: ""
+          RUSTC_WRAPPER: ""
+        run: |
+          if ! command -v kache >/dev/null 2>&1; then
+            cargo install kache --version 0.6.0 --locked
+          fi
+          kache --version
 
       - name: Run clippy
         run: cargo clippy --workspace --all-targets -- -D warnings
@@ -136,6 +158,17 @@ jobs:
         uses: Swatinem/rust-cache@v2
         with:
           shared-key: "integration-${{ matrix.os }}"
+
+      - name: Install kache rustc wrapper
+        shell: bash
+        env:
+          CARGO_BUILD_RUSTC_WRAPPER: ""
+          RUSTC_WRAPPER: ""
+        run: |
+          if ! command -v kache >/dev/null 2>&1; then
+            cargo install kache --version 0.6.0 --locked
+          fi
+          kache --version
 
       - name: Build workspace
         run: cargo build --workspace
@@ -182,6 +215,17 @@ jobs:
       - name: Cache Rust
         uses: Swatinem/rust-cache@v2
 
+      - name: Install kache rustc wrapper
+        shell: bash
+        env:
+          CARGO_BUILD_RUSTC_WRAPPER: ""
+          RUSTC_WRAPPER: ""
+        run: |
+          if ! command -v kache >/dev/null 2>&1; then
+            cargo install kache --version 0.6.0 --locked
+          fi
+          kache --version
+
       - name: Build + test envctl (its own workspace, resolved within the meta tree)
         run: |
           cd envctl
@@ -220,6 +264,17 @@ jobs:
         uses: dtolnay/rust-toolchain@stable
         with:
           components: rustfmt
+
+      - name: Install kache rustc wrapper
+        shell: bash
+        env:
+          CARGO_BUILD_RUSTC_WRAPPER: ""
+          RUSTC_WRAPPER: ""
+        run: |
+          if ! command -v kache >/dev/null 2>&1; then
+            cargo install kache --version 0.6.0 --locked
+          fi
+          kache --version
 
       - name: Check formatting
         run: cargo fmt --all -- --check
