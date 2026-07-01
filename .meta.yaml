@@ -4,65 +4,65 @@ defaults:
 projects:
   # Workspace foundation peer
   yazelix:
-    repo: https://github.com/FlexNetOS/yazelix.git
+    repo: git@github.com:FlexNetOS/yazelix.git
     path: yazelix
     tags: [foundation, yazelix]
     provides: [yazelix]
 
   # Foundation crates (no workspace deps)
   loop_lib:
-    repo: https://github.com/FlexNetOS/loop_lib.git
+    repo: git@github.com:FlexNetOS/loop_lib.git
     provides: [loop-lib]
 
   meta_plugin_protocol:
-    repo: https://github.com/FlexNetOS/meta_plugin_protocol.git
+    repo: git@github.com:FlexNetOS/meta_plugin_protocol.git
     provides: [plugin-protocol]
 
   meta_core:
-    repo: https://github.com/FlexNetOS/meta_core.git
+    repo: git@github.com:FlexNetOS/meta_core.git
     provides: [meta-core]
 
   meta_git_lib:
-    repo: https://github.com/FlexNetOS/meta_git_lib.git
+    repo: git@github.com:FlexNetOS/meta_git_lib.git
     provides: [meta-git-lib]
 
   # Mid-level crates
   loop_cli:
-    repo: https://github.com/FlexNetOS/loop_cli.git
+    repo: git@github.com:FlexNetOS/loop_cli.git
     depends_on: [loop-lib]
 
   meta_cli:
-    repo: https://github.com/FlexNetOS/meta_cli.git
+    repo: git@github.com:FlexNetOS/meta_cli.git
     provides: [meta-cli]
     depends_on: [meta-core, plugin-protocol, loop-lib]
 
   # Top-level crates (depend on meta_cli and/or plugins)
   meta_git_cli:
-    repo: https://github.com/FlexNetOS/meta_git_cli.git
+    repo: git@github.com:FlexNetOS/meta_git_cli.git
     depends_on: [plugin-protocol, meta-git-lib, meta-cli, loop-lib]
 
   meta_project_cli:
-    repo: https://github.com/FlexNetOS/meta_project_cli.git
+    repo: git@github.com:FlexNetOS/meta_project_cli.git
     depends_on: [plugin-protocol, meta-cli, meta-git-lib]
 
   meta_rust_cli:
-    repo: https://github.com/FlexNetOS/meta_rust_cli.git
+    repo: git@github.com:FlexNetOS/meta_rust_cli.git
     depends_on: [plugin-protocol, meta-cli]
 
   meta_mcp:
-    repo: https://github.com/FlexNetOS/meta_mcp.git
+    repo: git@github.com:FlexNetOS/meta_mcp.git
     depends_on: [meta-cli]
 
   # Standalone tools
   agent:
-    repo: https://github.com/FlexNetOS/agent.git
+    repo: git@github.com:FlexNetOS/agent.git
 
   # Non-code repos
   claude-plugins:
-    repo: https://github.com/FlexNetOS/claude-plugins.git
+    repo: git@github.com:FlexNetOS/claude-plugins.git
 
   codex-plugins:
-    repo: https://github.com/FlexNetOS/codex-plugins.git
+    repo: git@github.com:FlexNetOS/codex-plugins.git
 
   meta-plugins:
-    repo: https://github.com/FlexNetOS/meta-plugins.git
+    repo: git@github.com:FlexNetOS/meta-plugins.git
