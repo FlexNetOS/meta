@@ -32,6 +32,11 @@
 | Homebrew formula | ✅ Done | `meta-cli` to avoid conflicts |
 | Install script | ✅ Done | Cross-platform |
 
+**FlexNetOS correction (2026-07-01):** the upstream release artifacts and
+installers do not include `meta-rust`. For FlexNetOS, release/distribution is
+not complete until `meta_rust_cli` is built, packaged, installed, and exposed
+through `meta rust --help`.
+
 ---
 
 ## Architecture

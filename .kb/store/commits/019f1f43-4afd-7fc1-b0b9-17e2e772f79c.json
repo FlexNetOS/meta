@@ -1,0 +1,5 @@
+{
+  "commit": {"author":"flexnetos <flexnetos@localhost>","changes":[{"change_type":"created","content_hash":"d51579207755aa70aa9eefbc4c4051b1a7115f065016585f24020dd6183c586a","doc_type":"task","document_id":"019f1f42-ebbf-7eb1-bb0c-d4e41e6f7731","new_version":1,"previous_version":null,"slug":"tasks/auth-refactor","title":"Refactor auth module"}],"created_at":"2026-07-01T19:58:51.643624844Z","id":"019f1f43-4afd-7fc1-b0b9-17e2e772f79c","message":"Add acceptance criteria"},
+  "content_hash": "3bf7bce769fb92473400b23c10358d76ce33ad506368c333396c0292109a4075",
+  "hash_version": 3
+}

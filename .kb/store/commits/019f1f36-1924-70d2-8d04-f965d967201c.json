@@ -1,0 +1,5 @@
+{
+  "commit": {"author":"flexnetos <flexnetos@localhost>","changes":[{"change_type":"created","content_hash":"c26a72941e62403a5abcd2c7853deaa8df383e2b5c2e3403eb5bd7d9fa72590f","doc_type":"incident","document_id":"019f1f36-18fe-7521-b31c-6df284e44187","new_version":1,"previous_version":null,"slug":"incidents/meta-rust-release-install-surface-gap","title":"Meta release omits meta-rust plugin binary"}],"created_at":"2026-07-01T19:44:26.908639455Z","id":"019f1f36-1924-70d2-8d04-f965d967201c","message":"Surface meta-rust release install gap"},
+  "content_hash": "98c723d3550540db664b91e5dad0de4ef5d69602e1a03320d5b7f1f91e7c2e9c",
+  "hash_version": 3
+}

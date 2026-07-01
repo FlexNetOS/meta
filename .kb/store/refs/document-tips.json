@@ -1,0 +1,95 @@
+{
+  "version": 1,
+  "entries": [
+    {
+      "document_id": "019f1f24-04b3-70a2-b45d-2db3b1402a3d",
+      "slug": "context/immutable/project-brief",
+      "tip_commit_id": "019f1f26-2d4a-7990-9cf2-6906a8b7e9a0"
+    },
+    {
+      "document_id": "019f1f24-04c2-7d62-a5bb-9faaa00f7391",
+      "slug": "context/immutable/patterns",
+      "tip_commit_id": "019f1f26-2d4a-7990-9cf2-6906a8b7e9a0"
+    },
+    {
+      "document_id": "019f1f24-04d1-7af1-beba-7d6e3f680961",
+      "slug": "context/immutable/architecture",
+      "tip_commit_id": "019f1f26-2d4a-7990-9cf2-6906a8b7e9a0"
+    },
+    {
+      "document_id": "019f1f24-04e0-7a03-a607-75b85ea553ac",
+      "slug": "context/extensible/product",
+      "tip_commit_id": "019f1f3c-8b6b-7073-8671-be556c461343"
+    },
+    {
+      "document_id": "019f1f24-04ee-7de1-bd8f-fb10be2f9121",
+      "slug": "context/extensible/tech",
+      "tip_commit_id": "019f1f5c-5efa-76c0-9bf0-375897438fae"
+    },
+    {
+      "document_id": "019f1f24-04fc-7c91-b3cc-9b967dedb6fc",
+      "slug": "context/overridable/active",
+      "tip_commit_id": "019f1f3c-8b6b-7073-8671-be556c461343"
+    },
+    {
+      "document_id": "019f1f24-050b-70b2-8447-054b55719943",
+      "slug": "context/overridable/progress",
+      "tip_commit_id": "019f1f5c-5efa-76c0-9bf0-375897438fae"
+    },
+    {
+      "document_id": "019f1f27-511f-7c93-b837-0a125d0defdb",
+      "slug": "tasks/bootstrap-clean-room-peer-repos",
+      "tip_commit_id": "019f1f2a-387c-7913-8ebf-96cbd0fc2f0c"
+    },
+    {
+      "document_id": "019f1f36-18fe-7521-b31c-6df284e44187",
+      "slug": "incidents/meta-rust-release-install-surface-gap",
+      "tip_commit_id": "019f1f3c-8b6b-7073-8671-be556c461343"
+    },
+    {
+      "document_id": "019f1f3b-ab47-7341-b89a-d177b63e2051",
+      "slug": "tasks/flexnetos-meta-release-repackage",
+      "tip_commit_id": "019f1f3c-8b6b-7073-8671-be556c461343"
+    },
+    {
+      "document_id": "019f1f42-ebbf-7eb1-bb0c-d4e41e6f7731",
+      "slug": "tasks/auth-refactor",
+      "tip_commit_id": "019f1f43-4afd-7fc1-b0b9-17e2e772f79c"
+    },
+    {
+      "document_id": "019f1f47-96ec-76d2-a56f-de55ad49da7a",
+      "slug": "tasks/register-yazelix-meta-peer",
+      "tip_commit_id": "019f1f5c-5efa-76c0-9bf0-375897438fae"
+    },
+    {
+      "document_id": "019f1f69-5389-7643-9d13-a11a34b95f47",
+      "slug": "tasks/gitkb-mcp-daemon-local-setup",
+      "tip_commit_id": "019f1f6f-69f1-76d0-8a85-a9e8bde1a0bc"
+    },
+    {
+      "document_id": "019f1f77-1983-7351-b3ea-22c849b9f300",
+      "slug": "tasks/gitkb-local-agent-platform",
+      "tip_commit_id": "019f1f78-096a-7950-82a8-383fb9dd0f22"
+    },
+    {
+      "document_id": "019f1f77-199c-7953-8139-7a7fb33aa6c7",
+      "slug": "specs/gitkb-local-mcp-graph-architecture",
+      "tip_commit_id": "019f1f78-096a-7950-82a8-383fb9dd0f22"
+    },
+    {
+      "document_id": "019f1f77-19b5-7420-810a-9d836bcd4eaa",
+      "slug": "incidents/gitkb-daemon-background-residency",
+      "tip_commit_id": "019f1f78-096a-7950-82a8-383fb9dd0f22"
+    },
+    {
+      "document_id": "019f1f77-19ce-7021-a09e-f7f8e90fda3a",
+      "slug": "tasks/gitkb-release-graph-gate",
+      "tip_commit_id": "019f1f78-096a-7950-82a8-383fb9dd0f22"
+    },
+    {
+      "document_id": "019f1f77-19e7-7592-a067-5f34bf094edf",
+      "slug": "tasks/gitkb-knowledge-graph-setup",
+      "tip_commit_id": "019f1f79-89ef-79b2-af27-bc5f01a76856"
+    }
+  ]
+}

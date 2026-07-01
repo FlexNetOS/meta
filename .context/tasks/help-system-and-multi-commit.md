@@ -400,6 +400,11 @@ Add new MCP tool for AI agents:
 - [x] Plugins that don't support help show basic fallback
 - [x] Help format is consistent across all plugins
 
+**FlexNetOS revalidation (2026-07-01):** the installed upstream release does
+not expose `meta rust --help` because `meta-rust` is omitted from the release
+archive/installers. FlexNetOS release validation must include the Rust plugin
+before considering installed plugin help complete.
+
 ### Multi-Commit
 - [x] `meta git commit --edit` opens editor with staged files per repo
 - [x] Can create different commit messages for each repo

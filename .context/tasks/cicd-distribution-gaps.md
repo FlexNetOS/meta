@@ -18,6 +18,12 @@ Make `meta` immediately usable by any user on any platform **without requiring R
 | Crates.io Publish Job | `.github/workflows/release.yml` | ✅ Automated |
 | Homebrew Auto-Update | `.github/workflows/release.yml` | ✅ Automated |
 
+**FlexNetOS correction (2026-07-01):** this status was too broad. The current
+upstream package/install path builds and installs `meta`, `meta-git`,
+`meta-project`, `meta-mcp`, and `loop`, but omits `meta-rust`. FlexNetOS must
+reopen the distribution lane until `meta_rust_cli` is built and all release
+artifacts/installers include `meta-rust`.
+
 ---
 
 ## Distribution Strategy
@@ -125,6 +131,8 @@ Direct download from: `https://github.com/harmony-labs/meta/releases/latest`
 
 - [x] `curl ... | bash` works on macOS/Linux (install.sh exists)
 - [x] `irm ... | iex` works on Windows (install.ps1 exists)
+- [ ] FlexNetOS release archive includes `meta-rust`
+- [ ] FlexNetOS installers install `meta-rust` / `meta-rust.exe`
 - [ ] `brew install harmony-labs/tap/meta-cli` works (needs tap repo + secret)
 - [ ] `cargo binstall meta` downloads pre-built binary (needs crates.io publish)
 - [ ] `cargo install meta` compiles from source (needs crates.io publish)

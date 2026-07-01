@@ -39,6 +39,11 @@ You are an expert Rust developer specializing in high-performance, cross-platfor
 - Install script for quick setup
 - GitHub Actions release workflow
 
+**FlexNetOS revalidation (2026-07-01):** the upstream release/install surface
+omits the `meta-rust` plugin binary even though `meta_rust_cli` is part of this
+branch. Treat distribution as incomplete until the FlexNetOS-built release
+installs `meta-rust` and `meta rust --help` works.
+
 ---
 
 ## Key Principles

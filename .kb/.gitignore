@@ -2,6 +2,7 @@
 .cache/
 backups/
 cache/
-store/
+workspace/
 workspaces/
 worktrees/
+stashes/

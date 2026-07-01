@@ -64,6 +64,8 @@ meta_rust_cli/
 claude-plugins/
 codex-plugins/
 meta-plugins/
+yazelix
+yazelix/
 
 # plugins (built locally, not committed)
 .meta/plugins/

@@ -1,12 +1,43 @@
+[user]
+name = "flexnetos"
+email = "flexnetos@localhost"
+
 [identity]
 
 [sync.remotes]
 
+[repos]
+strategy = "meta"
+
+[apps]
+enabled = []
+install_dirs = []
+
 [code]
 index_threads = 0
+default_branch = "codex/clean-room-foundation-base-20260628"
+
+[code.repo_default_branch_map]
+meta_rust_cli = "codex/clean-room-foundation-base-20260628"
+meta_cli = "codex/clean-room-foundation-base-20260628"
+meta_plugin_protocol = "codex/clean-room-foundation-base-20260628"
+meta_git_lib = "codex/clean-room-foundation-base-20260628"
+claude-plugins = "codex/clean-room-foundation-base-20260628"
+loop_lib = "codex/clean-room-foundation-base-20260628"
+meta_git_cli = "codex/clean-room-foundation-base-20260628"
+"." = "codex/clean-room-foundation-base-20260628"
+agent = "codex/clean-room-foundation-base-20260628"
+meta_project_cli = "codex/clean-room-foundation-base-20260628"
+meta_core = "codex/clean-room-foundation-base-20260628"
+loop_cli = "codex/clean-room-foundation-base-20260628"
+codex-plugins = "codex/clean-room-foundation-base-20260628"
+meta-plugins = "codex/clean-room-foundation-base-20260628"
+meta_mcp = "codex/clean-room-foundation-base-20260628"
+yazelix = "main"
 
 [embeddings]
 enabled = true
+backend = "candle"
 batch_size = 16
 queue_size = 64
 batch_delay_ms = 50
@@ -18,3 +49,10 @@ path = ".kb/cache/index"
 mode = "optional"
 
 [auth.api_keys]
+
+[hooks]
+context_injection = true
+auto_commit_link = true
+auto_worktree_bind = true
+auto_progress = false
+prompt_context = false

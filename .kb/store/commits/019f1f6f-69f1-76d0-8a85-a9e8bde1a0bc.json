@@ -1,0 +1,5 @@
+{
+  "commit": {"author":"flexnetos <flexnetos@localhost>","changes":[{"change_type":"created","content_hash":"c1fe70769e36e70d2c979e6619c408d43a0d77f100e7606750cab5fb1ab3b4c0","doc_type":"task","document_id":"019f1f69-5389-7643-9d13-a11a34b95f47","new_version":1,"previous_version":null,"slug":"tasks/gitkb-mcp-daemon-local-setup","title":"Set up local GitKB MCP daemons"}],"created_at":"2026-07-01T20:47:03.145659256Z","id":"019f1f6f-69f1-76d0-8a85-a9e8bde1a0bc","message":"Record local GitKB MCP daemon setup"},
+  "content_hash": "794963ffa0a5b88bcdf89b35becb19ad65f3229fba618f4eb1bb7d64b3ddf1a3",
+  "hash_version": 3
+}
