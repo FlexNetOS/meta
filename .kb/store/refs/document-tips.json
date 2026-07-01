@@ -34,7 +34,7 @@
     {
       "document_id": "019f1f24-050b-70b2-8447-054b55719943",
       "slug": "context/overridable/progress",
-      "tip_commit_id": "019f1f5c-5efa-76c0-9bf0-375897438fae"
+      "tip_commit_id": "019f1f89-ddf0-72a2-89c1-5147f17657b9"
     },
     {
       "document_id": "019f1f27-511f-7c93-b837-0a125d0defdb",
@@ -89,7 +89,7 @@
     {
       "document_id": "019f1f77-19e7-7592-a067-5f34bf094edf",
       "slug": "tasks/gitkb-knowledge-graph-setup",
-      "tip_commit_id": "019f1f79-89ef-79b2-af27-bc5f01a76856"
+      "tip_commit_id": "019f1f89-ddf0-72a2-89c1-5147f17657b9"
     }
   ]
 }
