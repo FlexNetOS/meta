@@ -55,14 +55,14 @@ projects:
 
   # Standalone tools
   agent:
-    repo: https://github.com/gitkb/agent.git
+    repo: https://github.com/FlexNetOS/agent.git
 
   # Non-code repos
   claude-plugins:
     repo: https://github.com/FlexNetOS/claude-plugins.git
 
   codex-plugins:
-    repo: https://github.com/gitkb/codex-plugins.git
+    repo: https://github.com/FlexNetOS/codex-plugins.git
 
   meta-plugins:
-    repo: https://github.com/gitkb/meta-plugins.git
+    repo: https://github.com/FlexNetOS/meta-plugins.git
