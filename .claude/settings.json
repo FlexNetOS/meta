@@ -15,7 +15,7 @@
       {
         "hooks": [
           {
-            "command": "./target/debug/agent guard",
+            "command": "agent guard",
             "timeout": 5,
             "type": "command"
           }
@@ -36,7 +36,7 @@
       {
         "hooks": [
           {
-            "command": "git kb service status --quiet 2>/dev/null || git kb service start 2>/dev/null",
+            "command": "git-kb daemon status --quiet 2>/dev/null || git-kb daemon start --background 2>/dev/null",
             "timeout": 10,
             "type": "command"
           }

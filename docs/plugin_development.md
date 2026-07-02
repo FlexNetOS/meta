@@ -48,7 +48,7 @@ name = "meta-docker"
 
 ### External Executables
 
-Any executable in your PATH or `.meta-plugins` directory:
+Any executable in your PATH or `.meta/plugins` directory:
 
 ```bash
 #!/bin/bash
@@ -70,9 +70,9 @@ import sys
 
 Meta discovers plugins from these locations (in order):
 
-1. `.meta-plugins/` in current directory
-2. `.meta-plugins/` in parent directories (up to root)
-3. `~/.meta-plugins/` in home directory
+1. `.meta/plugins/` in current directory
+2. `.meta/plugins/` in parent directories (up to root)
+3. `~/.meta/plugins/` in home directory
 4. System PATH (executables named `meta-*`)
 
 ### Naming Convention
@@ -473,7 +473,7 @@ echo '{"command":"build","args":[],"projects":[{"name":"test","path":"./test"}],
 
 ```bash
 # Place plugin in discovery path
-cp meta-docker ~/.meta-plugins/
+cp meta-docker ~/.meta/plugins/
 
 # Test via meta
 meta docker build --dry-run
@@ -510,7 +510,7 @@ meta plugin install meta-docker
 
 1. Build for target platforms
 2. Distribute binaries or packages
-3. Users place in `~/.meta-plugins/` or PATH
+3. Users place in `~/.meta/plugins/` or PATH
 
 ## Troubleshooting
 
@@ -518,7 +518,7 @@ meta plugin install meta-docker
 
 - Ensure executable permissions: `chmod +x meta-plugin`
 - Check naming: must start with `meta-`
-- Verify location: `.meta-plugins/`, `~/.meta-plugins/`, or PATH
+- Verify location: `.meta/plugins/`, `~/.meta/plugins/`, or PATH
 - Use `META_DEBUG=1` for debug output
 
 ### Protocol Errors

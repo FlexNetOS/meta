@@ -136,6 +136,25 @@ When synchronizing branches:
 4. meta_git_pull → Pull changes
 ```
 
+#### GitHub sync-state invariant
+
+FlexNetOS agents must not leave GitHub-tracked repos ahead of or behind their
+tracked origin branch. A branch sync, task close, or publish operation is not
+complete until every touched repo is clean and reports no ahead/behind drift.
+
+Required sequence:
+
+```
+1. Fetch: git fetch --all --prune, or meta_git_fetch for workspace scope.
+2. Inspect: git status --short --branch, git branch -vv, and meta git status --short --sequential.
+3. Repair: push clean ahead branches, or pull/rebase clean behind branches after checking no merge/rebase is active.
+4. Verify: rerun the status commands and require "up to date with 'origin/<branch>'".
+5. Record: if sync cannot complete, write the exact branch, remote, command output, and blocker to the active KB task.
+```
+
+Do not treat local success as finished while GitHub is behind. Do not treat a
+clean worktree as finished if the branch is ahead or behind its tracked remote.
+
 **Example:**
 ```json
 // Check branch status

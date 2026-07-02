@@ -23,6 +23,36 @@ command = "/home/flexnetos/FlexNetOS/usr/libexec/gitkb-mcp-meta"
 
 That wrapper sets `GITKB_ROOT=/home/flexnetos/FlexNetOS/src/meta` and launches the workspace GitKB MCP binary. The GitKB Codex plugin therefore leaves `.mcp.json` empty so installing the plugin does not create a second `gitkb` server.
 
+Validate this invariant with:
+
+```bash
+meta plugin doctor-mcp --server gitkb
+meta plugin doctor-mcp --server gitkb --json
+```
+
+The validator scans project MCP files, assistant adapter configs, repo plugin payloads, the global Codex config, and Codex plugin cache `.mcp.json` files. It prints the owning file and every conflicting file before suggesting that conflicts be removed.
+
+## Hook Policy Validation
+
+Assistant hooks are policy outputs, not permission to invent unsupported GitKB
+commands. Validate hook command surfaces with:
+
+```bash
+meta plugin doctor-hooks
+meta plugin doctor-hooks --json
+```
+
+The validator scans assistant hook JSON surfaces such as `.claude/settings.json`,
+`claude-plugin/hooks/hooks.json`, and Codex plugin `hooks.json` payloads. It
+fails if a generated assistant hook calls missing GitKB commands such as
+`git-kb hook`, because the live GitKB CLI exposes `git-kb init git hooks` but no
+top-level `git-kb hook` command.
+
+The same report lists Codex trusted hook-state entries from
+`~/.codex/config.toml` whose hook files are outside the current meta workspace
+or missing. That report is informational before cleanup; mutation still requires
+the backup and exact-path rules below.
+
 ## Migration Rule
 
 When moving standalone assistant configuration into a plugin payload, remove or retire the original standalone files after proving the plugin covers the behavior. This prevents duplicate command, hook, skill, or MCP surfaces.
@@ -34,3 +64,66 @@ The migration order is:
 3. Generate or edit the assistant-specific payload.
 4. Validate manifests and JSON configs.
 5. Retire duplicate standalone surfaces only after verification.
+
+## GitKB Harness Adapter Generation
+
+GitKB workflow skills remain canonical under `.kb/skills/`. Assistant harness
+directories are generated or validated as adapters from one meta-owned manifest
+schema:
+
+```text
+name: gitkb-harness-adapters
+schema_version: 1
+canonical_skill_root: .kb/skills
+adapters:
+  - harness: claude
+    target_root: .claude/skills
+  - harness: codex
+    target_root: .codex/skills
+```
+
+Run the dry-run plan before writing:
+
+```bash
+meta plugin harness --harness all
+meta plugin harness --harness all --json
+```
+
+The plan lists missing adapter symlinks as `create`, matching symlinks as
+`valid`, and existing non-generated paths as `dirty`. It also reports removals;
+the current GitKB harness manifest is additive, so removals are `none`.
+
+Writing is explicit:
+
+```bash
+meta plugin harness --harness codex --write
+```
+
+Dirty adapter paths are never overwritten silently. To replace a dirty path, the
+operator must provide a backup/proof directory:
+
+```bash
+meta plugin harness --harness claude --write --backup-dir .meta/backups/harness-YYYYMMDD
+```
+
+This keeps Claude and Codex adapters pointed at `.kb/skills/` without
+hand-maintained drift, while preserving existing local files before replacement.
+
+## Claude GitKB Skill Model
+
+Current Claude Code docs describe `.claude/commands/` as the legacy custom
+command format and `.claude/skills/<name>/SKILL.md` as the recommended format.
+Both expose the same slash-command name, but skills add automatic invocation and
+supporting-file behavior. The repo-local GitKB model is therefore:
+
+- `.kb/skills/<skill>/SKILL.md` is the canonical workflow source.
+- `.claude/skills/<skill>` is a generated adapter symlink to
+  `../../.kb/skills/<skill>`.
+- `.codex/skills/<skill>` uses the same generated adapter model.
+- `.claude/commands/kb-*.md` wrappers are retired after the corresponding
+  `.claude/skills/kb-*` adapters validate.
+
+For this repository, `meta plugin harness --harness claude --write --backup-dir
+.meta/backups/harness-20260702-claude-gitkb` generated valid Claude adapters for
+all GitKB skills and preserved the previous direct Claude skill files under the
+backup directory before replacing them with symlinks.

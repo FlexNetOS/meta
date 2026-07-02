@@ -3,18 +3,24 @@
 
 # Daemon
 
+Local verification: this extracted page was executed against the FlexNetOS
+`meta` checkout. The live daemon socket and log paths are under
+` .kb/.cache/` , and the live `git-kb daemon start` command supports
+`--background`, `--verbose`, and `--log-format`; it does not support
+`--log-level`.
+
 The GitKB daemon is an optional  background service for users who want realtime code indexing and embedding generation. All core KB operations — documents, graph, full-text search, MCP tools, commits — work without it.
 
 Run the daemon when you want the file watcher to re-index your code on save, or when you want semantic search powered by embeddings.
 
 ## Architecture
 
-The daemon runs as a single background process per KB, communicating via a Unix socket at ` .kb/cache/gitkb.sock` . All daemon-dependent features — MCP tools, code intelligence queries, semantic search — route through this socket.
+The daemon runs as a single background process per KB, communicating via a Unix socket at ` .kb/.cache/gitkb.sock` . All daemon-dependent features — MCP tools, code intelligence queries, semantic search — route through this socket.
 
 ```
   Editor (MCP)  ──┐
                   │     Unix socket
-  CLI command   ──┼──▶ .kb/cache/gitkb.sock ──▶ Daemon process
+  CLI command   ──┼──▶ .kb/.cache/gitkb.sock ──▶ Daemon process
                   │         │
   File watcher  ──┘         ├── Code index (SQLite)
                             ├── Embedding engine
@@ -91,15 +97,17 @@ git-kb daemon stop
 
 ## Logging
 
-For debugging, start the daemon with verbose logging:
+For debugging, start the daemon with verbose CLI output:
 
 ```
-git-kb daemon start --log-level debug
+git-kb daemon start --verbose
 ```
 
-Log levels: ` error` , ` warn` , ` info` , ` debug` , ` trace` .
+The live start command also supports ` --background`  when a caller wants the
+daemon spawned as a child process and then released.
 
-Logs output to stderr by default. When the daemon runs in the background (the default), logs go to ` .kb/cache/daemon.log` .
+Logs output to stderr in the foreground. The daemon log file for this checkout
+is ` .kb/.cache/daemon.log` .
 
 ## Resource usage
 

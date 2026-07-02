@@ -21,6 +21,11 @@ Organizational knowledge is scattered — across IDEs, Jira, Confluence, Linear,
 
 ## Quick overview
 
+Local verification: this extracted documentation is being reconciled against the
+live FlexNetOS `meta` checkout through [[tasks/meta-gitkb-docs-command-config-extraction]]
+and [[tasks/meta-gitkb-document-graph-view-policy]]. Runnable examples in this
+copy should use existing local slugs when they are meant to be executed.
+
 ### Documents
 
 Everything in GitKB is a document  with YAML frontmatter and Markdown content:
@@ -45,12 +50,21 @@ What this task accomplishes and why it exists.
 
 Documents have types (` task` , ` spec` , ` incident` , ` note` , ` context` ), statuses, tags, and relationships to other documents via ` [[wikilinks]]` .
 
+In this checkout, use [[tasks/meta-plugin-gitkb-harness-generation]] as the
+runnable task example instead of creating a throwaway placeholder document.
+
 ### The knowledge graph
 
 Documents link to each other through wikilinks, frontmatter references, and code symbols — forming a knowledge graph  you can query:
 
 ```
 git-kb graph tasks/my-feature --direction both
+```
+
+Verified local equivalent:
+
+```
+git-kb graph tasks/meta-plugin-gitkb-harness-generation --json
 ```
 
 ### MCP integration

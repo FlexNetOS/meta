@@ -4,7 +4,7 @@ Maintain the GitKB knowledge base as you work. Documents are your persistent mem
 
 ## Before Starting Work
 
-- Check `git kb board` or `kb_board` to see what's active and what's blocked
+- Check `git-kb board` or `kb_board` to see what's active and what's blocked
 - If you're about to do non-trivial work and no task exists for it, create one first
 - Search before creating: `kb_search` with keywords to avoid duplicates
 

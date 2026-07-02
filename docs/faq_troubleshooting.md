@@ -175,13 +175,7 @@ If child repos aren't cloning, the `.meta` file may be missing or malformed.
 
 ### Q: Git operations are slow over SSH?
 
-**A:** Set up SSH multiplexing:
-
-```bash
-meta git setup-ssh
-```
-
-This configures connection reuse for faster parallel operations.
+**A:** Run `meta git setup-ssh` to establish SSH ControlMaster connections for SSH remotes in the workspace. Meta also sets up multiplexing automatically for parallel remote operations when possible.
 
 ### Q: How do I create the same branch in all repos?
 
@@ -209,14 +203,14 @@ This opens an editor for each dirty repo.
 
 **A:** Place the plugin in one of these locations:
 
-1. `.meta-plugins/` in your project
-2. `~/.meta-plugins/` in your home directory
+1. `.meta/plugins/` in your project
+2. `~/.meta/plugins/` in your home directory
 3. System PATH (binary named `meta-<name>`)
 
 ```bash
 # Example: install to home directory
-cp meta-docker ~/.meta-plugins/
-chmod +x ~/.meta-plugins/meta-docker
+cp meta-docker ~/.meta/plugins/
+chmod +x ~/.meta/plugins/meta-docker
 ```
 
 ### Q: My plugin is not detected. What should I check?

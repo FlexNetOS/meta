@@ -40,13 +40,13 @@ This creates a ` .kb/`  directory in your project root with the GitKB database a
 
 ```
 .kb/
-├── config.toml      # KB configuration
-├── gitkb.db         # SQLite database (document metadata, search index)
-├── workspace/       # Ephemeral editing surface for checked-out documents
-└── cache/           # Daemon socket, runtime files
+├── config.toml       # KB configuration
+├── store/            # Canonical document, commit, ref, and stash store
+├── workspaces/main/  # Ephemeral editing surface for checked-out documents
+└── .cache/           # SQLite database, daemon socket, runtime files, indexes
 ```
 
-The SQLite database caches document metadata and powers full-text search. Document content lives as Markdown files managed by GitKB’s own commit and sync protocol.
+The SQLite database currently lives at ` .kb/.cache/gitkb.db` , caches document metadata, and powers full-text search. Document content lives in ` .kb/store/`  as Markdown files managed by GitKB’s own commit and sync protocol.
 
 ## Optional: colorized Markdown output
 

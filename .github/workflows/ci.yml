@@ -35,7 +35,7 @@ jobs:
           shared-key: "test-${{ matrix.os }}"
 
       - name: Run tests
-        run: cargo test --workspace
+        run: cargo test --workspace --locked
 
   clippy:
     name: Clippy
@@ -83,13 +83,14 @@ jobs:
           shared-key: "integration-${{ matrix.os }}"
 
       - name: Build workspace
-        run: cargo build --workspace
+        run: cargo build --workspace --locked
 
       - name: Verify binaries
         run: |
-          ls -lh target/debug/meta target/debug/meta-git
+          ls -lh target/debug/meta target/debug/meta-git target/debug/meta-project target/debug/meta-mcp target/debug/meta-rust
           ./target/debug/meta --version
           ./target/debug/meta-git --meta-plugin-info | jq .name
+          ./target/debug/meta-rust --meta-plugin-info | jq .name
         shell: bash
 
       - name: Install bats

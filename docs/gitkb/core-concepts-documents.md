@@ -3,6 +3,13 @@
 
 # Documents
 
+Local verification: this extracted page was executed against the FlexNetOS
+`meta` checkout. The local safe examples use existing GitKB/meta documents and
+created the saved view [[views/active-tasks]]. A live assign/unassign mismatch
+was reproduced and captured as [[tasks/meta-gitkb-assignment-field-mismatch]].
+This checkout currently has task, view, context, architecture, brief, and
+patterns documents.
+
 Everything in GitKB is a document  — a Markdown file with structured YAML frontmatter.
 
 ## Document types
@@ -83,6 +90,14 @@ Flag | Description
 
 Add ` --json`  for structured output that agents can parse programmatically.
 
+Verified local equivalents:
+
+```
+git-kb list --type task --tags gitkb --json
+git-kb list --type task --status active --unassigned --json
+git-kb list --type task --status active --unblocked --json
+```
+
 Full-text search works across all document types — titles, frontmatter, and body content:
 
 ```
@@ -102,6 +117,13 @@ incidents/inc-007-token-expiry      incident  Token Expiry During Long Sessions
 ```
 
 Search returns results ranked by relevance. It matches across the full document — if “authentication” appears in the body of a context doc or deep in a spec, it still surfaces.
+
+In this checkout, `git-kb search authentication --json` currently returns no
+local results. Use a local query such as:
+
+```
+git-kb search gitkb --type task --json
+```
 
 ### Semantic search (experimental)
 
@@ -132,6 +154,22 @@ Semantic search finds conceptually related results even when they don’t contai
 
 Note:  Semantic search is experimental and requires the embedding system to be enabled in ` .kb/config.toml` . The daemon downloads and runs the embedding model locally — no data leaves your machine.
 
+Local semantic-search proof:
+
+```
+git-kb daemon start
+git-kb ai embed --dry-run --scope documents
+git-kb ai embed stats
+git-kb ai semantic "token lifecycle" --json
+git-kb daemon stop
+```
+
+With the daemon running, the rerun reported `173 embedded, 18 skipped
+(unchanged)`, vector stats reported 4 document vectors and 127 code vectors
+using `BAAI/bge-small-en-v1.5`, and semantic search returned mixed
+document/code results. Without the daemon, semantic and embedding commands fail
+with an explicit daemon-required error.
+
 ## Assignment
 
 Documents can be assigned  to a specific agent using compare-and-swap semantics. This prevents two agents from picking up the same task simultaneously:
@@ -145,6 +183,15 @@ git-kb unassign tasks/my-task
 ```
 
 The ` assigned_to`  field in frontmatter tracks the current owner. Use ` --force`  to override an existing assignment.
+
+Local caveat: during this page walk, `git-kb assign views/active-tasks
+codex-docs-pass --json` wrote `assignee: codex-docs-pass`, while
+`git-kb unassign views/active-tasks --json` reported `Already unassigned` and
+did not clear that field. The rerun reproduced the same mismatch on
+[[tasks/meta-gitkb-assignment-field-mismatch]] itself: `assign` wrote
+`assignee: codex-repeat-docs`, while `unassign` returned `Already unassigned`.
+The workspace assignment churn was removed manually, and the implementation
+issue is tracked in [[tasks/meta-gitkb-assignment-field-mismatch]].
 
 ## Views
 
@@ -176,6 +223,10 @@ git-kb view views/active-tasks
 ```
 
 Views re-run their query live — they always reflect the current KB state.
+
+Local proof: `views/active-tasks` now exists as a view document, and
+`git-kb view views/active-tasks --json` returns a live priority-grouped task
+board.
 
 ## Relationships
 

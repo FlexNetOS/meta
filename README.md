@@ -267,7 +267,7 @@ This enables impact analysis ("what breaks if I change shared-utils?"), topologi
 |---------|-------------|
 | `meta git clone <url>` | Clone meta repo + all child repos |
 | `meta git update` | Pull changes and clone missing repos |
-| `meta git setup-ssh` | Configure SSH multiplexing |
+| `meta git setup-ssh` | Establish SSH ControlMaster connections |
 | `meta git commit --edit` | Per-repo commit messages via editor |
 | `meta git commit -m "msg"` | Same message across all repos |
 | `meta git snapshot create <name>` | Capture workspace state |
@@ -339,8 +339,8 @@ Snapshots record each repo's commit SHA, branch, and dirty status. Dirty repos a
 
 Plugins are standalone executables that extend meta. They're discovered automatically from:
 
-- `.meta-plugins/` in the current or parent directories
-- `~/.meta-plugins/`
+- `.meta/plugins/` in the current or parent directories
+- `~/.meta/plugins/`
 - System PATH (binaries named `meta-*`)
 
 ### Built-in Plugins

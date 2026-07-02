@@ -74,6 +74,13 @@ teardown() {
     [ "$status" -eq 0 ]
 }
 
+@test "init claude --help prints help without writing files" {
+    run "$META_BIN" init claude --help
+    [ "$status" -eq 0 ]
+    [[ "$output" == *"meta init - Initialize meta integrations"* ]]
+    [ ! -e ".claude/settings.json" ]
+}
+
 @test "init claude settings references meta context" {
     run "$META_BIN" init claude
     [ "$status" -eq 0 ]

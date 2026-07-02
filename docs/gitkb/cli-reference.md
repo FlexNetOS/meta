@@ -3,9 +3,90 @@
 
 # CLI Reference
 
-All ` git-kb`  commands. Click any row to expand its full help. This page is backed by ` src/lib/docs/cli-commands.ts` , generated from ` git-kb 0.2.6` .
+This page was refreshed against the installed local binary, `git-kb 0.2.12`,
+on 2026-07-02. The detailed generated command bodies below were originally
+captured from the upstream `git-kb 0.2.6` documentation dataset, so the live
+`0.2.12` notes in this section are the authoritative reference for automation
+in this checkout. Always verify with `git-kb <command> --help` before wiring a
+new script or agent hook.
 
-This CLI reference mirrors command help for the generated git-kb 0.2.6 dataset. Output may differ for other installed GitKB versions. For the installed assistant dotfile and skill symlink layouts, see Agent Harnesses &  Skills .
+For the installed assistant dotfile and skill symlink layouts, see Agent
+Harnesses & Skills.
+
+## Live `0.2.12` Command Index
+
+Live proof from this repository, 2026-07-02:
+
+- `git-kb --version` returned `git-kb 0.2.12`.
+- A 94-page help sweep passed for the required top-level commands and selected
+  subcommands.
+- Live top-level command families include `sync`, `slug`, and `app`, which are
+  absent from the generated `0.2.6` body below.
+
+Live command groups from `git-kb --help`:
+
+- Start a knowledge base: `init`, `doctor`, `fsck`, `repair`, `info`.
+- Create and manage documents: `create`, `show`, `list`, `search`, `rm`,
+  `set`, `assign`, `unassign`, `mv`, `slug`, `templates`.
+- Organize with relationships and views: `link`, `unlink`, `reorder`, `graph`,
+  `board`, `view`.
+- Workspace: `checkout`, `status`, `diff`, `commit`, `uncommit`, `stash`,
+  `reset`, `clear`, `log`.
+- Collaborate and sync: `remote`, `push`, `sync`, `pull`, `conflict`,
+  `rebase`, `auth`, `login`, `logout`, `whoami`, `org`, `ping`.
+- Export and recover: `export`, `backup`, `restore`, `bundle`, `filter`,
+  `schema`, `reindex`, `upgrade`, `verify`.
+- Integrations: `daemon`, `events`, `serve`, `mcp`, `context`, `ready`,
+  `resolve`, `config`, `app`, `repo`.
+- Code intelligence: `code`.
+- AI-powered features: `ai`.
+
+Live command-family additions:
+
+- `git-kb sync --help` exposes `git-kb sync status` for remote sync health
+  checks without transferring payloads.
+- `git-kb slug --help` exposes `git-kb slug next`.
+- `git-kb app --help` exposes `git-kb app list`.
+
+## Live `0.2.12` Corrections
+
+Use these corrections instead of stale examples from the older generated body
+or other extracted docs:
+
+- `git-kb pull --help` does not include `--all`; `git-kb pull origin --all`
+  is invalid for this installed binary. Use bare `git-kb pull <remote>` to
+  refresh locally held documents, or use pathspec/filter forms such as
+  `git-kb pull origin 'context/*'`, `--type`, or `--status`.
+- `git-kb set` uses positional `FIELD=VALUE` arguments. Use
+  `git-kb set <slug> status=active`; do not use
+  `git-kb set <slug> --status active`.
+- `git-kb graph --direction` accepts `out`, `in`, and `both`. The older words
+  `inbound` and `outbound` fail; use `in` and `out`.
+- `git-kb conflict` exposes `show` and `accept`. The stale subcommands
+  `conflict list` and `conflict resolve` fail in `0.2.12`.
+- `git-kb board --help` does not document `--all`; it does document `--where`.
+  `git-kb board --all --json` currently succeeds, so treat `--all` as hidden
+  compatibility behavior and do not depend on it for new automation.
+- `git-kb link` uses `git-kb link <child> --to <container>`, not older
+  `--child`/`--container` examples.
+- Checked-out documents materialize under `.kb/workspaces/main/` in this
+  repository, not `.kb/workspace/`.
+
+Safe live health checks from the parity pass:
+
+- `git-kb doctor --json`: all repo, code, and KB checks returned `ok`.
+- `git-kb fsck --json`: `clean: true`, `issue_count: 0`.
+- `git-kb verify --json`: `ok: true`, with `80` documents and `41` commits
+  checked.
+- `git-kb info --json`: `80` documents, `41` KB commits, `0` stashes, and
+  `1429` indexed code symbols.
+
+The completed KB task
+`tasks/meta-gitkb-cli-option-level-parity` records the broader option-level
+parity pass: 175 live option names from 121 help pages, 165 extracted docs
+options, docs-only options `--kb`, `--log-level`, and `--strategy`, and
+live-only options including `--where`, `--copy`, `--kb-root`, `--all-terms`,
+and `--yes`.
 
 ```
 git-kb --version          # Print version

@@ -1,0 +1,3 @@
+# Generated Rust build output should not enter GitKB code intelligence.
+target/
+**/target/
