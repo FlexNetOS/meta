@@ -7,6 +7,50 @@ All ` git-kb`  commands. Click any row to expand its full help. This page is bac
 
 This CLI reference mirrors command help for the generated git-kb 0.2.6 dataset. Output may differ for other installed GitKB versions. For the installed assistant dotfile and skill symlink layouts, see Agent Harnesses &  Skills .
 
+## Live `0.2.12` verification overlay
+
+This checkout currently runs `git-kb 0.2.12`, not the generated `0.2.6`
+dataset below. Treat the generated command bodies as historical reference and
+prefer live `git-kb <command> --help` before wiring automation.
+
+Live proof from this repository, 2026-07-02:
+
+- `git-kb --version` returned `git-kb 0.2.12`.
+- `git-kb --help` lists live command families that are absent from this
+  generated page: `sync`, `slug`, and `app`.
+- `git-kb sync --help` exposes `git-kb sync status <REMOTE> [PATHSPEC]...`
+  for remote sync health checks without transferring payloads.
+- `git-kb slug --help` exposes `git-kb slug next`.
+- `git-kb app --help` exposes `git-kb app list`.
+- `git-kb push --help` includes live `--dry-run` and `--json` options for
+  non-mutating push health reports.
+- `git-kb board --help` in `0.2.12` does not include the generated `--all`
+  option shown later in this `0.2.6` page; it does include `--where`.
+- `git-kb pull --help` does not include `--all`; the public sparse-sync docs
+  example `git-kb pull origin --all` is not valid for this installed binary.
+- `git-kb set` uses `FIELD=VALUE` arguments. Do not use stale
+  `git-kb set <slug> --status active` examples.
+- `git-kb link` uses `git-kb link <child> --to <container>`, not older
+  `--child`/`--container` examples.
+- Checked-out documents materialize under `.kb/workspaces/main/` in this
+  repository, not `.kb/workspace/`.
+
+Safe live health checks passed:
+
+- `git-kb doctor --json`: all repo, code, and KB checks returned `ok`.
+- `git-kb fsck --json`: `clean: true`, `issue_count: 0`.
+- `git-kb verify --json`: `ok: true`, with `80` documents and `41` commits
+  checked.
+- `git-kb info --json`: `80` documents, `41` KB commits, `0` stashes, and
+  `1429` indexed code symbols.
+
+The completed KB task
+`tasks/meta-gitkb-cli-option-level-parity` records the broader option-level
+parity pass: 175 live option names from 121 help pages, 165 extracted docs
+options, docs-only options `--kb`, `--log-level`, and `--strategy`, and
+live-only options including `--where`, `--copy`, `--kb-root`, `--all-terms`,
+and `--yes`.
+
 ```
 git-kb --version          # Print version
 git-kb --help             # Print help
