@@ -474,6 +474,7 @@ Options:
 
 - **[Architecture Overview](docs/architecture_overview.md)** — System design
 - **[MCP Server Guide](docs/mcp_server.md)** — AI agent integration
+- **[LifeOS Portable Release Roadmap](docs/lifeos-portable-release-roadmap.md)** - Roadmap for a meta-orchestrated portable LifeOS Agentic OS release
 - **[Plugin Development](docs/plugin_development.md)** — Writing plugins
 - **[Claude Code Skills](docs/claude_code_skills.md)** — AI workflow skills
 - **[Advanced Usage](docs/advanced_usage.md)** — Power-user features
