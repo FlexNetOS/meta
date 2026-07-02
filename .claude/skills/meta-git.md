@@ -123,13 +123,13 @@ meta git snapshot restore before-changes
 
 ## SSH Optimization
 
-For faster parallel operations:
+For faster parallel SSH operations:
 
 ```bash
 meta git setup-ssh
 ```
 
-Configures SSH connection multiplexing for reuse across parallel git operations.
+This establishes SSH ControlMaster connections for SSH remotes in the workspace and prints the reusable `GIT_SSH_COMMAND` when Meta manages the sockets.
 
 ## MCP Tools for Git Operations
 

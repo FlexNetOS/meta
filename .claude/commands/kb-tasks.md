@@ -3,7 +3,7 @@ allowed-tools:
   - mcp__gitkb__kb_list
   - mcp__gitkb__kb_show
   - mcp__gitkb__kb_graph
-  - Bash(git kb:*)
+  - Bash(git-kb:*)
 description: List tasks with filtering, relationships, and status details
 ---
 

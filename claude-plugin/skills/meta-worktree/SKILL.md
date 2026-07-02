@@ -172,6 +172,8 @@ Configure hooks in `.meta` to integrate with external systems:
 
 Hooks receive the worktree entry as JSON on stdin. Hook failures print warnings but don't block operations.
 
+**Trust boundary:** Worktree hooks execute configured shell commands from `.meta` / `.meta.yaml` via `sh -c`. Treat hook configuration as trusted workspace code, review hooks before running create/destroy/prune in unfamiliar repos, and use dry-run modes to preview worktree changes. Dry runs do not fire hooks.
+
 ## Centralized Store
 
 All worktree metadata is stored at `~/.meta/worktree.json`:

@@ -22,11 +22,11 @@ meta --tag backend exec -- cargo test
 # Exclude repos
 meta --exclude legacy exec -- npm update
 
-# Dependency-aware order
-meta --ordered exec -- cargo build
+# Sequential execution for dependency-sensitive work
+meta --sequential exec -- cargo build
 
-# Combine: tagged repos, in order, excluding one
-meta --tag backend --exclude legacy --ordered exec -- make deploy
+# Combine: tagged repos, sequentially, excluding one
+meta --tag backend --exclude legacy --sequential exec -- make deploy
 ```
 
 ## Before Modifying Shared Code
@@ -35,7 +35,7 @@ When modifying a repo that other repos depend on:
 
 1. **Check dependents**: Use `meta_analyze_impact <repo-name>` (MCP tool) to see transitive dependents
 2. **Plan cascading changes**: If `meta_core` changes, repos that depend on it may need updates
-3. **Build in order**: `meta --ordered exec -- cargo build` respects the dependency graph
+3. **Avoid parallel dependency hazards**: `meta --sequential exec -- cargo build` runs one repo at a time
 
 ## Efficient Commits
 
@@ -67,13 +67,13 @@ Use `meta --strict` to convert all warnings to errors across any command. This p
 
 ```bash
 # Global strict mode: fails on ANY warning across all commands
-meta --strict worktree create feature-test v2.0.0 --all
+meta --strict worktree create feature-test --from-ref v2.0.0 --all
 meta --strict worktree prune
 meta --strict exec -- cargo build
 ```
 
 **What becomes an error in strict mode:**
-- Missing refs when using a commit-ish (worktree create)
+- Missing refs when using `--from-ref` (worktree create)
 - Failed PR branch fetches (worktree create)
 - Invalid `--meta` format values (worktree create)
 - Failed directory removal (worktree prune)
@@ -106,7 +106,7 @@ The `worktree create` command also has a local `--strict` flag that can be used 
 
 ```bash
 # Local --strict on worktree create only
-meta worktree create feature-test v2.0.0 --all --strict
+meta worktree create feature-test --from-ref v2.0.0 --all --strict
 ```
 
 Both flags work together - if either global `--strict` or local `--strict` is set, strict mode is enabled.
@@ -116,5 +116,5 @@ Both flags work together - if either global `--strict` or local `--strict` is se
 - One `meta git status` replaces N individual `git status` calls
 - One `meta --tag X exec -- cmd` replaces N `cd && cmd` sequences
 - `meta_analyze_impact` before modifying providers prevents cascading fix-up commits
-- `meta --ordered exec -- cargo build` builds in correct dependency order automatically
+- `meta --sequential exec -- cargo build` runs one repo at a time for dependency-sensitive workflows
 - `meta --dry-run exec -- dangerous-cmd` previews before executing

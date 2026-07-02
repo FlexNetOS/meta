@@ -25,7 +25,7 @@ If the worktree name or repos are not specified, infer them from the task descri
 Before creating a worktree, understand what repos are available:
 
 ```bash
-meta project list --jsons
+meta project list --json
 ```
 
 This returns the project tree for the current meta-repo level, including names, paths, nested meta-repos (`is_meta: true`), and dependencies. Use this to:

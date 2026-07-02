@@ -42,7 +42,7 @@ Skills are installed to `.claude/skills/` in your meta repository and are automa
 - `meta git clone` and its queue-based recursive cloning
 - `meta git update` for syncing workspaces
 - Snapshot create/list/restore workflow
-- SSH optimization with `setup-ssh`
+- SSH uses normal Git configuration
 - Safe workflow patterns (status → snapshot → work → commit)
 
 **When Claude should reference this skill:**

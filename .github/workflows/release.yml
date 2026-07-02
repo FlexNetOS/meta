@@ -83,6 +83,7 @@ jobs:
           cargo build --release --target ${{ matrix.target }} -p meta_git_cli
           cargo build --release --target ${{ matrix.target }} -p meta_project_cli
           cargo build --release --target ${{ matrix.target }} -p meta-mcp
+          cargo build --release --target ${{ matrix.target }} -p meta_rust_cli
           cargo build --release --target ${{ matrix.target }} -p loop_cli
 
       - name: Package (Unix)
@@ -93,6 +94,7 @@ jobs:
           cp target/${{ matrix.target }}/release/meta-git dist/
           cp target/${{ matrix.target }}/release/meta-project dist/
           cp target/${{ matrix.target }}/release/meta-mcp dist/
+          cp target/${{ matrix.target }}/release/meta-rust dist/
           cp target/${{ matrix.target }}/release/loop dist/
           cd dist
           tar -czvf ../${{ matrix.asset_name }} *
@@ -107,11 +109,55 @@ jobs:
           copy target\${{ matrix.target }}\release\meta-git.exe dist\
           copy target\${{ matrix.target }}\release\meta-project.exe dist\
           copy target\${{ matrix.target }}\release\meta-mcp.exe dist\
+          copy target\${{ matrix.target }}\release\meta-rust.exe dist\
           copy target\${{ matrix.target }}\release\loop.exe dist\
           cd dist
           7z a -tzip ..\${{ matrix.asset_name }} *
           cd ..
           certutil -hashfile ${{ matrix.asset_name }} SHA256 > ${{ matrix.asset_name }}.sha256
+
+      - name: Verify package contents
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import os
+          import tarfile
+          import zipfile
+
+          asset = os.environ["ASSET_NAME"]
+          suffix = ".exe" if os.environ["RUNNER_OS"] == "Windows" else ""
+          expected = {
+              f"{os.environ['BINARY_NAME']}{suffix}",
+              f"meta-git{suffix}",
+              f"meta-project{suffix}",
+              f"meta-mcp{suffix}",
+              f"meta-rust{suffix}",
+              f"loop{suffix}",
+          }
+
+          if asset.endswith(".zip"):
+              with zipfile.ZipFile(asset) as archive:
+                  names = {
+                      os.path.basename(name)
+                      for name in archive.namelist()
+                      if not name.endswith("/")
+                  }
+          else:
+              with tarfile.open(asset, "r:gz") as archive:
+                  names = {
+                      os.path.basename(member.name)
+                      for member in archive.getmembers()
+                      if member.isfile()
+                  }
+
+          missing = sorted(expected - names)
+          if missing:
+              raise SystemExit(f"release archive missing expected binaries: {missing}")
+          print("release archive contains:", ", ".join(sorted(expected)))
+          PY
+        env:
+          ASSET_NAME: ${{ matrix.asset_name }}
+          BINARY_NAME: ${{ matrix.binary_name }}
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
@@ -301,6 +347,10 @@ jobs:
         run: cargo publish -p meta-mcp --token ${{ secrets.CARGO_REGISTRY_TOKEN }}
         continue-on-error: true
 
+      - name: Publish meta_rust_cli
+        run: cargo publish -p meta_rust_cli --token ${{ secrets.CARGO_REGISTRY_TOKEN }}
+        continue-on-error: true
+
   update-homebrew:
     name: Update Homebrew Formula
     needs: release
@@ -375,6 +425,7 @@ jobs:
               bin.install "meta-git"
               bin.install "meta-project"
               bin.install "meta-mcp"
+              bin.install "meta-rust"
               bin.install "loop"
             end
 

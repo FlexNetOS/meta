@@ -196,6 +196,6 @@ This is filesystem-based detection—no store dependency. See `meta-worktree.md`
 ## Efficiency Tips
 
 - **Target precisely**: Use `--include`/`--exclude`/`--tag` to run commands in exactly the repos you need — avoids running commands you'll have to undo
-- **Dependency order**: Use `--ordered` for dependency-aware build/test order (respects `depends_on` in `.meta.yaml`)
-- **Avoid unnecessary parallel**: Don't use `--parallel` for operations with cross-repo dependencies — sequential with `--ordered` is safer
+- **Ordering**: Use `--sequential` when operations must not run in parallel; inspect dependencies with `meta context` or `meta project list --json`
+- **Avoid unnecessary parallel**: Don't use `--parallel` for operations with cross-repo dependencies; `--sequential` is safer
 - **Dry run first**: `meta --dry-run exec -- dangerous-command` shows what would happen before committing

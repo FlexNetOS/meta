@@ -378,8 +378,8 @@ meta exec --parallel -- cargo test
 ### Plugin Locations
 
 Plugins are discovered from:
-1. `.meta-plugins/` in current directory
-2. `~/.meta-plugins/` in home directory
+1. `.meta/plugins/` in current directory
+2. `~/.meta/plugins/` in home directory
 3. Executables named `meta-*` in PATH
 
 ### Plugin Protocol

@@ -55,7 +55,7 @@ members = [
 resolver = "2"
 
 [workspace.package]
-version = "0.1.0"
+version = "0.2.22"
 edition = "2021"
 license = "MIT"
 repository = "https://github.com/gitkb/meta"
@@ -160,9 +160,9 @@ Rust/Cargo plugin:
 ### Discovery
 
 Plugins are discovered from:
-1. `.meta-plugins/` in current directory
-2. Parent directories' `.meta-plugins/`
-3. `~/.meta-plugins/` in home directory
+1. `.meta/plugins/` in current directory
+2. Parent directories' `.meta/plugins/`
+3. `~/.meta/plugins/` in home directory
 4. System PATH (executables named `meta-*`)
 
 Dual naming support: `meta-git` or `meta_git_cli`

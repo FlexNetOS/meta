@@ -69,16 +69,25 @@ run:
 	cargo run
 
 test:
+	RUST_BACKTRACE=$(RUST_BACKTRACE) RUST_LOG=$(RUST_LOG) cargo test --workspace --locked
+
+nextest:
 	RUST_BACKTRACE=$(RUST_BACKTRACE) RUST_LOG=$(RUST_LOG) cargo nextest run --workspace
 
+verify:
+	cargo fmt --all -- --check
+	cargo build --workspace --locked
+	RUST_BACKTRACE=$(RUST_BACKTRACE) RUST_LOG=$(RUST_LOG) cargo test --workspace --locked
+	bats tests/*.bats
+
 test-meta-git-clone: rm-meta
-	RUST_BACKTRACE=$(RUST_BACKTRACE) RUST_LOG=$(RUST_LOG) cargo run --release --bin meta -- git clone git@github.com:mateodelnorte/meta.git
+	RUST_BACKTRACE=$(RUST_BACKTRACE) RUST_LOG=$(RUST_LOG) cargo run --release --bin meta -- git clone git@github.com:gitkb/meta.git
 
 test-meta-git-clone-depth-1-recursive: rm-meta
-	RUST_BACKTRACE=$(RUST_BACKTRACE) RUST_LOG=$(RUST_LOG) cargo run --release --bin meta -- git clone git@github.com:mateodelnorte/meta.git --depth 1 --recursive
+	RUST_BACKTRACE=$(RUST_BACKTRACE) RUST_LOG=$(RUST_LOG) cargo run --release --bin meta -- git clone git@github.com:gitkb/meta.git --depth 1 --recursive
 
 test-meta-git-clone-parallel-recursive: rm-meta
-	RUST_BACKTRACE=$(RUST_BACKTRACE) RUST_LOG=$(RUST_LOG) cargo run --release --bin meta -- git clone git@github.com:mateodelnorte/meta.git --parallel 4 --recursive
+	RUST_BACKTRACE=$(RUST_BACKTRACE) RUST_LOG=$(RUST_LOG) cargo run --release --bin meta -- git clone git@github.com:gitkb/meta.git --parallel 4 --recursive
 
 # Parallel jobs - defaults to CPU count
 # Override with JOBS=N, or disable with JOBS=1
@@ -116,4 +125,4 @@ uninstall:
 	cargo uninstall meta_rust_cli 2>/dev/null || true
 	rm -f ~/.meta/plugins/meta-git ~/.meta/plugins/meta-project ~/.meta/plugins/meta-rust
 
-.PHONY: install install-hooks build run test bats release integration-test
+.PHONY: install install-hooks build run test nextest verify bats release integration-test

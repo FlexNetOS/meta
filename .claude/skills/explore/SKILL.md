@@ -118,11 +118,11 @@ Find relevant code and documents using semantic (natural language) search. Great
 
 For code search, embeddings must be generated:
 ```bash
-git kb index
-git kb embed
+git-kb code index
+git-kb ai semantic
 ```
 
 For document search, documents need embeddings:
 ```bash
-git kb embed --scope documents
+git-kb ai semantic --scope documents
 ```

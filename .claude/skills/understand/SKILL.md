@@ -107,5 +107,5 @@ Provide a summary with:
 
 Code must be indexed first:
 ```bash
-git kb index
+git-kb code index
 ```

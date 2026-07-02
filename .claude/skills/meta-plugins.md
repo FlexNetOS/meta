@@ -25,7 +25,7 @@ Handles all `meta git *` commands with special cases:
 | `meta git clone <url>` | Clone parent, read `.meta`, clone all children |
 | `meta git update` | Clone missing repos, pull existing ones |
 | `meta git snapshot *` | Create/restore workspace state |
-| `meta git setup-ssh` | Configure SSH multiplexing |
+| `meta git setup-ssh` | Establish SSH ControlMaster connections |
 | `meta git <other>` | Pass through to all repos |
 
 ### Project Plugin (`meta-project`)
@@ -35,7 +35,7 @@ Workspace management:
 ```bash
 meta project list      # List projects from .meta
 meta project check     # Verify all repos exist
-meta project sync      # Clone missing repos
+meta git update       # Clone missing repos and pull existing ones
 ```
 
 ### Rust Plugin (`meta-rust`)
@@ -50,8 +50,8 @@ meta rust test         # Test with proper ordering
 ## Plugin Discovery
 
 Plugins are discovered from:
-1. `.meta-plugins/` in current directory
-2. `~/.meta-plugins/` in home directory
+1. `.meta/plugins/` in current directory
+2. `~/.meta/plugins/` in home directory
 3. Executables named `meta-*` in PATH
 
 ## Plugin Management
