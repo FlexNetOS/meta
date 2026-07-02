@@ -6,7 +6,9 @@
 Local verification: this extracted page was executed against the FlexNetOS
 `meta` checkout. The local safe examples use existing GitKB/meta documents and
 created the saved view [[views/active-tasks]]. A live assign/unassign mismatch
-was found and captured as [[tasks/meta-gitkb-assignment-field-mismatch]].
+was reproduced and captured as [[tasks/meta-gitkb-assignment-field-mismatch]].
+This checkout currently has task, view, context, architecture, brief, and
+patterns documents.
 
 Everything in GitKB is a document  — a Markdown file with structured YAML frontmatter.
 
@@ -162,11 +164,11 @@ git-kb ai semantic "token lifecycle" --json
 git-kb daemon stop
 ```
 
-With the daemon running, the dry-run reported `172 embedded, 18 skipped
-(unchanged)`, vector stats reported document and code indexes using
-`BAAI/bge-small-en-v1.5`, and semantic search returned mixed document/code
-results. Without the daemon, semantic and embedding commands fail with an
-explicit daemon-required error.
+With the daemon running, the rerun reported `173 embedded, 18 skipped
+(unchanged)`, vector stats reported 4 document vectors and 127 code vectors
+using `BAAI/bge-small-en-v1.5`, and semantic search returned mixed
+document/code results. Without the daemon, semantic and embedding commands fail
+with an explicit daemon-required error.
 
 ## Assignment
 
@@ -185,9 +187,11 @@ The ` assigned_to`  field in frontmatter tracks the current owner. Use ` --force
 Local caveat: during this page walk, `git-kb assign views/active-tasks
 codex-docs-pass --json` wrote `assignee: codex-docs-pass`, while
 `git-kb unassign views/active-tasks --json` reported `Already unassigned` and
-did not clear that field. The workspace assignment churn was removed manually,
-and the implementation issue is tracked in
-[[tasks/meta-gitkb-assignment-field-mismatch]].
+did not clear that field. The rerun reproduced the same mismatch on
+[[tasks/meta-gitkb-assignment-field-mismatch]] itself: `assign` wrote
+`assignee: codex-repeat-docs`, while `unassign` returned `Already unassigned`.
+The workspace assignment churn was removed manually, and the implementation
+issue is tracked in [[tasks/meta-gitkb-assignment-field-mismatch]].
 
 ## Views
 
