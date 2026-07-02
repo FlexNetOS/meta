@@ -3,6 +3,13 @@
 
 # MCP Setup
 
+Local verification: this extracted page was executed against the FlexNetOS
+`meta` checkout. The active Codex MCP owner for this repo is the global Codex
+config entry `gitkb` pointing to
+`/home/flexnetos/FlexNetOS/usr/libexec/gitkb-mcp-meta`; do not add a duplicate
+repo-local `gitkb` registration while [[tasks/meta-plugin-mcp-single-owner-policy]]
+is active.
+
 GitKB exposes 49 tools  via the Model Context Protocol (MCP) , giving AI assistants full read/write access to your knowledge base.
 
 ## How it works
@@ -52,6 +59,11 @@ Codex can use the same MCP server through its local MCP configuration. The recom
 ```
 codex mcp add gitkb -- git-kb mcp
 ```
+
+For this checkout, `codex mcp list` already reports `gitkb` through the
+FlexNetOS wrapper path above, and the wrapper returns the same 49 GitKB tools.
+The generic `codex mcp add` command is therefore a new-project setup command,
+not something to rerun here.
 
 This writes the server entry to ` $CODEX_HOME/config.toml`  when ` CODEX_HOME`  is set, or ` ~/.codex/config.toml`  by default. If editing manually, add:
 
