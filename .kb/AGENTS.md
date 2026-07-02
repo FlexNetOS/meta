@@ -92,6 +92,31 @@ Do NOT rationalize skipping this step. Do NOT say "let me understand the codebas
 
 ---
 
+## GitHub Sync State Policy
+
+GitHub-tracked repositories must not be left ahead of or behind their tracked
+origin branch.
+
+After any commit, merge, KB completion, branch sync, or publish work:
+
+1. Fetch first when checking remote state:
+   `git fetch --all --prune` for the active repo, or the equivalent scoped
+   `meta` operation for peer repos.
+2. Push clean ahead branches to their tracked `origin` before ending the
+   session.
+3. Do not leave a repo behind its tracked branch. Pull/rebase only after
+   confirming the worktree is clean and no merge/rebase is already in progress.
+4. Verify with `git status --short --branch` for touched repos and
+   `meta git status --short --sequential` for the meta workspace.
+5. If a repo cannot be synchronized, record the exact blocker, branch, remote,
+   and command output in the active KB task before stopping.
+
+Passing state means every touched repo says `up to date with
+'origin/<branch>'`, has no uncommitted changes, and no local branch that was
+touched remains ahead or behind its tracked remote.
+
+---
+
 ## PATH A: Empty KB (First-Time Setup)
 
 When `git-kb list --path context/` returns no documents, the knowledge base is fresh. Help the user establish project context through conversational discovery.
