@@ -180,12 +180,19 @@ The MCP server exposes 29 tools for AI agent integration:
    - Automatic retry with backoff
    - Failure isolation
 
-2. **GUI Development**
+2. **LifeOS Portable Release Control Plane**
+   - Roadmap package for a meta-orchestrated LifeOS Agentic OS release
+   - Ubuntu 26.04 x86_64 target
+   - Portable user-space prefix with checksums, SBOM, provenance, install, update, and rollback contracts
+   - Runner-backed proof path through flexnetos_runner
+   - Read-first release MCP tools planned for agent visibility
+
+3. **GUI Development**
    - Visual project management
    - Dependency graph visualization
    - Real-time status monitoring
 
-3. **Ecosystem Expansion**
+4. **Ecosystem Expansion**
    - Plugin registry/marketplace
    - Community plugins
    - Cloud integrations
@@ -243,3 +250,4 @@ The original vision called for compiled Rust dynamic libraries (dlopen). We chos
 - [README.md](../README.md) - User documentation
 - [docs/mcp_server.md](../docs/mcp_server.md) - MCP server reference
 - [docs/plugin_development.md](../docs/plugin_development.md) - Plugin development guide
+- [docs/lifeos-portable-release-roadmap.md](../docs/lifeos-portable-release-roadmap.md) - LifeOS portable release roadmap
