@@ -5,6 +5,27 @@
 
 GitKB stores its configuration in ` .kb/config.toml` , created when you run ` git-kb init` . This file lives alongside the KB database inside the ` .kb/`  directory.
 
+## Live FlexNetOS `meta` configuration
+
+This checkout is a meta-repo, so its live `.kb/config.toml` is intentionally
+not the minimal single-repo example below. Do not replace it with a generic
+sample config.
+
+Live verification in this repository, 2026-07-02:
+
+- `git-kb config get repos.strategy` returned `meta`.
+- `git-kb remote list` reported no configured remotes. Do not add generic
+  `https://gitkb.com/my-org/my-kb` remotes without explicit approval.
+- `[apps]` exists with `enabled = []` and `install_dirs = []`.
+- `git-kb app list` found no local GitKB apps and scanned
+  `/home/flexnetos/.config/gitkb/apps`.
+- `git-kb code detect-default-branches --dry-run` detected 15 repos, all on
+  `main`, and wrote no changes.
+- `git-kb config get embeddings.enabled` returned `true`.
+- `git-kb config get embeddings.batch_delay_ms` returned `50`; the local config
+  deliberately differs from the generic `0` example.
+- `git-kb config get hooks.auto_commit_link` returned `true`.
+
 ## Minimal config
 
 A freshly initialized KB starts with an empty config. GitKB works with sensible defaults — you only need to add settings you want to customize.
@@ -54,6 +75,26 @@ Value | Description
 `"auto"` | Default. Single repository, discovered by searching upward for ` .git/` .
 `"meta"` | Multi-repo workspace managed by ` meta` . GitKB discovers repos via ` .meta`  configuration.
 
+Local note: FlexNetOS `meta` uses `strategy = "meta"` and a
+`[code.repo_default_branch_map]` containing the root repo (`"."`) plus the 14
+initial peer repos. This preserves independent repo boundaries; do not collapse
+the map into a single-repo `default_branch` setting.
+
+### `[apps]`
+
+Configure local GitKB app discovery. The live `git-kb app list --help` command
+also supports an additional `--apps-dir` flag for ad hoc scans.
+
+```
+[apps]
+enabled = []
+install_dirs = []
+```
+
+Key | Type | Default | Description
+`enabled` | array | ` []` | Enabled local app identifiers.
+`install_dirs` | array | ` []` | Additional app install directories to scan alongside the default app directory.
+
 ### `[code]`
 
 Configure the code intelligence indexer.
@@ -94,6 +135,8 @@ Key | Type | Default | Description
 `batch_size` | integer | ` 16` | Maximum texts per GPU forward pass. Lower this if you experience system freezes during embedding.
 `queue_size` | integer | ` 64` | Bounded channel capacity for the embedding queue. Controls backpressure between indexer and embedding consumer.
 `batch_delay_ms` | integer | ` 0` | Safety-net delay between GPU forward passes in milliseconds. Set nonzero only as a fallback if your machine becomes unresponsive.
+
+Local note: this checkout currently sets `batch_delay_ms = 50`, not `0`.
 
 ### `[embeddings.index]`
 
