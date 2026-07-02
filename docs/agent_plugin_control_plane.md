@@ -43,3 +43,47 @@ The migration order is:
 3. Generate or edit the assistant-specific payload.
 4. Validate manifests and JSON configs.
 5. Retire duplicate standalone surfaces only after verification.
+
+## GitKB Harness Adapter Generation
+
+GitKB workflow skills remain canonical under `.kb/skills/`. Assistant harness
+directories are generated or validated as adapters from one meta-owned manifest
+schema:
+
+```text
+name: gitkb-harness-adapters
+schema_version: 1
+canonical_skill_root: .kb/skills
+adapters:
+  - harness: claude
+    target_root: .claude/skills
+  - harness: codex
+    target_root: .codex/skills
+```
+
+Run the dry-run plan before writing:
+
+```bash
+meta plugin harness --harness all
+meta plugin harness --harness all --json
+```
+
+The plan lists missing adapter symlinks as `create`, matching symlinks as
+`valid`, and existing non-generated paths as `dirty`. It also reports removals;
+the current GitKB harness manifest is additive, so removals are `none`.
+
+Writing is explicit:
+
+```bash
+meta plugin harness --harness codex --write
+```
+
+Dirty adapter paths are never overwritten silently. To replace a dirty path, the
+operator must provide a backup/proof directory:
+
+```bash
+meta plugin harness --harness claude --write --backup-dir .meta/backups/harness-YYYYMMDD
+```
+
+This keeps Claude and Codex adapters pointed at `.kb/skills/` without
+hand-maintained drift, while preserving existing local files before replacement.
