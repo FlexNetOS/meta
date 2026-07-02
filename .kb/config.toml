@@ -2,8 +2,28 @@
 
 [sync.remotes]
 
+[repos]
+strategy = "meta"
+
 [code]
 index_threads = 0
+
+[code.repo_default_branch_map]
+"." = "main"
+loop_lib = "main"
+meta_git_cli = "main"
+codex-plugins = "main"
+meta_rust_cli = "main"
+agent = "main"
+loop_cli = "main"
+meta_git_lib = "main"
+meta_cli = "main"
+meta_project_cli = "main"
+meta_mcp = "main"
+meta_plugin_protocol = "main"
+meta-plugins = "main"
+meta_core = "main"
+claude-plugins = "main"
 
 [embeddings]
 enabled = true
