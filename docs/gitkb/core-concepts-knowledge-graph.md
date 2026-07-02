@@ -9,13 +9,18 @@ GitKB documents don’t exist in isolation — they form a knowledge graph  of r
 
 Edge | Created by | Example
 `references` | ` [[wikilink]]`  in body | Task references a spec
-`parent_of` | ` parent:`  in frontmatter | Epic contains child tasks
+`parent_of` | ` parent:`  in child frontmatter | Child belongs to an epic or parent task
 `implements` | ` implements:`  in frontmatter | Task implements a spec
-`blocks` | ` blocks:`  in frontmatter | Task blocks another task
+`blocks` | ` blocked_by:`  in frontmatter | Task is blocked by another task
 `depends_on` | ` depends_on:`  in frontmatter | Task depends on another
-`resolves` | ` resolves:`  in frontmatter | Task resolves an incident
 `references_code` | ` [[code:...]]`  in body | Document references a code symbol
-`references_commit` | ` [[commit:...]]`  in body | Document references a git commit
+`references` | ` [[commit:...]]`  in body | Document references a git commit target such as ` commit:79f7a05`
+
+Live extractor notes in this repository, 2026-07-02:
+
+- `blocked_by:` creates `blocks` graph changes; a literal `blocks:` field did not create a graph edge in `git-kb status`.
+- `resolves:` did not create a graph edge in the local status preview.
+- `[[commit:...]]` was reported as a `references` edge to a `commit:...` target, not as a separate `references_commit` relationship.
 
 ## Querying the graph
 
@@ -39,7 +44,7 @@ git-kb graph tasks/meta-plugin-gitkb-harness-generation --direction out --json
 git-kb graph --scope active --json
 ```
 
-The current CLI accepts `--direction out`, `--direction in`, and `--direction both`. The older `inbound` and `outbound` values fail validation. The local harness task graph returned 4 nodes and 4 edges, inbound returned 3 nodes and 3 edges, outbound returned 2 nodes and 1 edge, and the active task graph returned 9 nodes and 11 edges. JSON edge records expose the relationship name as `rel_type`.
+The current CLI accepts `--direction out`, `--direction in`, and `--direction both`. The older `inbound` and `outbound` values fail validation. The local harness task graph returned 4 nodes and 4 edges, inbound returned 3 nodes and 3 edges, outbound returned 2 nodes and 1 edge, and the active task graph returned 9 nodes and 11 edges. Graph JSON edge records expose the relationship name as `rel_type`; their `from` and `to` values are document IDs, while `git-kb status --json` `graph_changes` uses slugs and code/commit targets.
 
 Additional graph formats are available:
 
@@ -77,7 +82,7 @@ tasks/auth-epic (Auth System: OAuth 2.0 with PKCE Flow)
     └── code:src/auth/rate_limit.rs::RateLimiter (code)
 ```
 
-Every ` [[wikilink]]`  in a document body, every ` parent:`  field in frontmatter, and every ` [[code:...]]`  reference creates a traversable edge. Agents use this to understand what a task depends on, what it affects, and which code implements it.
+Every ` [[wikilink]]`  in a document body, every supported relationship field in frontmatter, and every ` [[code:...]]`  reference creates a traversable edge. Agents use this to understand what a task depends on, what it affects, and which code implements it.
 
 ## Wikilinks
 
@@ -133,7 +138,7 @@ diff --kb a/specs/auth-architecture b/specs/auth-architecture
 
 Together, ` status`  and ` diff`  give you a full picture: what edges will change, and exactly which content edits caused them.
 
-Live verification in this repository: adding a temporary `[[views/active-tasks]]` wikilink to `tasks/meta-gitkb-assignment-field-mismatch` made `git-kb status` preview a new `references` edge to `views/active-tasks`, and `git-kb diff` showed the content line that created it. The temporary line was removed before committing this documentation update.
+Live verification in this repository: adding temporary relationship fields and wikilinks to `tasks/meta-gitkb-assignment-field-mismatch` made `git-kb status` preview new `blocks`, `depends_on`, `implements`, `parent_of`, `references`, and `references_code` edges. `git-kb diff` showed the exact frontmatter and body lines that created them. The temporary probe lines were removed before committing this documentation update.
 
 ## Next steps
 
