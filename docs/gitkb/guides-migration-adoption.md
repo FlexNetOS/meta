@@ -47,14 +47,18 @@ Push your KB to a remote so the team can access it:
 
 ```
 git-kb remote add origin https://gitkb.com/my-org/my-kb
-git-kb push
+git-kb push origin
 ```
 
 Each team member pulls only the documents they need:
 
 ```
-git-kb pull 'context/*'
+git-kb pull origin 'context/*'
 ```
+
+For the FlexNetOS `meta` checkout, do not add or push to a remote until the
+remote target is explicitly approved. The local policy is tracked in
+[[tasks/meta-gitkb-sync-auth-remote-policy]].
 
 ### Per-developer setup
 

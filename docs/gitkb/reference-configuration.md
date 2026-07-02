@@ -101,11 +101,11 @@ Configure where the vector index is stored on disk.
 
 ```
 [embeddings.index]
-path = ".kb/cache/index"
+path = ".kb/.cache/index"
 ```
 
 Key | Type | Default | Description
-`path` | string | ` ".kb/cache/index"` | Directory for the vector similarity index. Relative to the KB root.
+`path` | string | ` ".kb/.cache/index"` | Directory for the vector similarity index. Relative to the KB root.
 
 ### `[auth]`
 
@@ -182,7 +182,7 @@ queue_size = 64
 batch_delay_ms = 0
 
 [embeddings.index]
-path = ".kb/cache/index"
+path = ".kb/.cache/index"
 
 [auth]
 mode = "optional"

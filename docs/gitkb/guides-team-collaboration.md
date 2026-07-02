@@ -154,18 +154,18 @@ GitKB has two layers of sparseness:
 
 1. Pull  — which documents exist in your local store (synced from the remote)
 
-2. Checkout  — which documents are materialized in ` .kb/workspace/`  for editing
+2. Checkout  — which documents are materialized in ` .kb/workspaces/main/`  for editing
 
 ```
 # Pull specific documents into your local store
-git-kb pull 'context/*'
-git-kb pull tasks/auth-refactor
+git-kb pull origin 'context/*'
+git-kb pull origin tasks/auth-refactor
 
 # Check out for editing
 git-kb checkout tasks/auth-refactor
-# Edit .kb/workspace/tasks/auth-refactor.md
+# Edit .kb/workspaces/main/tasks/auth-refactor.md
 git-kb commit -m "Update task"
-git-kb push
+git-kb push origin
 ```
 
 You can query, search, and view any document in your local DB. Checkout materializes a document to the filesystem so you can edit it in your editor and commit changes back.
@@ -217,7 +217,7 @@ git-kb board
 git-kb board --group-by priority
 
 # Sort by most recently updated
-git-kb board --sort-by updated --sort-direction desc
+git-kb board --group-by status --sort-by updated --sort-direction desc
 ```
 
 ### Commit-and-push cadence
@@ -226,7 +226,7 @@ Push frequently when collaborating so others see your progress:
 
 ```
 git-kb commit -m "Complete auth token validation"
-git-kb push
+git-kb push origin
 ```
 
 Frequent pushes reduce the chance of conflicts — and since conflicts are per-document, they’re rare when team members work on different documents.

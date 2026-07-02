@@ -3,6 +3,12 @@
 
 # Quick Start
 
+Local verification: this extracted copy is validated against the FlexNetOS
+`meta` checkout. The live task used for runnable examples is
+[[tasks/meta-plugin-gitkb-harness-generation]], and command drift is tracked by
+[[tasks/meta-gitkb-docs-command-config-extraction]] and
+[[tasks/meta-gitkb-document-graph-view-policy]].
+
 ## Try code intelligence instantly
 
 After installing , you can use code intelligence on any Git repo immediately — no initialization needed:
@@ -14,6 +20,14 @@ git-kb code callers your-function
 git-kb code impact src/your-file.ts
 ```
 
+In this checkout, the verified equivalents are:
+
+```
+git-kb code index --dry-run
+git-kb code callers handle_command_dispatch --json
+git-kb code impact meta_cli/src/main.rs --json
+```
+
 That’s it. You have a call graph. See Code Intelligence  for the full command reference.
 
 ## Set up your agent harness
@@ -23,6 +37,13 @@ To let your AI agent use code intelligence (and the full knowledge engineering p
 ```
 git-kb init
 git-kb init claude   # or: git-kb init codex
+```
+
+In an already-initialized KB, verify the generated harness without rewriting it:
+
+```
+git-kb init codex --dry-run
+git-kb init claude --dry-run
 ```
 
 This creates the knowledge base and scaffolds your agent’s rules, skills, and MCP configuration so it knows how to use GitKB effectively.
@@ -67,14 +88,32 @@ git-kb list
 git-kb list --type task --status active
 ```
 
+For a clean verification pass in this checkout, do not create the illustrative
+`tasks/auth-refactor` document. Use an existing linked task:
+
+```
+git-kb show tasks/meta-plugin-gitkb-harness-generation --json
+git-kb list --json
+git-kb list --type task --status active --json
+```
+
 ### The workspace
 
-The workspace (` .kb/workspace/` ) is where documents are checked out for editing. Check out, edit the Markdown file, and commit your changes back:
+The workspace (` .kb/workspaces/main/` in the current CLI) is where documents are checked out for editing. Check out, edit the Markdown file, and commit your changes back:
 
 ```
 git-kb checkout tasks/auth-refactor
-# Edit .kb/workspace/tasks/auth-refactor.md
+# Edit .kb/workspaces/main/tasks/auth-refactor.md
 git-kb commit -m "Add acceptance criteria"
+```
+
+For this checkout:
+
+```
+git-kb checkout tasks/meta-plugin-gitkb-harness-generation
+# Edit .kb/workspaces/main/tasks/meta-plugin-gitkb-harness-generation.md
+git-kb status --json
+git-kb diff
 ```
 
 ### The board
@@ -84,7 +123,7 @@ View your tasks organized by status, priority, or tags:
 ```
 git-kb board
 git-kb board --group-by priority
-git-kb board --sort-by updated --sort-direction desc
+git-kb board --group-by status --sort-by updated --sort-direction desc
 ```
 
 ### Search and graph
@@ -96,14 +135,25 @@ git-kb search "authentication"
 git-kb graph tasks/auth-refactor
 ```
 
+For this checkout:
+
+```
+git-kb search "authentication" --json
+git-kb graph tasks/meta-plugin-gitkb-harness-generation --json
+```
+
 ### Sync
 
-Share your KB with your team by pushing to a remote. Pull only the documents you need:
+Share your KB with your team by pushing to a configured remote. Pull only the documents you need:
 
 ```
-git-kb push
-git-kb pull 'context/*'
+git-kb push origin
+git-kb pull origin 'context/*'
 ```
+
+Remote setup and approval policy for this checkout is tracked in
+[[tasks/meta-gitkb-sync-auth-remote-policy]]. `git-kb push` and `git-kb pull`
+require an explicit remote argument in the current CLI.
 
 ## Next steps
 

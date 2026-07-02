@@ -131,7 +131,7 @@ Tools for the checkout-edit-commit workflow.
 
 ### `kb_checkout`
 
-Materialize documents from the database to the ` .kb/workspace/`  directory for editing.
+Materialize documents from the database to the ` .kb/workspaces/main/`  directory for editing in the current CLI.
 
 Parameter | Type | Description
 `slug` | string | Document slug to check out

@@ -165,7 +165,7 @@ After resolving all conflicts, commit and push:
 
 ```
 git-kb commit -m "Resolve sync conflicts"
-git-kb push
+git-kb push origin
 ```
 
 ## Code intelligence returning empty results
@@ -184,14 +184,14 @@ After initial indexing, the daemon’s file watcher keeps the index current auto
 
 ## “Permission denied” on socket
 
-The daemon socket at ` .kb/cache/gitkb.sock`  has incorrect permissions, or another user’s daemon owns it.
+The daemon socket at ` .kb/.cache/gitkb.sock`  has incorrect permissions, or another user’s daemon owns it.
 
 ```
 # Check socket ownership
-ls -la .kb/cache/gitkb.sock
+ls -la .kb/.cache/gitkb.sock
 
 # Remove stale socket and restart
-rm .kb/cache/gitkb.sock
+rm .kb/.cache/gitkb.sock
 git-kb daemon start
 ```
 

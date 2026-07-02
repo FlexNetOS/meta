@@ -9,12 +9,12 @@ Run the daemon when you want the file watcher to re-index your code on save, or 
 
 ## Architecture
 
-The daemon runs as a single background process per KB, communicating via a Unix socket at ` .kb/cache/gitkb.sock` . All daemon-dependent features — MCP tools, code intelligence queries, semantic search — route through this socket.
+The daemon runs as a single background process per KB, communicating via a Unix socket at ` .kb/.cache/gitkb.sock` . All daemon-dependent features — MCP tools, code intelligence queries, semantic search — route through this socket.
 
 ```
   Editor (MCP)  ──┐
                   │     Unix socket
-  CLI command   ──┼──▶ .kb/cache/gitkb.sock ──▶ Daemon process
+  CLI command   ──┼──▶ .kb/.cache/gitkb.sock ──▶ Daemon process
                   │         │
   File watcher  ──┘         ├── Code index (SQLite)
                             ├── Embedding engine
@@ -99,7 +99,7 @@ git-kb daemon start --log-level debug
 
 Log levels: ` error` , ` warn` , ` info` , ` debug` , ` trace` .
 
-Logs output to stderr by default. When the daemon runs in the background (the default), logs go to ` .kb/cache/daemon.log` .
+Logs output to stderr by default. When the daemon runs in the background (the default), logs go to ` .kb/.cache/daemon.log` .
 
 ## Resource usage
 

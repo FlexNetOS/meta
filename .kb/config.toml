@@ -32,7 +32,7 @@ queue_size = 64
 batch_delay_ms = 50
 
 [embeddings.index]
-path = ".kb/cache/index"
+path = ".kb/.cache/index"
 
 [auth]
 mode = "optional"
