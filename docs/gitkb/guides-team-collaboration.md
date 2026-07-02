@@ -48,13 +48,16 @@ Client                                 Server
 
 Pull supports multiple modes:
 
-Mode | Example | Use case
-By slug | ` tasks/auth` , ` specs/api` | Pull specific documents
-By pathspec | ` tasks/*` , ` context/*` | Pull a category
-By filter | ` type=task, status=active` | Pull by metadata
-By traversal | Root doc + graph neighbors | Pull a doc and its relationships
+| Mode | Example | Use case |
+| --- | --- | --- |
+| By slug | `tasks/auth`, `specs/api` | Pull specific documents |
+| By pathspec | `tasks/*`, `context/*` | Pull a category |
+| By filter | `type=task`, `status=active` | Pull by metadata |
+| By traversal | Root doc + graph neighbors | Pull a doc and its relationships |
 
 Each document tracks its own sync marker  per remote — a cursor into the server’s commit stream. Different documents on the same client can be at different sync points. This is the expected state under sparse sync.
+
+Live verification in this repository, 2026-07-02: `git-kb pull --help` accepts a required `<REMOTE>`, optional pathspecs, `--type`, `--status`, `--include-embeddings`, and `--wire-json`. The installed `git-kb 0.2.12` binary does not expose `git-kb pull --all`; running that command fails before sync with `unexpected argument '--all'`.
 
 ## Setting up remotes
 
@@ -94,6 +97,13 @@ git-kb login origin
 
 Pricing:  Local KB is free. Cloud sync (` git-kb push` /` git-kb pull`  to a hosted remote) is a paid feature. See gitkb.com/pricing  for plans.
 
+Live verification in this repository:
+
+- `git-kb remote list` reported no configured remotes.
+- `git-kb remote add docs-temp https://gitkb.com/org/my-kb-staging` added a local config entry under `[sync.remotes.docs-temp]`.
+- `git-kb remote remove docs-temp` removed that entry.
+- The add/remove round trip rewrote the ordering of `.kb/config.toml`; the proof run restored the original order so no config churn remained.
+
 ## Push/pull workflow
 
 ### Pushing changes
@@ -124,10 +134,10 @@ Bare pull  (default — no pathspec or ` --all` ): updates only documents alread
 git-kb pull origin
 ```
 
-Full pull : fetch everything the remote has:
+Full pull: the upstream docs describe `git-kb pull origin --all` for fetching everything the remote has, but that flag is not available in the installed `git-kb 0.2.12` binary used by this repository. Use explicit pathspecs or metadata filters instead:
 
 ```
-git-kb pull origin --all
+git-kb pull origin 'tasks/*'
 ```
 
 Sparse pull  with pathspecs: fetch matching documents and their commits — even ones you don’t have yet. This is how you build up your local KB:
@@ -147,6 +157,8 @@ git-kb pull origin --type task --status active
 ```
 
 Start with the context documents you need, add tasks as you pick up work, and pull specs when you need to reference a design. Your local KB grows incrementally based on what you’re actually working on.
+
+Local sync proof, 2026-07-02: because this repository has no configured `origin`, `git-kb pull origin`, `git-kb pull origin 'tasks/*'`, `git-kb pull origin --type task --status active`, and `git-kb push origin --dry-run --json` all stopped with `Remote 'origin' not found`. That proves the command parser and local remote resolution path, but it does not prove hosted GitKB Cloud transfer or authentication.
 
 ### The two-layer model: pull vs checkout
 
@@ -198,12 +210,16 @@ git-kb commit -m "Claim auth refactor task"
 git-kb push origin
 ```
 
+`git-kb set` uses `FIELD=VALUE` arguments. `git-kb set <slug> --status active` is not valid in `git-kb 0.2.12`; use `git-kb set <slug> status=active`. The local dry-run `git-kb set tasks/meta-plugin-gitkb-harness-generation status=active --dry-run` succeeded with `No changes to apply` because the task was already active.
+
 Other agents see assignment and status on the board:
 
 ```
 git-kb board --unassigned   # Show only unassigned tasks
 git-kb board --assigned-to "$AGENT_ID"  # Show your tasks
 ```
+
+Local caveat, 2026-07-02: assignment is not yet a reliable round trip in this repository. `git-kb assign tasks/meta-gitkb-assignment-field-mismatch agent-workflow-repeat --json` wrote `assignee: agent-workflow-repeat`, but `git-kb unassign tasks/meta-gitkb-assignment-field-mismatch --json` returned `changed:false` and left the workspace dirty. The tracked fix task is `tasks/meta-gitkb-assignment-field-mismatch`.
 
 ### Task board for coordination
 
@@ -219,6 +235,8 @@ git-kb board --group-by priority
 # Sort by most recently updated
 git-kb board --group-by status --sort-by updated --sort-direction desc
 ```
+
+Live verification: `git-kb board --unassigned --summary` returned `16 draft · 4 active · 60 completed`; `git-kb board --assigned-to agent-workflow-repeat --json` returned empty columns; `git-kb board --group-by priority --summary` returned `59 high · 20 medium · 1 (unset)`. Grouping by status with `--sort-by updated` returned an additional `(unset)` column for a non-task/view document, so agents should prefer `--json` when dispatching work.
 
 ### Commit-and-push cadence
 
@@ -253,6 +271,8 @@ git-kb rebase origin --continue
 # Or abandon and restore pre-rebase state
 git-kb rebase origin --abort
 ```
+
+Live verification: `git-kb conflict show --json` returned `{"conflicts":[],"count":0}` in the clean local KB. `git-kb rebase origin --continue` and `git-kb rebase origin --abort` are valid commands, but without an active rebase state both return `No rebase in progress. Nothing to continue or abort.`
 
 GitKB uses three-way merge when possible: frontmatter fields merge independently (one person changes ` status` , another changes ` priority`  — no conflict), and body text uses line-level merge with conflict markers when needed.
 
