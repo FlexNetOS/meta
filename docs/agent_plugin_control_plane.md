@@ -108,3 +108,22 @@ meta plugin harness --harness claude --write --backup-dir .meta/backups/harness-
 
 This keeps Claude and Codex adapters pointed at `.kb/skills/` without
 hand-maintained drift, while preserving existing local files before replacement.
+
+## Claude GitKB Skill Model
+
+Current Claude Code docs describe `.claude/commands/` as the legacy custom
+command format and `.claude/skills/<name>/SKILL.md` as the recommended format.
+Both expose the same slash-command name, but skills add automatic invocation and
+supporting-file behavior. The repo-local GitKB model is therefore:
+
+- `.kb/skills/<skill>/SKILL.md` is the canonical workflow source.
+- `.claude/skills/<skill>` is a generated adapter symlink to
+  `../../.kb/skills/<skill>`.
+- `.codex/skills/<skill>` uses the same generated adapter model.
+- `.claude/commands/kb-*.md` wrappers are retired after the corresponding
+  `.claude/skills/kb-*` adapters validate.
+
+For this repository, `meta plugin harness --harness claude --write --backup-dir
+.meta/backups/harness-20260702-claude-gitkb` generated valid Claude adapters for
+all GitKB skills and preserved the previous direct Claude skill files under the
+backup directory before replacing them with symlinks.
