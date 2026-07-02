@@ -3,6 +3,14 @@
 
 # Agent Harnesses &  Skills
 
+Local verification: this extracted page was executed against the FlexNetOS
+`meta` checkout. The canonical `.kb/skills/` inventory has 17 skills; local
+Codex adapters already point at all 17 through `.codex/skills/`; Claude has a
+partial legacy/local skill surface and `git-kb init claude --dry-run` would add
+14 GitKB skill adapters. Cursor and Windsurf are not currently materialized in
+this checkout; their dry-runs would create `.kb/rules/`, harness skills, and
+harness rules.
+
 GitKB supports five integration paths for agents:
 
 Harness | Use when | Assets/config
@@ -11,6 +19,11 @@ Codex | You use Codex locally and want GitKB skills plus session instructions | 
 Cursor | You use Cursor Agent mode with GitKB MCP tools and repo rules/skills | ` .cursor/rules/` , ` .cursor/skills/` , ` .cursor/mcp.json`
 Windsurf | You use Windsurf with GitKB MCP tools and repo rules/skills | ` .windsurf/rules/` , ` .windsurf/skills/` , MCP config
 Generic MCP clients | Your assistant can connect to an MCP stdio server | MCP config that runs ` git-kb mcp`
+
+The live `git-kb init --help` output still mentions Hermes in the Windsurf
+description, but `git-kb init windsurf --dry-run` reports `.windsurf/skills/`
+and `.windsurf/rules/` writes, not `.hermes/` writes. Treat the Hermes wording
+as CLI help drift unless a later binary proves otherwise.
 
 ## Skill source of truth
 
@@ -86,6 +99,15 @@ git-kb mcp
 ```
 
 Use ` git-kb init < harness >  --dry-run`  before writing files if you want to preview generated assets. Generic MCP clients use manual MCP configuration that starts ` git-kb mcp` .
+
+Live dry-run counts in this checkout:
+
+- `git-kb init claude --dry-run`: 14 would create, 42 skipped.
+- `git-kb init codex --dry-run`: 53 skipped.
+- `git-kb init codex --dry-run --install-home`: 2 would create under `$CODEX_HOME`, 53 skipped.
+- `git-kb init cursor --dry-run`: 23 would create, 34 skipped.
+- `git-kb init windsurf --dry-run`: 23 would create, 34 skipped.
+- `git-kb mcp`: tools/list returns 49 tools.
 
 ## Choosing a path
 
