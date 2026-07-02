@@ -5,6 +5,51 @@
 
 GitKB exposes 49 tools  via the Model Context Protocol (MCP) , giving AI assistants full read/write access to your knowledge base. See MCP Setup  for client configuration and Agent Harnesses &  Skills  for harness-specific skill setup.
 
+## Live `0.2.12` MCP schema overlay
+
+This repository's live MCP server reports `serverInfo.version: 0.2.12` and
+exposes 49 tools. The tool names in this page match the live server, but several
+parameter tables below are stale or simplified. Prefer the live schema from
+`git-kb mcp`/`tools/list` before wiring automation.
+
+Live verification in this repository, 2026-07-02:
+
+- MCP initialize returned server name `gitkb`, title `GitKB Knowledge Base`,
+  version `0.2.12`.
+- `tools/list` returned exactly 49 tools, matching the complete tool list at the
+  end of this page.
+- `kb_show` accepts `slug` and `slugs`; batch reads are supported.
+- `kb_create` requires `title` and `type`; `slug` is optional and can be
+  auto-generated. It also accepts `content`, `status`, `priority`, `tags`, and
+  `author`.
+- `kb_list` accepts single strings or arrays for `type`, `status`, and
+  `priority`; it also supports `container`, `where`, `since`, `until`, `limit`,
+  `offset`, `sort`, and `sort_direction`.
+- `kb_board` supports live parameters `all`, `type`, `priority`, `where`,
+  `summary`, and array `columns`, in addition to the common board filters.
+- `kb_graph` accepts `slug` or `slugs`, `direction`, `depth`, `scope`, and
+  `critical_path`; the live MCP schema does not expose `rel_type` or `format`.
+- `kb_link` uses `child` plus one of `container`, `code`, or `repo`/`commit`.
+  The stale `parent`/`edge_type` table below should not be used for automation.
+- `kb_unlink` and `kb_reorder` use `container` and `child`; `kb_reorder`
+  expects string positions such as `first`, `last`, `after:<slug>`, or
+  `before:<slug>`, not an integer index.
+- `kb_mv` uses `source` and `dest`, with optional `force` and `message`, not
+  `slug` and `new_slug`.
+- `kb_events` uses `timeout_secs` and `max_events`, not the CLI names
+  `idle_timeout` and `count`.
+- `kb_restore` requires backup `data` as a JSON object plus optional
+  `skip_documents`, `skip_commits`, and `skip_stashes`; it does not take a
+  backup file path through MCP.
+- `kb_conflict_accept` uses `strategy` plus optional `slug` or `all`, not
+  `side: "ours"|"theirs"`.
+- `kb_embed` supports `scope`, `doc_type`, `language`, `force`, and `dry_run`;
+  it does not expose `slug`, `index_only`, or `embed_only`.
+- `kb_index` uses `paths` as an array and supports `dry_run`, `force`,
+  `include_deps`, `language`, `branch`, and `prune`.
+- `kb_context` uses `include_content` and `commit_limit`; compact output is
+  represented by disabling content rather than a `compact` parameter.
+
 ## Documents
 
 Tools for creating, reading, and managing KB documents.
