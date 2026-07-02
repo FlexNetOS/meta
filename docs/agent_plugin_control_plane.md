@@ -23,6 +23,15 @@ command = "/home/flexnetos/FlexNetOS/usr/libexec/gitkb-mcp-meta"
 
 That wrapper sets `GITKB_ROOT=/home/flexnetos/FlexNetOS/src/meta` and launches the workspace GitKB MCP binary. The GitKB Codex plugin therefore leaves `.mcp.json` empty so installing the plugin does not create a second `gitkb` server.
 
+Validate this invariant with:
+
+```bash
+meta plugin doctor-mcp --server gitkb
+meta plugin doctor-mcp --server gitkb --json
+```
+
+The validator scans project MCP files, assistant adapter configs, repo plugin payloads, the global Codex config, and Codex plugin cache `.mcp.json` files. It prints the owning file and every conflicting file before suggesting that conflicts be removed.
+
 ## Migration Rule
 
 When moving standalone assistant configuration into a plugin payload, remove or retire the original standalone files after proving the plugin covers the behavior. This prevents duplicate command, hook, skill, or MCP surfaces.

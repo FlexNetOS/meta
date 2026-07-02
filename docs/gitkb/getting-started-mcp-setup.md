@@ -65,6 +65,12 @@ FlexNetOS wrapper path above, and the wrapper returns the same 49 GitKB tools.
 The generic `codex mcp add` command is therefore a new-project setup command,
 not something to rerun here.
 
+To verify ownership without adding another registration, run:
+
+```
+meta plugin doctor-mcp --server gitkb
+```
+
 This writes the server entry to ` $CODEX_HOME/config.toml`  when ` CODEX_HOME`  is set, or ` ~/.codex/config.toml`  by default. If editing manually, add:
 
 ```
