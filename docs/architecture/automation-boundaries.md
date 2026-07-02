@@ -28,6 +28,7 @@ related:
 | Release bundle | `build-local-ubuntu-release.sh` reads the release catalog and builds/stages selected rows. | `FXRUN_RELEASE_COMPONENTS` filters rows for proof runs. | Host mismatch and destructive release cleanup are explicit decisions. | GitKB source repo is a copied binary until a cataloged source peer exists. |
 | Yazelix runtime | Catalog stages Yazelix binaries and selected runtime assets. | Runtime materialization and local generated state still need per-tool validation. | Desktop/session live tests are manual/interactive. | Generated runtime health is outside this meta docs task. |
 | Codex workflow | `.codex/instructions/` requires GitKB-first and scoped commits. | Agent must select and run the right skill/CLI workflow. | User approval gates major recovery/destructive changes. | Cross-agent enforcement is policy plus hooks, not a proof of perfect compliance. |
+| Assistant hooks | `meta plugin doctor-hooks` validates generated hook commands and reports external Codex trusted hook state before mutation. | Hook policy toggles influence adapter generation only after live command proof. | Hook cleanup or trust-state edits require backup and exact path match. | The validator reports external trusted state; it does not automatically clean it. |
 
 ## Practical Rules
 
@@ -38,6 +39,8 @@ related:
 - Do not hand-maintain maps that GitKB can generate; cite the generating command
   in [[docs/architecture/gitkb-generated-maps]].
 - Do not invent missing architecture. Record gaps as follow-up tasks.
+- Do not generate assistant hooks that call commands missing from live CLI help;
+  run `meta plugin doctor-hooks --json` before hook mutation.
 
 ## Approval-Gated Examples
 

@@ -32,6 +32,27 @@ meta plugin doctor-mcp --server gitkb --json
 
 The validator scans project MCP files, assistant adapter configs, repo plugin payloads, the global Codex config, and Codex plugin cache `.mcp.json` files. It prints the owning file and every conflicting file before suggesting that conflicts be removed.
 
+## Hook Policy Validation
+
+Assistant hooks are policy outputs, not permission to invent unsupported GitKB
+commands. Validate hook command surfaces with:
+
+```bash
+meta plugin doctor-hooks
+meta plugin doctor-hooks --json
+```
+
+The validator scans assistant hook JSON surfaces such as `.claude/settings.json`,
+`claude-plugin/hooks/hooks.json`, and Codex plugin `hooks.json` payloads. It
+fails if a generated assistant hook calls missing GitKB commands such as
+`git-kb hook`, because the live GitKB CLI exposes `git-kb init git hooks` but no
+top-level `git-kb hook` command.
+
+The same report lists Codex trusted hook-state entries from
+`~/.codex/config.toml` whose hook files are outside the current meta workspace
+or missing. That report is informational before cleanup; mutation still requires
+the backup and exact-path rules below.
+
 ## Migration Rule
 
 When moving standalone assistant configuration into a plugin payload, remove or retire the original standalone files after proving the plugin covers the behavior. This prevents duplicate command, hook, skill, or MCP surfaces.
