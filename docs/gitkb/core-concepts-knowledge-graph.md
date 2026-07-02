@@ -24,11 +24,31 @@ Edge | Created by | Example
 git-kb graph tasks/my-task
 
 # Show inbound edges only (who references this?)
-git-kb graph tasks/my-task --direction inbound
+git-kb graph tasks/my-task --direction in
 
 # Show outbound edges only (what does this reference?)
-git-kb graph tasks/my-task --direction outbound
+git-kb graph tasks/my-task --direction out
 ```
+
+Live verification in this repository, 2026-07-02:
+
+```
+git-kb graph tasks/meta-plugin-gitkb-harness-generation --json
+git-kb graph tasks/meta-plugin-gitkb-harness-generation --direction in --json
+git-kb graph tasks/meta-plugin-gitkb-harness-generation --direction out --json
+git-kb graph --scope active --json
+```
+
+The current CLI accepts `--direction out`, `--direction in`, and `--direction both`. The older `inbound` and `outbound` values fail validation. The local harness task graph returned 4 nodes and 4 edges, inbound returned 3 nodes and 3 edges, outbound returned 2 nodes and 1 edge, and the active task graph returned 9 nodes and 11 edges. JSON edge records expose the relationship name as `rel_type`.
+
+Additional graph formats are available:
+
+```
+git-kb graph tasks/meta-plugin-gitkb-harness-generation --format dot
+git-kb graph tasks/meta-plugin-gitkb-harness-generation --format plan
+```
+
+The DOT output includes labeled relationship edges. The plan output summarized the local task tree as 4 total tasks: 3 completed and 1 active.
 
 For an epic with child tasks, specs, and code references, the graph reveals the full web of relationships:
 
@@ -112,6 +132,8 @@ diff --kb a/specs/auth-architecture b/specs/auth-architecture
 ```
 
 Together, ` status`  and ` diff`  give you a full picture: what edges will change, and exactly which content edits caused them.
+
+Live verification in this repository: adding a temporary `[[views/active-tasks]]` wikilink to `tasks/meta-gitkb-assignment-field-mismatch` made `git-kb status` preview a new `references` edge to `views/active-tasks`, and `git-kb diff` showed the content line that created it. The temporary line was removed before committing this documentation update.
 
 ## Next steps
 
