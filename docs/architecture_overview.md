@@ -1,5 +1,8 @@
 # Architecture Overview
 
+This page is the legacy single-file overview. The current graph-oriented docs live
+under docs/architecture/README.md and its linked pages.
+
 This document provides a comprehensive overview of the `meta` CLI platform's architecture, including its core components, plugin system, and data flow.
 
 ## Table of Contents

@@ -428,7 +428,8 @@ Meta is a Rust workspace of 10 crates:
 
 Each plugin is both a workspace member and a child repo in the `.meta` manifest — meta manages itself with itself.
 
-See [docs/architecture_overview.md](docs/architecture_overview.md) for the full design.
+See [docs/architecture/README.md](docs/architecture/README.md) for the linked architecture set,
+and [docs/architecture_overview.md](docs/architecture_overview.md) for the legacy single-file overview.
 
 ---
 
