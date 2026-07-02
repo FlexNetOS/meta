@@ -3,6 +3,12 @@
 
 # GitKB with Codex
 
+Local verification: this extracted page was executed against the FlexNetOS
+`meta` checkout. The repo-local `.codex/skills/` directory contains all 17
+GitKB skill adapters as symlinks to `.kb/skills/`, and
+`.codex/instructions/` contains `codex-rules.md` and `gitkb-process.md`.
+`git-kb init codex --dry-run` currently skips 53 existing assets.
+
 GitKB ships with a Codex integration that scaffolds agent-ready skills and instructions. Use it to keep Codex sessions grounded in GitKB context, code intelligence, and task traceability. Repo-local Codex skills are adapters for the canonical workflows in ` .kb/skills/` .
 
 ## Scaffold the integration
@@ -48,6 +54,9 @@ Preview what would be generated without writing anything:
 git-kb init codex --dry-run
 ```
 
+In this checkout, the dry-run reports `Dry run: 53 skipped`, meaning the
+repo-local Codex scaffold is already present.
+
 ## Install into CODEX_HOME
 
 By default, ` git-kb init codex`  only creates repo-local ` .codex/` . To install the assets into your global Codex home directory, run:
@@ -57,6 +66,11 @@ git-kb init codex --install-home
 ```
 
 This installs into ` $CODEX_HOME`  when set, or ` ~/.codex`  by default. Command-style workflows are still provided as skills, not as a separate ` .codex/commands/`  install.
+
+In this checkout, `git-kb init codex --dry-run --install-home` would add
+`$CODEX_HOME/skills/meta-9f262555` and
+`$CODEX_HOME/instructions/meta-9f262555`, while skipping the 53 repo-local
+assets.
 
 ## What the instructions teach Codex
 
@@ -80,6 +94,17 @@ git-kb board
 git-kb checkout tasks/example-task
 git-kb code callers src/app.ts::handler
 git-kb commit -m "Update task progress [[tasks/example-task]]" tasks/example-task
+```
+
+For a clean local verification pass, use existing task and symbol names rather
+than creating the placeholder task:
+
+```
+git-kb context --compact --code-refs
+git-kb board --json
+git-kb checkout tasks/meta-plugin-gitkb-harness-generation
+git-kb code callers handle_command_dispatch --json
+git-kb diff
 ```
 
 ## Next steps
