@@ -1,0 +1,5 @@
+{
+  "commit": {"author":"flexnetos <flexnetos@localhost>","changes":[{"change_type":"created","content_hash":"4552af963dcad267f8105a15ee698ceea7fd4aa23e28689fde47ed32a05085fb","doc_type":"task","document_id":"019f20d9-db2e-7621-a2b3-403c5feefd71","new_version":1,"previous_version":null,"slug":"tasks/register-beads-rust-meta-peer","title":"Register beads_rust as meta peer"}],"created_at":"2026-07-02T03:24:49.665477019Z","id":"019f20db-9686-7921-86a4-fb702ec9d2bd","message":"Register beads_rust meta peer task"},
+  "content_hash": "5c9695c3879ae1dd7d959c799cfc9e8499eeb14ac8d507d67917982fc799bff8",
+  "hash_version": 3
+}

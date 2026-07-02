@@ -100,6 +100,11 @@
       "document_id": "019f20b4-a4c7-7fd1-b437-3b84fde67149",
       "slug": "tasks/audit-meta-bootstrap-setup-gaps",
       "tip_commit_id": "019f20c1-8176-7821-9fab-0464c37d91da"
+    },
+    {
+      "document_id": "019f20d9-db2e-7621-a2b3-403c5feefd71",
+      "slug": "tasks/register-beads-rust-meta-peer",
+      "tip_commit_id": "019f20db-bfeb-7ba2-8ffb-b1d5dc92ad9e"
     }
   ]
 }

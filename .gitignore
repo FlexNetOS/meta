@@ -51,6 +51,8 @@ imported/
 
 # child repositories
 agent/
+beads_rust
+beads_rust/
 rtk-tokenkill/
 loop_cli/
 loop_lib/

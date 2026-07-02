@@ -1,0 +1,5 @@
+{
+  "commit": {"author":"flexnetos <flexnetos@localhost>","changes":[{"change_type":"modified","content_hash":"ab956a82c38d6991b6ad1520e40fe85ce317c597ba2e80b55649e93d0c5be5ae","doc_type":"task","document_id":"019f20d9-db2e-7621-a2b3-403c5feefd71","metadata_changes":[{"field":"status","new_value":"completed","old_value":"draft"}],"new_version":2,"previous_commit_id":"019f20db-9686-7921-86a4-fb702ec9d2bd","previous_hash":"4552af963dcad267f8105a15ee698ceea7fd4aa23e28689fde47ed32a05085fb","previous_version":1,"slug":"tasks/register-beads-rust-meta-peer","title":"Register beads_rust as meta peer"}],"created_at":"2026-07-02T03:25:00.258429560Z","id":"019f20db-bfeb-7ba2-8ffb-b1d5dc92ad9e","message":"Complete beads_rust meta peer task"},
+  "content_hash": "d93b39d7760119712501ce6a19b49e3da3f2e5efcf64011e00b647676f46a3eb",
+  "hash_version": 3
+}

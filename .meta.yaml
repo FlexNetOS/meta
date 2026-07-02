@@ -57,6 +57,11 @@ projects:
   agent:
     repo: git@github.com:FlexNetOS/agent.git
 
+  beads_rust:
+    repo: git@github.com:FlexNetOS/beads_rust.git
+    tags: [beads, rust, agent-tools]
+    provides: [beads-rust]
+
   rtk-tokenkill:
     repo: git@github.com:FlexNetOS/rtk-tokenkill.git
     path: ../rtk-tokenkill
