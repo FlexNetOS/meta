@@ -57,6 +57,12 @@ projects:
   agent:
     repo: git@github.com:FlexNetOS/agent.git
 
+  rtk-tokenkill:
+    repo: git@github.com:FlexNetOS/rtk-tokenkill.git
+    path: ../rtk-tokenkill
+    tags: [runtime, rtk, agent-tools]
+    provides: [rtk-tokenkill]
+
   # Non-code repos
   claude-plugins:
     repo: git@github.com:FlexNetOS/claude-plugins.git

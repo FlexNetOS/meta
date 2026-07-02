@@ -125,5 +125,5 @@ Files that need updates if signature changes:
 
 Code must be indexed first:
 ```bash
-git kb index
+git-kb code index
 ```

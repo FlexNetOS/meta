@@ -7,7 +7,7 @@ allowed-tools:
   - mcp__gitkb__kb_checkout
   - mcp__gitkb__kb_create
   - mcp__gitkb__kb_commit
-  - Bash(git kb:*)
+  - Bash(git-kb:*)
 description: Load and validate project context, bootstrapping if needed
 ---
 
@@ -18,7 +18,7 @@ Load project context following the AGENTS.md PATH A/B/C flow.
 ### 1. Detect KB State
 
 ```bash
-git kb list --path context/
+git-kb list --path context/
 ```
 
 ### 2. Follow the Right Path

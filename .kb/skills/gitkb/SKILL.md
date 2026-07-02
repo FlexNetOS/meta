@@ -5,7 +5,15 @@ description: Manage GitKB knowledge base for project documentation, tasks, and c
 
 # GitKB Knowledge Base Skill
 
-GitKB is a distributed knowledge base with a git-like CLI. Documents are stored in a local database and materialized to `.kb/workspace/` for editing.
+GitKB is a distributed knowledge base with a git-like CLI. Documents are stored in a local database and materialized to `.kb/workspaces/main/` for editing in this workspace.
+
+## FlexNetOS Bootstrap Semantics
+
+- `git-kb init` creates/configures a repository KB.
+- `git-kb init codex` installs GitKB Codex integration files.
+- `git-kb init claude` installs GitKB Claude integration files.
+- `meta init claude` installs Meta-owned Claude integration files in current `meta 0.2.22`.
+- `meta exec -- <cmd>` runs `<cmd>` across selected repos. There is no `meta exec init` subcommand.
 
 ## Common Gotchas
 
@@ -13,7 +21,7 @@ GitKB is a distributed knowledge base with a git-like CLI. Documents are stored 
 2. **Machine-readable first**: Use MCP tools when available; otherwise add `--json` to every command that supports it
 3. **Never copy identifiers from tables**: Human-readable tables/boards/tree output can truncate slugs, IDs, and symbol IDs with `…`
 4. **Board rendering**: Use `kb_board` or `git-kb board --json` for agent work; plain `git-kb board` is for human display only
-5. **Always check numbering**: Run `git-kb list <type> --json` before creating new documents
+5. **Always check numbering**: Run `git-kb list --type <type> --json` before creating new documents
 
 ## CLI Reference
 
@@ -36,7 +44,7 @@ git-kb set <slug> --status active            # Quick metadata update (auto-commi
 
 ```bash
 git-kb checkout <slug>                       # Materialize for editing
-git-kb checkout --path context/              # Checkout by path prefix
+git-kb checkout context/                     # Checkout by path prefix with current 0.2.12 CLI
 git-kb status --json                         # Show pending changes
 git-kb diff                                  # Show line-level diffs
 git-kb commit -m "msg" <pathspecs...>        # Save changes to database
@@ -218,5 +226,5 @@ Implements [[tasks/my-task]]
 
 Always check existing documents before creating to ensure consistent numbering:
 ```bash
-git-kb list <type> --json
+git-kb list --type <type> --json
 ```

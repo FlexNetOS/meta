@@ -3,7 +3,7 @@ allowed-tools:
   - mcp__gitkb__kb_list
   - mcp__gitkb__kb_show
   - mcp__gitkb__kb_graph
-  - Bash(git kb:*)
+  - Bash(git-kb:*)
 description: Show GitKB kanban board with task status columns
 ---
 
@@ -14,7 +14,7 @@ Display the kanban board and provide actionable context about the current workst
 ### 1. Show the Board
 
 ```bash
-git kb board --all
+git-kb board --all
 ```
 
 ### 2. Analyze Blocked Tasks

@@ -168,6 +168,23 @@ If any repo fails:
 - All repos are rolled back to pre-execution state
 - Error details are returned
 
+### 7. Local-First Validation and GitHub Receipts
+
+For FlexNetOS operator-owned workspaces, use local validation as the main feedback loop and GitHub Actions as the smallest useful receipt for the pushed commit.
+
+```bash
+# Full local proof, scoped to the repos that changed
+meta project list --json
+meta git status
+meta --include meta_cli,meta_git_cli exec -- cargo test
+meta --include meta_cli,meta_git_cli exec -- cargo clippy --all-targets -- -D warnings
+
+# Dependency-aware proof when shared crates change
+meta --ordered exec -- cargo test
+```
+
+Only request full GitHub cloud validation when a release tag, `workflow_dispatch`, approved label such as `run-full-ci`, scheduled maintenance window, self-hosted runner route, or explicit operator task asks for it. Token-consuming AI/Codex checks must not run from default PR/push CI. See [Local-First CI](local-first-ci.md).
+
 ## Query DSL Reference
 
 The query DSL allows precise filtering:

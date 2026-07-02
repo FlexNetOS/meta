@@ -25,7 +25,7 @@ If the worktree name or repos are not specified, infer them from the task descri
 Before creating a worktree, understand what repos are available:
 
 ```bash
-meta project list --jsons
+meta project list --json
 ```
 
 This returns the project tree for the current meta-repo level, including names, paths, nested meta-repos (`is_meta: true`), and dependencies. Use this to:
@@ -85,6 +85,11 @@ meta --include meta_git_cli exec -- cargo test
 ```
 
 Adapt the test command to the project's language/framework. Not all repos use `cargo test` — check for `Makefile`, `package.json`, etc.
+
+### Phase 4b: Local-First CI Discipline
+
+Before requesting GitHub CI, run the strongest practical local proof in the isolated worktree. Use scoped `meta exec` for changed repos and `meta --ordered exec -- cargo test` when shared dependencies are affected. Treat GitHub Actions as a receipt after push; request full cloud or token-consuming checks only when the task explicitly requires a release/manual/label/self-hosted gate.
+
 
 ### Phase 5: Commit
 

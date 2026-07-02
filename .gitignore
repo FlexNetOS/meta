@@ -51,6 +51,7 @@ imported/
 
 # child repositories
 agent/
+rtk-tokenkill/
 loop_cli/
 loop_lib/
 meta_cli/

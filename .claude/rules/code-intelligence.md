@@ -1,6 +1,6 @@
 # Code Intelligence
 
-This project has code intelligence tools available via MCP (`kb_callers`, `kb_symbols`, etc.) and CLI (`git kb callers`, etc.). **Prefer MCP tools** — they support parallel calls and return structured JSON. Fall back to CLI via Bash if MCP is disconnected.
+This project has code intelligence tools available via MCP (`kb_callers`, `kb_symbols`, etc.) and CLI (`git-kb code callers`, etc.). **Prefer MCP tools** — they support parallel calls and return structured JSON. Fall back to CLI via Bash if MCP is disconnected.
 
 The daemon automatically re-indexes files on save via file watching (500ms debounce). No manual re-indexing needed during normal coding.
 
@@ -51,7 +51,7 @@ Use these skills for structured code intelligence workflows:
 If symbols commands return empty for a directory that hasn't been indexed yet:
 
 ```bash
-git kb index <directory_or_file>
+git-kb code index <directory_or_file>
 ```
 
 After initial indexing, the file watcher keeps the index current automatically.

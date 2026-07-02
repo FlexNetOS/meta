@@ -1,0 +1,5 @@
+{
+  "commit": {"author":"flexnetos <flexnetos@localhost>","changes":[{"change_type":"created","content_hash":"aae70ccb4faba3a80a033ad6b2693a74393425a217f2703599efecd913b0987c","doc_type":"task","document_id":"019f20a6-74f7-74a3-9b5f-280baf8e93fd","new_version":1,"previous_version":null,"slug":"tasks/local-first-ci-github-receipt-policy","title":"Document local-first CI and GitHub receipt policy"}],"created_at":"2026-07-02T02:27:19.934224811Z","id":"019f20a6-f307-72f0-b919-c2e6c0e3faee","message":"Add local-first CI policy documentation task"},
+  "content_hash": "8f346b47b4961136961c3ea5d019c215764591da1586041636ba79e7f12b7c8d",
+  "hash_version": 3
+}

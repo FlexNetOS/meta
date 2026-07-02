@@ -13,6 +13,7 @@ Use `--json` for every GitKB command that supports it when discovering slugs, ID
 
 - Log progress in the task document.
 - Keep acceptance criteria updated.
+- For CI/workflow changes, update the local-first CI policy docs and record hook-audit evidence before marking the task complete.
 
 ## Completion
 

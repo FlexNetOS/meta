@@ -477,6 +477,7 @@ Options:
 - **[Plugin Development](docs/plugin_development.md)** — Writing plugins
 - **[Claude Code Skills](docs/claude_code_skills.md)** — AI workflow skills
 - **[Advanced Usage](docs/advanced_usage.md)** — Power-user features
+- **[Local-First CI](docs/local-first-ci.md)** — Local validation, GitHub receipt CI, bootstrap semantics, and hook audit policy
 - **[Loop System](docs/loop.md)** — Loop engine details
 - **[FAQ / Troubleshooting](docs/faq_troubleshooting.md)** — Common issues
 

@@ -1,0 +1,287 @@
+{
+  "commit": {
+    "author": "flexnetos <flexnetos@localhost>",
+    "changes": [
+      {
+        "document_id": "019f20b4-a4c7-7fd1-b437-3b84fde67149",
+        "slug": "tasks/audit-meta-bootstrap-setup-gaps",
+        "change_type": "modified",
+        "previous_commit_id": "019f20b4-a4c7-7fd1-b437-3b7681e51f6f",
+        "previous_version": 1,
+        "new_version": 2,
+        "hunks": [
+          {
+            "old_start": 16,
+            "old_count": 3,
+            "new_start": 16,
+            "new_count": 63,
+            "context": "# Acceptance Criteria",
+            "lines": [
+              {
+                "op": "context",
+                "content": "- Check GitKB init/Codex/Claude surfaces for stale command forms."
+              },
+              {
+                "op": "context",
+                "content": "- Check Meta release/frontdoor binaries expected by docs and context."
+              },
+              {
+                "op": "context",
+                "content": "- Record actionable setup gaps with recommended fixes."
+              },
+              {
+                "op": "add",
+                "content": ""
+              },
+              {
+                "op": "add",
+                "content": "# Audit Findings"
+              },
+              {
+                "op": "add",
+                "content": ""
+              },
+              {
+                "op": "add",
+                "content": "## 2026-07-02"
+              },
+              {
+                "op": "add",
+                "content": ""
+              },
+              {
+                "op": "add",
+                "content": "### Confirmed setup gaps"
+              },
+              {
+                "op": "add",
+                "content": ""
+              },
+              {
+                "op": "add",
+                "content": "1. **Root Claude guard hook points at a non-existent root build artifact.**"
+              },
+              {
+                "op": "add",
+                "content": "   - Configured command: `./target/debug/agent guard` in root `.claude/settings.json`."
+              },
+              {
+                "op": "add",
+                "content": "   - Missing path: `/home/flexnetos/FlexNetOS/src/meta/target/debug/agent`."
+              },
+              {
+                "op": "add",
+                "content": "   - Cause: `agent` is a separate Meta child repo and root `Cargo.toml` has `exclude = [\"agent\"]`, so root workspace builds do not produce `./target/debug/agent`."
+              },
+              {
+                "op": "add",
+                "content": "   - Current generator in `meta_cli/src/init.rs` emits `agent guard`, not `./target/debug/agent guard`."
+              },
+              {
+                "op": "add",
+                "content": "   - Recommended fix: install/build the standalone `agent` frontdoor and set hook command to `agent guard`, or use an explicit child path if intentionally local."
+              },
+              {
+                "op": "add",
+                "content": ""
+              },
+              {
+                "op": "add",
+                "content": "2. **Standalone `agent` command is not installed on ambient PATH or in `/home/flexnetos/FlexNetOS/usr/bin`.**"
+              },
+              {
+                "op": "add",
+                "content": "   - `agent --help` fails with `command not found`."
+              },
+              {
+                "op": "add",
+                "content": "   - `/home/flexnetos/FlexNetOS/usr/bin/agent` is missing."
+              },
+              {
+                "op": "add",
+                "content": "   - `agent/README.md` documents `agent guard` as the intended hook command."
+              },
+              {
+                "op": "add",
+                "content": ""
+              },
+              {
+                "op": "add",
+                "content": "3. **Root Claude GitKB service hook uses stale `git kb service` syntax.**"
+              },
+              {
+                "op": "add",
+                "content": "   - Root `.claude/settings.json` contains `git kb service status --quiet ... || git kb service start ...`."
+              },
+              {
+                "op": "add",
+                "content": "   - Current installed GitKB rejects `service`: `error: unrecognized subcommand 'service'`."
+              },
+              {
+                "op": "add",
+                "content": "   - Current working form is `git-kb daemon status/start`."
+              },
+              {
+                "op": "add",
+                "content": "   - Recommended fix: remove the stale `git kb service` hook or replace it with the already-present `git-kb daemon ...` hook."
+              },
+              {
+                "op": "add",
+                "content": ""
+              },
+              {
+                "op": "add",
+                "content": "4. **Many root Claude/GitKB guidance files still contain stale `git kb` and `checkout --path` forms.**"
+              },
+              {
+                "op": "add",
+                "content": "   - Examples: `.claude/skills/gitkb/SKILL.md`, `.claude/commands/kb-context.md`, `.claude/rules/code-intelligence.md`, and older sections of `.kb/AGENTS.md`."
+              },
+              {
+                "op": "add",
+                "content": "   - Current installed CLI for this workspace is `git-kb 0.2.12` and accepts `git-kb checkout context/`, not the stale `git kb ...` / `checkout --path` examples."
+              },
+              {
+                "op": "add",
+                "content": "   - Recommended fix: run a focused surface-sync pass over `.claude`, `.kb`, and `meta_cli/.claude` GitKB docs."
+              },
+              {
+                "op": "add",
+                "content": ""
+              },
+              {
+                "op": "add",
+                "content": "5. **Workspace frontdoor binaries are not on ambient PATH in this Codex shell.**"
+              },
+              {
+                "op": "add",
+                "content": "   - Missing from ambient PATH: `meta`, `git-kb`, `meta-git`, `meta-project`, `meta-mcp`, `meta-rust`, `loop`, `agent`."
+              },
+              {
+                "op": "add",
+                "content": "   - Present under `/home/flexnetos/FlexNetOS/usr/bin`: `meta`, `git-kb`, `meta-git`, `meta-project`, `meta-mcp`, `loop`."
+              },
+              {
+                "op": "add",
+                "content": "   - This is why `git-kb doctor` initially warned that repo discovery found no repos; rerunning with `PATH=/home/flexnetos/FlexNetOS/usr/bin:$PATH` passed repo discovery."
+              },
+              {
+                "op": "add",
+                "content": "   - Recommended fix: ensure Codex/Claude hook environments prepend `/home/flexnetos/FlexNetOS/usr/bin` or use absolute paths in hooks."
+              },
+              {
+                "op": "add",
+                "content": ""
+              },
+              {
+                "op": "add",
+                "content": "6. **`meta-rust` release/frontdoor remains missing.**"
+              },
+              {
+                "op": "add",
+                "content": "   - `/home/flexnetos/FlexNetOS/usr/bin/meta-rust` is missing."
+              },
+              {
+                "op": "add",
+                "content": "   - `/home/flexnetos/FlexNetOS/usr/bin/meta rust --help` reports `unrecognized command 'rust'`."
+              },
+              {
+                "op": "add",
+                "content": "   - This matches existing context gaps for `tasks/flexnetos-meta-release-repackage` and `incidents/meta-rust-release-install-surface-gap`."
+              },
+              {
+                "op": "add",
+                "content": ""
+              },
+              {
+                "op": "add",
+                "content": "7. **`rusty-idd` hook dependency appears absent.**"
+              },
+              {
+                "op": "add",
+                "content": "   - `meta_cli/.claude/settings.json` runs `sh -lc 'root=\"$(git rev-parse --show-toplevel)\"; exec rusty-idd next --base \"$root\"'`."
+              },
+              {
+                "op": "add",
+                "content": "   - `rusty-idd` did not resolve in the audited PATH with the workspace frontdoor prepended."
+              },
+              {
+                "op": "add",
+                "content": "   - Recommended fix: install `rusty-idd`, guard the hook with `command -v rusty-idd`, or remove it from default initialization until the dependency is managed."
+              },
+              {
+                "op": "add",
+                "content": ""
+              },
+              {
+                "op": "add",
+                "content": "### Healthy or expected surfaces"
+              },
+              {
+                "op": "add",
+                "content": ""
+              },
+              {
+                "op": "add",
+                "content": "- With `/home/flexnetos/FlexNetOS/usr/bin` prepended, `git-kb doctor --json` reports all checks OK including 16 repos discovered."
+              },
+              {
+                "op": "add",
+                "content": "- `codex doctor` reports `17 ok · 1 idle · 1 notes · 0 warn · 0 fail`."
+              },
+              {
+                "op": "add",
+                "content": "- Hook JSON/TOML parsing passed for `.claude/settings.json`, `claude-plugin/hooks/hooks.json`, `codex-plugins/plugins/gitkb/hooks/hooks.json`, `.kb/config.toml`, and `.claude/agent-guard.toml`."
+              },
+              {
+                "op": "add",
+                "content": "- Handoff hook scripts under child repos exist and are executable."
+              },
+              {
+                "op": "add",
+                "content": ""
+              },
+              {
+                "op": "add",
+                "content": "# Recommended repair order"
+              },
+              {
+                "op": "add",
+                "content": ""
+              },
+              {
+                "op": "add",
+                "content": "1. Fix root `.claude/settings.json`: replace `./target/debug/agent guard` with `agent guard` only after installing/building `agent`, and remove stale `git kb service` hook."
+              },
+              {
+                "op": "add",
+                "content": "2. Install or package `/home/flexnetos/FlexNetOS/usr/bin/agent` and `/home/flexnetos/FlexNetOS/usr/bin/meta-rust`."
+              },
+              {
+                "op": "add",
+                "content": "3. Add `/home/flexnetos/FlexNetOS/usr/bin` to agent/hook PATH policy or convert hooks to explicit absolute paths."
+              },
+              {
+                "op": "add",
+                "content": "4. Sync stale GitKB guidance from `git kb ...` to current `git-kb ...` forms across `.claude`, `.kb`, and `meta_cli/.claude`."
+              },
+              {
+                "op": "add",
+                "content": "5. Decide whether `rusty-idd` is required; install it or guard/remove that hook."
+              }
+            ]
+          }
+        ],
+        "content_hash": "b2c991828ccd049efc6cdb871855ed9be930c1cd6cf99e855aa8811ff5cb9cad",
+        "previous_hash": "f4913dbd1d3cb01fd594351c9c8f3490c6ac63bc01893bdbfbe3b4da0a1af0c8",
+        "doc_type": "task",
+        "title": "Audit Meta bootstrap setup gaps"
+      }
+    ],
+    "created_at": "2026-07-02T02:44:06.043913081+00:00",
+    "id": "019f20b6-4d2f-7451-bb19-cee4d27bb5cd",
+    "message": "Record Meta bootstrap setup audit findings [[tasks/audit-meta-bootstrap-setup-gaps]]"
+  },
+  "content_hash": "d8f0a6dcf790ead04a614c775f501818afd373d77ea29957ac6ab1cfb96202bf",
+  "hash_version": 3
+}

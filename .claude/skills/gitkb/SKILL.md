@@ -3,7 +3,7 @@ name: gitkb
 description: Manage GitKB knowledge base for project documentation, tasks, and context. Use when working with KB documents, viewing tasks, updating progress, or managing project knowledge.
 allowed-tools:
   - mcp__gitkb__*
-  - Bash(git kb:*)
+  - Bash(git-kb:*)
 ---
 
 # GitKB Knowledge Base Skill
@@ -12,18 +12,18 @@ GitKB is a database-first knowledge base with a git-like CLI. Documents are stor
 
 ## Common Gotchas
 
-1. **Command syntax**: Use `git kb` (space, git subcommand), NOT `git-kb` (hyphen)
-2. **No type-specific subcommands**: Use `git kb show <slug>`, NOT `git kb task show`
+1. **Command syntax**: Use `git-kb` (space, git subcommand), NOT `git-kb` (hyphen)
+2. **No type-specific subcommands**: Use `git-kb show <slug>`, NOT `git-kb task show`
 3. **Batch fetching**: Use `kb_show` with `slugs: [...]` array for multiple documents
-4. **Board rendering**: Use CLI `git kb board` for ASCII, MCP `kb_board` for JSON
-5. **Always check numbering**: Run `git kb list <type> --all` before creating new documents
+4. **Board rendering**: Use CLI `git-kb board` for ASCII, MCP `kb_board` for JSON
+5. **Always check numbering**: Run `git-kb list --type <type> --json` before creating new documents
 
 ## When to Use CLI vs MCP
 
-**Use CLI (`git kb`) for:**
-- ASCII board display (`git kb board`)
-- Template management (`git kb templates`)
-- Service control (`git kb service`)
+**Use CLI (`git-kb`) for:**
+- ASCII board display (`git-kb board`)
+- Template management (`git-kb templates`)
+- Service control (`git-kb daemon`)
 - Interactive editing (opens $EDITOR)
 
 **Use MCP tools for:**
@@ -97,23 +97,23 @@ GitKB is a database-first knowledge base with a git-like CLI. Documents are stor
 - `/before-refactor <symbol>` — Safety check: callers, callees, impact analysis
 - `/explore <query>` — Semantic search to find relevant code and docs
 
-**Prerequisite:** Code must be indexed first with `git kb index`. For semantic search, embeddings must be generated with `git kb embed`.
+**Prerequisite:** Code must be indexed first with `git-kb code index`. For semantic search, embeddings must be generated with `git-kb ai embed`.
 
 ### CLI Commands (for features not available in MCP)
 
 ```bash
 # ASCII Kanban board view
-git kb board                    # Tasks only (default)
-git kb board --all              # All document types
+git-kb board                    # Tasks only (default)
+git-kb board --all              # All document types
 
 # Template management
-git kb templates list           # List available templates
-git kb templates show <name>    # Show template content
+git-kb templates list           # List available templates
+git-kb templates show <name>    # Show template content
 
 # Service control
-git kb service start            # Start daemon
-git kb service stop             # Stop daemon
-git kb service status           # Check status
+git-kb daemon start            # Start daemon
+git-kb daemon stop             # Stop daemon
+git-kb daemon status           # Check status
 ```
 
 ## Workflows
@@ -259,7 +259,7 @@ These are parsed by WikilinkExtractor into `references_commit` graph edges, crea
 
 **Always check existing documents before creating** to ensure consistent numbering:
 ```
-git kb list <type> --all
+git-kb list --type <type> --json
 ```
 
 | Type | Pattern | Example |

@@ -1,0 +1,5 @@
+{
+  "commit": {"author":"flexnetos <flexnetos@localhost>","changes":[{"change_type":"created","content_hash":"f4913dbd1d3cb01fd594351c9c8f3490c6ac63bc01893bdbfbe3b4da0a1af0c8","doc_type":"task","document_id":"019f20b4-a4c7-7fd1-b437-3b84fde67149","new_version":1,"previous_version":null,"slug":"tasks/audit-meta-bootstrap-setup-gaps","title":"Audit Meta bootstrap setup gaps"}],"created_at":"2026-07-02T02:42:17.410431508Z","id":"019f20b4-a4c7-7fd1-b437-3b7681e51f6f","message":"Add Meta bootstrap setup audit task [[tasks/audit-meta-bootstrap-setup-gaps]]"},
+  "content_hash": "dfc41a3c1474ff80048e4bf0be308f91446d5dc2146a9acea8dbb52118e3368d",
+  "hash_version": 3
+}

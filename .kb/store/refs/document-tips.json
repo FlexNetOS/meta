@@ -90,6 +90,16 @@
       "document_id": "019f1f77-19e7-7592-a067-5f34bf094edf",
       "slug": "tasks/gitkb-knowledge-graph-setup",
       "tip_commit_id": "019f1f89-ddf0-72a2-89c1-5147f17657b9"
+    },
+    {
+      "document_id": "019f20a6-74f7-74a3-9b5f-280baf8e93fd",
+      "slug": "tasks/local-first-ci-github-receipt-policy",
+      "tip_commit_id": "019f20ad-973d-7290-b4e0-9564fb087fce"
+    },
+    {
+      "document_id": "019f20b4-a4c7-7fd1-b437-3b84fde67149",
+      "slug": "tasks/audit-meta-bootstrap-setup-gaps",
+      "tip_commit_id": "019f20c1-8176-7821-9fab-0464c37d91da"
     }
   ]
 }

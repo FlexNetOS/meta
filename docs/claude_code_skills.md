@@ -126,9 +126,10 @@ Instructions for Claude...
 
 1. **Use tags** - Filter operations by tag to avoid affecting unrelated projects
 2. **Check status first** - Run `meta git status` before bulk operations
-3. **Use atomic mode** - For risky operations, use atomic mode for auto-rollback
-4. **Leverage queries** - Use query DSL to find specific repos by state
-5. **Create snapshots** - Before major changes, create a snapshot for easy rollback
+3. **Use local-first validation** - Run heavy checks locally with scoped `meta exec`; treat GitHub Actions as a receipt for the pushed commit, not the default TDD loop
+4. **Use atomic mode** - For risky operations, use atomic mode for auto-rollback
+5. **Leverage queries** - Use query DSL to find specific repos by state
+6. **Create snapshots** - Before major changes, create a snapshot for easy rollback
 
 ## Integration with MCP Server
 
