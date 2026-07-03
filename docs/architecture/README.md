@@ -15,6 +15,7 @@ The goal is to make the control plane understandable without loading the whole K
 - glossary.md
 - component-inventory.md
 - automation-boundaries.md
+- assistant-harness-boundaries.md
 - data-flows.md
 - control-flows.md
 - diagrams.md
