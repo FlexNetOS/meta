@@ -68,3 +68,4 @@ projects:
 
   meta-plugins:
     repo: git@github.com:FlexNetOS/meta-plugins.git
+    path: ../meta-plugins
