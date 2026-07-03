@@ -50,6 +50,15 @@ projects:
   agent:
     repo: git@github.com:FlexNetOS/agent.git
 
+  envctl:
+    repo: https://github.com/FlexNetOS/envctl.git
+    path: ../envctl
+    depends_on: [loop-lib, plugin-protocol]
+
+  teri:
+    repo: https://github.com/FlexNetOS/teri.git
+    path: ../teri
+
   # Non-code repos
   claude-plugins:
     repo: git@github.com:FlexNetOS/claude-plugins.git
