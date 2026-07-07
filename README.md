@@ -428,7 +428,8 @@ Meta is a Rust workspace of 10 crates:
 
 Each plugin is both a workspace member and a child repo in the `.meta` manifest — meta manages itself with itself.
 
-See [docs/architecture_overview.md](docs/architecture_overview.md) for the full design.
+See [docs/architecture/README.md](docs/architecture/README.md) for the linked architecture set,
+and [docs/architecture_overview.md](docs/architecture_overview.md) for the legacy single-file overview.
 
 ---
 
@@ -474,6 +475,7 @@ Options:
 
 - **[Architecture Overview](docs/architecture_overview.md)** — System design
 - **[MCP Server Guide](docs/mcp_server.md)** — AI agent integration
+- **[LifeOS Portable Release Roadmap](docs/lifeos-portable-release-roadmap.md)** - Roadmap for a meta-orchestrated portable LifeOS Agentic OS release
 - **[Plugin Development](docs/plugin_development.md)** — Writing plugins
 - **[Claude Code Skills](docs/claude_code_skills.md)** — AI workflow skills
 - **[Advanced Usage](docs/advanced_usage.md)** — Power-user features

@@ -1,5 +1,8 @@
 # Architecture Overview
 
+This page is the legacy single-file overview. The current graph-oriented docs live
+under docs/architecture/README.md and its linked pages.
+
 This document provides a comprehensive overview of the `meta` CLI platform's architecture, including its core components, plugin system, and data flow.
 
 ## Table of Contents
@@ -420,8 +423,18 @@ All plugins (git, project, rust) use `meta_plugin_protocol` for standardized hos
 
 The main CLI uses `meta_core` for managing the `~/.meta/` data directory, file locking, and atomic JSON storage (e.g., for snapshots).
 
+### meta to LifeOS Portable Release Roadmap
+
+The LifeOS portable release roadmap extends the existing control-plane model
+without changing the meta-repo boundary. meta remains the planner and agent
+visibility layer; flexnetos_runner executes build/proof work; Yazelix supplies
+the pinned terminal/runtime foundation; and FlexNetOS/lifeos owns the final
+user-space prefix. The release roadmap is documented in
+[LifeOS Portable Release Roadmap](lifeos-portable-release-roadmap.md).
+
 ## See Also
 
+- [LifeOS Portable Release Roadmap](lifeos-portable-release-roadmap.md)
 - [Plugin Development Guide](plugin_development.md)
 - [Advanced Usage Guide](advanced_usage.md)
 - [MCP Server Documentation](mcp_server.md)
