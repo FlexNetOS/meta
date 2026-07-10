@@ -50,14 +50,111 @@ projects:
   agent:
     repo: git@github.com:FlexNetOS/agent.git
 
+  # FlexNetOS product and workspace peers
+  lifeos:
+    repo: git@github.com:FlexNetOS/lifeos.git
+    path: lifeos
+
   envctl:
-    repo: https://github.com/FlexNetOS/envctl.git
-    path: ../envctl
+    repo: git@github.com:FlexNetOS/envctl.git
+    path: src/envctl
     depends_on: [loop-lib, plugin-protocol]
 
   teri:
     repo: https://github.com/FlexNetOS/teri.git
-    path: ../teri
+    path: src/teri
+
+  beads_rust:
+    repo: git@github.com:FlexNetOS/beads_rust.git
+    path: src/beads_rust
+
+  beads_viewer:
+    repo: git@github.com:FlexNetOS/beads_viewer.git
+    path: src/beads_viewer
+
+  ccboard:
+    repo: git@github.com:FlexNetOS/ccboard.git
+    path: src/ccboard
+
+  cuda-oxide:
+    repo: git@github.com:FlexNetOS/cuda-oxide.git
+    path: src/cuda-oxide
+
+  flexnetos_runner:
+    repo: git@github.com:FlexNetOS/flexnetos_runner.git
+    path: src/flexnetos_runner
+
+  grit:
+    repo: git@github.com:FlexNetOS/grit.git
+    path: src/grit
+
+  handoff:
+    repo: git@github.com:FlexNetOS/handoff.git
+    path: src/handoff
+
+  harness-agent-rs:
+    repo: git@github.com:FlexNetOS/harness-agent-rs.git
+    path: src/harness-agent-rs
+
+  hermes-agent:
+    repo: git@github.com:FlexNetOS/hermes-agent.git
+    path: src/hermes-agent
+
+  icm:
+    repo: git@github.com:FlexNetOS/icm.git
+    path: src/icm
+
+  meta-hardware:
+    repo: git@github.com:FlexNetOS/meta-hardware.git
+    path: src/meta-hardware
+
+  meta-ruvector:
+    repo: git@github.com:FlexNetOS/meta-ruvector.git
+    path: src/meta-ruvector
+
+  network-control:
+    repo: git@github.com:FlexNetOS/network-control.git
+    path: src/network-control
+
+  notebooklm-py:
+    repo: git@github.com:FlexNetOS/notebooklm-py.git
+    path: src/notebooklm-py
+
+  nu_plugin:
+    repo: git@github.com:FlexNetOS/nu_plugin.git
+    path: src/nu_plugin
+
+  prompt_hub:
+    repo: git@github.com:FlexNetOS/prompt_hub.git
+    path: src/prompt_hub
+
+  rtk-tokenkill:
+    repo: https://github.com/FlexNetOS/rtk-tokenkill.git
+    path: src/rtk-tokenkill
+
+  ruflo:
+    repo: git@github.com:FlexNetOS/ruflo.git
+    path: src/ruflo
+
+  rusty-idd:
+    repo: git@github.com:FlexNetOS/rusty-idd.git
+    path: src/rusty-idd
+
+  vault_hub:
+    repo: git@github.com:FlexNetOS/vault_hub.git
+    path: src/vault_hub
+
+  weave:
+    repo: git@github.com:FlexNetOS/weave.git
+    path: src/weave
+
+  yazelix:
+    repo: git@github.com:FlexNetOS/yazelix.git
+    path: src/yazelix
+
+  yazelix-yazi-assets:
+    repo: git@github.com:FlexNetOS/yazelix-yazi-assets.git
+    path: src/yazelix-yazi-assets
 
   # Non-code repos
   claude-plugins:
@@ -68,4 +165,4 @@ projects:
 
   meta-plugins:
     repo: git@github.com:FlexNetOS/meta-plugins.git
-    path: ../meta-plugins
+    path: src/meta-plugins

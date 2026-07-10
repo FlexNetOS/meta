@@ -18,10 +18,13 @@ For the FlexNetOS meta workspace, GitKB MCP is owned by global Codex config:
 
 ```toml
 [mcp_servers.gitkb]
-command = "/home/flexnetos/FlexNetOS/usr/libexec/gitkb-mcp-meta"
+command = "/home/flexnetos/.nix-profile/bin/git-kb"
 ```
 
-That wrapper sets `GITKB_ROOT=/home/flexnetos/FlexNetOS/src/meta` and launches the workspace GitKB MCP binary. The GitKB Codex plugin therefore leaves `.mcp.json` empty so installing the plugin does not create a second `gitkb` server.
+The active Codex MCP registration sets `GITKB_ROOT=/home/flexnetos/meta` and
+launches the profile-owned GitKB binary. The GitKB Codex plugin therefore
+leaves `.mcp.json` empty so installing the plugin does not create a second
+`gitkb` server.
 
 ## Migration Rule
 
