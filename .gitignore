@@ -65,6 +65,41 @@ claude-plugins/
 codex-plugins/
 meta-plugins/
 
+# FlexNetOS control-plane payload
+#
+# /home/flexnetos/meta is the authoritative Meta checkout. The paths below are
+# independent repositories or host/runtime state owned by Meta, not files to
+# absorb into this repository's history.
+/lifeos/
+/src/
+/artifacts/
+/etc/
+/hardware/
+/prompts/
+/recovery/
+/release/
+/snapshots/
+/test-prefix/
+/usr/
+/var/
+/worktrees/
+/_archive/
+/_quarantine/
+/.agents/
+/.cargo/
+/.codex/
+/.config/
+/.local/
+/.n8n-mcp/
+/.roo/
+/.rustup/
+/.toolchains/
+/COMMAND_LEDGER.csv
+/LOCAL_WORKAROUNDS.md
+/WORKLOG.md
+/WORKSPACE_LAYOUT.md
+/release-baseline.json
+
 # plugins (built locally, not committed)
 .meta/plugins/
 
