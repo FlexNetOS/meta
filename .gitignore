@@ -70,7 +70,6 @@ meta-plugins/
 # /home/flexnetos/meta is the authoritative Meta checkout. The paths below are
 # independent repositories or host/runtime state owned by Meta, not files to
 # absorb into this repository's history.
-/lifeos/
 /src/
 /artifacts/
 /etc/

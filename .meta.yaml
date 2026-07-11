@@ -53,7 +53,7 @@ projects:
   # FlexNetOS product and workspace peers
   lifeos:
     repo: git@github.com:FlexNetOS/lifeos.git
-    path: lifeos
+    path: src/lifeos
 
   envctl:
     repo: git@github.com:FlexNetOS/envctl.git

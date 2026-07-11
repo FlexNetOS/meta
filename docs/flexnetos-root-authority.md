@@ -7,8 +7,8 @@
 |-- .git/                         Meta Git identity
 |-- .kb/                          Meta GitKB identity and knowledge base
 |-- .meta.yaml                    Peer-repository ownership manifest
-|-- lifeos/                       Independent FlexNetOS/lifeos repository
 `-- src/                          Independent peer repositories
+    `-- lifeos/                   FlexNetOS/lifeos Meta peer
 ```
 
 `/home/flexnetos/FlexNetOS` may remain as a compatibility symlink to
@@ -27,6 +27,14 @@ The promotion preserves independent repository histories. The large LifeOS,
 peer, runtime, release, and evidence trees are not committed into
 `FlexNetOS/meta`; `.gitignore` protects that boundary and `.meta.yaml` declares
 the repositories Meta operates.
+
+## LifeOS peer correction
+
+The first promotion pass incorrectly left LifeOS at the root-level path
+`/home/flexnetos/meta/lifeos`. Review established that LifeOS is a Meta peer,
+not a privileged child outside the peer namespace. The canonical path is
+`/home/flexnetos/meta/src/lifeos`, alongside the other independent repositories
+declared by `.meta.yaml`.
 
 ## Identity test
 
