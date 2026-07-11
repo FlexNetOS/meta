@@ -8,9 +8,10 @@ This is a **meta-repo** — a workspace of independent git repositories managed 
 authoritative control-plane root. Its `.git`, `.kb`, `.meta.yaml`, and tracked
 policy files identify Meta and own the peer-repository fleet.
 
-- LifeOS is the independent product repository at
-  `/home/flexnetos/meta/lifeos`.
-- Additional independent peers live under `/home/flexnetos/meta/src`.
+- LifeOS is a Meta peer repository at
+  `/home/flexnetos/meta/src/lifeos`.
+- All independent peers live under `/home/flexnetos/meta/src`; LifeOS is not a
+  special root-level child or a separate authority layer.
 - Runtime, archive, release, and host-projection directories at this root are
   Meta-owned payload, but are ignored by the Meta Git repository.
 - `/home/flexnetos/lifeos` is retired and must not be recreated as a competing

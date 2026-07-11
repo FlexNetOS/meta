@@ -88,6 +88,20 @@ assert repos['backend'] == 'git@github.com:org/backend.git'
 "
 }
 
+@test "FlexNetOS manifest keeps LifeOS in the canonical peer namespace" {
+    cd "$BATS_TEST_DIRNAME/.."
+    run "$META_BIN" project list --json
+    [ "$status" -eq 0 ]
+    echo "$output" | python3 -c "
+import sys, json
+data = json.load(sys.stdin)
+lifeos = [p for p in data['projects'] if p['name'] == 'lifeos']
+assert len(lifeos) == 1, f'expected one LifeOS peer, got {lifeos}'
+assert lifeos[0]['path'] == 'src/lifeos', lifeos[0]
+assert lifeos[0]['repo'] == 'git@github.com:FlexNetOS/lifeos.git', lifeos[0]
+"
+}
+
 @test "meta project list --recursive discovers nested projects" {
     # Create a nested .meta inside frontend
     cat > "$TEST_DIR/frontend/.meta" <<'EOF'
