@@ -89,8 +89,13 @@ assert repos['backend'] == 'git@github.com:org/backend.git'
 }
 
 @test "FlexNetOS manifest keeps LifeOS in the canonical peer namespace" {
-    cd "$BATS_TEST_DIRNAME/.."
+    ROOT_DIR="$BATS_TEST_DIRNAME/.."
+    mkdir -p "$ROOT_DIR/.meta/plugins"
+    cp "$META_PROJECT_BIN" "$ROOT_DIR/.meta/plugins/meta-project"
+    chmod +x "$ROOT_DIR/.meta/plugins/meta-project"
+    cd "$ROOT_DIR"
     run "$META_BIN" project list --json
+    rm -f "$ROOT_DIR/.meta/plugins/meta-project"
     [ "$status" -eq 0 ]
     echo "$output" | python3 -c "
 import sys, json
