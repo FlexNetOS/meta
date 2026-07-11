@@ -49,6 +49,7 @@ imported/
 # AI
 .aider*
 .claude/skills/gitnexus/
+.grit/
 
 # child repositories
 agent/
