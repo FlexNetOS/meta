@@ -156,6 +156,10 @@ projects:
     repo: git@github.com:FlexNetOS/yazelix-yazi-assets.git
     path: src/yazelix-yazi-assets
 
+  yazelix-terminal-support:
+    repo: git@github.com:FlexNetOS/yazelix-terminal-support.git
+    path: src/yazelix-terminal-support
+
   # Non-code repos
   claude-plugins:
     repo: git@github.com:FlexNetOS/claude-plugins.git
