@@ -8,7 +8,7 @@ context_source: gitkb
 context_access:
   primary: mcp          # MCP tools (kb_list, kb_show, kb_checkout, etc.)
   fallback: cli         # git kb commands
-  workspace: .kb/workspace/
+  workspace: .kb/workspaces/main/
 
 quick_commands:
   check_kb_state: "git kb list --path context/"
@@ -148,7 +148,7 @@ After creating, checkout to edit:
 git kb checkout --path context/
 ```
 
-Edit files in `.kb/workspace/context/` with the gathered information.
+Edit files in `.kb/workspaces/main/context/` (named workspaces — default `main`; the singular `.kb/workspace/` does not exist on disk) with the gathered information.
 
 ### Step 4: Commit Initial Context
 
@@ -260,7 +260,7 @@ If workspace is clean and context is still valid, resume work.
 
 GitKB is a database-first knowledge base with a git-like CLI. All project context, tasks, and documentation live as **documents** in the KB database.
 
-**Key insight**: The workspace (`.kb/workspace/`) is an ephemeral editing surface. The database is the source of truth.
+**Key insight**: The workspace (`.kb/workspaces/<name>/`, default `main`) is an ephemeral editing surface. The database is the source of truth.
 
 ### Essential Commands
 
@@ -347,7 +347,7 @@ flowchart TD
 ```bash
 git kb create task --slug tasks/my-task --title "My Task"
 git kb checkout tasks/my-task
-# Edit .kb/workspace/tasks/my-task.md
+# Edit .kb/workspaces/main/tasks/my-task.md
 git kb commit -m "Add my-task"
 ```
 
