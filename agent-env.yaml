@@ -1,0 +1,11 @@
+# Meta's project-local participant in the fleet agent-environment policy.
+#
+# This config installs one narrow review skill only.  It does not own MCP
+# registrations, toolchains, the Nix profile, or any child repository's native
+# adapter.  Child policies are independently committed and pin this source.
+scope: project
+agent: codex
+skills:
+  - source: ./agent-env/skills
+    skills:
+      - meta-gitkb-review
