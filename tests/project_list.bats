@@ -107,6 +107,32 @@ assert lifeos[0]['repo'] == 'git@github.com:FlexNetOS/lifeos.git', lifeos[0]
 "
 }
 
+@test "FlexNetOS manifest registers every packaged Yazelix and harness peer" {
+    ROOT_DIR="$BATS_TEST_DIRNAME/.."
+    mkdir -p "$ROOT_DIR/.meta/plugins"
+    cp "$META_PROJECT_BIN" "$ROOT_DIR/.meta/plugins/meta-project"
+    chmod +x "$ROOT_DIR/.meta/plugins/meta-project"
+    cd "$ROOT_DIR"
+    run "$META_BIN" project list --json
+    rm -f "$ROOT_DIR/.meta/plugins/meta-project"
+    [ "$status" -eq 0 ]
+    echo "$output" | python3 -c "
+import sys, json
+data = json.load(sys.stdin)
+projects = {p['name']: p for p in data['projects']}
+expected = {
+    'harness_hub': 'src/harness_hub',
+    'yazelix': 'src/yazelix',
+    'yazelix-helix': 'src/yazelix-helix',
+    'yazelix-terminal-support': 'src/yazelix-terminal-support',
+    'yazelix-yazi-assets': 'src/yazelix-yazi-assets',
+}
+for name, path in expected.items():
+    assert name in projects, f'missing Meta peer: {name}'
+    assert projects[name]['path'] == path, projects[name]
+"
+}
+
 @test "meta project list --recursive discovers nested projects" {
     # Create a nested .meta inside frontend
     cat > "$TEST_DIR/frontend/.meta" <<'EOF'
