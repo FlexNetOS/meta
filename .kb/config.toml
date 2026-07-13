@@ -1,5 +1,9 @@
 [identity]
 
+[user]
+name = "drdave-flexnteos"
+email = "flexnetos@de-flex.net"
+
 [sync.remotes]
 
 [code]
