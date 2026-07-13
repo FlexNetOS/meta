@@ -96,6 +96,10 @@ projects:
     repo: git@github.com:FlexNetOS/harness-agent-rs.git
     path: src/harness-agent-rs
 
+  harness_hub:
+    repo: git@github.com:FlexNetOS/harness_hub.git
+    path: src/harness_hub
+
   hermes-agent:
     repo: git@github.com:FlexNetOS/hermes-agent.git
     path: src/hermes-agent
@@ -151,6 +155,10 @@ projects:
   yazelix:
     repo: git@github.com:FlexNetOS/yazelix.git
     path: src/yazelix
+
+  yazelix-helix:
+    repo: git@github.com:FlexNetOS/yazelix-helix.git
+    path: src/yazelix-helix
 
   yazelix-yazi-assets:
     repo: git@github.com:FlexNetOS/yazelix-yazi-assets.git
