@@ -20,8 +20,9 @@ absent so it cannot compete with Meta for workspace identity or authority.
 On 2026-07-10, the former unversioned `/home/flexnetos/lifeos` parent was
 atomically renamed to `/home/flexnetos/meta`. The existing Meta checkout was
 then promoted from its staged `src/meta` location into that root. Root
-collisions and pre-change repository state were archived before mutation under
-`/home/flexnetos/.local/state/meta/archives/`.
+collisions and pre-change repository state were archived before mutation into
+the Meta-owned payload archives at `var/archives/` (gitignored Meta payload at
+the root), consistent with the single-profile path law.
 
 The promotion preserves independent repository histories. The large LifeOS,
 peer, runtime, release, and evidence trees are not committed into
