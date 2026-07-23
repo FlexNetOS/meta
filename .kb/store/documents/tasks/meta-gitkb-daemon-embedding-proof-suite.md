@@ -3,7 +3,7 @@ id: 019f21fc-720e-7ac2-bd05-7460eaa34c6c
 slug: tasks/meta-gitkb-daemon-embedding-proof-suite
 title: "Prove GitKB daemon and embedding behavior"
 type: task
-status: completed
+status: active
 priority: medium
 parent: tasks/meta-gitkb-docs-command-config-extraction
 ---
@@ -71,3 +71,11 @@ Prove daemon lifecycle, file watching, MCP dependency, and optional embedding be
 ### 2026-07-02
 - Corrected the proof record after running the missing `git-kb init` surfaces and live embedding attempt. Git hooks are installed in all 14 child repos; Codex init was already satisfied; embeddings remain blocked by the GitKB model/runtime error above.
 - Completed daemon/embedding proof in read-only mode; embeddings and HTTP serving remain explicit opt-in work.
+
+### 2026-07-23 re-opened: current TTD evidence
+
+- Reopened because the existing completed status contradicted live verification.
+- GitKB `v0.2.12` is current. The default `BAAI/bge-small-en-v1.5` Candle path fails with `index-select invalid index 512 with dim size 512`.
+- `sentence-transformers/all-MiniLM-L6-v2` is a successful replacement in an isolated 221-document fixture: 457 document vectors were created and semantic search executed.
+- On the production Meta KB, the MiniLM daemon identifies 463 eligible documents but `git-kb ai embed --scope documents --force` times out after 30 seconds, leaving zero document vectors. `GITKB_DAEMON_TIMEOUT=120` does not change the socket request timeout. Code vectors can be generated (32 present).
+- Required closure: resolve or work around the production document-embedding IPC timeout, then prove `git-kb ai semantic` returns results against the canonical Meta store.
