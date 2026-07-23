@@ -1,0 +1,5 @@
+{
+  "commit": {"author":"drdave-flexnteos <flexnetos@de-flex.net>","changes":[{"change_type":"modified","content_hash":"a1c6441973130ddf0d36eef77bd7519caccaaf28731b63d12e87934a3a12a631","doc_type":"task","document_id":"019f21fc-56fa-79b0-b1b6-fd40bfe32132","metadata_changes":[{"field":"status","new_value":"completed","old_value":"active"}],"new_version":6,"previous_commit_id":"019f23a9-e1fa-7521-879f-2dd0e1bcf015","previous_hash":"b7d014f266fb96e48dba50cb41fae79e11591cf6d9bca6a8bfdddbd31940c1f9","previous_version":5,"slug":"tasks/meta-plugin-gitkb-harness-generation","title":"Generate GitKB harness adapters from meta-plugin"}],"created_at":"2026-07-02T16:29:23.973408327Z","id":"019f23a9-e29f-7ac3-8414-879df54ac772","message":"Close harness adapter generation [[tasks/meta-plugin-gitkb-harness-generation]]"},
+  "content_hash": "7a30fe0f0b1ca474bb5ff1e0d89575daf0790b165b22f713a5ab9ae552fb8be3",
+  "hash_version": 3
+}

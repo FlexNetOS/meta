@@ -1,0 +1,5 @@
+{
+  "commit": {"author":"drdave-flexnteos <flexnetos@de-flex.net>","changes":[{"change_type":"created","content_hash":"47b63517097a7e5c8c30ca7834f4f07f575a03114e5937725c4c0051266c02e4","doc_type":"task","document_id":"019f21aa-c23d-7020-9be5-0d738ee05b59","new_version":1,"previous_version":null,"slug":"tasks/meta-transition-flexnetos-clean-heads","title":"Transition meta repos from gitkb to FlexNetOS clean heads"}],"created_at":"2026-07-02T07:15:43.392594365Z","id":"019f21ae-faa9-7ca3-a020-66c82f12ccc6","message":"Complete FlexNetOS clean-head transition"},
+  "content_hash": "5cf584825ed42bb69e665fe1a6d5573bac72395026dfea8dd01fcff151865d8c",
+  "hash_version": 3
+}

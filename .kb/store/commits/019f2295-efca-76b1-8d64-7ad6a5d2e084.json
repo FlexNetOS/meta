@@ -1,0 +1,5 @@
+{
+  "commit": {"author":"drdave-flexnteos <flexnetos@de-flex.net>","changes":[{"change_type":"modified","content_hash":"d3a2bd82b16d43bc0887d196cd8d6b34de99e33aa7c1c44ea5829add7ec20a9b","doc_type":"task","document_id":"019f2295-8c0b-77f0-943d-cd574f7cad1d","metadata_changes":[{"field":"status","new_value":"active","old_value":"draft"}],"new_version":2,"previous_commit_id":"019f2295-b79d-74f1-ae8f-13819df54d18","previous_hash":"5b75f47da9de0251680173831171036be90680fb0dcd5139c426c8c7231fd1df","previous_version":1,"slug":"tasks/meta-kb-workflow-peer-component-smoke-test","title":"Smoke Test GitKB Workflow Across Meta Peer Components"}],"created_at":"2026-07-02T11:27:59.415182698Z","id":"019f2295-efca-76b1-8d64-7ad6a5d2e084","message":"Start task: Smoke test GitKB workflow across meta peer components"},
+  "content_hash": "a08e4e55faa93b834ead3529b2f6baa3486f53ca5671f99461ab9b2ad9a4589b",
+  "hash_version": 3
+}

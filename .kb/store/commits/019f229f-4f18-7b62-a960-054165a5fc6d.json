@@ -1,0 +1,5 @@
+{
+  "commit": {"author":"drdave-flexnteos <flexnetos@de-flex.net>","changes":[{"change_type":"created","content_hash":"ec56c97f6653fcb1a3f76439e0416239489e5ea8585eba7dddbcda683ea366fc","doc_type":"task","document_id":"019f229f-2668-7091-be64-f63e9dd79e8d","new_version":1,"previous_version":null,"slug":"tasks/meta-peer-local-kb-bootstrap","title":"Bootstrap peer-local GitKB stores additively"}],"created_at":"2026-07-02T11:38:13.643625307Z","id":"019f229f-4f18-7b62-a960-054165a5fc6d","message":"Create task: Bootstrap peer-local GitKB stores"},
+  "content_hash": "8087c625c4abd5705d0ba884f26534c5d8ad18efbc28d1db8d0871247d01bf78",
+  "hash_version": 3
+}

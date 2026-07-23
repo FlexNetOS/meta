@@ -1,0 +1,5 @@
+{
+  "commit": {"author":"drdave-flexnteos <flexnetos@de-flex.net>","changes":[{"change_type":"created","content_hash":"950c331079d2d91bd939448a99d343316eb98c73da45b7d2a90322b5d677574e","doc_type":"task","document_id":"019f2138-90d2-7291-8bac-4cf82ab99db3","new_version":1,"previous_version":null,"slug":"tasks/meta-clean-foundation-build-order","title":"Build meta from clean upstream foundation"}],"created_at":"2026-07-02T05:08:23.028834696Z","id":"019f213a-6580-77d1-8902-8a20d6677ac1","message":"Add meta clean foundation build order task"},
+  "content_hash": "3a781854f6ed9062cb13ceec8174e9c1bd2ffb930aa75b11545a9d08490750e0",
+  "hash_version": 3
+}

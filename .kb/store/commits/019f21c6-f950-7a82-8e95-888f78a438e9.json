@@ -1,0 +1,5 @@
+{
+  "commit": {"author":"drdave-flexnteos <flexnetos@de-flex.net>","changes":[{"change_type":"modified","content_hash":"611f4e85d187b1c1316ce1d80f19de9f3e55ea5586e9e36916b8bf927f39a83b","doc_type":"task","document_id":"019f21c3-d7df-74b3-be2f-dda644c2e0f3","metadata_changes":[{"field":"status","new_value":"completed","old_value":"active"}],"new_version":2,"previous_commit_id":"019f21c6-ca7f-7160-83bb-11c4dabe121f","previous_hash":"1cfbb278aa6e2e3bf2ffc654c2cb55223d27bdc467be1c8f33790de9f82e86ba","previous_version":1,"slug":"tasks/meta-read-extracted-gitkb-docs-for-codex-wiring","title":"Read extracted GitKB docs before Codex wiring"}],"created_at":"2026-07-02T07:41:55.893125750Z","id":"019f21c6-f950-7a82-8e95-888f78a438e9","message":"Complete GitKB docs wiring audit"},
+  "content_hash": "0b8fcbd59839869e87c8f67b80523a0aa05e6a19116afa1cd7ea55952f06f299",
+  "hash_version": 3
+}

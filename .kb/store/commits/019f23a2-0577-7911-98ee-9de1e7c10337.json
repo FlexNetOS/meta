@@ -1,0 +1,5 @@
+{
+  "commit": {"author":"drdave-flexnteos <flexnetos@de-flex.net>","changes":[{"change_type":"modified","content_hash":"7277412fbbdbdf77a9a335aed65a19d03cbb6eae775e1865d063d2aa40f9aff1","doc_type":"task","document_id":"019f21fc-56fa-7bf0-847d-0da3175b312e","metadata_changes":[{"field":"status","new_value":"completed","old_value":"active"}],"new_version":9,"previous_commit_id":"019f23a1-f6e6-7a41-b2ae-082cefc1e0f2","previous_hash":"b3fb9aedbf8605cb1cd2107968eb57f8a6c04e71996a31d3572afb9c345af24b","previous_version":8,"slug":"tasks/meta-plugin-mcp-single-owner-policy","title":"Enforce single-owner MCP registration policy"}],"created_at":"2026-07-02T16:20:48.594130240Z","id":"019f23a2-0577-7911-98ee-9de1e7c10337","message":"Close MCP single-owner policy task [[tasks/meta-plugin-mcp-single-owner-policy]]"},
+  "content_hash": "33e752ccaddd51a3fd7088b7f4f931db5536018c6b2cedc71e2cfa05de37f4e8",
+  "hash_version": 3
+}
