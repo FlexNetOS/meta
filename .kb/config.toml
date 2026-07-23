@@ -63,10 +63,6 @@ meta_git_cli = "main"
 [embeddings]
 enabled = true
 backend = "candle"
-model = "sentence-transformers/all-MiniLM-L6-v2"
-batch_size = 16
-queue_size = 64
-batch_delay_ms = 50
 
 [embeddings.index]
 path = ".kb/cache/index"
