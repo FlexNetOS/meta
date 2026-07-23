@@ -1,0 +1,5 @@
+{
+  "commit": {"author":"drdave-flexnteos <flexnetos@de-flex.net>","changes":[{"change_type":"created","content_hash":"090877ebe1f2584ddef6deddb39770dcf56ff90f8bd6daab0345e2979c40a832","doc_type":"task","document_id":"019f80a9-3dfe-7762-aa4e-fa94b7b68c2b","new_version":1,"previous_version":null,"slug":"tasks/architecture-rtk-nu-adapter","title":"Implement byte-exact rtk_nu adapter"}],"created_at":"2026-07-20T17:53:23.097617144Z","id":"019f80a9-3e9d-7971-9d8b-4041091a175d","message":"Track rtk_nu implementation as architecture work"},
+  "content_hash": "9c36a7b9aa8c9ffd7a3f769ef479069b4d4f3bfefddbb9a32cef6880885cd080",
+  "hash_version": 3
+}

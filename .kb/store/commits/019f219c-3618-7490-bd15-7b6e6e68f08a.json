@@ -1,0 +1,5 @@
+{
+  "commit": {"author":"drdave-flexnteos <flexnetos@de-flex.net>","changes":[{"change_type":"created","content_hash":"695898aeb6ab3c22e45a9352cd73efe9a184390e1cabef3e1b87ed8801203e2a","doc_type":"task","document_id":"019f219a-ee26-7482-aa48-5bf852069166","new_version":1,"previous_version":null,"slug":"tasks/meta-git-setup-ssh-actual-remotes","title":"Include actual org SSH remotes in setup-ssh"}],"created_at":"2026-07-02T06:55:13.424895636Z","id":"019f219c-3618-7490-bd15-7b6e6e68f08a","message":"Include actual SSH remotes in setup-ssh"},
+  "content_hash": "abb60c9b60ed1ccba2b632dc396e2e5baf371b00327cf433d8793a17b40e4c11",
+  "hash_version": 3
+}

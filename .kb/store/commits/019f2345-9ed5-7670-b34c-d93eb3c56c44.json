@@ -1,0 +1,5 @@
+{
+  "commit": {"author":"drdave-flexnteos <flexnetos@de-flex.net>","changes":[{"change_type":"created","content_hash":"7a79ce493793f7830cbefcdb7473440d45624a41e066057a05785a9c924bb416","doc_type":"task","document_id":"019f2344-f759-7191-b85c-35d59970dadd","new_version":1,"previous_version":null,"slug":"tasks/meta-system-architecture-documentation","title":"Document FlexNetOS meta system architecture"}],"created_at":"2026-07-02T14:39:53.022364460Z","id":"019f2345-9ed5-7670-b34c-d93eb3c56c44","message":"Create architecture documentation task [[tasks/meta-system-architecture-documentation]]"},
+  "content_hash": "c7353f35fe0974055c26b03a4ebce5a3d9549d53482e41d521cc38c3629a0558",
+  "hash_version": 3
+}

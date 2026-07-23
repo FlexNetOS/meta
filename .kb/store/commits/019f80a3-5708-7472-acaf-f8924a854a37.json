@@ -1,0 +1,5 @@
+{
+  "commit": {"author":"drdave-flexnteos <flexnetos@de-flex.net>","changes":[{"change_type":"created","content_hash":"1f65cdbbce02353208cad1057e338f141c0cf1171f03626d5f1a285d3a6d2a72","doc_type":"task","document_id":"019f80a3-4a40-7de2-8a91-ca6864585cc2","new_version":1,"previous_version":null,"slug":"tasks/gitkb-code-index-symbol-forwarding","title":"Repair GitKB duplicate symbol-forwarding index failure"}],"created_at":"2026-07-20T17:46:56.133621943Z","id":"019f80a3-5708-7472-acaf-f8924a854a37","message":"Record GitKB code-index duplicate-forwarding incident"},
+  "content_hash": "d1cdfe1d8c78338bcd06973151f7a9542760a221f1dd0ede23398f6e966855b6",
+  "hash_version": 3
+}

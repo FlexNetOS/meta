@@ -1,0 +1,5 @@
+{
+  "commit": {"author":"drdave-flexnteos <flexnetos@de-flex.net>","changes":[{"change_type":"created","content_hash":"192f50caf8adcd535234e32598d938d55b63b682f69e0db8e9094f133792a4a7","doc_type":"view","document_id":"019f223c-2563-7713-b40f-aa10d7917402","new_version":1,"previous_version":null,"slug":"views/active-tasks","title":"active tasks"}],"created_at":"2026-07-02T09:49:54.915118238Z","id":"019f223c-256d-7583-a4fc-5f93139aad20","message":"Create views/active-tasks"},
+  "content_hash": "76f71cbfaf2741822f8f5c62d5dc3be9cb82d0bd1fc72e20ab6c5fd43ac15e64",
+  "hash_version": 3
+}

@@ -1,0 +1,5 @@
+{
+  "commit": {"author":"drdave-flexnteos <flexnetos@de-flex.net>","changes":[{"change_type":"created","content_hash":"2928f1c41bb5406db4f15d790bed33aec991c342cff04a83d94f04a7a65de82d","doc_type":"task","document_id":"019f2394-adb0-71b1-b07d-6ba2ac3c79cd","new_version":1,"previous_version":null,"slug":"tasks/meta-code-intelligence-live-snapshot-2026-07-02","title":"Capture live GitKB code intelligence snapshot"},{"change_type":"created","content_hash":"cb7774bb8a7c56d6c7b58463aedb42ddf02cd797a0b807303e91e38bfe4cec81","doc_type":"task","document_id":"019f2395-e17c-7e23-b9d4-5de349c2ac41","new_version":1,"previous_version":null,"slug":"tasks/meta-code-intelligence-unresolved-call-audit","title":"Audit GitKB code intelligence unresolved calls"}],"created_at":"2026-07-02T16:08:17.636274551Z","id":"019f2396-9000-7a31-b417-4f9cef8dce4a","message":"Capture live code intelligence snapshot [[tasks/meta-code-intelligence-live-snapshot-2026-07-02]]"},
+  "content_hash": "abeacd278bebe4b5ce7c32d1992bc0b456bb252d8cbd62a0ce8dd5f070cf8746",
+  "hash_version": 3
+}

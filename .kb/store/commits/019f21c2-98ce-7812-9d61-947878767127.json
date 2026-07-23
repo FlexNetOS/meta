@@ -1,0 +1,5 @@
+{
+  "commit": {"author":"drdave-flexnteos <flexnetos@de-flex.net>","changes":[{"change_type":"created","content_hash":"498611197346e0dedcda036596907fcbabf51206fd36001b6652b44006a7e41e","doc_type":"task","document_id":"019f21c2-89ff-7e00-a898-83a1625f44d9","new_version":1,"previous_version":null,"slug":"tasks/meta-diff-claude-to-codex-wiring","title":"Extract Claude integration and diff missing Codex wiring"}],"created_at":"2026-07-02T07:37:09.056635729Z","id":"019f21c2-98ce-7812-9d61-947878767127","message":"Add Claude to Codex wiring diff task"},
+  "content_hash": "fc63d3b834069b5b30a3107aef29b0998af6fbbe89f3a2d5955cf01783118e05",
+  "hash_version": 3
+}

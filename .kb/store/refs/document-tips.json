@@ -1,0 +1,1110 @@
+{
+  "version": 1,
+  "entries": [
+    {
+      "document_id": "019f2138-90d2-7291-8bac-4cf82ab99db3",
+      "slug": "tasks/meta-clean-foundation-build-order",
+      "tip_commit_id": "019f2147-e741-7a23-8037-73a9795170ac"
+    },
+    {
+      "document_id": "019f2141-bd43-7541-96a8-1c790838f1de",
+      "slug": "context/immutable/project-brief",
+      "tip_commit_id": "019f2143-86a6-7e71-8cdd-3cc3d5cd2a9d"
+    },
+    {
+      "document_id": "019f2141-e14f-7661-a5ce-3dd3020a95d9",
+      "slug": "context/immutable/patterns",
+      "tip_commit_id": "019f2143-86a6-7e71-8cdd-3cc3d5cd2a9d"
+    },
+    {
+      "document_id": "019f2142-140b-7eb0-aa8a-52e09c876296",
+      "slug": "context/immutable/architecture",
+      "tip_commit_id": "019f2143-86a6-7e71-8cdd-3cc3d5cd2a9d"
+    },
+    {
+      "document_id": "019f2142-35e7-7f41-b61b-0ed1cf22820f",
+      "slug": "context/extensible/product",
+      "tip_commit_id": "019f2143-86a6-7e71-8cdd-3cc3d5cd2a9d"
+    },
+    {
+      "document_id": "019f2142-57d4-7543-9adf-f8326254055d",
+      "slug": "context/extensible/tech",
+      "tip_commit_id": "019f2143-86a6-7e71-8cdd-3cc3d5cd2a9d"
+    },
+    {
+      "document_id": "019f2142-744e-7092-ba84-c6433d8d0007",
+      "slug": "context/overridable/active",
+      "tip_commit_id": "019f2147-e741-7a23-8037-73a9795170ac"
+    },
+    {
+      "document_id": "019f2142-91a4-7f13-ad27-14d2fe7001b4",
+      "slug": "context/overridable/progress",
+      "tip_commit_id": "019f2147-e741-7a23-8037-73a9795170ac"
+    },
+    {
+      "document_id": "019f2143-e187-7bf1-af16-652fe2b204a1",
+      "slug": "tasks/meta-rust-release-packaging",
+      "tip_commit_id": "019f218b-ca30-7172-994f-62aa9bf45645"
+    },
+    {
+      "document_id": "019f2143-fb68-7cf3-9b99-30f29e16474d",
+      "slug": "tasks/meta-command-surface-docs-reconciliation",
+      "tip_commit_id": "019f218b-ca30-7172-994f-62aa9bf45645"
+    },
+    {
+      "document_id": "019f2144-1a1e-7a73-b417-55427d7b71ba",
+      "slug": "tasks/meta-org-migration-cleanup",
+      "tip_commit_id": "019f218b-ca30-7172-994f-62aa9bf45645"
+    },
+    {
+      "document_id": "019f2144-3063-7612-a5fc-cce9c9136610",
+      "slug": "tasks/meta-verification-parity",
+      "tip_commit_id": "019f218b-ca30-7172-994f-62aa9bf45645"
+    },
+    {
+      "document_id": "019f2145-7b02-7e41-b514-6c638922295f",
+      "slug": "tasks/meta-lockfile-version-drift",
+      "tip_commit_id": "019f218b-ca30-7172-994f-62aa9bf45645"
+    },
+    {
+      "document_id": "019f2151-2d91-7b30-986b-f4b852dc174f",
+      "slug": "tasks/meta-initial-10-repo-deep-walk",
+      "tip_commit_id": "019f215a-62bb-7f53-9c92-6efc4c013db6"
+    },
+    {
+      "document_id": "019f2159-5eab-7631-9989-e6c12f93176c",
+      "slug": "tasks/loop-lib-sequential-spawn-error-handling",
+      "tip_commit_id": "019f218b-ca30-7172-994f-62aa9bf45645"
+    },
+    {
+      "document_id": "019f2159-5ecb-7de3-ab28-bc22297d06df",
+      "slug": "tasks/meta-core-atomic-write-temp-collision",
+      "tip_commit_id": "019f218b-ca30-7172-994f-62aa9bf45645"
+    },
+    {
+      "document_id": "019f2159-5ece-75e0-a891-001121c5487f",
+      "slug": "tasks/meta-mcp-destructive-tool-guardrails",
+      "tip_commit_id": "019f218b-ca30-7172-994f-62aa9bf45645"
+    },
+    {
+      "document_id": "019f2159-5ed9-7c03-abed-1dca46a3a2bb",
+      "slug": "tasks/meta-worktree-hook-trust-boundary",
+      "tip_commit_id": "019f218b-ca30-7172-994f-62aa9bf45645"
+    },
+    {
+      "document_id": "019f215e-e14b-7811-93c0-4dba2d9207d0",
+      "slug": "tasks/meta-initial-10-repeat-source-walk-2026-07-02",
+      "tip_commit_id": "019f2164-7c02-7b02-97a8-08c397077045"
+    },
+    {
+      "document_id": "019f2165-daf6-7a12-9636-0e735a8945dd",
+      "slug": "tasks/meta-initial-14-repeat-source-walk-hooks-2026-07-02",
+      "tip_commit_id": "019f216a-03f5-7b30-a08d-7e2d13f45071"
+    },
+    {
+      "document_id": "019f2168-bd03-7832-91cd-fbfc3445629c",
+      "slug": "tasks/agent-score-hook-log-guard-effectiveness",
+      "tip_commit_id": "019f218b-ca30-7172-994f-62aa9bf45645"
+    },
+    {
+      "document_id": "019f2170-583c-78b2-bff5-3a3d74a11774",
+      "slug": "tasks/meta-initial-14-alignment-code-intel-prep-2026-07-02",
+      "tip_commit_id": "019f2175-5921-7302-95df-b557b3f1c0cc"
+    },
+    {
+      "document_id": "019f2173-496f-7132-a7c8-f48b9555a57a",
+      "slug": "tasks/meta-root-claude-meta-worker-jsons-drift",
+      "tip_commit_id": "019f218b-ca30-7172-994f-62aa9bf45645"
+    },
+    {
+      "document_id": "019f2173-4983-7b33-acfd-5fd21151163e",
+      "slug": "tasks/meta-root-claude-code-intelligence-command-drift",
+      "tip_commit_id": "019f218b-ca30-7172-994f-62aa9bf45645"
+    },
+    {
+      "document_id": "019f2173-4992-7fb3-9491-badff1705cdd",
+      "slug": "tasks/meta-root-claude-settings-hook-command-drift",
+      "tip_commit_id": "019f218b-ca30-7172-994f-62aa9bf45645"
+    },
+    {
+      "document_id": "019f2173-49a8-7d83-b9e4-1f9c85a5356b",
+      "slug": "tasks/meta-cli-claude-meta-exec-ordered-drift",
+      "tip_commit_id": "019f218b-ca30-7172-994f-62aa9bf45645"
+    },
+    {
+      "document_id": "019f2173-49ba-7910-8a1a-12453a243eb9",
+      "slug": "tasks/meta-cli-claude-meta-safety-ordered-drift",
+      "tip_commit_id": "019f218b-ca30-7172-994f-62aa9bf45645"
+    },
+    {
+      "document_id": "019f2173-49c9-7740-8dca-e2d2cda3381d",
+      "slug": "tasks/meta-cli-claude-git-setup-ssh-drift",
+      "tip_commit_id": "019f218b-ca30-7172-994f-62aa9bf45645"
+    },
+    {
+      "document_id": "019f2173-49db-7350-9928-22399ed63479",
+      "slug": "tasks/meta-cli-claude-meta-plugins-command-discovery-drift",
+      "tip_commit_id": "019f218b-ca30-7172-994f-62aa9bf45645"
+    },
+    {
+      "document_id": "019f2173-49ed-70d3-8796-1714c11810be",
+      "slug": "tasks/meta-readme-command-plugin-discovery-drift",
+      "tip_commit_id": "019f218b-ca30-7172-994f-62aa9bf45645"
+    },
+    {
+      "document_id": "019f2173-4a01-7c41-a788-61a643cc2528",
+      "slug": "tasks/meta-docs-plugin-discovery-location-drift",
+      "tip_commit_id": "019f218b-ca30-7172-994f-62aa9bf45645"
+    },
+    {
+      "document_id": "019f2173-4a1a-70a1-8547-29722e45d53b",
+      "slug": "tasks/meta-git-cli-help-include-only-drift",
+      "tip_commit_id": "019f218b-ca30-7172-994f-62aa9bf45645"
+    },
+    {
+      "document_id": "019f2173-4a29-7242-a06f-b2d6d23be5fd",
+      "slug": "tasks/meta-git-lib-missing-project-update-drift",
+      "tip_commit_id": "019f218b-ca30-7172-994f-62aa9bf45645"
+    },
+    {
+      "document_id": "019f2173-4a3b-79e3-86ed-bebdaeb6c116",
+      "slug": "tasks/meta-release-workflow-meta-rust-artifact-drift",
+      "tip_commit_id": "019f218b-ca30-7172-994f-62aa9bf45645"
+    },
+    {
+      "document_id": "019f2173-4a4a-7443-8909-7421f289434a",
+      "slug": "tasks/meta-code-intelligence-rust-index-coverage",
+      "tip_commit_id": "019f218b-ca30-7172-994f-62aa9bf45645"
+    },
+    {
+      "document_id": "019f2174-4ed5-7a53-88fe-1c223884fe9e",
+      "slug": "tasks/meta-docs-architecture-workspace-version-drift",
+      "tip_commit_id": "019f218b-ca30-7172-994f-62aa9bf45645"
+    },
+    {
+      "document_id": "019f2174-7c18-7de3-a96c-3fc6850c4939",
+      "slug": "tasks/meta-child-ci-synthesized-workspace-version-drift",
+      "tip_commit_id": "019f218b-ca30-7172-994f-62aa9bf45645"
+    },
+    {
+      "document_id": "019f218f-6bf4-7852-8730-c11e9b09ad66",
+      "slug": "tasks/meta-claude-gitkb-command-hook-drift",
+      "tip_commit_id": "019f2191-2e63-7b20-9141-e54c2e3f1241"
+    },
+    {
+      "document_id": "019f2191-017c-7d00-af9c-03c18bd8af1b",
+      "slug": "tasks/loop-cli-library-surface-parity",
+      "tip_commit_id": "019f2191-2e63-7b20-9141-e54c2e3f1241"
+    },
+    {
+      "document_id": "019f2196-10af-7b13-a18c-44f8704c8ede",
+      "slug": "tasks/meta-git-setup-ssh-restore",
+      "tip_commit_id": "019f2199-877c-75c3-a845-07e2066d24d1"
+    },
+    {
+      "document_id": "019f219a-ee26-7482-aa48-5bf852069166",
+      "slug": "tasks/meta-git-setup-ssh-actual-remotes",
+      "tip_commit_id": "019f219c-3618-7490-bd15-7b6e6e68f08a"
+    },
+    {
+      "document_id": "019f21a6-b50e-76b0-8dda-dfa86abe30c6",
+      "slug": "tasks/meta-git-setup-ssh-root-remote",
+      "tip_commit_id": "019f21a6-d262-70f1-9cc0-276b3664759d"
+    },
+    {
+      "document_id": "019f21aa-c23d-7020-9be5-0d738ee05b59",
+      "slug": "tasks/meta-transition-flexnetos-clean-heads",
+      "tip_commit_id": "019f21ae-faa9-7ca3-a020-66c82f12ccc6"
+    },
+    {
+      "document_id": "019f21b2-5d87-79f2-9617-f96457e1c957",
+      "slug": "tasks/meta-live-test-cli-loop-lib",
+      "tip_commit_id": "019f2222-5976-7be3-8ce0-68a6fb304084"
+    },
+    {
+      "document_id": "019f21b2-5e14-73c3-af3c-a84d12fd1426",
+      "slug": "tasks/meta-agent-architecture-codex-integration",
+      "tip_commit_id": "019f2594-1028-72b2-9c94-e4a656e8f7b7"
+    },
+    {
+      "document_id": "019f21b2-5e21-7580-84ef-5a4075182ca6",
+      "slug": "tasks/meta-extract-gitkb-docs-pages",
+      "tip_commit_id": "019f21b8-b6d1-7cc0-a8e1-125c62c58b27"
+    },
+    {
+      "document_id": "019f21bb-204a-71e3-bbce-4d2cf4debc09",
+      "slug": "tasks/meta-retest-cli-loop-after-transition",
+      "tip_commit_id": "019f2222-5976-7be3-8ce0-68a6fb304084"
+    },
+    {
+      "document_id": "019f21bb-20d7-74d2-a70a-b756c5d47f82",
+      "slug": "tasks/meta-locate-codex-init-doc-extraction",
+      "tip_commit_id": "019f21be-17d5-76f1-9c84-c06fb82d9654"
+    },
+    {
+      "document_id": "019f21bb-20e3-7b73-8e13-e22f8d587b6f",
+      "slug": "tasks/meta-verify-14-peer-repos-functional",
+      "tip_commit_id": "019f21be-17d5-76f1-9c84-c06fb82d9654"
+    },
+    {
+      "document_id": "019f21bc-de4a-70d2-ac8d-dbc11ca30e17",
+      "slug": "tasks/meta-resolve-peer-dirty-trees",
+      "tip_commit_id": "019f2596-8e2c-7602-b0e4-97cced87b83a"
+    },
+    {
+      "document_id": "019f21c0-63f6-7c70-9461-8e31bab7e7d3",
+      "slug": "tasks/meta-design-codex-hook-parity",
+      "tip_commit_id": "019f2598-783f-7090-b384-ed7d32bfe78f"
+    },
+    {
+      "document_id": "019f21c2-89ff-7e00-a898-83a1625f44d9",
+      "slug": "tasks/meta-diff-claude-to-codex-wiring",
+      "tip_commit_id": "019f21c2-98ce-7812-9d61-947878767127"
+    },
+    {
+      "document_id": "019f21c3-d7df-74b3-be2f-dda644c2e0f3",
+      "slug": "tasks/meta-read-extracted-gitkb-docs-for-codex-wiring",
+      "tip_commit_id": "019f21c6-f950-7a82-8e95-888f78a438e9"
+    },
+    {
+      "document_id": "019f21d2-5962-7563-94de-81b81aa66e06",
+      "slug": "tasks/meta-codex-gitkb-mcp-ownership",
+      "tip_commit_id": "019f21db-113a-7c71-85bb-c2a756f395f9"
+    },
+    {
+      "document_id": "019f21d2-6559-7403-ad41-b3e612830f68",
+      "slug": "tasks/meta-codex-plugin-source-cache-drift",
+      "tip_commit_id": "019f21db-113a-7c71-85bb-c2a756f395f9"
+    },
+    {
+      "document_id": "019f21d2-756e-7781-9363-ba08ccd0343c",
+      "slug": "tasks/meta-remove-invalid-codex-gitkb-hooks",
+      "tip_commit_id": "019f21db-113a-7c71-85bb-c2a756f395f9"
+    },
+    {
+      "document_id": "019f21d2-802b-71f2-b1d5-aa2492b719ba",
+      "slug": "tasks/meta-clear-stale-codex-hook-trust-state",
+      "tip_commit_id": "019f21db-113a-7c71-85bb-c2a756f395f9"
+    },
+    {
+      "document_id": "019f21d2-8ad5-75c1-9979-8c70d2e2cc2e",
+      "slug": "tasks/meta-retire-stale-claude-kb-commands",
+      "tip_commit_id": "019f23b1-10f1-72e2-921a-e0171b6ec972"
+    },
+    {
+      "document_id": "019f21d4-6b5c-7293-bf9c-700cb88b45eb",
+      "slug": "tasks/meta-unified-agent-plugin-control-plane",
+      "tip_commit_id": "019f21db-113a-7c71-85bb-c2a756f395f9"
+    },
+    {
+      "document_id": "019f21d6-9507-7a90-92bd-7c43190f7015",
+      "slug": "tasks/meta-implement-unified-agent-plugin-control-plane",
+      "tip_commit_id": "019f21db-113a-7c71-85bb-c2a756f395f9"
+    },
+    {
+      "document_id": "019f21fc-2a65-7683-a3bb-f5b5c7be498d",
+      "slug": "tasks/meta-gitkb-docs-command-config-extraction",
+      "tip_commit_id": "019f2203-f9df-71b1-b0f2-b105fb8a1cd8"
+    },
+    {
+      "document_id": "019f21fc-3cb1-7000-9ec1-7e7d07fe2377",
+      "slug": "tasks/meta-plugin-claude-retirement-proof-plan",
+      "tip_commit_id": "019f21fe-d528-7940-8268-f6c642e2600c"
+    },
+    {
+      "document_id": "019f21fc-56fa-79b0-b1b6-fd40bfe32132",
+      "slug": "tasks/meta-plugin-gitkb-harness-generation",
+      "tip_commit_id": "019f23a9-e29f-7ac3-8414-879df54ac772"
+    },
+    {
+      "document_id": "019f21fc-56fa-7bf0-847d-0da3175b312e",
+      "slug": "tasks/meta-plugin-mcp-single-owner-policy",
+      "tip_commit_id": "019f8207-48c3-7ad1-a95e-42a56a8afc8b"
+    },
+    {
+      "document_id": "019f21fc-571f-7630-928c-edcc5f706bad",
+      "slug": "tasks/meta-plugin-kb-hooks-config-policy",
+      "tip_commit_id": "019f23ac-2a2d-7262-aed4-565055f2dd30"
+    },
+    {
+      "document_id": "019f21fc-572a-7753-81c4-bee23c6c941e",
+      "slug": "tasks/meta-gitkb-cli-live-parity-suite",
+      "tip_commit_id": "019f2213-c2d1-75c0-8067-8f803595efef"
+    },
+    {
+      "document_id": "019f21fc-71d4-7bd0-866c-425ab3a5aa0f",
+      "slug": "tasks/meta-gitkb-mcp-tool-parity-suite",
+      "tip_commit_id": "019f2213-c2d1-75c0-8067-8f803595efef"
+    },
+    {
+      "document_id": "019f21fc-7200-7623-bcd7-6cd71c1729eb",
+      "slug": "tasks/meta-gitkb-code-intel-meta-proof-suite",
+      "tip_commit_id": "019f2213-c2d1-75c0-8067-8f803595efef"
+    },
+    {
+      "document_id": "019f21fc-720e-7ac2-bd05-7460eaa34c6c",
+      "slug": "tasks/meta-gitkb-daemon-embedding-proof-suite",
+      "tip_commit_id": "019f2222-5976-7be3-8ce0-68a6fb304084"
+    },
+    {
+      "document_id": "019f21fc-721f-7662-a52f-250c395b2ecf",
+      "slug": "tasks/meta-gitkb-sync-auth-remote-policy",
+      "tip_commit_id": "019f2213-c2d1-75c0-8067-8f803595efef"
+    },
+    {
+      "document_id": "019f21fc-7e3e-77f3-80b4-352cf7b1f51a",
+      "slug": "tasks/meta-gitkb-recovery-safety-policy",
+      "tip_commit_id": "019f2213-c2d1-75c0-8067-8f803595efef"
+    },
+    {
+      "document_id": "019f21fe-388d-77b2-adc8-d6abd01e552d",
+      "slug": "tasks/meta-gitkb-config-schema-policy",
+      "tip_commit_id": "019f2213-c2d1-75c0-8067-8f803595efef"
+    },
+    {
+      "document_id": "019f21fe-38b2-7393-a199-4db8e5a2e264",
+      "slug": "tasks/meta-gitkb-document-graph-view-policy",
+      "tip_commit_id": "019f2213-c2d1-75c0-8067-8f803595efef"
+    },
+    {
+      "document_id": "019f2201-b2b1-7363-ac53-e0b2a5f95889",
+      "slug": "tasks/meta-gitkb-docs-gap-audit-2",
+      "tip_commit_id": "019f2203-f9df-71b1-b0f2-b105fb8a1cd8"
+    },
+    {
+      "document_id": "019f2201-b2c0-7100-a20f-20166e53efa3",
+      "slug": "tasks/meta-gitkb-cli-option-level-parity",
+      "tip_commit_id": "019f2213-c2d1-75c0-8067-8f803595efef"
+    },
+    {
+      "document_id": "019f2201-b2cd-7aa0-9fd1-2d88c58b83d9",
+      "slug": "tasks/meta-gitkb-mcp-parameter-schema-parity",
+      "tip_commit_id": "019f2213-c2d1-75c0-8067-8f803595efef"
+    },
+    {
+      "document_id": "019f2201-b2df-73f0-ad49-53a5428c64a3",
+      "slug": "tasks/meta-gitkb-skill-inventory-adapter-parity",
+      "tip_commit_id": "019f2213-c2d1-75c0-8067-8f803595efef"
+    },
+    {
+      "document_id": "019f2201-d193-7270-980e-e299fd96561c",
+      "slug": "tasks/meta-gitkb-bundle-archive-policy",
+      "tip_commit_id": "019f2213-c2d1-75c0-8067-8f803595efef"
+    },
+    {
+      "document_id": "019f223c-2563-7713-b40f-aa10d7917402",
+      "slug": "views/active-tasks",
+      "tip_commit_id": "019f223c-256d-7583-a4fc-5f93139aad20"
+    },
+    {
+      "document_id": "019f223d-8754-7a40-b66e-2400b210fa53",
+      "slug": "tasks/meta-gitkb-assignment-field-mismatch",
+      "tip_commit_id": "019f2240-a2ce-7013-abef-8de9b3cf14e7"
+    },
+    {
+      "document_id": "019f2295-8c0b-77f0-943d-cd574f7cad1d",
+      "slug": "tasks/meta-kb-workflow-peer-component-smoke-test",
+      "tip_commit_id": "019f2297-42e7-7dd2-9d40-497f8e90aa23"
+    },
+    {
+      "document_id": "019f229f-2668-7091-be64-f63e9dd79e8d",
+      "slug": "tasks/meta-peer-local-kb-bootstrap",
+      "tip_commit_id": "019f22a8-2721-74c3-a38f-7b48a7994d67"
+    },
+    {
+      "document_id": "019f22ac-fb51-7632-bef4-85a037cbe20e",
+      "slug": "tasks/meta-local-ubuntu-release-runner",
+      "tip_commit_id": "019f22b2-4c3a-7743-b939-b287e0dcb3fc"
+    },
+    {
+      "document_id": "019f22bd-cba6-7093-8146-db540e04db2c",
+      "slug": "tasks/meta-release-catalog-portable-tools",
+      "tip_commit_id": "019f22c2-da85-7280-a739-62fbc0dfcc7c"
+    },
+    {
+      "document_id": "019f2344-f759-7191-b85c-35d59970dadd",
+      "slug": "tasks/meta-system-architecture-documentation",
+      "tip_commit_id": "019f2569-abdf-7cc0-99d2-24c24fa06687"
+    },
+    {
+      "document_id": "019f2367-30ff-7f10-bd4d-4df155445e9e",
+      "slug": "tasks/meta-foundation-live-proof-gitkb-parity",
+      "tip_commit_id": "019f8207-48c3-7ad1-a95e-42a56a8afc8b"
+    },
+    {
+      "document_id": "019f236b-249b-78d2-94db-72395a7954d1",
+      "slug": "tasks/meta-gitkb-skill-workspace-path-drift",
+      "tip_commit_id": "019f2370-b23b-7900-8ca3-22e947f86b39"
+    },
+    {
+      "document_id": "019f236b-24d8-7491-8903-d8bbedd28795",
+      "slug": "tasks/meta-gitkb-cli-reference-0212-refresh",
+      "tip_commit_id": "019f23a5-52f3-72d3-a21f-af45beb97c2c"
+    },
+    {
+      "document_id": "019f236e-71e6-7de0-b942-c28c7887dc83",
+      "slug": "tasks/meta-kb-agents-command-path-drift",
+      "tip_commit_id": "019f8207-48c3-7ad1-a95e-42a56a8afc8b"
+    },
+    {
+      "document_id": "019f237b-51cb-7591-b211-79f62648ac0b",
+      "slug": "incidents/codex-gitkb-mcp-startup-singleton-conflict",
+      "tip_commit_id": "019f237c-4d59-7210-a631-e105c530fc33"
+    },
+    {
+      "document_id": "019f2394-adb0-71b1-b07d-6ba2ac3c79cd",
+      "slug": "tasks/meta-code-intelligence-live-snapshot-2026-07-02",
+      "tip_commit_id": "019f2396-9000-7a31-b417-4f9cef8dce4a"
+    },
+    {
+      "document_id": "019f2395-e17c-7e23-b9d4-5de349c2ac41",
+      "slug": "tasks/meta-code-intelligence-unresolved-call-audit",
+      "tip_commit_id": "019f239a-90db-7f72-855f-241be966fff3"
+    },
+    {
+      "document_id": "019f23ed-5b99-7b91-a3b3-9ed1fcf24f22",
+      "slug": "tasks/meta-github-sync-state-policy",
+      "tip_commit_id": "019f23ee-5124-7b40-ade8-e4eed431d32c"
+    },
+    {
+      "document_id": "019f23f5-dd31-7c62-b190-941dc30cab32",
+      "slug": "tasks/meta-lifeos-portable-agentic-os-release-roadmap",
+      "tip_commit_id": "019f8207-48c3-7ad1-a95e-42a56a8afc8b"
+    },
+    {
+      "document_id": "019f2450-4c7c-7623-83bc-da6340b46a46",
+      "slug": "register-envctl-peer-and-refresh-envctl-kb",
+      "tip_commit_id": "019f2596-2e4d-7e33-8b19-d75530173669"
+    },
+    {
+      "document_id": "019f245a-3b43-73e2-8667-1d40ffc41b6c",
+      "slug": "register-teri-peer-with-meta",
+      "tip_commit_id": "019f2596-2e4d-7e33-8b19-d75530173669"
+    },
+    {
+      "document_id": "019f5083-4256-7cc2-96ca-866ef5e98502",
+      "slug": "tasks/lifeos-notebooklm-source-claim-complete-proof",
+      "tip_commit_id": "019f5083-b454-7fc0-b1cb-05920a17f38c"
+    },
+    {
+      "document_id": "019f50c4-b8b5-73c3-b3e3-6af5dc2aa061",
+      "slug": "nushell-intercepts-codex-resume-last-flag",
+      "tip_commit_id": "019f50c4-d2bc-7071-9629-0eee18086f55"
+    },
+    {
+      "document_id": "019f5325-ea4d-7d30-93e3-2a99d40036dc",
+      "slug": "codex-compact-lifecycle-hooks-disabled-in-lifeos-a",
+      "tip_commit_id": "019f5328-8a66-77d1-85a0-86a3dc7c5a97"
+    },
+    {
+      "document_id": "019f5c95-48d1-7d91-8bb7-2e837c157251",
+      "slug": "tasks/meta-envctl-fleet-agent-env-policy",
+      "tip_commit_id": "019f5c95-844d-7ac1-9de4-e8f6e165bcdc"
+    },
+    {
+      "document_id": "019f5f00-e89d-7fb0-acd9-1f9beac2caf0",
+      "slug": "tasks/enforce-kache-nushell-yazelix-single-owner",
+      "tip_commit_id": "019f8207-48c3-7ad1-a95e-42a56a8afc8b"
+    },
+    {
+      "document_id": "019f5f02-3ee9-77c1-b17c-27da55bdf9e0",
+      "slug": "install-claude-code-via-yazelix-nix-owner-path",
+      "tip_commit_id": "019f8207-48c3-7ad1-a95e-42a56a8afc8b"
+    },
+    {
+      "document_id": "019f5f02-3ef6-7262-b423-f0f35447a2dc",
+      "slug": "tasks/lifeos-real-bun-native-napi-receipt",
+      "tip_commit_id": "019f5f02-3ee9-77c1-b17c-27c596e02905"
+    },
+    {
+      "document_id": "019f63b5-e902-7373-bd7c-9f8b9048677e",
+      "slug": "tasks/archbp-022-gitkb-branch-current",
+      "tip_commit_id": "019f63b6-7ac3-7a90-868c-7f36f07da6b5"
+    },
+    {
+      "document_id": "019f7ffa-9750-7c70-b587-c452691465ad",
+      "slug": "consolidate-lifeos-handoff-into-planning-spine",
+      "tip_commit_id": "019f8207-48c3-7ad1-a95e-42a56a8afc8b"
+    },
+    {
+      "document_id": "019f8043-f1c0-7ee2-b30f-efd93ea6c9b3",
+      "slug": "finish-lifeos-github-integration",
+      "tip_commit_id": "019f8073-6d7e-7e41-8567-1d72a82e6632"
+    },
+    {
+      "document_id": "019f8089-443c-7ad1-b431-6ed8a7a4ec0d",
+      "slug": "tasks/architecture-data-pipeline-blueprint",
+      "tip_commit_id": "019f8207-48c3-7ad1-a95e-42a56a8afc8b"
+    },
+    {
+      "document_id": "019f809f-196d-7f93-9b39-32a5e80f4b74",
+      "slug": "tasks/meta-ruvector-github-worktree-runtime-convergence",
+      "tip_commit_id": "019f8207-48c3-7ad1-a95e-42a56a8afc8b"
+    },
+    {
+      "document_id": "019f80a3-4a40-7de2-8a91-ca6864585cc2",
+      "slug": "tasks/gitkb-code-index-symbol-forwarding",
+      "tip_commit_id": "019f80a3-5708-7472-acaf-f8924a854a37"
+    },
+    {
+      "document_id": "019f80a9-3dfe-7762-aa4e-fa94b7b68c2b",
+      "slug": "tasks/architecture-rtk-nu-adapter",
+      "tip_commit_id": "019f80b3-883c-7f72-9f09-1c32d37e7f4c"
+    },
+    {
+      "document_id": "019f80b3-7f77-7203-b21e-a65359ba206b",
+      "slug": "proofs/rtk-nu-adapter-implementation/rtk-nu-adapter-implementation-proof",
+      "tip_commit_id": "019f80cf-eb03-7370-bc16-a22f8bfa5ddf"
+    },
+    {
+      "document_id": "019f80cb-fdde-7450-8460-8702e0a64518",
+      "slug": "make-ruvector-extension-schema-relocatable",
+      "tip_commit_id": "019f80cc-2aa5-7260-ad80-9726ef76d237"
+    },
+    {
+      "document_id": "019f80db-43f4-7730-8671-f8c061006f42",
+      "slug": "tasks/envctl-github-worktree-consolidation",
+      "tip_commit_id": "019f80db-7896-7f91-a9f1-8b6ce8867603"
+    },
+    {
+      "document_id": "019f80f4-24ff-7b41-85a6-d6810fa5fdc1",
+      "slug": "tasks/lifeos-postgresql-durable-storage-cutover",
+      "tip_commit_id": "019f8112-7355-76b2-a6ed-10fd38c744ce"
+    },
+    {
+      "document_id": "019f8111-b913-7332-8b39-b3d584c9b1de",
+      "slug": "decisions/lifeos-postgresql-ruvector-durable-storage-boundary",
+      "tip_commit_id": "019f8112-2091-7f72-807a-f21521cc8cd6"
+    },
+    {
+      "document_id": "019f8118-c235-7b91-aa89-ce4640bc3ef5",
+      "slug": "tasks/restore-envctl-shared-substrate",
+      "tip_commit_id": "019f8118-c263-75e0-8b9a-650f6dda0606"
+    },
+    {
+      "document_id": "019f835a-26de-7850-85f2-02b1f7957e4b",
+      "slug": "tasks/ruvector-package-reconciliation",
+      "tip_commit_id": "019f835a-bc18-7cf1-ba48-d8d5d48a9c14"
+    },
+    {
+      "document_id": "019f87f6-b4fa-79c3-b21f-8d52f5c3974a",
+      "slug": "tasks/yzx-iso/t1-0-lane-index",
+      "tip_commit_id": "019f88ac-faf5-7072-a702-f9b1dcfcf7a1"
+    },
+    {
+      "document_id": "019f87ff-8f4f-7783-a108-63dc57e1ea97",
+      "slug": "tasks/yzx-iso/t1-1-two-brother-model",
+      "tip_commit_id": "019f8879-34b4-7c21-8f7c-99c6122f8b11"
+    },
+    {
+      "document_id": "019f87ff-8f60-7182-81a6-41de3e5b97a4",
+      "slug": "tasks/yzx-iso/t1-2-tier-map",
+      "tip_commit_id": "019f8879-34b4-7c21-8f7c-99c6122f8b11"
+    },
+    {
+      "document_id": "019f87ff-8f71-7311-9973-a76fabcd9019",
+      "slug": "tasks/yzx-iso/t1-3-shared-kernel-boundary",
+      "tip_commit_id": "019f8879-34b4-7c21-8f7c-99c6122f8b11"
+    },
+    {
+      "document_id": "019f87ff-8f81-76f1-a8ec-4b4bdd288524",
+      "slug": "tasks/yzx-iso/t1-4-invariant-ledger",
+      "tip_commit_id": "019f8879-34b4-7c21-8f7c-99c6122f8b11"
+    },
+    {
+      "document_id": "019f87ff-8f93-7e00-b320-b5f12852b196",
+      "slug": "tasks/yzx-iso/t1-5-conformance-tests",
+      "tip_commit_id": "019f8879-34b4-7c21-8f7c-99c6122f8b11"
+    },
+    {
+      "document_id": "019f87ff-8fa3-7131-9806-672b4ea01f3d",
+      "slug": "tasks/yzx-iso/t1-6-blueprint-anchor",
+      "tip_commit_id": "019f8879-34b4-7c21-8f7c-99c6122f8b11"
+    },
+    {
+      "document_id": "019f87ff-8fb3-7283-b037-17f35b35d64f",
+      "slug": "tasks/yzx-iso/t1-7-failure-mode-catalog",
+      "tip_commit_id": "019f8879-34b4-7c21-8f7c-99c6122f8b11"
+    },
+    {
+      "document_id": "019f87ff-8fc3-7181-92de-f2d9f40e7aa0",
+      "slug": "tasks/yzx-iso/t1-8-acceptance-gauntlet",
+      "tip_commit_id": "019f8879-34b4-7c21-8f7c-99c6122f8b11"
+    },
+    {
+      "document_id": "019f87ff-8fd4-7cc2-bfe0-1a571b45d1fa",
+      "slug": "tasks/yzx-iso/t1-9-ratify-spec",
+      "tip_commit_id": "019f8879-34b4-7c21-8f7c-99c6122f8b11"
+    },
+    {
+      "document_id": "019f87ff-8fe4-7571-9bd6-8e60f8e83b4c",
+      "slug": "tasks/yzx-iso/t2-0-lane-index",
+      "tip_commit_id": "019f88ac-faf5-7072-a702-f9b1dcfcf7a1"
+    },
+    {
+      "document_id": "019f87ff-8ff4-7450-acdf-52b21928f8a4",
+      "slug": "tasks/yzx-iso/t2-1-envelope-design",
+      "tip_commit_id": "019f8879-34b4-7c21-8f7c-99c6122f8b11"
+    },
+    {
+      "document_id": "019f87ff-9007-7643-800c-c25f2444388c",
+      "slug": "tasks/yzx-iso/t2-2-flake-integration",
+      "tip_commit_id": "019f8879-34b4-7c21-8f7c-99c6122f8b11"
+    },
+    {
+      "document_id": "019f87ff-9017-7cb1-b7fe-eb4ff5497f99",
+      "slug": "tasks/yzx-iso/t2-3-enter-lifecycle",
+      "tip_commit_id": "019f8879-34b4-7c21-8f7c-99c6122f8b11"
+    },
+    {
+      "document_id": "019f87ff-9027-7541-988f-17037eb30c7f",
+      "slug": "tasks/yzx-iso/t2-4-exit-release",
+      "tip_commit_id": "019f8879-34b4-7c21-8f7c-99c6122f8b11"
+    },
+    {
+      "document_id": "019f87ff-9038-7261-acd5-a4bd735734cd",
+      "slug": "tasks/yzx-iso/t2-5-durable-mounts",
+      "tip_commit_id": "019f8879-34b4-7c21-8f7c-99c6122f8b11"
+    },
+    {
+      "document_id": "019f87ff-9048-7273-97a5-e9c880efb120",
+      "slug": "tasks/yzx-iso/t2-6-resource-hooks",
+      "tip_commit_id": "019f8879-34b4-7c21-8f7c-99c6122f8b11"
+    },
+    {
+      "document_id": "019f87ff-9058-7d73-a1bc-d42152e5f138",
+      "slug": "tasks/yzx-iso/t2-7-latency-validation",
+      "tip_commit_id": "019f8879-34b4-7c21-8f7c-99c6122f8b11"
+    },
+    {
+      "document_id": "019f87ff-9068-7411-aab3-10bf0fe2e626",
+      "slug": "tasks/yzx-iso/t2-8-multi-session",
+      "tip_commit_id": "019f8879-34b4-7c21-8f7c-99c6122f8b11"
+    },
+    {
+      "document_id": "019f87ff-907a-7ae2-b647-5b6d170fcb14",
+      "slug": "tasks/yzx-iso/t2-9-envelope-acceptance",
+      "tip_commit_id": "019f8879-34b4-7c21-8f7c-99c6122f8b11"
+    },
+    {
+      "document_id": "019f87ff-908b-7461-a95b-c10a8084539d",
+      "slug": "tasks/yzx-iso/t3-0-lane-index",
+      "tip_commit_id": "019f88ac-faf5-7072-a702-f9b1dcfcf7a1"
+    },
+    {
+      "document_id": "019f87ff-909b-76b1-939e-dec1b735bc6b",
+      "slug": "tasks/yzx-iso/t3-1-inventory",
+      "tip_commit_id": "019f8879-34b4-7c21-8f7c-99c6122f8b11"
+    },
+    {
+      "document_id": "019f87ff-90ab-75d2-a4d2-c33b88a5ef86",
+      "slug": "tasks/yzx-iso/t3-2-choose-root",
+      "tip_commit_id": "019f8879-34b4-7c21-8f7c-99c6122f8b11"
+    },
+    {
+      "document_id": "019f87ff-90bb-74f2-8b09-efb53af2168c",
+      "slug": "tasks/yzx-iso/t3-3-redeclare",
+      "tip_commit_id": "019f8879-34b4-7c21-8f7c-99c6122f8b11"
+    },
+    {
+      "document_id": "019f87ff-90cb-77b1-aa90-77601166b37e",
+      "slug": "tasks/yzx-iso/t3-4-keep-volatile",
+      "tip_commit_id": "019f8879-34b4-7c21-8f7c-99c6122f8b11"
+    },
+    {
+      "document_id": "019f87ff-90dd-7d40-a55d-3eb29b21040a",
+      "slug": "tasks/yzx-iso/t3-5-migrate-contents",
+      "tip_commit_id": "019f8879-34b4-7c21-8f7c-99c6122f8b11"
+    },
+    {
+      "document_id": "019f87ff-90ee-79d0-91bc-ab52f15cb823",
+      "slug": "tasks/yzx-iso/t3-6-envctl-commit",
+      "tip_commit_id": "019f8879-34b4-7c21-8f7c-99c6122f8b11"
+    },
+    {
+      "document_id": "019f87ff-90fe-7c81-a9a6-e834cd4307ee",
+      "slug": "tasks/yzx-iso/t3-7-guard-test",
+      "tip_commit_id": "019f8879-34b4-7c21-8f7c-99c6122f8b11"
+    },
+    {
+      "document_id": "019f87ff-910e-7cc3-8860-a38f655c362e",
+      "slug": "tasks/yzx-iso/t3-8-restart-validate",
+      "tip_commit_id": "019f8879-34b4-7c21-8f7c-99c6122f8b11"
+    },
+    {
+      "document_id": "019f87ff-911f-77a3-9f09-550c9d686f8b",
+      "slug": "tasks/yzx-iso/t3-9-reboot-acceptance",
+      "tip_commit_id": "019f8879-34b4-7c21-8f7c-99c6122f8b11"
+    },
+    {
+      "document_id": "019f8800-6fad-7933-97ad-446afc37ff9f",
+      "slug": "tasks/yzx-iso/t4-0-lane-index",
+      "tip_commit_id": "019f88ac-faf5-7072-a702-f9b1dcfcf7a1"
+    },
+    {
+      "document_id": "019f8800-6fbf-7950-805e-a705474108cf",
+      "slug": "tasks/yzx-iso/t4-1-postgres-datadir",
+      "tip_commit_id": "019f8879-34b4-7c21-8f7c-99c6122f8b11"
+    },
+    {
+      "document_id": "019f8800-6fcf-7b81-b1b0-c987b6cb07b1",
+      "slug": "tasks/yzx-iso/t4-2-ruvector-ext",
+      "tip_commit_id": "019f8879-34b4-7c21-8f7c-99c6122f8b11"
+    },
+    {
+      "document_id": "019f8800-6fe0-7173-8906-66f797769a12",
+      "slug": "tasks/yzx-iso/t4-3-redb-plane",
+      "tip_commit_id": "019f8879-34b4-7c21-8f7c-99c6122f8b11"
+    },
+    {
+      "document_id": "019f8800-6ff0-71f2-984d-7c0935dfac4d",
+      "slug": "tasks/yzx-iso/t4-4-envctl-committer",
+      "tip_commit_id": "019f8879-34b4-7c21-8f7c-99c6122f8b11"
+    },
+    {
+      "document_id": "019f8800-7000-7f80-9e2e-d0828a76f651",
+      "slug": "tasks/yzx-iso/t4-5-migrate-agent-state",
+      "tip_commit_id": "019f8879-34b4-7c21-8f7c-99c6122f8b11"
+    },
+    {
+      "document_id": "019f8800-7012-7703-84bc-d5bd721077d5",
+      "slug": "tasks/yzx-iso/t4-6-secret-plane",
+      "tip_commit_id": "019f8879-34b4-7c21-8f7c-99c6122f8b11"
+    },
+    {
+      "document_id": "019f8800-7024-78e0-b58c-3b76bd05539d",
+      "slug": "tasks/yzx-iso/t4-7-byte-complete",
+      "tip_commit_id": "019f8879-34b4-7c21-8f7c-99c6122f8b11"
+    },
+    {
+      "document_id": "019f8800-7035-7c72-8150-b2377102c283",
+      "slug": "tasks/yzx-iso/t4-8-backup-restore",
+      "tip_commit_id": "019f8879-34b4-7c21-8f7c-99c6122f8b11"
+    },
+    {
+      "document_id": "019f8800-7045-7fd2-b288-5e40e639af1f",
+      "slug": "tasks/yzx-iso/t4-9-durable-acceptance",
+      "tip_commit_id": "019f8879-34b4-7c21-8f7c-99c6122f8b11"
+    },
+    {
+      "document_id": "019f8800-7056-7612-a910-3173d83dd46f",
+      "slug": "tasks/yzx-iso/t5-0-lane-index",
+      "tip_commit_id": "019f88ac-faf5-7072-a702-f9b1dcfcf7a1"
+    },
+    {
+      "document_id": "019f8800-7067-7982-b39f-866173fe3136",
+      "slug": "tasks/yzx-iso/t5-1-finalize-xdg",
+      "tip_commit_id": "019f8879-34b4-7c21-8f7c-99c6122f8b11"
+    },
+    {
+      "document_id": "019f8800-707a-71d0-964d-cf7d184a017d",
+      "slug": "tasks/yzx-iso/t5-2-close-dotclaude",
+      "tip_commit_id": "019f8879-34b4-7c21-8f7c-99c6122f8b11"
+    },
+    {
+      "document_id": "019f8800-708b-7480-8468-631ccf68f90c",
+      "slug": "tasks/yzx-iso/t5-3-close-dotlocal",
+      "tip_commit_id": "019f8879-34b4-7c21-8f7c-99c6122f8b11"
+    },
+    {
+      "document_id": "019f8800-709b-7152-bdd3-0785c707480c",
+      "slug": "tasks/yzx-iso/t5-4-repoint-runner",
+      "tip_commit_id": "019f8879-34b4-7c21-8f7c-99c6122f8b11"
+    },
+    {
+      "document_id": "019f8800-70ac-77a1-b601-583c99bbd18a",
+      "slug": "tasks/yzx-iso/t5-5-remove-flexnetos",
+      "tip_commit_id": "019f8879-34b4-7c21-8f7c-99c6122f8b11"
+    },
+    {
+      "document_id": "019f8800-70bc-7393-97f8-5759427cf065",
+      "slug": "tasks/yzx-iso/t5-6-host-shell-audit",
+      "tip_commit_id": "019f8879-34b4-7c21-8f7c-99c6122f8b11"
+    },
+    {
+      "document_id": "019f8800-70cd-7692-b326-7c86dd3f2337",
+      "slug": "tasks/yzx-iso/t5-7-residual-guard",
+      "tip_commit_id": "019f8879-34b4-7c21-8f7c-99c6122f8b11"
+    },
+    {
+      "document_id": "019f8800-70e0-7372-a705-fa0a00c2cb82",
+      "slug": "tasks/yzx-iso/t5-8-restart-gate",
+      "tip_commit_id": "019f8879-34b4-7c21-8f7c-99c6122f8b11"
+    },
+    {
+      "document_id": "019f8800-70f2-7eb0-93d2-65b07b3712e8",
+      "slug": "tasks/yzx-iso/t5-9-residual-acceptance",
+      "tip_commit_id": "019f8879-34b4-7c21-8f7c-99c6122f8b11"
+    },
+    {
+      "document_id": "019f8800-7102-70c0-ae77-935ccc09e5f9",
+      "slug": "tasks/yzx-iso/t6-0-lane-index",
+      "tip_commit_id": "019f88ac-faf5-7072-a702-f9b1dcfcf7a1"
+    },
+    {
+      "document_id": "019f8800-7113-7212-8af6-b268eee2fcf5",
+      "slug": "tasks/yzx-iso/t6-1-package-omada",
+      "tip_commit_id": "019f8879-34b4-7c21-8f7c-99c6122f8b11"
+    },
+    {
+      "document_id": "019f8800-7123-7cd2-9aba-acc370c62dd4",
+      "slug": "tasks/yzx-iso/t6-2-mongo-datadir",
+      "tip_commit_id": "019f8879-34b4-7c21-8f7c-99c6122f8b11"
+    },
+    {
+      "document_id": "019f8800-7134-7933-a8f7-62fd34c5eca8",
+      "slug": "tasks/yzx-iso/t6-3-supervise",
+      "tip_commit_id": "019f8879-34b4-7c21-8f7c-99c6122f8b11"
+    },
+    {
+      "document_id": "019f8800-7145-7e70-83e4-be0233d24901",
+      "slug": "tasks/yzx-iso/t6-4-data-migration",
+      "tip_commit_id": "019f8879-34b4-7c21-8f7c-99c6122f8b11"
+    },
+    {
+      "document_id": "019f8800-7157-72d2-8853-0fee7c8198b9",
+      "slug": "tasks/yzx-iso/t6-5-cutover-validate",
+      "tip_commit_id": "019f8879-34b4-7c21-8f7c-99c6122f8b11"
+    },
+    {
+      "document_id": "019f8800-7168-7512-b5aa-a74201a6e783",
+      "slug": "tasks/yzx-iso/t6-6-remove-container",
+      "tip_commit_id": "019f8879-34b4-7c21-8f7c-99c6122f8b11"
+    },
+    {
+      "document_id": "019f8800-7179-7103-89a5-4943471c928f",
+      "slug": "tasks/yzx-iso/t6-7-disable-kvm",
+      "tip_commit_id": "019f8879-34b4-7c21-8f7c-99c6122f8b11"
+    },
+    {
+      "document_id": "019f8800-718a-7e20-8090-ea66b21a0e93",
+      "slug": "tasks/yzx-iso/t6-8-meta-var-guard",
+      "tip_commit_id": "019f8879-34b4-7c21-8f7c-99c6122f8b11"
+    },
+    {
+      "document_id": "019f8800-719b-7360-8e12-acfc0866fb95",
+      "slug": "tasks/yzx-iso/t6-9-omada-acceptance",
+      "tip_commit_id": "019f8879-34b4-7c21-8f7c-99c6122f8b11"
+    },
+    {
+      "document_id": "019f8801-a418-7272-b5f9-b2a77b7555d7",
+      "slug": "tasks/yzx-iso/t7-0-lane-index",
+      "tip_commit_id": "019f88ac-faf5-7072-a702-f9b1dcfcf7a1"
+    },
+    {
+      "document_id": "019f8801-a42a-7553-ac79-f425affe66a3",
+      "slug": "tasks/yzx-iso/t7-1-design-unit",
+      "tip_commit_id": "019f8879-34b4-7c21-8f7c-99c6122f8b11"
+    },
+    {
+      "document_id": "019f8801-a43b-77a1-bc02-48fceb553e0c",
+      "slug": "tasks/yzx-iso/t7-2-rematerialize",
+      "tip_commit_id": "019f8879-34b4-7c21-8f7c-99c6122f8b11"
+    },
+    {
+      "document_id": "019f8801-a44c-70f3-83ce-6b4db2241ce1",
+      "slug": "tasks/yzx-iso/t7-3-reattach-mounts",
+      "tip_commit_id": "019f8879-34b4-7c21-8f7c-99c6122f8b11"
+    },
+    {
+      "document_id": "019f8801-a45c-7a21-ac5a-e90b521dc6cc",
+      "slug": "tasks/yzx-iso/t7-4-service-restart",
+      "tip_commit_id": "019f8879-34b4-7c21-8f7c-99c6122f8b11"
+    },
+    {
+      "document_id": "019f8801-a46c-72c3-b1d6-812809cde540",
+      "slug": "tasks/yzx-iso/t7-5-session-restore",
+      "tip_commit_id": "019f8879-34b4-7c21-8f7c-99c6122f8b11"
+    },
+    {
+      "document_id": "019f8801-a47d-7521-898c-5a6ce6a36a47",
+      "slug": "tasks/yzx-iso/t7-6-manual-recovery",
+      "tip_commit_id": "019f8879-34b4-7c21-8f7c-99c6122f8b11"
+    },
+    {
+      "document_id": "019f8801-a48d-72b2-9cd7-624ee2bafe9f",
+      "slug": "tasks/yzx-iso/t7-7-failure-handling",
+      "tip_commit_id": "019f8a46-8d72-7d11-b7cb-9aa3e3feebe8"
+    },
+    {
+      "document_id": "019f8801-a49e-72d0-9b1d-d2381bb07e21",
+      "slug": "tasks/yzx-iso/t7-8-cold-reboot-harness",
+      "tip_commit_id": "019f8a34-a0c0-7812-84b3-8c51e2f0c216"
+    },
+    {
+      "document_id": "019f8801-a4ae-7453-9a11-aec7228f69a5",
+      "slug": "tasks/yzx-iso/t7-9-reattach-acceptance",
+      "tip_commit_id": "019f8879-34b4-7c21-8f7c-99c6122f8b11"
+    },
+    {
+      "document_id": "019f8801-a4be-7da3-849c-ae0d9ef0315b",
+      "slug": "tasks/yzx-iso/t8-0-lane-index",
+      "tip_commit_id": "019f88ac-faf5-7072-a702-f9b1dcfcf7a1"
+    },
+    {
+      "document_id": "019f8801-a4d0-7cf3-b080-fd2a8729b7a8",
+      "slug": "tasks/yzx-iso/t8-1-interface-design",
+      "tip_commit_id": "019f8879-34b4-7c21-8f7c-99c6122f8b11"
+    },
+    {
+      "document_id": "019f8801-a4e2-76e2-ad4d-c979c508d05b",
+      "slug": "tasks/yzx-iso/t8-2-resource-registry",
+      "tip_commit_id": "019f8879-34b4-7c21-8f7c-99c6122f8b11"
+    },
+    {
+      "document_id": "019f8801-a4f5-7691-9034-8bfcc950de68",
+      "slug": "tasks/yzx-iso/t8-3-acquire-semantics",
+      "tip_commit_id": "019f8879-34b4-7c21-8f7c-99c6122f8b11"
+    },
+    {
+      "document_id": "019f8801-a506-7eb2-b257-513195852dcd",
+      "slug": "tasks/yzx-iso/t8-4-release-semantics",
+      "tip_commit_id": "019f8879-34b4-7c21-8f7c-99c6122f8b11"
+    },
+    {
+      "document_id": "019f8801-a517-7120-8eaf-368c8e2f0e48",
+      "slug": "tasks/yzx-iso/t8-5-audit-trail",
+      "tip_commit_id": "019f8879-34b4-7c21-8f7c-99c6122f8b11"
+    },
+    {
+      "document_id": "019f8801-a528-76f2-90b6-299d754c4362",
+      "slug": "tasks/yzx-iso/t8-6-frontdoor-wiring",
+      "tip_commit_id": "019f8879-34b4-7c21-8f7c-99c6122f8b11"
+    },
+    {
+      "document_id": "019f8801-a539-7141-aefd-481fbf0468a9",
+      "slug": "tasks/yzx-iso/t8-7-safety-guards",
+      "tip_commit_id": "019f8879-34b4-7c21-8f7c-99c6122f8b11"
+    },
+    {
+      "document_id": "019f8801-a54a-71e1-9833-de3259adfd60",
+      "slug": "tasks/yzx-iso/t8-8-control-tests",
+      "tip_commit_id": "019f8879-34b4-7c21-8f7c-99c6122f8b11"
+    },
+    {
+      "document_id": "019f8801-a55b-7d40-8775-8ca0d063633d",
+      "slug": "tasks/yzx-iso/t8-9-control-acceptance",
+      "tip_commit_id": "019f8879-34b4-7c21-8f7c-99c6122f8b11"
+    },
+    {
+      "document_id": "019f8801-a56c-7ef3-b68c-30de7adc170c",
+      "slug": "tasks/yzx-iso/t9-0-lane-index",
+      "tip_commit_id": "019f88ac-faf5-7072-a702-f9b1dcfcf7a1"
+    },
+    {
+      "document_id": "019f8801-a57d-7783-8fff-0a74e30ca347",
+      "slug": "tasks/yzx-iso/t9-1-characterize",
+      "tip_commit_id": "019f8879-34b4-7c21-8f7c-99c6122f8b11"
+    },
+    {
+      "document_id": "019f8801-a58e-73b3-b498-42ce8f5f59bf",
+      "slug": "tasks/yzx-iso/t9-2-gate-observe",
+      "tip_commit_id": "019f8a3c-feb8-7310-8196-d39359791866"
+    },
+    {
+      "document_id": "019f8801-a59f-73c3-92aa-ccea906bcf55",
+      "slug": "tasks/yzx-iso/t9-3-hold-packages",
+      "tip_commit_id": "019f8879-34b4-7c21-8f7c-99c6122f8b11"
+    },
+    {
+      "document_id": "019f8801-a5b0-7bd0-96b1-b5a3da95ddc9",
+      "slug": "tasks/yzx-iso/t9-4-deliberate-reboot",
+      "tip_commit_id": "019f8879-34b4-7c21-8f7c-99c6122f8b11"
+    },
+    {
+      "document_id": "019f8801-a5c0-78c2-8ec0-54d4ff392d27",
+      "slug": "tasks/yzx-iso/t9-5-insulation-validate",
+      "tip_commit_id": "019f8879-34b4-7c21-8f7c-99c6122f8b11"
+    },
+    {
+      "document_id": "019f8801-a5d1-7ae1-a509-1d0d9f17b386",
+      "slug": "tasks/yzx-iso/t9-6-host-normalcy",
+      "tip_commit_id": "019f8879-34b4-7c21-8f7c-99c6122f8b11"
+    },
+    {
+      "document_id": "019f8801-a5e3-7be3-b322-3c7147c067ea",
+      "slug": "tasks/yzx-iso/t9-7-kernel-swap",
+      "tip_commit_id": "019f8879-34b4-7c21-8f7c-99c6122f8b11"
+    },
+    {
+      "document_id": "019f8801-a5f4-76a2-b624-ccc99f5c76d8",
+      "slug": "tasks/yzx-iso/t9-8-policy-as-code",
+      "tip_commit_id": "019f8879-34b4-7c21-8f7c-99c6122f8b11"
+    },
+    {
+      "document_id": "019f8801-a605-7ae1-8b43-c2fe18fca560",
+      "slug": "tasks/yzx-iso/t9-9-update-acceptance",
+      "tip_commit_id": "019f8879-34b4-7c21-8f7c-99c6122f8b11"
+    },
+    {
+      "document_id": "019f8801-a616-7831-8538-020fd896dc12",
+      "slug": "tasks/yzx-iso/t10-0-lane-index",
+      "tip_commit_id": "019f88ac-faf5-7072-a702-f9b1dcfcf7a1"
+    },
+    {
+      "document_id": "019f8801-a627-7481-bed5-6e3ff9569704",
+      "slug": "tasks/yzx-iso/t10-1-packaging-decision",
+      "tip_commit_id": "019f8879-34b4-7c21-8f7c-99c6122f8b11"
+    },
+    {
+      "document_id": "019f8801-a63d-72c2-a1eb-4f68a7b80ade",
+      "slug": "tasks/yzx-iso/t10-2-build-closure",
+      "tip_commit_id": "019f8879-34b4-7c21-8f7c-99c6122f8b11"
+    },
+    {
+      "document_id": "019f8801-a64e-7b20-8330-b969bb81272a",
+      "slug": "tasks/yzx-iso/t10-3-clean-host-boot",
+      "tip_commit_id": "019f8879-34b4-7c21-8f7c-99c6122f8b11"
+    },
+    {
+      "document_id": "019f8801-a65e-7df1-a021-55ca124d8a79",
+      "slug": "tasks/yzx-iso/t10-4-store-independence",
+      "tip_commit_id": "019f8879-34b4-7c21-8f7c-99c6122f8b11"
+    },
+    {
+      "document_id": "019f8801-a66f-76b3-bdac-250bea8c8fdb",
+      "slug": "tasks/yzx-iso/t10-5-update-reboot-gauntlet",
+      "tip_commit_id": "019f8879-34b4-7c21-8f7c-99c6122f8b11"
+    },
+    {
+      "document_id": "019f8801-a67f-7462-ac1f-8f5dd9cf852f",
+      "slug": "tasks/yzx-iso/t10-6-lifeos-update-gauntlet",
+      "tip_commit_id": "019f8879-34b4-7c21-8f7c-99c6122f8b11"
+    },
+    {
+      "document_id": "019f8801-a691-71d1-87bd-df144206442a",
+      "slug": "tasks/yzx-iso/t10-7-latency-benchmark",
+      "tip_commit_id": "019f8a5f-011d-7832-b224-4d00a5853a97"
+    },
+    {
+      "document_id": "019f8801-a6a2-78b3-b49a-5d8ab8de44a4",
+      "slug": "tasks/yzx-iso/t10-8-survival-reattach",
+      "tip_commit_id": "019f8879-34b4-7c21-8f7c-99c6122f8b11"
+    },
+    {
+      "document_id": "019f8801-a6b3-77c0-9666-e14e59a494b5",
+      "slug": "tasks/yzx-iso/t10-9-release-signoff",
+      "tip_commit_id": "019f8879-34b4-7c21-8f7c-99c6122f8b11"
+    },
+    {
+      "document_id": "019f8857-df9f-7af3-b0c0-b59ba9310596",
+      "slug": "tasks/yzx-iso/reconciliation-index",
+      "tip_commit_id": "019f8857-e1b1-7b52-8f91-a35ebf2b7005"
+    },
+    {
+      "document_id": "019f8a29-40aa-7423-953b-a9602653495d",
+      "slug": "incidents/preserve-provenance-drift-inert-gate",
+      "tip_commit_id": "019f8a65-3ef9-7d90-85e8-3064f73429a3"
+    },
+    {
+      "document_id": "019f8a42-4e09-70c3-81d2-ca6cbdffa954",
+      "slug": "incidents/postgres-logfile-unrotated",
+      "tip_commit_id": "019f8a42-b71b-7e80-81da-24c1d09efc8d"
+    },
+    {
+      "document_id": "019f8bf0-7d1d-7f30-8d40-9d8e86e7bca3",
+      "slug": "tasks/rtk-codex-hooks-server-dashboard-icm",
+      "tip_commit_id": "019f8c5e-3306-7b73-9623-16706ee6f057"
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+{
+  "commit": {"author":"drdave-flexnteos <flexnetos@de-flex.net>","changes":[{"change_type":"created","content_hash":"5e26c620998fec52ee326e64fdd6c0c53434f5a6bc78866e30b47723c71fa2bd","doc_type":"task","document_id":"019f8043-f1c0-7ee2-b30f-efd93ea6c9b3","new_version":1,"previous_version":null,"slug":"finish-lifeos-github-integration","title":"Finish LifeOS GitHub integration"}],"created_at":"2026-07-20T16:03:02.515698449Z","id":"019f8044-38f6-7a31-8508-720ac282f818","message":"Track LifeOS GitHub integration cleanup"},
+  "content_hash": "9fe6c9ceb8ab95dc8b767daa1b817e445a1cbb273e861c9675e466f18f3b656d",
+  "hash_version": 3
+}
