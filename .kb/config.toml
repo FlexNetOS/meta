@@ -1,16 +1,69 @@
-[identity]
-
 [user]
 name = "drdave-flexnteos"
 email = "flexnetos@de-flex.net"
 
+[identity]
+
 [sync.remotes]
+
+[repos]
+strategy = "meta"
+
+[apps]
+enabled = []
+install_dirs = []
 
 [code]
 index_threads = 0
 
+[code.repo_default_branch_map]
+meta_git_lib = "main"
+"src/weave" = "master"
+"src/envctl" = "master"
+"src/ruflo" = "main"
+"src/beads_viewer" = "main"
+"src/lifeos" = "main"
+"src/nu_plugin" = "master"
+meta_core = "main"
+loop_lib = "remotes/origin/main"
+"src/hermes-agent" = "main"
+"src/notebooklm-py" = "main"
+"src/teri" = "main"
+"src/ccboard" = "main"
+meta_project_cli = "main"
+"src/network-control" = "main"
+"." = "main"
+loop_cli = "main"
+meta_cli = "main"
+"src/yazelix" = "main"
+"src/yazelix-helix" = "main"
+"src/atc" = "main"
+"src/beads_rust" = "main"
+"src/grit" = "master"
+"src/rtk-tokenkill" = "develop"
+"src/cuda-oxide" = "main"
+"src/harness-agent-rs" = "main"
+"src/icm" = "main"
+"src/vault_hub" = "main"
+"src/flexnetos_runner" = "main"
+agent = "main"
+meta_plugin_protocol = "remotes/origin/main"
+"src/prompt_hub" = "main"
+"src/handoff" = "master"
+meta_rust_cli = "main"
+meta_mcp = "main"
+"src/meta-ruvector" = "main"
+"src/rusty-idd" = "main"
+"src/yazelix-terminal-support" = "main"
+"src/yazelix-yazi-assets" = "main"
+meta_git_cli = "main"
+"src/meta-hardware" = "main"
+"src/harness_hub" = "main"
+
 [embeddings]
 enabled = true
+backend = "candle"
+model = "sentence-transformers/all-MiniLM-L6-v2"
 batch_size = 16
 queue_size = 64
 batch_delay_ms = 50
@@ -22,3 +75,10 @@ path = ".kb/cache/index"
 mode = "optional"
 
 [auth.api_keys]
+
+[hooks]
+context_injection = true
+auto_commit_link = true
+auto_worktree_bind = true
+auto_progress = false
+prompt_context = false
