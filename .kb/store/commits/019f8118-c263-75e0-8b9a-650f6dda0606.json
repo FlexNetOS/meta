@@ -1,0 +1,5 @@
+{
+  "commit": {"author":"drdave-flexnteos <flexnetos@de-flex.net>","changes":[{"change_type":"created","content_hash":"5f96e1a11a2f054cd4c7399f6dbfe9fc0d7ad22f24e3a87435e8a713d4c7a9a9","doc_type":"task","document_id":"019f8118-c235-7b91-aa89-ce4640bc3ef5","new_version":1,"previous_version":null,"slug":"tasks/restore-envctl-shared-substrate","title":"Restore envctl shared substrate for active frontdoor"}],"created_at":"2026-07-20T19:55:11.327879408Z","id":"019f8118-c263-75e0-8b9a-650f6dda0606","message":"Track envctl shared-substrate frontdoor blocker"},
+  "content_hash": "2b18518a56764cdcd06537ec6bfd8f41b16abdc4512bd03d3f75261c8580786f",
+  "hash_version": 3
+}

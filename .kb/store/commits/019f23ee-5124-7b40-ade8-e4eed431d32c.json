@@ -1,0 +1,5 @@
+{
+  "commit": {"author":"drdave-flexnteos <flexnetos@de-flex.net>","changes":[{"change_type":"modified","content_hash":"a1d8e6779c1b411831ad46ee406a61fdbf59ad14497513a53e70938c05146dc2","doc_type":"task","document_id":"019f23ed-5b99-7b91-a3b3-9ed1fcf24f22","metadata_changes":[{"field":"status","new_value":"completed","old_value":"active"}],"new_version":2,"previous_commit_id":"019f23ee-4334-7021-8eaa-3003d82ac5d1","previous_hash":"43426e058e7b430e3a69a6d624255109e8ea93216994d166ac4860d915bb04dc","previous_version":1,"slug":"tasks/meta-github-sync-state-policy","title":"Enforce GitHub sync state policy"}],"created_at":"2026-07-02T17:44:08.724552986Z","id":"019f23ee-5124-7b40-ade8-e4eed431d32c","message":"Close GitHub sync state policy [[tasks/meta-github-sync-state-policy]]"},
+  "content_hash": "531a2a2ffa0f87162f93e74eabd034036904dec758cbac884ecbd68b1a0b149d",
+  "hash_version": 3
+}

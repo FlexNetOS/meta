@@ -1,0 +1,5 @@
+{
+  "commit": {"author":"drdave <flexnetos@de-flex.net>","changes":[{"change_type":"created","content_hash":"5b232f405ab0986f6a95aa7ebad1ea04408c71bf088264776a9a28288bbb9451","doc_type":"task","document_id":"019f5083-4256-7cc2-96ca-866ef5e98502","new_version":1,"previous_version":null,"slug":"tasks/lifeos-notebooklm-source-claim-complete-proof","title":"Prove every NotebookLM source claim against canonical evidence"}],"created_at":"2026-07-11T09:30:36.490762565Z","id":"019f5083-b454-7fc0-b1cb-05920a17f38c","message":"Track exhaustive NotebookLM claim proof work"},
+  "content_hash": "f894e4f4a3a63d694ac332bc48de2820e881fa34376739bb1824464e0284bf2d",
+  "hash_version": 3
+}

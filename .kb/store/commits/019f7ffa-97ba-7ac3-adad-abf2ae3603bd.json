@@ -1,0 +1,5 @@
+{
+  "commit": {"author":"drdave-flexnteos <flexnetos@de-flex.net>","changes":[{"change_type":"created","content_hash":"07dcb3efde3637accfa592395ec36faacbce25643b0bdfc6e6adc17fb7c6d069","doc_type":"task","document_id":"019f7ffa-9750-7c70-b587-c452691465ad","new_version":1,"previous_version":null,"slug":"consolidate-lifeos-handoff-into-planning-spine","title":"Consolidate LifeOS handoff into Planning Spine"}],"created_at":"2026-07-20T14:42:37.077032942Z","id":"019f7ffa-97ba-7ac3-adad-abf2ae3603bd","message":"Track LifeOS Planning Spine consolidation"},
+  "content_hash": "0d47322ef15c2f5b8a37a8729b34f1bffddd8fc1f8a1a9049a93928e2db0e2ca",
+  "hash_version": 3
+}

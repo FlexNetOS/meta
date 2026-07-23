@@ -1,0 +1,5 @@
+{
+  "commit": {"author":"drdave-flexnteos <flexnetos@de-flex.net>","changes":[{"change_type":"modified","content_hash":"f71ab84cd2c964419745cc0482c401a1bb52cb1cddbcf09d2d2b08a552e36ed6","doc_type":"task","document_id":"019f2170-583c-78b2-bff5-3a3d74a11774","metadata_changes":[{"field":"status","new_value":"completed","old_value":"draft"}],"new_version":3,"previous_commit_id":"019f2175-2248-7692-be42-c98dc2a052a2","previous_hash":"a1a4d1ac3313cdceb9e550bb8bfbc4a527fb3afc1f9815e65f15e0aa5014dbf8","previous_version":2,"slug":"tasks/meta-initial-14-alignment-code-intel-prep-2026-07-02","title":"Repeat initial 14 alignment audit and prepare code intelligence"}],"created_at":"2026-07-02T06:12:46.476840167Z","id":"019f2175-5921-7302-95df-b557b3f1c0cc","message":"Complete repeat initial 14 alignment audit"},
+  "content_hash": "386061deb432dea01a92adbefcd3cca5ea3ca03bfe5f54ab7a8a319a813f279a",
+  "hash_version": 3
+}

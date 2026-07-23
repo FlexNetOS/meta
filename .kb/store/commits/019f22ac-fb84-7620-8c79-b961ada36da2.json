@@ -1,0 +1,5 @@
+{
+  "commit": {"author":"drdave-flexnteos <flexnetos@de-flex.net>","changes":[{"change_type":"created","content_hash":"1dfa343cf9d8939f7d01a2d1ec29af92fb55f5c7826530221ba7435878b1d4d1","doc_type":"task","document_id":"019f22ac-fb51-7632-bef4-85a037cbe20e","new_version":1,"previous_version":null,"slug":"tasks/meta-local-ubuntu-release-runner","title":"Build local Ubuntu release through flexnetos_runner"}],"created_at":"2026-07-02T11:53:09.750752200Z","id":"019f22ac-fb84-7620-8c79-b961ada36da2","message":"Create task: Build local Ubuntu release through flexnetos_runner"},
+  "content_hash": "2d145da7ee91569a57d8fa8a2e50fa999614c9a7ff28e7e6dda4aafe6d06693d",
+  "hash_version": 3
+}

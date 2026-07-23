@@ -1,0 +1,5 @@
+{
+  "commit": {"author":"drdave-flexnteos <flexnetos@de-flex.net>","changes":[{"change_type":"created","content_hash":"9f362437824b394a310f37e73e466eac53c18236a53d40eda6ce15fb594573d3","doc_type":"task","document_id":"019f22bd-cba6-7093-8146-db540e04db2c","new_version":1,"previous_version":null,"slug":"tasks/meta-release-catalog-portable-tools","title":"Catalog portable release components"}],"created_at":"2026-07-02T12:17:03.098127851Z","id":"019f22c2-da85-7280-a739-62fbc0dfcc7c","message":"Complete release catalog task [[tasks/meta-release-catalog-portable-tools]]"},
+  "content_hash": "c75ca0ae390d1e79011e2f62685b8e9e2427bf90f179cbc5848c94d2906d5475",
+  "hash_version": 3
+}

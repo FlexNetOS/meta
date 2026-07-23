@@ -1,0 +1,5 @@
+{
+  "commit": {"author":"drdave-flexnteos <flexnetos@de-flex.net>","changes":[{"change_type":"created","content_hash":"d275dfd424ffe50a98e3f91c270e5a7c022c90158ef6b479efc07b113ce59fe0","doc_type":"task","document_id":"019f21a6-b50e-76b0-8dda-dfa86abe30c6","new_version":1,"previous_version":null,"slug":"tasks/meta-git-setup-ssh-root-remote","title":"Include meta root SSH remote in setup-ssh"}],"created_at":"2026-07-02T07:06:48.794430129Z","id":"019f21a6-d262-70f1-9cc0-276b3664759d","message":"Include root SSH remote in setup-ssh"},
+  "content_hash": "928aca2fb935145dac1c9c01e33c6b631bf26ee2d79e4c5e0e964eefe8768a6c",
+  "hash_version": 3
+}

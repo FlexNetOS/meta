@@ -1,0 +1,5 @@
+{
+  "commit": {"author":"drdave-flexnteos <flexnetos@de-flex.net>","changes":[{"change_type":"created","content_hash":"5bc67a73d310acdcbf9df2a35c9554f22d77e78c30813cfd3a38604be6a152ef","doc_type":"task","document_id":"019f80db-43f4-7730-8671-f8c061006f42","new_version":1,"previous_version":null,"slug":"tasks/envctl-github-worktree-consolidation","title":"Consolidate Envctl worktrees pull requests and branches"}],"created_at":"2026-07-20T18:48:14.739555015Z","id":"019f80db-7896-7f91-a9f1-8b6ce8867603","message":"Track Envctl GitHub worktree consolidation"},
+  "content_hash": "c3008473bce06822b400980e62964fcd5ab73eee20be57a2e325e108a9ab67d3",
+  "hash_version": 3
+}
