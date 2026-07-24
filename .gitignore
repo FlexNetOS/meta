@@ -73,6 +73,7 @@ meta-plugins/
 # independent repositories or host/runtime state owned by Meta, not files to
 # absorb into this repository's history.
 /src/
+/flexnetos_runner/
 /artifacts/
 /etc/
 /hardware/

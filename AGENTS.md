@@ -10,8 +10,12 @@ policy files identify Meta and own the peer-repository fleet.
 
 - LifeOS is a Meta peer repository at
   `/home/flexnetos/meta/src/lifeos`.
-- All independent peers live under `/home/flexnetos/meta/src`; LifeOS is not a
-  special root-level child or a separate authority layer.
+- Independent peers normally live under `/home/flexnetos/meta/src`; LifeOS is
+  not a special root-level child or a separate authority layer.
+- `flexnetos_runner` is the explicit execution-peer exception at
+  `/home/flexnetos/meta/flexnetos_runner`. Its default-path entry in
+  `.meta.yaml` owns that location; it is an independent Git repository, not a
+  Meta authority layer.
 - Runtime, archive, release, and host-projection directories at this root are
   Meta-owned payload, but are ignored by the Meta Git repository.
 - `/home/flexnetos/lifeos` is retired and must not be recreated as a competing

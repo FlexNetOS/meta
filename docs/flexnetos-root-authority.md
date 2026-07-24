@@ -7,7 +7,8 @@
 |-- .git/                         Meta Git identity
 |-- .kb/                          Meta GitKB identity and knowledge base
 |-- .meta.yaml                    Peer-repository ownership manifest
-`-- src/                          Independent peer repositories
+|-- flexnetos_runner/             Root execution peer (independent Git repo)
+`-- src/                          Standard independent peer namespace
     `-- lifeos/                   FlexNetOS/lifeos Meta peer
 ```
 
@@ -29,13 +30,25 @@ peer, runtime, release, and evidence trees are not committed into
 `FlexNetOS/meta`; `.gitignore` protects that boundary and `.meta.yaml` declares
 the repositories Meta operates.
 
+## Runner execution-peer exception
+
+`FlexNetOS/flexnetos_runner` is intentionally promoted to
+`/home/flexnetos/meta/flexnetos_runner`. It is the local build/proof execution
+peer and owns the canonical Nix GitHub runner, so its operational frontdoor is
+adjacent to the Meta control plane rather than nested under `src/`.
+
+The repository remains independent: its own `.git`, remote, commits, and
+history travel with the directory. Meta ignores the payload at that root path
+and declares it through the default `flexnetos_runner` project path in
+`.meta.yaml`. This exception does not create another authority root.
+
 ## LifeOS peer correction
 
 The first promotion pass incorrectly left LifeOS at the root-level path
 `/home/flexnetos/meta/lifeos`. Review established that LifeOS is a Meta peer,
 not a privileged child outside the peer namespace. The canonical path is
-`/home/flexnetos/meta/src/lifeos`, alongside the other independent repositories
-declared by `.meta.yaml`.
+`/home/flexnetos/meta/src/lifeos`, inside the standard peer namespace declared
+by `.meta.yaml`.
 
 ## Identity test
 

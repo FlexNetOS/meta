@@ -82,7 +82,6 @@ projects:
 
   flexnetos_runner:
     repo: git@github.com:FlexNetOS/flexnetos_runner.git
-    path: src/flexnetos_runner
 
   grit:
     repo: git@github.com:FlexNetOS/grit.git
