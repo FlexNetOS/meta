@@ -1,5 +1,0 @@
-{
-  "commit": {"author":"drdave-flexnteos <flexnetos@de-flex.net>","changes":[{"change_type":"created","content_hash":"c6cb23aa4a5c9d0a2393b9ac5bc43ba8c9e6a4c234193348f724d5678748db78","doc_type":"task","document_id":"019f91da-a759-7f22-a06a-aa7ff6238a95","new_version":1,"previous_version":null,"slug":"tasks/flexnetos-runner-canonical-promotion","title":"Promote and Upgrade Canonical FlexNetOS Runner Repository"},{"change_type":"created","content_hash":"c68883f6f71c06477dc28ff868ed49c001c6dc5ae0ce3701fd53dd153806bec8","doc_type":"task","document_id":"019f91da-5183-7bb3-9fcc-324f66d39959","new_version":1,"previous_version":null,"slug":"tasks/gha-runner-nix-native-persistence","title":"Decide Nix-Native Runner Persistence Without System Depths"}],"created_at":"2026-07-24T02:00:58.652144894Z","id":"019f91da-ba46-7590-afe7-ff4f1c5dfc19","message":"Create tasks for Nix-native runner persistence and canonical promotion"},
-  "content_hash": "3be4a099b5fb87c1ab1fdeff3716551a051d007eec9bf06bf179b955130ddbe2",
-  "hash_version": 3
-}

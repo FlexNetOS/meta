@@ -1,5 +1,0 @@
-{
-  "commit": {"author":"drdave-flexnteos <flexnetos@de-flex.net>","changes":[{"change_type":"created","content_hash":"665da468d1efb751ee1b8aaca0a5ee5b9e1250d333da4afb6f8dae0ab628b953","doc_type":"task","document_id":"019f914c-236b-7d40-b9b2-9e84df7ea8e2","new_version":1,"previous_version":null,"slug":"tasks/smoke-assignment-field","title":"Smoke: assign/unassign field mismatch"}],"created_at":"2026-07-23T23:25:18.302525422Z","id":"019f914c-346c-71c0-8ebb-3f9e9bfb161e","message":"chore: add smoke task for assignment mismatch"},
-  "content_hash": "52d02598db94920dd9218d1b554ab1274cccd578129ff36bfd8610d2cf05a8ed",
-  "hash_version": 3
-}

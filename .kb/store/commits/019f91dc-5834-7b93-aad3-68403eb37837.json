@@ -1,5 +1,0 @@
-{
-  "commit": {"author":"drdave-flexnteos <flexnetos@de-flex.net>","changes":[{"change_type":"modified","content_hash":"9b89f8619275d6b237bd81da8ebaf1f43a6d61f0b9cbd89f0fdfbe05f8ed111a","doc_type":"task","document_id":"019f91da-5183-7bb3-9fcc-324f66d39959","metadata_changes":[{"field":"status","new_value":"active","old_value":"draft"}],"new_version":2,"previous_commit_id":"019f91da-ba46-7590-afe7-ff4f1c5dfc19","previous_hash":"c68883f6f71c06477dc28ff868ed49c001c6dc5ae0ce3701fd53dd153806bec8","previous_version":1,"slug":"tasks/gha-runner-nix-native-persistence","title":"Decide Nix-Native Runner Persistence Without System Depths"}],"created_at":"2026-07-24T02:02:44.609102629Z","id":"019f91dc-5834-7b93-aad3-68403eb37837","message":"Start no-system-depth runner persistence decision"},
-  "content_hash": "fea12327249140bc92212b71038331acae6791711606b821900f4c7759948fa9",
-  "hash_version": 3
-}

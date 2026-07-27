@@ -1,5 +1,0 @@
-{
-  "commit": {"author":"drdave-flexnteos <flexnetos@de-flex.net>","changes":[{"change_type":"modified","content_hash":"fb7396b72936e600eb5265154277c0c7d60484744e9359282caacbec54e08743","doc_type":"task","document_id":"019f5f02-3ee9-77c1-b17c-27da55bdf9e0","metadata_changes":[{"field":"assignee","new_value":"379904488992935178"}],"new_version":3,"previous_commit_id":"019f8207-48c3-7ad1-a95e-42a56a8afc8b","previous_hash":"91f1670a272fcf366b00ec201825e902657f9e135fab1f2663d02f72eef27800","previous_version":2,"slug":"install-claude-code-via-yazelix-nix-owner-path","title":"Install Claude Code via Yazelix Nix owner path"}],"created_at":"2026-07-23T22:46:45.371810370Z","id":"019f9128-e98c-7692-b5f2-d4085411f97a","message":"Claim install-claude-code task"},
-  "content_hash": "cf30cfdaacfadf4b01094c7b7dd843425317cf195aac3cc1160a5daae809045b",
-  "hash_version": 3
-}
