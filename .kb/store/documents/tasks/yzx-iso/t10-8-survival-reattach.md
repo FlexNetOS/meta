@@ -3,8 +3,9 @@ id: 019f8801-a6a2-78b3-b49a-5d8ab8de44a4
 slug: tasks/yzx-iso/t10-8-survival-reattach
 title: "T10.8 — Full survival + auto re-attach test"
 type: task
-status: draft
+status: completed
 priority: high
+assignee: 379904488992935178
 tags: [yzx-iso, T10, test]
 ---
 

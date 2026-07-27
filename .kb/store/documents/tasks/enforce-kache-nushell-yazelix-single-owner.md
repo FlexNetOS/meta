@@ -3,8 +3,9 @@ id: 019f5f00-e89d-7fb0-acd9-1f9beac2caf0
 slug: tasks/enforce-kache-nushell-yazelix-single-owner
 title: "Enforce Kache, Nushell, and single Yazelix owner"
 type: task
-status: active
+status: completed
 priority: critical
+assignee: 379904488992935178
 tags: [lifeos, planning-spine, envctl, yazelix, kache, nushell, repository-hygiene]
 ---
 

@@ -3,8 +3,9 @@ id: 019f8801-a57d-7783-8fff-0a74e30ca347
 slug: tasks/yzx-iso/t9-1-characterize
 title: "T9.1 — Characterize host update mechanisms"
 type: task
-status: draft
+status: completed
 priority: high
+assignee: 379904488992935178
 tags: [yzx-iso, T9, impl]
 ---
 

@@ -3,8 +3,9 @@ id: 019f87ff-90fe-7c81-a9a6-e834cd4307ee
 slug: tasks/yzx-iso/t3-7-guard-test
 title: "T3.7 — Add tier-map guard test"
 type: task
-status: draft
+status: completed
 priority: medium
+assignee: 379904488992935178
 tags: [yzx-iso, T3, test]
 ---
 

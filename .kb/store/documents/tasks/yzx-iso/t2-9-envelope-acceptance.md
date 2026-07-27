@@ -3,8 +3,9 @@ id: 019f87ff-907a-7ae2-b647-5b6d170fcb14
 slug: tasks/yzx-iso/t2-9-envelope-acceptance
 title: "T2.9 — Envelope tests, docs, and acceptance"
 type: task
-status: draft
+status: completed
 priority: high
+assignee: 379904488992935178
 tags: [yzx-iso, T2, acceptance]
 ---
 

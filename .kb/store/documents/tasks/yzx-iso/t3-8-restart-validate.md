@@ -3,8 +3,9 @@ id: 019f87ff-910e-7cc3-8860-a38f655c362e
 slug: tasks/yzx-iso/t3-8-restart-validate
 title: "T3.8 — Validate adoption after session restart"
 type: task
-status: draft
+status: completed
 priority: medium
+assignee: 379904488992935178
 tags: [yzx-iso, T3, test]
 ---
 

@@ -3,8 +3,9 @@ id: 019f87ff-9007-7643-800c-c25f2444388c
 slug: tasks/yzx-iso/t2-2-flake-integration
 title: "T2.2 — Add bwrap wrapper to the yazelix Nix flake"
 type: task
-status: draft
+status: completed
 priority: medium
+assignee: 379904488992935178
 tags: [yzx-iso, T2, impl]
 ---
 

@@ -3,8 +3,9 @@ id: 019f8857-df9f-7af3-b0c0-b59ba9310596
 slug: tasks/yzx-iso/reconciliation-index
 title: "yzx-iso reconciliation index (verdicts + deltas, 2026-07-22)"
 type: task
-status: draft
+status: completed
 priority: high
+assignee: 379904488992935178
 tags: [yzx-iso, reconciliation, index, verdicts]
 ---
 
@@ -38,3 +39,17 @@ Conflict/overlap reconciliation of the 100 yzx-iso tasks against Fable 5 plannin
 - Spine NOT edited. Only yzx-iso task bodies edited (## Reconciliation verdict appended per task).
 - No task downgraded/closed without strict cited proof. No status changes. No goal narrowed.
 - APPROVAL GATE: no in-spine application until owner review + approval.
+
+## Acceptance Criteria
+
+- [x] Reconciliation produced by comparing 100 yzx-iso tasks against planning
+  spine-v0 with counts and verdict categories documented.
+- [x] No task scope was downgraded or closed without explicit proof-based guardrails.
+- [x] Approval gate is preserved (`no in-spine application until owner review`).
+
+## Completion Evidence
+
+- 2026-07-23 report: task body includes counts (done-in-spine 6, designed-not-built 23,
+  genuine-new 71), genuine-new deltas, and explicit guardrails.
+- The yzx task family has been tagged with reconciliation verdicts without changing
+  spine status in this artifact.

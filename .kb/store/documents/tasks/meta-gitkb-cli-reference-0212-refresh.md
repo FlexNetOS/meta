@@ -5,6 +5,7 @@ title: "Refresh GitKB CLI reference for installed 0.2.12"
 type: task
 status: completed
 priority: high
+assignee: 379904488992935178
 tags: [gitkb, docs, cli, parity]
 ---
 

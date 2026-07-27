@@ -3,8 +3,9 @@ id: 019f8800-7134-7933-a8f7-62fd34c5eca8
 slug: tasks/yzx-iso/t6-3-supervise
 title: "T6.3 — Supervise Omada via nix (unit or bwrap service)"
 type: task
-status: draft
+status: completed
 priority: medium
+assignee: 379904488992935178
 tags: [yzx-iso, T6, impl]
 ---
 

@@ -5,6 +5,7 @@ title: "Prove GitKB code intelligence across meta repos"
 type: task
 status: completed
 priority: high
+assignee: 379904488992935178
 parent: tasks/meta-gitkb-docs-command-config-extraction
 ---
 

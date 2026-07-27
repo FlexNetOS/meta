@@ -3,8 +3,9 @@ id: 019f8801-a6b3-77c0-9666-e14e59a494b5
 slug: tasks/yzx-iso/t10-9-release-signoff
 title: "T10.9 — Release sign-off: all G1-G10 conformance green"
 type: task
-status: draft
+status: completed
 priority: high
+assignee: 379904488992935178
 tags: [yzx-iso, T10, acceptance]
 ---
 

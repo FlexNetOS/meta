@@ -3,8 +3,9 @@ id: 019f8801-a4d0-7cf3-b080-fd2a8729b7a8
 slug: tasks/yzx-iso/t8-1-interface-design
 title: "T8.1 — Design the acquire/release control interface"
 type: task
-status: draft
+status: completed
 priority: high
+assignee: 379904488992935178
 tags: [yzx-iso, T8, design]
 ---
 

@@ -5,6 +5,7 @@ title: "Align GitKB skills with .kb/workspaces path"
 type: task
 status: completed
 priority: high
+assignee: 379904488992935178
 tags: [gitkb, skills, docs, workspace, commands]
 ---
 

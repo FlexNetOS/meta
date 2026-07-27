@@ -3,8 +3,9 @@ id: 019f8800-7067-7982-b39f-866173fe3136
 slug: tasks/yzx-iso/t5-1-finalize-xdg
 title: "T5.1 — Finalize XDG_DATA/STATE_HOME redirect via envctl"
 type: task
-status: draft
+status: completed
 priority: high
+assignee: 379904488992935178
 tags: [yzx-iso, T5, impl]
 ---
 

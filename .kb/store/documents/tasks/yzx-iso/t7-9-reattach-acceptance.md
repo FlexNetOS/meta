@@ -3,8 +3,9 @@ id: 019f8801-a4ae-7453-9a11-aec7228f69a5
 slug: tasks/yzx-iso/t7-9-reattach-acceptance
 title: "T7.9 — Acceptance: reboot auto re-attach restores everything"
 type: task
-status: draft
+status: completed
 priority: high
+assignee: 379904488992935178
 tags: [yzx-iso, T7, acceptance]
 ---
 

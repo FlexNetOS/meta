@@ -5,6 +5,7 @@ title: "Deep walk initial 10 meta repos"
 type: task
 status: completed
 priority: high
+assignee: 379904488992935178
 tags: [meta, source-walk, gitkb]
 ---
 

@@ -3,8 +3,9 @@ id: 019f8801-a56c-7ef3-b68c-30de7adc170c
 slug: tasks/yzx-iso/t9-0-lane-index
 title: "T9.0 — Govern the OS-update lifecycle (lane index)"
 type: task
-status: draft
+status: completed
 priority: high
+assignee: 379904488992935178
 tags: [yzx-iso, T9, epic]
 ---
 

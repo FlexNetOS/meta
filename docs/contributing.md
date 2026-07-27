@@ -59,6 +59,7 @@ Thank you for your interest in contributing to the `meta` CLI platform! This gui
 - [Architecture Overview](architecture_overview.md)
 - [Advanced Usage Guide](advanced_usage.md)
 - [FAQ / Troubleshooting Guide](faq_troubleshooting.md)
+- [Lock Panic Audit Guide](lock-panic-audit.md)
 
 ## See Also
 

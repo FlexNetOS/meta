@@ -31,3 +31,14 @@ Use the completed foundation evidence before making source changes. Pick one loa
 - Legacy org reference cleanup.
 - CI/local verification parity.
 - Cargo.lock/workspace version drift; locked build currently fails until the lockfile is reconciled.
+
+## 2026-07-23 — Blueprint-ingestion backlog staged
+
+The meta-root KB backlog now carries the RuVector architecture implementation stream:
+[[tasks/blueprint-ingestion-epic]] plus 19 component tasks (all status `backlog`, tagged
+blueprint/ruvector/codex), extracted from
+`meta/src/lifeos/Architecture_Data_Pipeline_Blueprint_RUVECTOR_FULLY_EXPANDED_VERIFIED.md`.
+Machine-readable task graph: `meta/src/lifeos/reports/blueprint-task-graph.tsv` (203 rows);
+conflict/gap cross-check: `meta/src/lifeos/reports/blueprint-task-crosscheck.md` (7 conflicts
+resolved verify-first, 0 gaps). Codex claims tasks by moving them to `active`, in the
+execution order stated in each task's Context (RV§17 authority gates).

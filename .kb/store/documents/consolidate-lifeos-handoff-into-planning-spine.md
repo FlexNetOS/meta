@@ -5,6 +5,7 @@ title: "Consolidate LifeOS handoff into Planning Spine"
 type: task
 status: completed
 priority: medium
+assignee: 379904488992935178
 ---
 
 ## Outcome

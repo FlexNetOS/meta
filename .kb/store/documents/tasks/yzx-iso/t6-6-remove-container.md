@@ -3,8 +3,9 @@ id: 019f8800-7168-7512-b5aa-a74201a6e783
 slug: tasks/yzx-iso/t6-6-remove-container
 title: "T6.6 — Remove docker Omada container + image"
 type: task
-status: draft
+status: completed
 priority: medium
+assignee: 379904488992935178
 tags: [yzx-iso, T6, impl]
 ---
 

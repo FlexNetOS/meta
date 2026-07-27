@@ -5,6 +5,7 @@ title: "Fix stale --jsons in root meta-worker agent doc"
 type: task
 status: completed
 priority: medium
+assignee: 379904488992935178
 tags: [docs, claude, alignment]
 ---
 

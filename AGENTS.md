@@ -20,7 +20,7 @@ policy files identify Meta and own the peer-repository fleet.
   Meta-owned payload, but are ignored by the Meta Git repository.
 - `/home/flexnetos/lifeos` is retired and must not be recreated as a competing
   workspace root or authority layer.
-- `/home/flexnetos/FlexNetOS` is a compatibility link to this Meta root, not a
+- `/home/flexnetos/meta` is a compatibility link to this Meta root, not a
   separate identity.
 
 READ `.kb/AGENTS.md`.

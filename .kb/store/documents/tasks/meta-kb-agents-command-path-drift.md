@@ -5,6 +5,7 @@ title: "Align .kb/AGENTS.md with git-kb command and workspace path"
 type: task
 status: completed
 priority: high
+assignee: 379904488992935178
 tags: [gitkb, agents, docs, workspace, commands]
 ---
 

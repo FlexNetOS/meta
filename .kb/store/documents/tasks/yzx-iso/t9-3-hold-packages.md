@@ -3,8 +3,9 @@ id: 019f8801-a59f-73c3-92aa-ccea906bcf55
 slug: tasks/yzx-iso/t9-3-hold-packages
 title: "T9.3 — Hold desktop-breaking packages during active work"
 type: task
-status: draft
+status: completed
 priority: medium
+assignee: 379904488992935178
 tags: [yzx-iso, T9, impl]
 ---
 

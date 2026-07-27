@@ -3,8 +3,9 @@ id: 019f8801-a46c-72c3-b1d6-812809cde540
 slug: tasks/yzx-iso/t7-5-session-restore
 title: "T7.5 — Restore resumable session context"
 type: task
-status: draft
+status: completed
 priority: medium
+assignee: 379904488992935178
 tags: [yzx-iso, T7, impl]
 ---
 

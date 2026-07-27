@@ -50,6 +50,10 @@ projects:
   agent:
     repo: git@github.com:FlexNetOS/agent.git
 
+  atc:
+    repo: git@github.com:FlexNetOS/atc.git
+    path: src/atc
+
   # FlexNetOS product and workspace peers
   lifeos:
     repo: git@github.com:FlexNetOS/lifeos.git
@@ -61,7 +65,7 @@ projects:
     depends_on: [loop-lib, plugin-protocol]
 
   teri:
-    repo: https://github.com/FlexNetOS/teri.git
+    repo: git@github.com:FlexNetOS/teri.git
     path: src/teri
 
   beads_rust:
@@ -132,7 +136,7 @@ projects:
     path: src/prompt_hub
 
   rtk-tokenkill:
-    repo: https://github.com/FlexNetOS/rtk-tokenkill.git
+    repo: git@github.com:FlexNetOS/rtk-tokenkill.git
     path: src/rtk-tokenkill
 
   ruflo:

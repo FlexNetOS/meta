@@ -5,6 +5,7 @@ title: "Document and guard destructive meta_mcp tools"
 type: task
 status: completed
 priority: high
+assignee: 379904488992935178
 tags: [meta_mcp, safety, mcp]
 ---
 

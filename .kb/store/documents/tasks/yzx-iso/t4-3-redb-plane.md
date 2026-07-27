@@ -3,8 +3,9 @@ id: 019f8800-6fe0-7173-8906-66f797769a12
 slug: tasks/yzx-iso/t4-3-redb-plane
 title: "T4.3 — Wire redb transient shared plane"
 type: task
-status: draft
+status: completed
 priority: medium
+assignee: 379904488992935178
 tags: [yzx-iso, T4, impl]
 ---
 

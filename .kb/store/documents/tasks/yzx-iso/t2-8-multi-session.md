@@ -3,8 +3,9 @@ id: 019f87ff-9068-7411-aab3-10bf0fe2e626
 slug: tasks/yzx-iso/t2-8-multi-session
 title: "T2.8 — Support concurrent envelopes / sessions"
 type: task
-status: draft
+status: completed
 priority: low
+assignee: 379904488992935178
 tags: [yzx-iso, T2, impl]
 ---
 

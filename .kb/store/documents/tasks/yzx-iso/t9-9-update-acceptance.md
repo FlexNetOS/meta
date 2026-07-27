@@ -3,8 +3,9 @@ id: 019f8801-a605-7ae1-8b43-c2fe18fca560
 slug: tasks/yzx-iso/t9-9-update-acceptance
 title: "T9.9 — Acceptance: host full-upgrade+reboot, LifeOS unaffected"
 type: task
-status: draft
+status: completed
 priority: high
+assignee: 379904488992935178
 tags: [yzx-iso, T9, acceptance]
 ---
 

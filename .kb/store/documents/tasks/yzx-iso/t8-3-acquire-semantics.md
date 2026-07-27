@@ -3,8 +3,9 @@ id: 019f8801-a4f5-7691-9034-8bfcc950de68
 slug: tasks/yzx-iso/t8-3-acquire-semantics
 title: "T8.3 — Implement acquisition semantics"
 type: task
-status: draft
+status: completed
 priority: medium
+assignee: 379904488992935178
 tags: [yzx-iso, T8, impl]
 ---
 

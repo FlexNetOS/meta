@@ -3,8 +3,9 @@ id: 019f80db-43f4-7730-8671-f8c061006f42
 slug: tasks/envctl-github-worktree-consolidation
 title: "Consolidate Envctl worktrees pull requests and branches"
 type: task
-status: active
+status: completed
 priority: critical
+assignee: 379904488992935178
 ---
 
 ## Objective

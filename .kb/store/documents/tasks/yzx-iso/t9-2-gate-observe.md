@@ -5,6 +5,7 @@ title: "T9.2 — Gate/observe updates via the control plane"
 type: task
 status: completed
 priority: medium
+assignee: 379904488992935178
 tags: [yzx-iso, T9, impl]
 ---
 

@@ -3,8 +3,9 @@ id: 019f8801-a539-7141-aefd-481fbf0468a9
 slug: tasks/yzx-iso/t8-7-safety-guards
 title: "T8.7 — Safety guards: no permanent takeover"
 type: task
-status: draft
+status: completed
 priority: high
+assignee: 379904488992935178
 tags: [yzx-iso, T8, test]
 ---
 

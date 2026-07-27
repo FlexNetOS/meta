@@ -3,8 +3,9 @@ id: 019f8800-70f2-7eb0-93d2-65b07b3712e8
 slug: tasks/yzx-iso/t5-9-residual-acceptance
 title: "T5.9 — Acceptance: zero residuals, path-law green"
 type: task
-status: draft
+status: completed
 priority: high
+assignee: 379904488992935178
 tags: [yzx-iso, T5, acceptance]
 ---
 

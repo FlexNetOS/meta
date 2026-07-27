@@ -5,6 +5,7 @@ title: "Implement byte-exact rtk_nu adapter"
 type: task
 status: completed
 priority: high
+assignee: 379904488992935178
 tags: [architecture-blueprint, rtk-nu, byte-lineage, rtk-tokenkill]
 ---
 

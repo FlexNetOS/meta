@@ -69,7 +69,19 @@ run:
 	cargo run
 
 test:
+	lock-panic-check
 	RUST_BACKTRACE=$(RUST_BACKTRACE) RUST_LOG=$(RUST_LOG) cargo nextest run --workspace
+
+verify: lock-panic-check
+	cargo fmt --all -- --check
+	cargo clippy --workspace --all-targets --all-features -- -D warnings
+	cargo test --workspace
+
+verify-links:
+	rg -q "docs/lock-panic-audit\\.md" README.md CONTRIBUTING.md docs/contributing.md
+
+lock-panic-check:
+	.github/scripts/check-lock-panics.sh
 
 test-meta-git-clone: rm-meta
 	RUST_BACKTRACE=$(RUST_BACKTRACE) RUST_LOG=$(RUST_LOG) cargo run --release --bin meta -- git clone git@github.com:mateodelnorte/meta.git
@@ -102,10 +114,12 @@ endif
 #   make bats FILE="cloud"       - Run worktree_cloud.bats
 #   make bats FILTER="prune"     - Run tests with "prune" in name
 bats:
+	lock-panic-check
 	cargo build --workspace
 	bats $(BATS_FLAGS) $(if $(FILE),$(wildcard tests/*$(FILE)*.bats),tests/)
 
 integration-test:
+	lock-panic-check
 	cargo build -p meta
 	RUST_BACKTRACE=$(RUST_BACKTRACE) RUST_LOG=$(RUST_LOG) META_CLI_PATH=target/debug/meta CARGO_BIN_EXE_meta=target/debug/meta cargo nextest run --workspace
 
@@ -116,4 +130,4 @@ uninstall:
 	cargo uninstall meta_rust_cli 2>/dev/null || true
 	rm -f ~/.meta/plugins/meta-git ~/.meta/plugins/meta-project ~/.meta/plugins/meta-rust
 
-.PHONY: install install-hooks build run test bats release integration-test
+.PHONY: install install-hooks build run test verify verify-links lock-panic-check bats release integration-test

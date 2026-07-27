@@ -5,6 +5,7 @@ title: "Capture live GitKB code intelligence snapshot"
 type: task
 status: completed
 priority: high
+assignee: 379904488992935178
 tags: [gitkb, code-intelligence, meta, proof]
 ---
 

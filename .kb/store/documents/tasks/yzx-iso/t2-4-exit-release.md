@@ -3,8 +3,9 @@ id: 019f87ff-9027-7541-988f-17037eb30c7f
 slug: tasks/yzx-iso/t2-4-exit-release
 title: "T2.4 — Implement clean exit / release lifecycle"
 type: task
-status: draft
+status: completed
 priority: medium
+assignee: 379904488992935178
 tags: [yzx-iso, T2, impl]
 ---
 

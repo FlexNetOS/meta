@@ -3,8 +3,9 @@ id: 019f8800-7113-7212-8af6-b268eee2fcf5
 slug: tasks/yzx-iso/t6-1-package-omada
 title: "T6.1 — Package Omada controller (Java+Mongo) as nix"
 type: task
-status: draft
+status: completed
 priority: high
+assignee: 379904488992935178
 tags: [yzx-iso, T6, impl]
 ---
 

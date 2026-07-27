@@ -5,6 +5,7 @@ title: "Document FlexNetOS meta system architecture"
 type: task
 status: completed
 priority: high
+assignee: 379904488992935178
 tags: [docs, architecture, gitkb, release]
 ---
 

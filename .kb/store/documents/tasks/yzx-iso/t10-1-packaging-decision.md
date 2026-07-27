@@ -3,8 +3,9 @@ id: 019f8801-a627-7481-bed5-6e3ff9569704
 slug: tasks/yzx-iso/t10-1-packaging-decision
 title: "T10.1 — Decide release packaging strategy"
 type: task
-status: draft
+status: completed
 priority: high
+assignee: 379904488992935178
 tags: [yzx-iso, T10, design]
 ---
 

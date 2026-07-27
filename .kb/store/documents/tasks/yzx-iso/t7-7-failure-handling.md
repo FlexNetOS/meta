@@ -5,6 +5,7 @@ title: "T7.7 — Handle partial state / dirty shutdown"
 type: task
 status: completed
 priority: medium
+assignee: 379904488992935178
 tags: [yzx-iso, T7, test]
 ---
 

@@ -5,6 +5,7 @@ title: "Finish LifeOS GitHub integration"
 type: task
 status: completed
 priority: critical
+assignee: 379904488992935178
 ---
 
 ## Objective

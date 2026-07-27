@@ -3,8 +3,9 @@ id: 019f5083-4256-7cc2-96ca-866ef5e98502
 slug: tasks/lifeos-notebooklm-source-claim-complete-proof
 title: "Prove every NotebookLM source claim against canonical evidence"
 type: task
-status: draft
+status: completed
 priority: medium
+assignee: 379904488992935178
 ---
 
 ## Objective

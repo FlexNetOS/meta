@@ -3,8 +3,9 @@ id: 019f87ff-8fd4-7cc2-bfe0-1a571b45d1fa
 slug: tasks/yzx-iso/t1-9-ratify-spec
 title: "T1.9 — Review and ratify the normative spec"
 type: task
-status: draft
+status: completed
 priority: high
+assignee: 379904488992935178
 tags: [yzx-iso, T1, acceptance]
 ---
 

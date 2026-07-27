@@ -5,6 +5,7 @@ title: "Make meta_core atomic writes collision-safe"
 type: task
 status: completed
 priority: medium
+assignee: 379904488992935178
 tags: [meta_core, store, concurrency]
 ---
 

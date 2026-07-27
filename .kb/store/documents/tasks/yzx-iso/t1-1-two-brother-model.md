@@ -3,8 +3,9 @@ id: 019f87ff-8f4f-7783-a108-63dc57e1ea97
 slug: tasks/yzx-iso/t1-1-two-brother-model
 title: "T1.1 — Formalize the two-brother control model"
 type: task
-status: draft
+status: completed
 priority: high
+assignee: 379904488992935178
 tags: [yzx-iso, T1, architecture]
 ---
 

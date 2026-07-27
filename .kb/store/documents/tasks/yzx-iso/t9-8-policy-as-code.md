@@ -3,8 +3,9 @@ id: 019f8801-a5f4-76a2-b624-ccc99f5c76d8
 slug: tasks/yzx-iso/t9-8-policy-as-code
 title: "T9.8 — Update policy as code + guard"
 type: task
-status: draft
+status: completed
 priority: medium
+assignee: 379904488992935178
 tags: [yzx-iso, T9, impl]
 ---
 

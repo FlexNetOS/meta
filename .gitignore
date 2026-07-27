@@ -111,3 +111,6 @@ meta-plugins/
 .worktrees/
 
 .env
+
+# local agent worktrees -- never part of the tree
+.claude/worktrees/

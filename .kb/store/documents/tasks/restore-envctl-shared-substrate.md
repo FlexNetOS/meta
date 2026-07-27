@@ -3,8 +3,9 @@ id: 019f8118-c235-7b91-aa89-ce4640bc3ef5
 slug: tasks/restore-envctl-shared-substrate
 title: "Restore envctl shared substrate for active frontdoor"
 type: task
-status: active
+status: completed
 priority: high
+assignee: 379904488992935178
 parent: tasks/architecture-data-pipeline-blueprint
 ---
 

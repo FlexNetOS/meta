@@ -3,8 +3,9 @@ id: 019f8801-a45c-7a21-ac5a-e90b521dc6cc
 slug: tasks/yzx-iso/t7-4-service-restart
 title: "T7.4 — Orchestrate service restart order"
 type: task
-status: draft
+status: completed
 priority: medium
+assignee: 379904488992935178
 tags: [yzx-iso, T7, impl]
 ---
 

@@ -3,8 +3,9 @@ id: 019f8801-a47d-7521-898c-5a6ce6a36a47
 slug: tasks/yzx-iso/t7-6-manual-recovery
 title: "T7.6 — Single-command manual recovery path"
 type: task
-status: draft
+status: completed
 priority: low
+assignee: 379904488992935178
 tags: [yzx-iso, T7, impl]
 ---
 

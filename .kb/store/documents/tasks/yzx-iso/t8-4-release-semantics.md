@@ -3,8 +3,9 @@ id: 019f8801-a506-7eb2-b257-513195852dcd
 slug: tasks/yzx-iso/t8-4-release-semantics
 title: "T8.4 — Implement clean-release semantics"
 type: task
-status: draft
+status: completed
 priority: high
+assignee: 379904488992935178
 tags: [yzx-iso, T8, impl]
 ---
 

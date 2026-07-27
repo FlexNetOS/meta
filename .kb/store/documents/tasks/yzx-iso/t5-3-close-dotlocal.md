@@ -3,8 +3,9 @@ id: 019f8800-708b-7480-8468-631ccf68f90c
 slug: tasks/yzx-iso/t5-3-close-dotlocal
 title: "T5.3 — Close ~/.local/share tool state via migrate runbook"
 type: task
-status: draft
+status: completed
 priority: high
+assignee: 379904488992935178
 tags: [yzx-iso, T5, impl]
 ---
 

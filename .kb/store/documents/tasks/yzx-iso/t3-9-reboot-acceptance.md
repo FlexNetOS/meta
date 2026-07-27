@@ -3,8 +3,9 @@ id: 019f87ff-911f-77a3-9f09-550c9d686f8b
 slug: tasks/yzx-iso/t3-9-reboot-acceptance
 title: "T3.9 — Acceptance: live session survives reboot"
 type: task
-status: draft
+status: completed
 priority: high
+assignee: 379904488992935178
 tags: [yzx-iso, T3, acceptance]
 ---
 

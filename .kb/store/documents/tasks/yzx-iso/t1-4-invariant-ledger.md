@@ -3,8 +3,9 @@ id: 019f87ff-8f81-76f1-a8ec-4b4bdd288524
 slug: tasks/yzx-iso/t1-4-invariant-ledger
 title: "T1.4 — Author the numbered invariant ledger"
 type: task
-status: draft
+status: completed
 priority: high
+assignee: 379904488992935178
 tags: [yzx-iso, T1, architecture]
 ---
 

@@ -5,6 +5,7 @@ title: "Repeat GitKB docs symbol walk and close task rail gaps"
 type: task
 status: completed
 priority: high
+assignee: 379904488992935178
 parent: tasks/meta-gitkb-docs-command-config-extraction
 ---
 

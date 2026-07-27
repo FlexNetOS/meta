@@ -3,8 +3,9 @@ id: 019f8801-a5e3-7be3-b322-3c7147c067ea
 slug: tasks/yzx-iso/t9-7-kernel-swap
 title: "T9.7 — Handle kernel swap via persistence + re-attach"
 type: task
-status: draft
+status: completed
 priority: medium
+assignee: 379904488992935178
 tags: [yzx-iso, T9, test]
 ---
 

@@ -5,6 +5,7 @@ title: "Extract GitKB docs commands and configs into implementation tasks"
 type: task
 status: completed
 priority: high
+assignee: 379904488992935178
 ---
 
 # Summary

@@ -3,8 +3,9 @@ id: 019f8800-7056-7612-a910-3173d83dd46f
 slug: tasks/yzx-iso/t5-0-lane-index
 title: "T5.0 — Eliminate path-law residuals (lane index)"
 type: task
-status: draft
+status: completed
 priority: high
+assignee: 379904488992935178
 tags: [yzx-iso, T5, epic]
 ---
 

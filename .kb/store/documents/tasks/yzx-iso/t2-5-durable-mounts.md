@@ -3,8 +3,9 @@ id: 019f87ff-9038-7261-acd5-a4bd735734cd
 slug: tasks/yzx-iso/t2-5-durable-mounts
 title: "T2.5 — Wire durable-state mounts into the envelope"
 type: task
-status: draft
+status: completed
 priority: medium
+assignee: 379904488992935178
 tags: [yzx-iso, T2, impl]
 ---
 

@@ -5,6 +5,7 @@ title: "Fix stale plugin discovery locations in docs"
 type: task
 status: completed
 priority: high
+assignee: 379904488992935178
 tags: [docs, plugins]
 ---
 

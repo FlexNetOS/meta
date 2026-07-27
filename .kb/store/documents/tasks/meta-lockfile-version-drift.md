@@ -5,6 +5,7 @@ title: "Resolve Cargo.lock drift from workspace version bump"
 type: task
 status: completed
 priority: high
+assignee: 379904488992935178
 tags: [cargo, verification, lockfile]
 ---
 

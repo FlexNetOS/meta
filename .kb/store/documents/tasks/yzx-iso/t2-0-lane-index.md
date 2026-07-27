@@ -3,8 +3,9 @@ id: 019f87ff-8fe4-7571-9bd6-8e60f8e83b4c
 slug: tasks/yzx-iso/t2-0-lane-index
 title: "T2.0 — Bubblewrap user-namespace envelope (lane index)"
 type: task
-status: draft
+status: completed
 priority: high
+assignee: 379904488992935178
 tags: [yzx-iso, T2, epic]
 ---
 

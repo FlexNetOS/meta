@@ -5,6 +5,7 @@ title: "T10.7 — Native-latency benchmark vs bare metal"
 type: task
 status: completed
 priority: medium
+assignee: 379904488992935178
 tags: [yzx-iso, T10, test]
 ---
 

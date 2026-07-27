@@ -61,6 +61,10 @@ jobs:
           git clone --depth 1 https://github.com/gitkb/meta_rust_cli.git
           git clone --depth 1 https://github.com/gitkb/meta_project_cli.git
 
+      - name: Check lock panic handling
+        run: .github/scripts/check-lock-panics.sh
+        shell: bash
+
       - name: Install Rust toolchain
         uses: dtolnay/rust-toolchain@stable
         with:
@@ -256,6 +260,10 @@ jobs:
           git clone --depth 1 https://github.com/gitkb/meta_plugin_protocol.git
           git clone --depth 1 https://github.com/gitkb/meta_rust_cli.git
           git clone --depth 1 https://github.com/gitkb/meta_project_cli.git
+
+      - name: Check lock panic handling
+        run: .github/scripts/check-lock-panics.sh
+        shell: bash
 
       - name: Install Rust toolchain
         uses: dtolnay/rust-toolchain@stable

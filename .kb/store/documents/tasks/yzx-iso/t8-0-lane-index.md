@@ -3,8 +3,9 @@ id: 019f8801-a4be-7da3-849c-ae0d9ef0315b
 slug: tasks/yzx-iso/t8-0-lane-index
 title: "T8.0 — Host-control plane / big brother (lane index)"
 type: task
-status: draft
+status: completed
 priority: high
+assignee: 379904488992935178
 tags: [yzx-iso, T8, epic]
 ---
 

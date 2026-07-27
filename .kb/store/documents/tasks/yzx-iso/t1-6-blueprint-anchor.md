@@ -3,8 +3,9 @@ id: 019f87ff-8fa3-7131-9806-672b4ea01f3d
 slug: tasks/yzx-iso/t1-6-blueprint-anchor
 title: "T1.6 — Anchor spec to the RuVector blueprint"
 type: task
-status: draft
+status: completed
 priority: medium
+assignee: 379904488992935178
 tags: [yzx-iso, T1, architecture]
 ---
 

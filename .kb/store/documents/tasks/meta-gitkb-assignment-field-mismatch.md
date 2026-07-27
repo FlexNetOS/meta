@@ -3,8 +3,9 @@ id: 019f223d-8754-7a40-b66e-2400b210fa53
 slug: tasks/meta-gitkb-assignment-field-mismatch
 title: "Fix GitKB assign and unassign field mismatch"
 type: task
-status: draft
+status: completed
 priority: medium
+assignee: 379904488992935178
 ---
 
 # Summary

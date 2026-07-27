@@ -3,8 +3,9 @@ id: 019f8800-7045-7fd2-b288-5e40e639af1f
 slug: tasks/yzx-iso/t4-9-durable-acceptance
 title: "T4.9 — Acceptance: reboot leaves state byte-identical"
 type: task
-status: draft
+status: completed
 priority: high
+assignee: 379904488992935178
 tags: [yzx-iso, T4, acceptance]
 ---
 

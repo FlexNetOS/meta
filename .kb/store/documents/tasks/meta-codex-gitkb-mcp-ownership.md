@@ -5,6 +5,7 @@ title: "Resolve Codex GitKB MCP ownership"
 type: task
 status: completed
 priority: high
+assignee: 379904488992935178
 ---
 
 # Summary

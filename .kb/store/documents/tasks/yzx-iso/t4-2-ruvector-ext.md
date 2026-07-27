@@ -3,8 +3,9 @@ id: 019f8800-6fcf-7b81-b1b0-c987b6cb07b1
 slug: tasks/yzx-iso/t4-2-ruvector-ext
 title: "T4.2 — Install/verify RuVector extension in schema extensions"
 type: task
-status: draft
+status: completed
 priority: high
+assignee: 379904488992935178
 tags: [yzx-iso, T4, impl]
 ---
 

@@ -3,8 +3,9 @@ id: 019f8801-a418-7272-b5f9-b2a77b7555d7
 slug: tasks/yzx-iso/t7-0-lane-index
 title: "T7.0 — Boot re-attach mechanism (lane index)"
 type: task
-status: draft
+status: completed
 priority: high
+assignee: 379904488992935178
 tags: [yzx-iso, T7, epic]
 ---
 

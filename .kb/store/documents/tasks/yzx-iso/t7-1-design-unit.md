@@ -3,8 +3,9 @@ id: 019f8801-a42a-7553-ac79-f425affe66a3
 slug: tasks/yzx-iso/t7-1-design-unit
 title: "T7.1 — Design the re-attach unit"
 type: task
-status: draft
+status: completed
 priority: high
+assignee: 379904488992935178
 tags: [yzx-iso, T7, design]
 ---
 

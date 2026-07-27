@@ -3,8 +3,9 @@ id: 019f8800-6ff0-71f2-984d-7c0935dfac4d
 slug: tasks/yzx-iso/t4-4-envctl-committer
 title: "T4.4 — Route ingress through envctl sole committer"
 type: task
-status: draft
+status: completed
 priority: high
+assignee: 379904488992935178
 tags: [yzx-iso, T4, impl]
 ---
 

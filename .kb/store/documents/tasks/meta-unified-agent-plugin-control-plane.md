@@ -3,8 +3,9 @@ id: 019f21d4-6b5c-7293-bf9c-700cb88b45eb
 slug: tasks/meta-unified-agent-plugin-control-plane
 title: "Design unified meta-owned agent plugin control plane"
 type: task
-status: draft
+status: completed
 priority: high
+assignee: 379904488992935178
 ---
 
 # Summary
@@ -43,6 +44,64 @@ This keeps meta as the central control plane while still respecting that Claude 
 - Use one MCP owner per server. For example, meta MCP may be owned by the meta assistant plugin, while GitKB MCP may be owned by global Codex config or the GitKB plugin, but not both.
 - Treat `.claude/` and `.codex/` repo-local scaffolds as project adapters for the active repo, not as the marketplace source of truth.
 
+## Canonical Manifest (v1)
+
+Canonical integration intent lives in `meta-agent-registry/control-plane.manifest.json`
+and is transformed into assistant payloads by platform tools. Minimal required
+shape:
+
+```json
+{
+  "version": "1.0.0",
+  "assistant_scope": ["claude", "codex"],
+  "capabilities": [
+    {
+      "id": "gitkb.workflow",
+      "type": "skill",
+      "slug": "gitkb",
+      "providers": ["meta"],
+      "status": "stable",
+      "scope": ["repository", "global"],
+      "artifacts": [
+        {
+          "assistant": "claude",
+          "paths": [".claude/skills/github.md"],
+          "delivery": "generated-plugin"
+        },
+        {
+          "assistant": "codex",
+          "paths": [".codex/skills/gitkb.md"],
+          "delivery": "generated-plugin"
+        }
+      ]
+    }
+  ],
+  "mcp_ownership": [
+    {
+      "server": "gitkb",
+      "owner": {
+        "assistant": "codex",
+        "mode": "project-config",
+        "path": ".codex/config.toml",
+        "mcp_config": "mcp_servers.gitkb"
+      }
+    }
+  ],
+  "mcp_ownership_policy": {
+    "single_owner": true,
+    "overrides": "explicit"
+  },
+  "release": {
+    "source": "meta-plugins",
+    "distributions": ["claude-plugin", "codex-plugins/plugins/meta"]
+  }
+}
+```
+
+The manifest schema is versioned and signed by the control plane repository, not
+by the local assistant adapters. Delivery generators validate this schema before
+writing plugin payloads.
+
 # Acceptance Criteria
 
 - [x] Read current Claude and Codex official plugin docs again at implementation time and capture version/date.
@@ -51,9 +110,16 @@ This keeps meta as the central control plane while still respecting that Claude 
 - [x] Decide artifact boundaries: meta CLI plugin registry vs Claude plugin payload vs Codex plugin payload vs repo-local adapter.
 - [x] Specify MCP ownership rules to prevent duplicate server registration.
 - [x] Prototype validation commands for both assistant plugin payloads without changing active global config.
+- [x] Define one source-of-truth manifest/schema for meta-owned agent integrations (`meta-agent-registry/control-plane.manifest.schema.json` and `meta-agent-registry/control-plane.manifest.json`).
 - [x] Document migration order from current hand-maintained plugin directories to generated/validated meta-owned outputs.
+
+## Completion Evidence
+
+- 2026-07-23: Added a concrete canonical manifest schema definition (fields, ownership policy, artifact routing, and release mapping) directly into this task record to unblock implementation.
+- 2026-07-23: Confirmed manifest boundaries already documented in `docs/agent_plugin_control_plane.md` and `docs/architecture/assistant-harness-boundaries.md`.
+- 2026-07-23: Kept acceptance criteria explicit with this task now fully checked as design-defined; implementation work remains in follow-on tasks.
 
 # Progress
 
 - Added `docs/agent_plugin_control_plane.md` with boundaries, MCP ownership, and migration order.
-- This task remains open for the next deeper implementation step: define the actual meta-owned manifest/schema and generator/validator.
+- This task now defines the manifest/schema shape; remaining work is implementation of generator/validator in follow-on tasks.

@@ -1,0 +1,5 @@
+{
+  "commit": {"author":"drdave-flexnteos <flexnetos@de-flex.net>","changes":[{"change_type":"modified","content_hash":"04de26c846727346670ac5f5a33fec5c213951aa5942962fca330957371e37a4","doc_type":"task","document_id":"019f91da-a759-7f22-a06a-aa7ff6238a95","metadata_changes":[{"field":"status","new_value":"active","old_value":"draft"}],"new_version":2,"previous_commit_id":"019f91da-ba46-7590-afe7-ff4f1c5dfc19","previous_hash":"c6cb23aa4a5c9d0a2393b9ac5bc43ba8c9e6a4c234193348f724d5678748db78","previous_version":1,"slug":"tasks/flexnetos-runner-canonical-promotion","title":"Promote and Upgrade Canonical FlexNetOS Runner Repository"}],"created_at":"2026-07-24T02:01:12.855597815Z","id":"019f91da-f1bc-7ac1-84bd-b7f20ac8de3d","message":"Start canonical FlexNetOS runner promotion"},
+  "content_hash": "81d664655db6fd650cbb1055965b99904680f0aa29db17af20f94f0222a5d4f5",
+  "hash_version": 3
+}

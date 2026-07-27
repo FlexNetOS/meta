@@ -5,6 +5,7 @@ title: "Clear stale Codex hook trust state for removed meta hooks"
 type: task
 status: completed
 priority: high
+assignee: 379904488992935178
 ---
 
 # Summary

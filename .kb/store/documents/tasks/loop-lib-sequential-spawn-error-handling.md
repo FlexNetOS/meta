@@ -5,6 +5,7 @@ title: "Return errors instead of panicking in loop_lib sequential spawn path"
 type: task
 status: completed
 priority: high
+assignee: 379904488992935178
 tags: [loop_lib, errors, verification]
 ---
 

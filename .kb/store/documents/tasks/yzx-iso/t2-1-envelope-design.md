@@ -3,8 +3,9 @@ id: 019f87ff-8ff4-7450-acdf-52b21928f8a4
 slug: tasks/yzx-iso/t2-1-envelope-design
 title: "T2.1 — Design envelope rootfs + bind-mount layout"
 type: task
-status: draft
+status: completed
 priority: high
+assignee: 379904488992935178
 tags: [yzx-iso, T2, design]
 ---
 

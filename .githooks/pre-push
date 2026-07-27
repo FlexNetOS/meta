@@ -45,6 +45,14 @@ if ! cargo fmt --all -- --check; then
 fi
 echo ""
 
+echo "==> Checking for lock panics..."
+if ! bash .github/scripts/check-lock-panics.sh; then
+    echo ""
+    echo "Lock panic check failed! Replace lock/read/write/try_lock/try_read/try_write unwrap/expect usage."
+    exit 1
+fi
+echo ""
+
 echo "==> Running clippy..."
 if ! cargo clippy --all-targets --all-features -- -D warnings; then
     echo ""

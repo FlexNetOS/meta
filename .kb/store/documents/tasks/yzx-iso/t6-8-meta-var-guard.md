@@ -3,8 +3,9 @@ id: 019f8800-718a-7e20-8090-ea66b21a0e93
 slug: tasks/yzx-iso/t6-8-meta-var-guard
 title: "T6.8 — Guard: meta/var never bind-mounted into a container"
 type: task
-status: draft
+status: completed
 priority: medium
+assignee: 379904488992935178
 tags: [yzx-iso, T6, test]
 ---
 

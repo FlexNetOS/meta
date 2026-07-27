@@ -3,8 +3,9 @@ id: 019f80f4-24ff-7b41-85a6-d6810fa5fdc1
 slug: tasks/lifeos-postgresql-durable-storage-cutover
 title: "Cut LifeOS durable storage over to PostgreSQL/RuVector"
 type: task
-status: active
+status: completed
 priority: critical
+assignee: 379904488992935178
 parent: tasks/architecture-data-pipeline-blueprint
 ---
 

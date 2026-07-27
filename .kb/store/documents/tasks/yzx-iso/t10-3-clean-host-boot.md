@@ -3,8 +3,9 @@ id: 019f8801-a64e-7b20-8330-b969bb81272a
 slug: tasks/yzx-iso/t10-3-clean-host-boot
 title: "T10.3 — Clean-host boot test (no nix daemon, no /nix/store)"
 type: task
-status: draft
+status: completed
 priority: medium
+assignee: 379904488992935178
 tags: [yzx-iso, T10, test]
 ---
 

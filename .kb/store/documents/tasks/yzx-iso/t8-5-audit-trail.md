@@ -3,8 +3,9 @@ id: 019f8801-a517-7120-8eaf-368c8e2f0e48
 slug: tasks/yzx-iso/t8-5-audit-trail
 title: "T8.5 — Audit trail for all acquire/release"
 type: task
-status: draft
+status: completed
 priority: medium
+assignee: 379904488992935178
 tags: [yzx-iso, T8, impl]
 ---
 

@@ -38,5 +38,5 @@ the fleet.
 - The root `.git`, `.kb`, and `.meta.yaml` remain the sole Meta identity.
 - Peer repositories remain independent Git histories; moving LifeOS into
   `src/` does not turn Meta into a monorepo.
-- `/home/flexnetos/FlexNetOS` remains only a compatibility link to the Meta
+- `/home/flexnetos/meta` remains only a compatibility link to the Meta
   root.
