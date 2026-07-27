@@ -74,7 +74,7 @@ enabled = true
 backend = "candle"
 batch_size = 16
 queue_size = 64
-batch_delay_ms = 0
+batch_delay_ms = 50
 
 [embeddings.index]
 path = ".kb/cache/index"
