@@ -5,6 +5,7 @@ title: "Verify every documented GitKB MCP parameter schema"
 type: task
 status: completed
 priority: high
+assignee: 379904488992935178
 parent: tasks/meta-gitkb-docs-command-config-extraction
 ---
 

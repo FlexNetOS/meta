@@ -3,8 +3,9 @@ id: 019f8800-7102-70c0-ae77-935ccc09e5f9
 slug: tasks/yzx-iso/t6-0-lane-index
 title: "T6.0 — Migrate Omada into Nix; retire Docker/KVM (lane index)"
 type: task
-status: draft
+status: completed
 priority: high
+assignee: 379904488992935178
 tags: [yzx-iso, T6, epic]
 ---
 

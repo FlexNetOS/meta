@@ -1,0 +1,5 @@
+{
+  "commit": {"author":"drdave-flexnteos <flexnetos@de-flex.net>","changes":[{"change_type":"created","content_hash":"f90b46de0406c67e635139ff13b0fbec564a3cbd12237457516b9c7c8d237d17","doc_type":"task","document_id":"019f9186-f5cb-7372-96c9-e435c10a2480","new_version":1,"previous_version":null,"slug":"tasks/gha-runner-expand-polish","title":"GHA runner — expand & polish (seed/vault mint, reboot-persistent MCP, CUDA agent)"}],"created_at":"2026-07-24T00:31:03.704024666Z","id":"019f9188-682e-7700-ba82-2d5357557227","message":"Create gha-runner expand/polish task (Phase 1 Spec)"},
+  "content_hash": "86dcf19b15659798b3ea1aaa20c6063d9ef1ec457004f2f3344b71055c961a72",
+  "hash_version": 3
+}

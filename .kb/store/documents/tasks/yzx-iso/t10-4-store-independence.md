@@ -3,8 +3,9 @@ id: 019f8801-a65e-7df1-a021-55ca124d8a79
 slug: tasks/yzx-iso/t10-4-store-independence
 title: "T10.4 — Verify store independence (RPATH/ldd audit)"
 type: task
-status: draft
+status: completed
 priority: medium
+assignee: 379904488992935178
 tags: [yzx-iso, T10, test]
 ---
 

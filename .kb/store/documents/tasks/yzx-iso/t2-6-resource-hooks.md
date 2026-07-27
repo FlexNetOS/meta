@@ -3,8 +3,9 @@ id: 019f87ff-9048-7273-97a5-e9c880efb120
 slug: tasks/yzx-iso/t2-6-resource-hooks
 title: "T2.6 — Resource acquisition hooks (GPU/ports/devices)"
 type: task
-status: draft
+status: completed
 priority: medium
+assignee: 379904488992935178
 tags: [yzx-iso, T2, impl]
 ---
 

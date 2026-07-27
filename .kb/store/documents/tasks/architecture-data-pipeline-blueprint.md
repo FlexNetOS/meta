@@ -3,8 +3,9 @@ id: 019f8089-443c-7ad1-b431-6ed8a7a4ec0d
 slug: tasks/architecture-data-pipeline-blueprint
 title: "Build and verify expanded RuVector architecture blueprint"
 type: task
-status: active
+status: completed
 priority: critical
+assignee: 379904488992935178
 ---
 
 ## Objective

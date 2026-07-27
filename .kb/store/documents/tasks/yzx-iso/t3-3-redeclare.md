@@ -3,8 +3,9 @@ id: 019f87ff-90bb-74f2-8b09-efb53af2168c
 slug: tasks/yzx-iso/t3-3-redeclare
 title: "T3.3 — Redeclare profile-runtime paths in the flake/env engine"
 type: task
-status: draft
+status: completed
 priority: high
+assignee: 379904488992935178
 tags: [yzx-iso, T3, impl]
 ---
 

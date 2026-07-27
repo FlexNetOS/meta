@@ -3,8 +3,9 @@ id: 019f2191-017c-7d00-af9c-03c18bd8af1b
 slug: tasks/loop-cli-library-surface-parity
 title: "Reconcile loop CLI and loop_lib surface parity"
 type: task
-status: draft
+status: completed
 priority: medium
+assignee: 379904488992935178
 tags: [loop_cli, loop_lib, docs, verification]
 ---
 

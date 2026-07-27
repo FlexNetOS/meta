@@ -3,8 +3,9 @@ id: 019f8801-a63d-72c2-a1eb-4f68a7b80ade
 slug: tasks/yzx-iso/t10-2-build-closure
 title: "T10.2 — Build the portable closure"
 type: task
-status: draft
+status: completed
 priority: medium
+assignee: 379904488992935178
 tags: [yzx-iso, T10, impl]
 ---
 

@@ -5,6 +5,7 @@ title: "Repeat source walk for initial 14 meta repos and hooks"
 type: task
 status: completed
 priority: high
+assignee: 379904488992935178
 tags: [meta, source-walk, hooks, gitkb, memory]
 ---
 

@@ -5,6 +5,7 @@ title: "Fix stale command and plugin discovery docs in README"
 type: task
 status: completed
 priority: high
+assignee: 379904488992935178
 tags: [docs, readme, plugins]
 ---
 

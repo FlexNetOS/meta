@@ -5,6 +5,7 @@ title: "Define trust boundary for meta worktree hooks"
 type: task
 status: completed
 priority: medium
+assignee: 379904488992935178
 tags: [meta_git_lib, hooks, safety]
 ---
 

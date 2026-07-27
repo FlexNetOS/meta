@@ -3,8 +3,9 @@ id: 019f8800-70cd-7692-b326-7c86dd3f2337
 slug: tasks/yzx-iso/t5-7-residual-guard
 title: "T5.7 — Residual scanner / CI guard"
 type: task
-status: draft
+status: completed
 priority: medium
+assignee: 379904488992935178
 tags: [yzx-iso, T5, test]
 ---
 

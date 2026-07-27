@@ -3,8 +3,9 @@ id: 019f87ff-909b-76b1-939e-dec1b735bc6b
 slug: tasks/yzx-iso/t3-1-inventory
 title: "T3.1 — Inventory all vars pointing at host /run profile-runtime"
 type: task
-status: draft
+status: completed
 priority: high
+assignee: 379904488992935178
 tags: [yzx-iso, T3, impl]
 ---
 

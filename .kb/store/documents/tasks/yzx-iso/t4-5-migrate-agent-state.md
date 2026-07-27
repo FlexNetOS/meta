@@ -3,8 +3,9 @@ id: 019f8800-7000-7f80-9e2e-d0828a76f651
 slug: tasks/yzx-iso/t4-5-migrate-agent-state
 title: "T4.5 — Migrate agent/session/tool state into Postgres"
 type: task
-status: draft
+status: completed
 priority: medium
+assignee: 379904488992935178
 tags: [yzx-iso, T4, impl]
 ---
 

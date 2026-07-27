@@ -3,8 +3,9 @@ id: 019f8801-a54a-71e1-9833-de3259adfd60
 slug: tasks/yzx-iso/t8-8-control-tests
 title: "T8.8 — Control-plane acquire/release tests"
 type: task
-status: draft
+status: completed
 priority: medium
+assignee: 379904488992935178
 tags: [yzx-iso, T8, test]
 ---
 

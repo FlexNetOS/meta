@@ -3,8 +3,9 @@ id: 019f80a3-4a40-7de2-8a91-ca6864585cc2
 slug: tasks/gitkb-code-index-symbol-forwarding
 title: "Repair GitKB duplicate symbol-forwarding index failure"
 type: task
-status: active
+status: completed
 priority: high
+assignee: 379904488992935178
 tags: [gitkb, code-index, architecture-blueprint, incident]
 ---
 

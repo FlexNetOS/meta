@@ -3,8 +3,9 @@ id: 019f8800-7145-7e70-83e4-be0233d24901
 slug: tasks/yzx-iso/t6-4-data-migration
 title: "T6.4 — Migrate Omada data from docker mongo to nix mongo"
 type: task
-status: draft
+status: completed
 priority: medium
+assignee: 379904488992935178
 tags: [yzx-iso, T6, impl]
 ---
 

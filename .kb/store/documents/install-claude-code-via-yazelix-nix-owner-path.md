@@ -3,8 +3,10 @@ id: 019f5f02-3ee9-77c1-b17c-27da55bdf9e0
 slug: install-claude-code-via-yazelix-nix-owner-path
 title: "Install Claude Code via Yazelix Nix owner path"
 type: task
-status: active
+status: completed
 priority: high
+assignee: 379904488992935178
+agent_id: 379904488992935178
 tags: [claude-code, yazelix, nix, runtime-ownership]
 ---
 

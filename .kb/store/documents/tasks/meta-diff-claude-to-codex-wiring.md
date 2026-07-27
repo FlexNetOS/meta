@@ -3,8 +3,9 @@ id: 019f21c2-89ff-7e00-a898-83a1625f44d9
 slug: tasks/meta-diff-claude-to-codex-wiring
 title: "Extract Claude integration and diff missing Codex wiring"
 type: task
-status: draft
+status: completed
 priority: high
+assignee: 379904488992935178
 ---
 
 # Summary

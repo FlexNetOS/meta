@@ -5,6 +5,7 @@ title: "Add LifeOS portable agentic OS release roadmap"
 type: task
 status: completed
 priority: high
+assignee: 379904488992935178
 tags: [lifeos, release, roadmap, agentic-os, github-issue-98]
 ---
 

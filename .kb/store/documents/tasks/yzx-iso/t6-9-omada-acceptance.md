@@ -3,8 +3,9 @@ id: 019f8800-719b-7360-8e12-acfc0866fb95
 slug: tasks/yzx-iso/t6-9-omada-acceptance
 title: "T6.9 — Acceptance: Omada on nix, docker/kvm off, host normal"
 type: task
-status: draft
+status: completed
 priority: high
+assignee: 379904488992935178
 tags: [yzx-iso, T6, acceptance]
 ---
 

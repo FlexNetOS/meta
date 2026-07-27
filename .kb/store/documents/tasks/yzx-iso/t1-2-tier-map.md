@@ -3,8 +3,9 @@ id: 019f87ff-8f60-7182-81a6-41de3e5b97a4
 slug: tasks/yzx-iso/t1-2-tier-map
 title: "T1.2 — Define the volatile / durable / portable tier map"
 type: task
-status: draft
+status: completed
 priority: high
+assignee: 379904488992935178
 tags: [yzx-iso, T1, architecture]
 ---
 

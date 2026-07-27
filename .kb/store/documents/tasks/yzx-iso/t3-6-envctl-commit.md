@@ -3,8 +3,9 @@ id: 019f87ff-90ee-79d0-91bc-ab52f15cb823
 slug: tasks/yzx-iso/t3-6-envctl-commit
 title: "T3.6 — Update envctl committer for new runtime rows"
 type: task
-status: draft
+status: completed
 priority: high
+assignee: 379904488992935178
 tags: [yzx-iso, T3, impl]
 ---
 

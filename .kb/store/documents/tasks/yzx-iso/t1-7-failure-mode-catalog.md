@@ -3,8 +3,9 @@ id: 019f87ff-8fb3-7283-b037-17f35b35d64f
 slug: tasks/yzx-iso/t1-7-failure-mode-catalog
 title: "T1.7 — Catalog isolation failure modes"
 type: task
-status: draft
+status: completed
 priority: medium
+assignee: 379904488992935178
 tags: [yzx-iso, T1, architecture]
 ---
 

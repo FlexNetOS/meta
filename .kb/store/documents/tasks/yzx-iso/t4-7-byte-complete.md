@@ -3,8 +3,9 @@ id: 019f8800-7024-78e0-b58c-3b76bd05539d
 slug: tasks/yzx-iso/t4-7-byte-complete
 title: "T4.7 — Verify byte-complete ingress (nu_plugin/CodeDB)"
 type: task
-status: draft
+status: completed
 priority: medium
+assignee: 379904488992935178
 tags: [yzx-iso, T4, test]
 ---
 

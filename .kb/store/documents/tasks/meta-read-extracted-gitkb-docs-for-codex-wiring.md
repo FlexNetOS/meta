@@ -5,6 +5,7 @@ title: "Read extracted GitKB docs before Codex wiring"
 type: task
 status: completed
 priority: high
+assignee: 379904488992935178
 ---
 
 # Summary

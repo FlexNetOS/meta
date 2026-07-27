@@ -3,8 +3,9 @@ id: 019f87ff-8f93-7e00-b320-b5f12852b196
 slug: tasks/yzx-iso/t1-5-conformance-tests
 title: "T1.5 — Define per-goal conformance tests"
 type: task
-status: draft
+status: completed
 priority: medium
+assignee: 379904488992935178
 tags: [yzx-iso, T1, test]
 ---
 

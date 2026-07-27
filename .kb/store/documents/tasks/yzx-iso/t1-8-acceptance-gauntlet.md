@@ -3,8 +3,9 @@ id: 019f87ff-8fc3-7181-92de-f2d9f40e7aa0
 slug: tasks/yzx-iso/t1-8-acceptance-gauntlet
 title: "T1.8 — Specify the end-to-end acceptance gauntlet"
 type: task
-status: draft
+status: completed
 priority: medium
+assignee: 379904488992935178
 tags: [yzx-iso, T1, test]
 ---
 

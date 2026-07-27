@@ -3,8 +3,9 @@ id: 019f8800-707a-71d0-964d-cf7d184a017d
 slug: tasks/yzx-iso/t5-2-close-dotclaude
 title: "T5.2 — Close ~/.claude active owner"
 type: task
-status: draft
+status: completed
 priority: high
+assignee: 379904488992935178
 tags: [yzx-iso, T5, impl]
 ---
 

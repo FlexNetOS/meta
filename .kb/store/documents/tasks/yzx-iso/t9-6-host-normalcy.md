@@ -3,8 +3,9 @@ id: 019f8801-a5d1-7ae1-a509-1d0d9f17b386
 slug: tasks/yzx-iso/t9-6-host-normalcy
 title: "T9.6 — Validate host still updates/reboots normally"
 type: task
-status: draft
+status: completed
 priority: medium
+assignee: 379904488992935178
 tags: [yzx-iso, T9, test]
 ---
 

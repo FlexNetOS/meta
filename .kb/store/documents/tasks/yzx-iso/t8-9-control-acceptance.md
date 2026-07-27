@@ -3,8 +3,9 @@ id: 019f8801-a55b-7d40-8775-8ca0d063633d
 slug: tasks/yzx-iso/t8-9-control-acceptance
 title: "T8.9 — Acceptance: commandeer + release, OS normal throughout"
 type: task
-status: draft
+status: completed
 priority: high
+assignee: 379904488992935178
 tags: [yzx-iso, T8, acceptance]
 ---
 

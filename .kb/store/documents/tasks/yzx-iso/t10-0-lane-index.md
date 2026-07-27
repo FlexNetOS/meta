@@ -3,8 +3,9 @@ id: 019f8801-a616-7831-8538-020fd896dc12
 slug: tasks/yzx-iso/t10-0-lane-index
 title: "T10.0 — Portable release + prove isolation (lane index)"
 type: task
-status: draft
+status: completed
 priority: high
+assignee: 379904488992935178
 tags: [yzx-iso, T10, epic]
 ---
 

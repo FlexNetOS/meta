@@ -3,8 +3,9 @@ id: 019f8800-70e0-7372-a705-fa0a00c2cb82
 slug: tasks/yzx-iso/t5-8-restart-gate
 title: "T5.8 — Restart-gated finalize ordering"
 type: task
-status: draft
+status: completed
 priority: medium
+assignee: 379904488992935178
 tags: [yzx-iso, T5, impl]
 ---
 

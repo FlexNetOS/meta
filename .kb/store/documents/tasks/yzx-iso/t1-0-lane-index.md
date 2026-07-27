@@ -3,8 +3,9 @@ id: 019f87f6-b4fa-79c3-b21f-8d52f5c3974a
 slug: tasks/yzx-iso/t1-0-lane-index
 title: "T1.0 — Isolation architecture spec & invariant ledger (lane index)"
 type: task
-status: draft
+status: completed
 priority: high
+assignee: 379904488992935178
 tags: [yzx-iso, T1, architecture, epic]
 ---
 

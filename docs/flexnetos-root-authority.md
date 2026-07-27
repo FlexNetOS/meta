@@ -11,7 +11,7 @@
     `-- lifeos/                   FlexNetOS/lifeos Meta peer
 ```
 
-`/home/flexnetos/FlexNetOS` may remain as a compatibility symlink to
+`/home/flexnetos/meta` may remain as a compatibility symlink to
 `/home/flexnetos/meta`. `/home/flexnetos/lifeos` is retired and must remain
 absent so it cannot compete with Meta for workspace identity or authority.
 

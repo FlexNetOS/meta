@@ -3,8 +3,9 @@ id: 019f8800-70bc-7393-97f8-5759427cf065
 slug: tasks/yzx-iso/t5-6-host-shell-audit
 title: "T5.6 — Audit host default shell stays bash"
 type: task
-status: draft
+status: completed
 priority: low
+assignee: 379904488992935178
 tags: [yzx-iso, T5, test]
 ---
 

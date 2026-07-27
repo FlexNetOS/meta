@@ -23,3 +23,17 @@ messages before push when installed with:
 ```sh
 make install-hooks
 ```
+
+Before running `git push`, run the repository verification target:
+
+```sh
+make verify
+```
+
+`make verify` now runs:
+
+- `make lock-panic-check` to reject `lock()/read()/write()/try_lock()/try_read()/try_write()` with
+  `unwrap()`/`expect()`
+- formatting check
+- clippy with warnings as errors
+- full workspace tests

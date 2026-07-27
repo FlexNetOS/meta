@@ -3,8 +3,9 @@ id: 019f87ff-90cb-77b1-aa90-77601166b37e
 slug: tasks/yzx-iso/t3-4-keep-volatile
 title: "T3.4 — Keep volatile tier on tmpfs (verify)"
 type: task
-status: draft
+status: completed
 priority: medium
+assignee: 379904488992935178
 tags: [yzx-iso, T3, impl]
 ---
 

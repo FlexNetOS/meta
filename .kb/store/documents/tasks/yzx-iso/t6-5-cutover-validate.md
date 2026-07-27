@@ -3,8 +3,9 @@ id: 019f8800-7157-72d2-8853-0fee7c8198b9
 slug: tasks/yzx-iso/t6-5-cutover-validate
 title: "T6.5 — Cut over and validate network mgmt continuity"
 type: task
-status: draft
+status: completed
 priority: medium
+assignee: 379904488992935178
 tags: [yzx-iso, T6, test]
 ---
 

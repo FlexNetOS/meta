@@ -3,8 +3,9 @@ id: 019f87ff-90ab-75d2-a4d2-c33b88a5ef86
 slug: tasks/yzx-iso/t3-2-choose-root
 title: "T3.2 — Choose the persistent runtime root"
 type: task
-status: draft
+status: completed
 priority: high
+assignee: 379904488992935178
 tags: [yzx-iso, T3, design]
 ---
 

@@ -3,8 +3,9 @@ id: 019f87ff-9017-7cb1-b7fe-eb4ff5497f99
 slug: tasks/yzx-iso/t2-3-enter-lifecycle
 title: "T2.3 — Implement yzx enter entry lifecycle"
 type: task
-status: draft
+status: completed
 priority: medium
+assignee: 379904488992935178
 tags: [yzx-iso, T2, impl]
 ---
 

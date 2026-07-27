@@ -5,6 +5,7 @@ title: "Fix stale --ordered guidance in meta-safety skill"
 type: task
 status: completed
 priority: medium
+assignee: 379904488992935178
 tags: [docs, claude, meta-cli]
 ---
 

@@ -73,6 +73,7 @@ meta-plugins/
 # independent repositories or host/runtime state owned by Meta, not files to
 # absorb into this repository's history.
 /src/
+/flexnetos_runner/
 /artifacts/
 /etc/
 /hardware/
@@ -110,3 +111,6 @@ meta-plugins/
 .worktrees/
 
 .env
+
+# local agent worktrees -- never part of the tree
+.claude/worktrees/

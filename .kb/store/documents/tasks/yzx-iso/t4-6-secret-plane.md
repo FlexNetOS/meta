@@ -3,8 +3,9 @@ id: 019f8800-7012-7703-84bc-d5bd721077d5
 slug: tasks/yzx-iso/t4-6-secret-plane
 title: "T4.6 — Migrate secrets into envctl secret engine"
 type: task
-status: draft
+status: completed
 priority: medium
+assignee: 379904488992935178
 tags: [yzx-iso, T4, impl]
 ---
 

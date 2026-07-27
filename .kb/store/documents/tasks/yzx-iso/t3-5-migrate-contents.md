@@ -3,8 +3,9 @@ id: 019f87ff-90dd-7d40-a55d-3eb29b21040a
 slug: tasks/yzx-iso/t3-5-migrate-contents
 title: "T3.5 — Migrate existing profile-runtime contents"
 type: task
-status: draft
+status: completed
 priority: medium
+assignee: 379904488992935178
 tags: [yzx-iso, T3, impl]
 ---
 

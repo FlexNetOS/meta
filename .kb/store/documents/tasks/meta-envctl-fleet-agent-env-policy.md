@@ -3,8 +3,9 @@ id: 019f5c95-48d1-7d91-8bb7-2e837c157251
 slug: tasks/meta-envctl-fleet-agent-env-policy
 title: "Converge envctl agent environment through Meta fleet policy"
 type: task
-status: active
+status: completed
 priority: high
+assignee: 379904488992935178
 ---
 
 ## Objective

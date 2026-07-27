@@ -5,6 +5,7 @@ title: "Align local hooks, CI, and release verification"
 type: task
 status: completed
 priority: medium
+assignee: 379904488992935178
 tags: [ci, tests, verification]
 ---
 

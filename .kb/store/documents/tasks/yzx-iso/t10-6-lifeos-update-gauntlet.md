@@ -3,8 +3,9 @@ id: 019f8801-a67f-7462-ac1f-8f5dd9cf852f
 slug: tasks/yzx-iso/t10-6-lifeos-update-gauntlet
 title: "T10.6 — Gauntlet: LifeOS update -> zero host change"
 type: task
-status: draft
+status: completed
 priority: high
+assignee: 379904488992935178
 tags: [yzx-iso, T10, acceptance]
 ---
 

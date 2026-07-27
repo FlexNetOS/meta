@@ -3,8 +3,9 @@ id: 019f87ff-9058-7d73-a1bc-d42152e5f138
 slug: tasks/yzx-iso/t2-7-latency-validation
 title: "T2.7 — Validate native latency vs bare metal"
 type: task
-status: draft
+status: completed
 priority: medium
+assignee: 379904488992935178
 tags: [yzx-iso, T2, test]
 ---
 

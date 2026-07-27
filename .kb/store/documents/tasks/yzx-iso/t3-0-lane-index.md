@@ -3,8 +3,9 @@ id: 019f87ff-908b-7461-a95b-c10a8084539d
 slug: tasks/yzx-iso/t3-0-lane-index
 title: "T3.0 — Relocate runtime off host /run (lane index)"
 type: task
-status: draft
+status: completed
 priority: high
+assignee: 379904488992935178
 tags: [yzx-iso, T3, epic]
 ---
 

@@ -3,8 +3,9 @@ id: 019f8801-a5b0-7bd0-96b1-b5a3da95ddc9
 slug: tasks/yzx-iso/t9-4-deliberate-reboot
 title: "T9.4 — Make reboots deliberate"
 type: task
-status: draft
+status: completed
 priority: medium
+assignee: 379904488992935178
 tags: [yzx-iso, T9, impl]
 ---
 

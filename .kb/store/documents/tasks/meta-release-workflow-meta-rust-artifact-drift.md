@@ -5,6 +5,7 @@ title: "Include meta-rust in release artifacts and generated Homebrew formula"
 type: task
 status: completed
 priority: high
+assignee: 379904488992935178
 tags: [release, meta-rust, packaging]
 ---
 

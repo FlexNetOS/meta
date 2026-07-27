@@ -3,8 +3,9 @@ id: 019f8800-70ac-77a1-b601-583c99bbd18a
 slug: tasks/yzx-iso/t5-5-remove-flexnetos
 title: "T5.5 — Remove ~/FlexNetOS skeleton after re-point"
 type: task
-status: draft
+status: completed
 priority: medium
+assignee: 379904488992935178
 tags: [yzx-iso, T5, impl]
 ---
 

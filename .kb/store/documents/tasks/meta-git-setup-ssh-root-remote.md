@@ -5,6 +5,7 @@ title: "Include meta root SSH remote in setup-ssh"
 type: task
 status: completed
 priority: high
+assignee: 379904488992935178
 ---
 
 # Summary

@@ -3,8 +3,9 @@ id: 019f8801-a5c0-78c2-8ec0-54d4ff392d27
 slug: tasks/yzx-iso/t9-5-insulation-validate
 title: "T9.5 — Validate insulation (host upgrade does not touch LifeOS)"
 type: task
-status: draft
+status: completed
 priority: medium
+assignee: 379904488992935178
 tags: [yzx-iso, T9, test]
 ---
 

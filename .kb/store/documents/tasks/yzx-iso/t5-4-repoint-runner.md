@@ -3,8 +3,9 @@ id: 019f8800-709b-7152-bdd3-0785c707480c
 slug: tasks/yzx-iso/t5-4-repoint-runner
 title: "T5.4 — Re-point flexnetos_runner _work off ~/FlexNetOS"
 type: task
-status: draft
+status: completed
 priority: high
+assignee: 379904488992935178
 tags: [yzx-iso, T5, impl]
 ---
 

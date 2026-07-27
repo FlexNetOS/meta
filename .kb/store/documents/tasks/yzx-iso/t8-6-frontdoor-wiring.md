@@ -3,8 +3,9 @@ id: 019f8801-a528-76f2-90b6-299d754c4362
 slug: tasks/yzx-iso/t8-6-frontdoor-wiring
 title: "T8.6 — Wire Glass/Engine Room front door to control plane"
 type: task
-status: draft
+status: completed
 priority: medium
+assignee: 379904488992935178
 tags: [yzx-iso, T8, impl]
 ---
 

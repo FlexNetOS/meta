@@ -5,6 +5,7 @@ title: "Align child CI synthesized workspace versions"
 type: task
 status: completed
 priority: high
+assignee: 379904488992935178
 tags: [ci, version, workspace, alignment]
 ---
 

@@ -3,8 +3,9 @@ id: 019f8801-a43b-77a1-bc02-48fceb553e0c
 slug: tasks/yzx-iso/t7-2-rematerialize
 title: "T7.2 — Re-materialize the envelope on boot"
 type: task
-status: draft
+status: completed
 priority: medium
+assignee: 379904488992935178
 tags: [yzx-iso, T7, impl]
 ---
 

@@ -3,8 +3,9 @@ id: 019f8800-7123-7cd2-9aba-acc370c62dd4
 slug: tasks/yzx-iso/t6-2-mongo-datadir
 title: "T6.2 — Durable Mongo datadir on persistent storage"
 type: task
-status: draft
+status: completed
 priority: medium
+assignee: 379904488992935178
 tags: [yzx-iso, T6, impl]
 ---
 

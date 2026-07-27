@@ -5,6 +5,7 @@ title: "Audit GitKB code intelligence unresolved calls"
 type: task
 status: completed
 priority: high
+assignee: 379904488992935178
 tags: [gitkb, code-intelligence, meta, quality]
 ---
 

@@ -3,8 +3,9 @@ id: 019f87ff-8f71-7311-9973-a76fabcd9019
 slug: tasks/yzx-iso/t1-3-shared-kernel-boundary
 title: "T1.3 — State the shared-kernel boundary"
 type: task
-status: draft
+status: completed
 priority: high
+assignee: 379904488992935178
 tags: [yzx-iso, T1, architecture]
 ---
 

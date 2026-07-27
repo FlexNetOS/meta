@@ -3,8 +3,9 @@ id: 019f8800-7035-7c72-8150-b2377102c283
 slug: tasks/yzx-iso/t4-8-backup-restore
 title: "T4.8 — Backup/restore + integrity checks"
 type: task
-status: draft
+status: completed
 priority: medium
+assignee: 379904488992935178
 tags: [yzx-iso, T4, test]
 ---
 

@@ -5,6 +5,7 @@ title: "Include actual org SSH remotes in setup-ssh"
 type: task
 status: completed
 priority: high
+assignee: 379904488992935178
 tags: [meta-git, ssh, github, remotes]
 ---
 

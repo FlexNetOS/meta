@@ -3,8 +3,9 @@ id: 019f21fc-720e-7ac2-bd05-7460eaa34c6c
 slug: tasks/meta-gitkb-daemon-embedding-proof-suite
 title: "Prove GitKB daemon and embedding behavior"
 type: task
-status: active
+status: completed
 priority: medium
+assignee: 379904488992935178
 parent: tasks/meta-gitkb-docs-command-config-extraction
 ---
 

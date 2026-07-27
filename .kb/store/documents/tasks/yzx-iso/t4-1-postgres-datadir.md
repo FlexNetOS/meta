@@ -3,8 +3,9 @@ id: 019f8800-6fbf-7950-805e-a705474108cf
 slug: tasks/yzx-iso/t4-1-postgres-datadir
 title: "T4.1 — Postgres 17.10 + RuVector on persistent storage"
 type: task
-status: draft
+status: completed
 priority: high
+assignee: 379904488992935178
 tags: [yzx-iso, T4, impl]
 ---
 

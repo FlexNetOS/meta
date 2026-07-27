@@ -3,8 +3,9 @@ id: 019f8800-7179-7103-89a5-4943471c928f
 slug: tasks/yzx-iso/t6-7-disable-kvm
 title: "T6.7 — Disable unused libvirtd/qemu-kvm boot units"
 type: task
-status: draft
+status: completed
 priority: low
+assignee: 379904488992935178
 tags: [yzx-iso, T6, impl]
 ---
 

@@ -3,8 +3,9 @@ id: 019f8801-a44c-70f3-83ce-6b4db2241ce1
 slug: tasks/yzx-iso/t7-3-reattach-mounts
 title: "T7.3 — Re-attach durable mounts (postgres/redb/runtime)"
 type: task
-status: draft
+status: completed
 priority: medium
+assignee: 379904488992935178
 tags: [yzx-iso, T7, impl]
 ---
 

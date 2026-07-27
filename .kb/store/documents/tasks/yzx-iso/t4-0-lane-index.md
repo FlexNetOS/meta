@@ -3,8 +3,9 @@ id: 019f8800-6fad-7933-97ad-446afc37ff9f
 slug: tasks/yzx-iso/t4-0-lane-index
 title: "T4.0 — Durable state plane Postgres/RuVector + redb (lane index)"
 type: task
-status: draft
+status: completed
 priority: high
+assignee: 379904488992935178
 tags: [yzx-iso, T4, epic]
 ---
 

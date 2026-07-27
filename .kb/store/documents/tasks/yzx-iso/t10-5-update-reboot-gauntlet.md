@@ -3,8 +3,9 @@ id: 019f8801-a66f-76b3-bdac-250bea8c8fdb
 slug: tasks/yzx-iso/t10-5-update-reboot-gauntlet
 title: "T10.5 — Gauntlet: host update+reboot -> zero LifeOS loss"
 type: task
-status: draft
+status: completed
 priority: high
+assignee: 379904488992935178
 tags: [yzx-iso, T10, acceptance]
 ---
 

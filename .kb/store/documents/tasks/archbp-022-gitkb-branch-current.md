@@ -3,8 +3,9 @@ id: 019f63b5-e902-7373-bd7c-9f8b9048677e
 slug: tasks/archbp-022-gitkb-branch-current
 title: "ARCHBP-022: Make GitKB and Meta release isolation branch-current"
 type: task
-status: active
+status: completed
 priority: high
+assignee: 379904488992935178
 tags: [archbp-022, gitkb, release-isolation, code-index]
 ---
 

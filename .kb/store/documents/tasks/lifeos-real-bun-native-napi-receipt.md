@@ -3,8 +3,9 @@ id: 019f5f02-3ef6-7262-b423-f0f35447a2dc
 slug: tasks/lifeos-real-bun-native-napi-receipt
 title: "Verify LifeOS real Bun native N-API receipt"
 type: task
-status: active
+status: completed
 priority: high
+assignee: 379904488992935178
 ---
 
 # Overview

@@ -5,6 +5,7 @@ title: "Repeat initial 14 alignment audit and prepare code intelligence"
 type: task
 status: completed
 priority: high
+assignee: 379904488992935178
 tags: [meta, source-walk, alignment, code-intelligence, memory]
 ---
 

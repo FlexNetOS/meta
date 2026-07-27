@@ -511,6 +511,9 @@ See [.context/VISION_PLAN.md](.context/VISION_PLAN.md) for full details.
 
 Contributions welcome! Please see [CONTRIBUTING.md](CONTRIBUTING.md).
 
+For repository hardening evidence and enforcement commands, see:
+[docs/lock-panic-audit.md](docs/lock-panic-audit.md).
+
 ---
 
 ## Community & Support

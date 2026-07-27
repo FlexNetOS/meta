@@ -3,8 +3,9 @@ id: 019f809f-196d-7f93-9b39-32a5e80f4b74
 slug: tasks/meta-ruvector-github-worktree-runtime-convergence
 title: "Converge meta-ruvector worktrees PRs hooks and runtime frontdoor"
 type: task
-status: active
+status: completed
 priority: critical
+assignee: 379904488992935178
 ---
 
 ## Objective

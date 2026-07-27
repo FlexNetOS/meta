@@ -3,8 +3,9 @@ id: 019f8801-a4e2-76e2-ad4d-c979c508d05b
 slug: tasks/yzx-iso/t8-2-resource-registry
 title: "T8.2 — Build the controllable resource registry"
 type: task
-status: draft
+status: completed
 priority: medium
+assignee: 379904488992935178
 tags: [yzx-iso, T8, impl]
 ---
 

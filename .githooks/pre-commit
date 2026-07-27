@@ -49,4 +49,12 @@ if [ -n "$STAGED_RS" ]; then
     echo "Formatting OK"
 fi
 
+if ! (cd "$WORKSPACE_ROOT" && bash .github/scripts/check-lock-panics.sh); then
+    echo ""
+    echo "Lock panic check failed!"
+    echo "Refactor lock/read/write/try_lock/try_read/try_write calls to avoid unwrap/expect."
+    echo ""
+    exit 1
+fi
+
 exit 0

@@ -5,6 +5,7 @@ title: "Register teri peer with meta"
 type: task
 status: completed
 priority: medium
+assignee: 379904488992935178
 ---
 
 # Summary
