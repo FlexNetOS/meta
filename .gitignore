@@ -48,6 +48,8 @@ imported/
 
 # AI
 .aider*
+.claude/skills/gitnexus/
+.grit/
 
 # child repositories
 agent/
@@ -65,6 +67,41 @@ claude-plugins/
 codex-plugins/
 meta-plugins/
 
+# FlexNetOS control-plane payload
+#
+# /home/flexnetos/meta is the authoritative Meta checkout. The paths below are
+# independent repositories or host/runtime state owned by Meta, not files to
+# absorb into this repository's history.
+/src/
+/flexnetos_runner/
+/artifacts/
+/etc/
+/hardware/
+/prompts/
+/recovery/
+/release/
+/snapshots/
+/test-prefix/
+/usr/
+/var/
+/worktrees/
+/_archive/
+/_quarantine/
+/.agents/
+/.cargo/
+/.codex/
+/.config/
+/.local/
+/.n8n-mcp/
+/.roo/
+/.rustup/
+/.toolchains/
+/COMMAND_LEDGER.csv
+/LOCAL_WORKAROUNDS.md
+/WORKLOG.md
+/WORKSPACE_LAYOUT.md
+/release-baseline.json
+
 # plugins (built locally, not committed)
 .meta/plugins/
 
@@ -74,3 +111,13 @@ meta-plugins/
 .worktrees/
 
 .env
+
+# local agent worktrees -- never part of the tree
+.claude/worktrees/
+
+# Retired planning-spine backup: 1.5G / 46k files including the retired repo's
+# own nested .git (a 354M code.db and a 150M packfile). The whole meta history
+# is 100M and the tracked archives/ material is 5.7M, so this is a filesystem
+# backup, not tracked documentation. Relocate under meta/var/archives/ to keep
+# it out of the source tree entirely.
+archives/lifeos-planning-spine-archived-20260729/

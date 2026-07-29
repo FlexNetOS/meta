@@ -1,0 +1,87 @@
+{
+  "permissions": {
+    "defaultMode": "dontAsk"
+  },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "rtk hook claude"
+          }
+        ]
+      },
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/nix/store/i4hpd7qir9c8h563wwj1hjm6by9zk4sw-icm-0.10.57/bin/icm hook pre"
+          }
+        ],
+        "matcher": "Bash"
+      }
+    ],
+    "PostToolUse": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/nix/store/i4hpd7qir9c8h563wwj1hjm6by9zk4sw-icm-0.10.57/bin/icm hook post"
+          }
+        ]
+      }
+    ],
+    "PreCompact": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/nix/store/i4hpd7qir9c8h563wwj1hjm6by9zk4sw-icm-0.10.57/bin/icm hook compact"
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/nix/store/i4hpd7qir9c8h563wwj1hjm6by9zk4sw-icm-0.10.57/bin/icm hook prompt"
+          }
+        ]
+      }
+    ],
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/nix/store/i4hpd7qir9c8h563wwj1hjm6by9zk4sw-icm-0.10.57/bin/icm hook start"
+          }
+        ]
+      }
+    ],
+    "SessionEnd": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/nix/store/i4hpd7qir9c8h563wwj1hjm6by9zk4sw-icm-0.10.57/bin/icm hook end"
+          }
+        ]
+      }
+    ]
+  },
+  "effortLevel": "high",
+  "askUserQuestionTimeout": "never",
+  "tui": "fullscreen",
+  "skipWorkflowUsageWarning": true,
+  "theme": "auto",
+  "editorMode": "normal",
+  "remoteControlAtStartup": true,
+  "inputNeededNotifEnabled": true,
+  "agentPushNotifEnabled": true,
+  "model": "claude-fable-5[1m]"
+}

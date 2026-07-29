@@ -15,7 +15,8 @@ fi
 
 clone_child() {
   local repo="$1"
-  local url="https://github.com/gitkb/${repo}.git"
+  local owner="${META_CHILD_OWNER:-FlexNetOS}"
+  local url="https://github.com/${owner}/${repo}.git"
   local branch
   local ls_remote_output
   local ls_remote_status

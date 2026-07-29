@@ -1,0 +1,231 @@
+{
+  "name": "before-init-config",
+  "created": "2026-07-23T07:49:15.670617733Z",
+  "repos": {
+    "/home/flexnetos/meta/meta_mcp": {
+      "sha": "c2cd6bdfe4cc6712229873b97e9752269c55fab1",
+      "branch": "main",
+      "dirty": false
+    },
+    "/home/flexnetos/meta/src/meta-plugins": {
+      "sha": "bf8931d43c42403c6b01ea1a54429a5626c9b3a5",
+      "branch": "main",
+      "dirty": false
+    },
+    "/home/flexnetos/meta/src/ccboard": {
+      "sha": "f127e8a948bdd98ed57abff6759b715dfa345f1a",
+      "branch": "main",
+      "dirty": false
+    },
+    "/home/flexnetos/meta/src/nu_plugin": {
+      "sha": "712591b6d7d23b50ba728cbd79834923b5e0340f",
+      "branch": "develop",
+      "dirty": false
+    },
+    "/home/flexnetos/meta/meta_git_cli": {
+      "sha": "19b1714824b86c5dc913c204d1d0c53c4c06ec54",
+      "branch": "main",
+      "dirty": false
+    },
+    "/home/flexnetos/meta/src/envctl": {
+      "sha": "38f8abaf5a8dd5638196d34afcf7762bbb1fb7d4",
+      "branch": "codex/profile-xdg-owner-20260721",
+      "dirty": true
+    },
+    "/home/flexnetos/meta/src/ruflo": {
+      "sha": "11b9768870c60c3cdb8f071ad5e1cdc01747d09e",
+      "branch": "main",
+      "dirty": false
+    },
+    "/home/flexnetos/meta/src/vault_hub": {
+      "sha": "1bda2dc81edfde0cf525093660736f4750d8661e",
+      "branch": "main",
+      "dirty": false
+    },
+    "/home/flexnetos/meta/src/network-control": {
+      "sha": "5e4b7f7300e4a6c4159a1a252864c3fecd3ed404",
+      "branch": "main",
+      "dirty": true
+    },
+    "/home/flexnetos/meta/src/icm": {
+      "sha": "4b11f3173a20cf8e882f9034eca1bba987fdbb07",
+      "branch": "main",
+      "dirty": true
+    },
+    "/home/flexnetos/meta/claude-plugins": {
+      "sha": "d38472720a8455817607ffa0adec3d5db00a849b",
+      "branch": "main",
+      "dirty": false
+    },
+    "/home/flexnetos/meta/src/meta-ruvector": {
+      "sha": "afbdc5d22f376c428dd6eff36c5ceefac22750d2",
+      "branch": "main",
+      "dirty": true
+    },
+    "/home/flexnetos/meta/codex-plugins": {
+      "sha": "c073fa5818554454289442ab53bff986574de41f",
+      "branch": "main",
+      "dirty": false
+    },
+    "/home/flexnetos/meta/src/teri": {
+      "sha": "059ac955624339a56a7d4ef12028530beab8c4d5",
+      "branch": "main",
+      "dirty": true
+    },
+    "/home/flexnetos/meta/src/weave": {
+      "sha": "29b2f913177fceba1bb7059db8023a33cd5aedd6",
+      "branch": "master",
+      "dirty": true
+    },
+    "/home/flexnetos/meta/src/flexnetos_runner": {
+      "sha": "404159ee33caad7f6cc328b352e84d973f0209b6",
+      "branch": "main",
+      "dirty": false
+    },
+    "/home/flexnetos/meta/src/notebooklm-py": {
+      "sha": "26226a707345709d72a96fcf76342a9487a9afc6",
+      "branch": "main",
+      "dirty": false
+    },
+    "/home/flexnetos/meta/src/harness-agent-rs": {
+      "sha": "ce77347ed884e4ee11297e71ec8648d999ac4a33",
+      "branch": "main",
+      "dirty": false
+    },
+    "/home/flexnetos/meta/src/meta-hardware": {
+      "sha": "9fb636eb86a8c8334fc7f7e1a47071b075cb27cc",
+      "branch": "main",
+      "dirty": false
+    },
+    "/home/flexnetos/meta/meta_project_cli": {
+      "sha": "f675d63fdd96736a2960b1a48c707217d8412941",
+      "branch": "main",
+      "dirty": false
+    },
+    "/home/flexnetos/meta/src/rtk-tokenkill": {
+      "sha": "43b93abcf5c62357077862023fc85da6eaf02155",
+      "branch": "feat/rtk-full-feature-config",
+      "dirty": true
+    },
+    "/home/flexnetos/meta/src/beads_viewer": {
+      "sha": "37d7c2a69797db37d373646ba50e5d0c62d9984a",
+      "branch": "main",
+      "dirty": false
+    },
+    "/home/flexnetos/meta/src/harness_hub": {
+      "sha": "0ed1e22443bb1abc0f02b6a9c9370e3a2c384fd7",
+      "branch": "main",
+      "dirty": false
+    },
+    "/home/flexnetos/meta/src/rusty-idd": {
+      "sha": "4c47c67fe088e99868d8ccf74d6cbe1aa2af2856",
+      "branch": "main",
+      "dirty": true
+    },
+    "/home/flexnetos/meta/meta_git_lib": {
+      "sha": "d40eff4e2aa3ec1eade6a572f66d1eb9276aede6",
+      "branch": "main",
+      "dirty": false
+    },
+    "/home/flexnetos/meta/meta_core": {
+      "sha": "d27d03e56fe7a133dc82d93b85062c265c95ec56",
+      "branch": "main",
+      "dirty": false
+    },
+    "/home/flexnetos/meta/agent": {
+      "sha": "035d560fbd07f3a652c2ee535a1eeb6ca58b0a4c",
+      "branch": "codex/preserve-meta-peer-state-20260702",
+      "dirty": true
+    },
+    "/home/flexnetos/meta/src/handoff": {
+      "sha": "1012c1bc0ccf5d00079080c8769c69ac0b28b096",
+      "branch": "develop",
+      "dirty": false
+    },
+    "/home/flexnetos/meta/src/hermes-agent": {
+      "sha": "4d1f37fbdd1521479a06334ea0e1ac8a5e0e6b4e",
+      "branch": "main",
+      "dirty": false
+    },
+    "/home/flexnetos/meta/src/cuda-oxide": {
+      "sha": "192876dee52499a95f6056247316653badf991c5",
+      "branch": "main",
+      "dirty": false
+    },
+    "/home/flexnetos/meta/meta_rust_cli": {
+      "sha": "4b4e8792e7b836633c10a5bcd7ccb30ee7f04fac",
+      "branch": "main",
+      "dirty": false
+    },
+    "/home/flexnetos/meta/loop_lib": {
+      "sha": "f7991d1732ba54bfb3813622c720cc76056ac02e",
+      "branch": "main",
+      "dirty": false
+    },
+    "/home/flexnetos/meta/src/beads_rust": {
+      "sha": "2498339168b8e88d641e8ae1664843fc69740012",
+      "branch": "main",
+      "dirty": true
+    },
+    "/home/flexnetos/meta/loop_cli": {
+      "sha": "248b2c78fb5994c6b71bb978c502e023d3a5ddea",
+      "branch": "main",
+      "dirty": false
+    },
+    "/home/flexnetos/meta/meta_plugin_protocol": {
+      "sha": "7d65eeac3bba8e9702eb0590ba9476e4e420bfb3",
+      "branch": "main",
+      "dirty": false
+    },
+    "/home/flexnetos/meta/src/prompt_hub": {
+      "sha": "101abbba0433f663cd845c8155d62b474025683e",
+      "branch": "fix/audit-crossbeam-quickxml",
+      "dirty": false
+    },
+    "/home/flexnetos/meta/src/yazelix": {
+      "sha": "a85c459356cf3efb019032e5cd9d3575788acfec",
+      "branch": "feat/codex-lifecycle-hooks",
+      "dirty": true
+    },
+    "/home/flexnetos/meta/src/yazelix-helix": {
+      "sha": "2657bf0f8e0f183c0e9bca7e6b1b42f75416be7c",
+      "branch": "main",
+      "dirty": false
+    },
+    "/home/flexnetos/meta/src/yazelix-terminal-support": {
+      "sha": "873f64b77eda3a39609d154bda192a2ad8405955",
+      "branch": "main",
+      "dirty": false
+    },
+    "/home/flexnetos/meta/src/yazelix-yazi-assets": {
+      "sha": "bd0deff7e83ecd7788b61f5c0cda122272826f74",
+      "branch": "main",
+      "dirty": false
+    },
+    "/home/flexnetos/meta/meta_cli": {
+      "sha": "2b5d64e64f4bdac22923ce950e79934f700a78fd",
+      "branch": "codex/preserve-meta-peer-state-20260702",
+      "dirty": false
+    },
+    "/home/flexnetos/meta/src/grit": {
+      "sha": "89d8addd170f408d1d82860c39096929375bd2ce",
+      "branch": "master",
+      "dirty": false
+    },
+    "/home/flexnetos/meta/src/atc": {
+      "sha": "1d9a89551ca7fb932a2b5b413cae5cab90231ff3",
+      "branch": "main",
+      "dirty": false
+    },
+    "/home/flexnetos/meta": {
+      "sha": "291e5dab017fb6473b138320cf2f3dbcae75d459",
+      "branch": "local-release/lps025-green",
+      "dirty": true
+    },
+    "/home/flexnetos/meta/src/lifeos": {
+      "sha": "6eadfbd6b8484c7bfd1ce39e1294ff38710c050e",
+      "branch": "main",
+      "dirty": true
+    }
+  }
+}

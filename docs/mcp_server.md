@@ -385,6 +385,27 @@ projects:
 
 ---
 
+## Planned Release Roadmap Tools
+
+The LifeOS portable release roadmap defines a future read-first MCP surface for
+release planning and proof visibility. These tools are not implemented by this
+roadmap PR, but their planned shape is documented so implementation can stay
+aligned with the CLI release commands:
+
+- meta_release_plan
+- meta_release_graph
+- meta_release_status
+- meta_release_artifacts
+- meta_release_provenance
+- meta_release_open_questions
+
+Mutation, build, and publish tools must remain disabled by default or require
+explicit confirmation. See
+[LifeOS Portable Release Roadmap](lifeos-portable-release-roadmap.md) for the
+release command, evidence, and acceptance-gate contract.
+
+---
+
 ## Error Handling
 
 All tools return structured responses. Errors include:

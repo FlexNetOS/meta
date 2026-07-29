@@ -1,0 +1,22 @@
+# GitKB code intelligence indexes only active first-party source. These paths
+# are dependency caches, generated/runtime material, archived worktrees, or
+# protected data and must never become code-graph authority.
+archives/
+artifacts/
+var/
+worktrees/
+.worktrees/
+.claude/worktrees/
+agent/.claude/worktrees/
+src/**/.claude/worktrees/
+src/**/.codex/worktrees/
+src/**/node_modules/
+src/**/target/
+src/**/.git/
+src/vault_hub/
+src/envctl/home/agent-env/private-codex-state/
+src/envctl/home/agent-env/archive/
+src/rtk-tokenkill/nu/
+src/lifeos/Claude-vite-bundle/
+src/lifeos/planning-spine-v0/generated/
+src/lifeos/planning-spine-v0/**/logs/

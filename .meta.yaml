@@ -4,51 +4,180 @@ defaults:
 projects:
   # Foundation crates (no workspace deps)
   loop_lib:
-    repo: git@github.com:gitkb/loop_lib.git
+    repo: git@github.com:FlexNetOS/loop_lib.git
     provides: [loop-lib]
 
   meta_plugin_protocol:
-    repo: git@github.com:gitkb/meta_plugin_protocol.git
+    repo: git@github.com:FlexNetOS/meta_plugin_protocol.git
     provides: [plugin-protocol]
 
   meta_core:
-    repo: git@github.com:gitkb/meta_core.git
+    repo: git@github.com:FlexNetOS/meta_core.git
     provides: [meta-core]
 
   meta_git_lib:
-    repo: git@github.com:gitkb/meta_git_lib.git
+    repo: git@github.com:FlexNetOS/meta_git_lib.git
     provides: [meta-git-lib]
 
   # Mid-level crates
   loop_cli:
-    repo: git@github.com:gitkb/loop_cli.git
+    repo: git@github.com:FlexNetOS/loop_cli.git
     depends_on: [loop-lib]
 
   meta_cli:
-    repo: git@github.com:gitkb/meta_cli.git
+    repo: git@github.com:FlexNetOS/meta_cli.git
     provides: [meta-cli]
     depends_on: [meta-core, plugin-protocol, loop-lib]
 
   # Top-level crates (depend on meta_cli and/or plugins)
   meta_git_cli:
-    repo: git@github.com:gitkb/meta_git_cli.git
+    repo: git@github.com:FlexNetOS/meta_git_cli.git
     depends_on: [plugin-protocol, meta-git-lib, meta-cli, loop-lib]
 
   meta_project_cli:
-    repo: git@github.com:gitkb/meta_project_cli.git
+    repo: git@github.com:FlexNetOS/meta_project_cli.git
     depends_on: [plugin-protocol, meta-cli, meta-git-lib]
 
   meta_rust_cli:
-    repo: git@github.com:gitkb/meta_rust_cli.git
+    repo: git@github.com:FlexNetOS/meta_rust_cli.git
     depends_on: [plugin-protocol, meta-cli]
 
   meta_mcp:
-    repo: git@github.com:gitkb/meta_mcp.git
+    repo: git@github.com:FlexNetOS/meta_mcp.git
     depends_on: [meta-cli]
 
   # Standalone tools
   agent:
-    repo: git@github.com:gitkb/agent.git
+    repo: git@github.com:FlexNetOS/agent.git
+
+  atc:
+    repo: git@github.com:FlexNetOS/atc.git
+    path: src/atc
+
+  # FlexNetOS product and workspace peers
+  lifeos:
+    repo: git@github.com:FlexNetOS/lifeos.git
+    path: src/lifeos
+
+  envctl:
+    repo: git@github.com:FlexNetOS/envctl.git
+    path: src/envctl
+    depends_on: [loop-lib, plugin-protocol]
+
+  teri:
+    repo: git@github.com:FlexNetOS/teri.git
+    path: src/teri
+
+  beads_rust:
+    repo: git@github.com:FlexNetOS/beads_rust.git
+    path: src/beads_rust
+
+  beads_viewer:
+    repo: git@github.com:FlexNetOS/beads_viewer.git
+    path: src/beads_viewer
+
+  ccboard:
+    repo: git@github.com:FlexNetOS/ccboard.git
+    path: src/ccboard
+
+  cuda-oxide:
+    repo: git@github.com:FlexNetOS/cuda-oxide.git
+    path: src/cuda-oxide
+
+  flexnetos_runner:
+    repo: git@github.com:FlexNetOS/flexnetos_runner.git
+
+  grit:
+    repo: git@github.com:FlexNetOS/grit.git
+    path: src/grit
+
+  handoff:
+    repo: git@github.com:FlexNetOS/handoff.git
+    path: src/handoff
+
+  harness-agent-rs:
+    repo: git@github.com:FlexNetOS/harness-agent-rs.git
+    path: src/harness-agent-rs
+
+  harness_hub:
+    repo: git@github.com:FlexNetOS/harness_hub.git
+    path: src/harness_hub
+
+  hermes-agent:
+    repo: git@github.com:FlexNetOS/hermes-agent.git
+    path: src/hermes-agent
+
+  icm:
+    repo: git@github.com:FlexNetOS/icm.git
+    path: src/icm
+
+  meta-hardware:
+    repo: git@github.com:FlexNetOS/meta-hardware.git
+    path: src/meta-hardware
+
+  meta-ruvector:
+    repo: git@github.com:FlexNetOS/meta-ruvector.git
+    path: src/meta-ruvector
+
+  network-control:
+    repo: git@github.com:FlexNetOS/network-control.git
+    path: src/network-control
+
+  notebooklm-py:
+    repo: git@github.com:FlexNetOS/notebooklm-py.git
+    path: src/notebooklm-py
+
+  nu_plugin:
+    repo: git@github.com:FlexNetOS/nu_plugin.git
+    path: src/nu_plugin
+
+  prompt_hub:
+    repo: git@github.com:FlexNetOS/prompt_hub.git
+    path: src/prompt_hub
+
+  rtk-tokenkill:
+    repo: git@github.com:FlexNetOS/rtk-tokenkill.git
+    path: src/rtk-tokenkill
+
+  ruflo:
+    repo: git@github.com:FlexNetOS/ruflo.git
+    path: src/ruflo
+
+  rusty-idd:
+    repo: git@github.com:FlexNetOS/rusty-idd.git
+    path: src/rusty-idd
+
+  vault_hub:
+    repo: git@github.com:FlexNetOS/vault_hub.git
+    path: src/vault_hub
+
+  weave:
+    repo: git@github.com:FlexNetOS/weave.git
+    path: src/weave
+
+  yazelix:
+    repo: git@github.com:FlexNetOS/yazelix.git
+    path: src/yazelix
+
+  yazelix-helix:
+    repo: git@github.com:FlexNetOS/yazelix-helix.git
+    path: src/yazelix-helix
+
+  yazelix-yazi-assets:
+    repo: git@github.com:FlexNetOS/yazelix-yazi-assets.git
+    path: src/yazelix-yazi-assets
+
+  yazelix-terminal-support:
+    repo: git@github.com:FlexNetOS/yazelix-terminal-support.git
+    path: src/yazelix-terminal-support
+
+  # Non-code repos
+  claude-plugins:
+    repo: git@github.com:FlexNetOS/claude-plugins.git
+
+  codex-plugins:
+    repo: git@github.com:FlexNetOS/codex-plugins.git
 
   meta-plugins:
-    repo: git@github.com:gitkb/meta-plugins.git
+    repo: git@github.com:FlexNetOS/meta-plugins.git
+    path: src/meta-plugins

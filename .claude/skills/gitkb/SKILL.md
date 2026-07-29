@@ -10,6 +10,8 @@ allowed-tools:
 
 GitKB is a database-first knowledge base with a git-like CLI. Documents are stored in a local database and materialized to `.kb/workspace/` for editing.
 
+For the process-discipline reference (sections 9-18: when to create documents, quality standards, traceability, lifecycles, error recovery, workspace discipline), read `PROCESS.md` in this skill directory.
+
 ## Common Gotchas
 
 1. **Command syntax**: Use `git kb` (space, git subcommand), NOT `git-kb` (hyphen)
