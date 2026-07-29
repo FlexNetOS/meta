@@ -1,65 +1,179 @@
-# Agent Guard Configuration
-# Schema Version: 1.0
-# Location: .claude/agent-guard.toml (project) or ~/.claude/agent-guard.toml (user)
+# Agent Guard Policy — consolidated destructive-command policy (ARCHBP-031)
+# Schema Version: 1.1 (adds per-pattern `decision = "deny" | "ask"`; default "deny")
 #
-# This file configures which destructive command patterns are detected by the
-# agent guard system. Each pattern can be enabled/disabled and have custom
-# denial messages.
+# OWNERSHIP — one source owns each rule:
+#   CANONICAL: envctl repo, home/.claude/agent-guard.toml. envctl agent-env is the
+#     agent-config owner (fleet doctrine); it materializes this file into agent
+#     homes as ~/.claude/agent-guard.toml (user-level load path of the engine).
+#   MIRROR (traceable, byte-identical): meta `agent` repo, .claude/agent-guard.toml.
+#     Compiled into the `agent` binary as the embedded default fallback. It MUST
+#     stay byte-identical to the canonical copy; drift fails the mirror-parity
+#     clause of envctl scripts/tests/test-guard-policy-parity.sh.
+#   ADAPTER: envctl home/.claude/hooks/guard-bash.sh mirrors these decisions on the
+#     hook route and adds only refinements this schema cannot express:
+#       envctl.rm.archive_first              (rm of any non-scratch path -> deny;
+#                                             needs path resolution + scratch whitelist)
+#       envctl.claude.nested_session_precise (quote-stripping command-position parse)
+#     Decision parity is enforced by the corpus clause of the same test.
 #
-# Configuration hierarchy:
-# 1. ./.claude/agent-guard.toml (project-level overrides)
-# 2. ~/.claude/agent-guard.toml (user-level defaults)
-# 3. Embedded defaults (built into binary)
+# Load hierarchy of the engine: ./.claude/agent-guard.toml (project) ->
+# ~/.claude/agent-guard.toml (user, envctl-materialized) -> embedded default.
+# All three levels must carry this same consolidated content; a project-level
+# fork is a policy fork and must be treated as an incident.
+#
+# NUSHELL-ONLY AGENT PLANE (YZXCONV-017): agents execute shell actions only
+# through the profile-owned Nushell; Bash/sh/zsh/fish/xonsh are owner-only, with
+# a per-incident owner-approved emergency fallback solely after a system crash.
+# This policy file adds no alternate-shell permission; launcher/hook enforcement
+# of the shell boundary is YZXCONV-017 scope and must not be weakened here.
+#
+# Decision semantics: "deny" blocks the tool call; "ask" escalates to the
+# operator (PreToolUse permissionDecision "ask"). Unknown values fail closed to
+# "deny". First match wins, highest priority first.
 
-schema_version = "1.0"
+schema_version = "1.1"
 
 [metadata]
-source = "meta"
-version = "0.1.0"
-description = "Default agent guard patterns for meta CLI"
+source = "envctl-agent-env"
+version = "0.2.0"
+description = "Consolidated agent guard policy (ARCHBP-031): single source, adapters consume"
 
-# Pattern Definitions
-# Each pattern uses a namespaced ID (source.category.name) for forward compatibility
-# with multi-tool pattern registration.
+# ── Claude session containment ──────────────────────────────────────────────
+
+[[patterns]]
+id = "meta.claude.skip_permissions"
+priority = 130
+enabled = true
+decision = "deny"
+matcher = { type = "regex", pattern = '--dangerously-skip-permissions' }
+message = """
+LAW: --dangerously-skip-permissions is forbidden on this machine, no exceptions.
+"""
+
+[[patterns]]
+id = "meta.claude.nested_session"
+priority = 120
+enabled = true
+decision = "deny"
+matcher = { type = "regex", pattern = '^\s*(rtk\s+|sudo\s+)?claude(\s|$)' }
+validator = { type = "all_of", validators = [{ type = "not_contains", value = "--version" }, { type = "not_contains", value = "claude update" }, { type = "not_contains", value = "claude doctor" }] }
+message = """
+Nested Claude sessions are denied (recursion containment). Allowed:
+'claude --version', 'claude update', 'claude doctor'. Use teams/subagents/background
+bash instead. (Baseline rule; guard-bash.sh refines with quote-aware parsing.)
+"""
+
+# ── git topology protection ─────────────────────────────────────────────────
+
+[[patterns]]
+id = "meta.git.force_push_longlived"
+priority = 110
+enabled = true
+decision = "deny"
+matcher = { type = "regex", pattern = 'git\s+push.*(--force|-f\b|\s\+\S+)' }
+validator = { type = "args_match_any", command = "push", values = ["main", "master", "develop", "+main", "+master", "+develop"] }
+message = """
+Force-push (any variant, including --force-with-lease and +refspec) touching
+main/master/develop is forbidden — long-lived branches are upgrade-only history.
+"""
 
 [[patterns]]
 id = "meta.git.force_push"
 priority = 100
 enabled = true
+decision = "deny"
 matcher = { type = "regex", pattern = 'git\s+push.*(--force|-f)\b' }
 validator = { type = "not_contains", value = "--force-with-lease" }
 message = """
 git push --force in a multi-repo workspace can overwrite history across \
 multiple repos. Safer alternatives:
-- git push --force-with-lease (checks for upstream changes)
-- meta --include <repo> exec -- git push --force (target one repo)
-- meta git snapshot create <name> before force pushing
+- git push --force-with-lease on a private feature branch (operator-approved)
+- meta --include <repo> exec -- git push (target one repo)
+- meta git snapshot create <name> before risky pushes
+"""
+
+[[patterns]]
+id = "meta.git.push_refspec_force"
+priority = 95
+enabled = true
+decision = "ask"
+matcher = { type = "regex", pattern = 'git\s+push.*\s\+\S+' }
+message = """
+'+refspec' push force-updates the remote ref. Approve only for a private
+feature branch you know is disposable.
+"""
+
+[[patterns]]
+id = "meta.git.force_push_lease"
+priority = 90
+enabled = true
+decision = "ask"
+matcher = { type = "regex", pattern = 'git\s+push.*--force-with-lease' }
+message = """
+--force-with-lease rewrites remote history (with an upstream check). Approve
+only for a private feature branch.
+"""
+
+[[patterns]]
+id = "meta.git.branch_force_delete_longlived"
+priority = 110
+enabled = true
+decision = "deny"
+matcher = { type = "regex", pattern = 'git\s+branch.*\s+-[a-zA-Z]*D[a-zA-Z]*(\s|$)' }
+validator = { type = "args_match_any", command = "branch", values = ["main", "master", "develop"] }
+message = """
+Topology invariant: main/master/develop are long-lived and never force-deleted.
+"""
+
+[[patterns]]
+id = "meta.git.branch_force_delete"
+priority = 100
+enabled = true
+decision = "deny"
+matcher = { type = "regex", pattern = 'git\s+branch.*\s+-[a-zA-Z]*D[a-zA-Z]*(\s|$)' }
+message = """
+git branch -D force-deletes branches, potentially losing unmerged work. \
+Safer alternatives:
+- git branch -d <branch> (safe delete — only works if merged)
+- git branch -v to check merge status first
+- meta git snapshot create <name> before deleting
+"""
+
+[[patterns]]
+id = "meta.git.history_rewrite"
+priority = 100
+enabled = true
+decision = "deny"
+matcher = { type = "regex", pattern = 'git[-\s]+filter-branch|git[-\s]+filter-repo|git\s+reflog\s+expire.*--expire|git\s+gc\b.*--prune=now' }
+message = """
+History rewrites / reflog destruction are forbidden (LAW 1 + upgrade-only).
+Archive instead.
 """
 
 [[patterns]]
 id = "meta.git.reset_hard"
 priority = 100
 enabled = true
+decision = "deny"
 matcher = { type = "regex", pattern = 'git\s+reset.*--hard\b' }
 message = """
 git reset --hard destroys uncommitted work. In a multi-repo workspace, \
 this can silently discard changes across repos. Safer alternatives:
 - meta git snapshot create <name> (save state first)
 - meta git snapshot restore <name> (reversible reset)
-- Target a specific repo: cd <repo> && git reset --hard
 """
 
 [[patterns]]
 id = "meta.git.clean_force"
 priority = 100
 enabled = true
+decision = "deny"
 matcher = { type = "regex", pattern = 'git\s+clean' }
 validator = { type = "flags_present", command = "clean", flags = ["f", "d"] }
 message = """
 git clean -fd removes untracked files and directories permanently. \
-In a multi-repo workspace, this affects all repos. Safer alternatives:
+Safer alternatives:
 - git clean -nd (dry run — preview what would be removed)
-- meta --include <repo> exec -- git clean -fd (target specific repos)
 - meta git snapshot create <name> before cleaning
 """
 
@@ -67,82 +181,186 @@ In a multi-repo workspace, this affects all repos. Safer alternatives:
 id = "meta.git.checkout_dot"
 priority = 100
 enabled = true
-# Matches "git checkout ." or "git checkout -- ."
+decision = "deny"
 matcher = { type = "regex", pattern = 'git\s+checkout\s+(--\s+)?\.(\s|$)' }
 message = """
-git checkout . reverts all modified files. In a multi-repo workspace, \
-ensure you are in the correct repo directory. Safer alternatives:
+git checkout . reverts all modified files. Safer alternatives:
 - git checkout -- <specific-file> (target specific files)
-- meta --include <repo> exec -- git checkout . (target one repo)
 - meta git snapshot create <name> before reverting
-"""
-
-[[patterns]]
-id = "meta.git.branch_force_delete"
-priority = 100
-enabled = true
-matcher = { type = "regex", pattern = 'git\s+branch.*\s+-D\b' }
-message = """
-git branch -D force-deletes branches, potentially losing unmerged work. \
-In a multi-repo workspace, this can affect coordination between repos. Safer alternatives:
-- git branch -d <branch> (safe delete — only works if merged)
-- git branch -v to check merge status first
-- meta git snapshot create <name> before deleting
-- meta --include <repo> exec -- git branch -D <branch> (target specific repos)
 """
 
 [[patterns]]
 id = "meta.git.stash_drop"
 priority = 100
 enabled = true
+decision = "deny"
 matcher = { type = "regex", pattern = 'git\s+stash\s+drop\b' }
 message = """
-git stash drop permanently removes a stash entry. \
-For AI agents working across repos, this could discard important work. Safer alternatives:
+git stash drop permanently removes a stash entry. Safer alternatives:
 - git stash list to review what will be dropped
 - git stash show <stash> to inspect contents first
 - git stash apply <stash> instead of pop (preserves the stash)
-- meta git snapshot create <name> captures all stashes
 """
 
 [[patterns]]
 id = "meta.git.stash_clear"
 priority = 100
 enabled = true
+decision = "deny"
 matcher = { type = "regex", pattern = 'git\s+stash\s+clear\b' }
 message = """
-git stash clear removes ALL stash entries permanently. \
-In a multi-repo workspace, this could discard important work across repos. Safer alternatives:
+git stash clear removes ALL stash entries permanently. Safer alternatives:
 - git stash list to review what will be cleared
-- git stash drop <stash> to remove specific entries one at a time
+- git stash drop <stash> to remove specific entries one at a time (guarded)
 - meta git snapshot create <name> before clearing (captures all stashes)
-- meta --include <repo> exec -- git stash clear (target specific repos)
 """
+
+# ── filesystem protection ───────────────────────────────────────────────────
 
 [[patterns]]
 id = "meta.rm.dangerous_paths"
 priority = 100
 enabled = true
+decision = "deny"
 matcher = { type = "regex", pattern = 'rm\s+' }
 validator = { type = "all_of", validators = [{ type = "flags_present", command = "rm", flags = ["r", "f"] }, { type = "args_match_any", command = "rm", values = [".", "..", "/", "~", "$HOME", ".meta", ".meta.yaml", ".meta.yml", "*", "./*", "../*", "./"] }] }
 message = """
 rm -rf on dangerous paths could destroy repo roots or workspace data. \
-In a multi-repo workspace, this is especially dangerous. Safer alternatives:
-- Remove specific files instead of entire directories
+LAW 1: never delete, always archive. Safer alternatives:
+- Remove specific scratch files instead of entire directories
 - meta --dry-run exec -- <cmd> to preview operations
 - meta git snapshot create <name> before destructive operations
+(guard-bash.sh additionally enforces envctl.rm.archive_first for any
+non-scratch path.)
 """
 
-# Examples: Project-specific overrides
+# ── path law ────────────────────────────────────────────────────────────────
+# Expressed against the SURFACES upstream yazelix defines, not against this
+# box's broken paths.
 #
-# Disable a pattern:
-# [[patterns]]
-# id = "meta.git.checkout_dot"
-# enabled = false
+# Upstream yazelix hardcodes no absolute /home path in code. Every location is
+# reached through a surface: $HOME, $XDG_DATA_HOME / $XDG_STATE_HOME /
+# $XDG_RUNTIME_DIR, YAZELIX_CONFIG_HOME, YAZELIX_STATE_DIR, and
+# builtins.storeDir. The per-agent homes follow the same shape via CODEX_HOME,
+# CLAUDE_CONFIG_DIR, GEMINI_CONFIG_DIR and COPILOT_HOME.
 #
-# Custom message:
-# [[patterns]]
-# id = "meta.git.force_push"
-# enabled = true
-# matcher = { type = "regex", pattern = 'git\s+push.*\s+(--force|-f)\b(?!-with-lease)' }
-# message = "Our team policy: never force push to shared branches!"
+# So the violation these patterns catch is NOT "this string matches a known-bad
+# directory" -- enumerating a host's broken paths bakes that host's damage into
+# shared policy and goes stale the moment anything moves. The violation is
+# "an absolute path was hardcoded where a surface already exists". That rule is
+# host-agnostic: it holds on any box, for any user, at any uid.
+#
+# Division of labour: this policy is host-agnostic and denies the WRITE.
+# src/envctl/scripts/paths-doctor.nu is host-specific and repairs the STATE.
+# Neither one belongs in the other.
+
+[[patterns]]
+id = "paths.dotlocal_tool_state"
+priority = 200
+enabled = true
+decision = "deny"
+matcher = { type = "regex", pattern = '(/home/[^/\s]+|\$HOME|~)/\.local/(share|state)/(icm|rtk|zoxide|weave|yazelix|atc|env-ctl|codex|claude)' }
+message = """
+Tool state is reached through the XDG surface, never by naming ~/.local.
+  durable data  -> $XDG_DATA_HOME/<tool>
+  durable state -> $XDG_STATE_HOME/<tool>
+Both are already exported by the profile frontdoor, so the tool's own XDG
+resolution finds them with no path in your command at all. Hardcoding ~/.local
+pins state to the distro's tier and to one specific user.
+Repair existing state with: paths-doctor fix
+"""
+
+[[patterns]]
+id = "paths.agent_home_shadow"
+priority = 200
+enabled = true
+decision = "deny"
+matcher = { type = "regex", pattern = '(/home/[^/\s]+|\$HOME|~)/\.(codex|claude|gemini|copilot)(/|$|\s)' }
+message = """
+Each agent home is a surface, not a path. Read the variable:
+  CODEX_HOME   CLAUDE_CONFIG_DIR   GEMINI_CONFIG_DIR   COPILOT_HOME
+The profile frontdoor owns each home and rejects a competing owner by
+byte-for-byte string comparison, so writing ~/.codex or ~/.claude does not
+merely look untidy -- it makes that agent refuse to launch.
+Anchors are committed through envctl's agent-home-anchors cutover, the sole
+authoritative committer for those rows; never hand-edit the live table.
+"""
+
+[[patterns]]
+id = "paths.build_state_on_runtime_dir"
+priority = 200
+enabled = true
+decision = "deny"
+matcher = { type = "regex", pattern = '(CARGO_HOME|CARGO_TARGET_DIR|RUSTUP_HOME|GOCACHE|GOMODCACHE)\s*=\s*[^\s]*(/run/user/\d+|\$XDG_RUNTIME_DIR)' }
+message = """
+Build state must not resolve under $XDG_RUNTIME_DIR. That is a tmpfs whose
+budget is shared with the wayland socket, dconf, dbus and gnome-keyring, and it
+is cleared on logout -- a workspace build reached 30G there and drove it to 84%.
+The symptom is a binary that "does not exist" right after cargo reports success.
+Use the durable surface: $CARGO_HOME / $CARGO_TARGET_DIR are already exported.
+Never assume ./target either -- ask cargo where it actually put things:
+  cargo metadata --format-version 1 --no-deps | jq -r .target_directory
+XDG_RUNTIME_DIR is correct for genuinely disposable caches, and only those.
+"""
+
+[[patterns]]
+id = "paths.hardcoded_absolute_home"
+priority = 150
+enabled = true
+decision = "ask"
+matcher = { type = "regex", pattern = '["\x27=\s](/home/[^/\s]+/[^\s"\x27]*)' }
+validator = { type = "all_of", validators = [{ type = "not_contains", value = "$HOME" }, { type = "not_contains", value = "paths-doctor" }] }
+message = """
+This names an absolute path under a user home. Upstream yazelix hardcodes none
+of these in code -- it reaches every location through a surface, which is why it
+works for any user on any box.
+
+Prefer, in order:
+  1. the env surface the frontdoor already exports
+     ($XDG_DATA_HOME, $XDG_STATE_HOME, $CARGO_HOME, CODEX_HOME, ...)
+  2. a marker-relative resolve for workspace paths
+     use src/envctl/scripts/meta-paths.nu *   # walks up to the .meta.yaml marker
+  3. $HOME, if the user home genuinely is what you mean
+
+Approve when an absolute path is truly required -- a one-off inspection, or a
+literal that must be byte-identical to a frontdoor's own STATE_HOME string.
+"""
+
+[[patterns]]
+id = "paths.rustup_not_used"
+priority = 150
+enabled = true
+decision = "ask"
+matcher = { type = "regex", pattern = 'RUSTUP_HOME|rustup\s+(install|default|toolchain|override)' }
+message = """
+This profile has no rustup. The Rust toolchain comes from FENIX
+(nix-community), composed in the yazelix flake:
+
+  flexnetosRustToolchain = fenixPkgs.combine [cargo rustc rustfmt clippy rust-analyzer]
+
+fenix REPLACES rustup -- the MSRV lane even wraps cargo with
+--unset RUSTUP_TOOLCHAIN. Setting RUSTUP_HOME or invoking rustup introduces a
+second toolchain owner. To change the toolchain, edit the flake input.
+"""
+
+[[patterns]]
+id = "paths.profile_package_for_build_input"
+priority = 150
+enabled = true
+decision = "ask"
+matcher = { type = "regex", pattern = 'nix\s+profile\s+(add|install).*(openssl|pkg-config|onnxruntime|zlib|sqlite)|PKG_CONFIG_PATH=' }
+message = """
+C build inputs come from a derivation's buildInputs -- never from the user
+profile, and never from PKG_CONFIG_PATH in a shell config. Adding one to the
+profile makes the build succeed for you and fail for everyone else. That is
+drift, not a fix.
+
+Working example -- packaging/icm_release.nix:
+  nativeBuildInputs = [ pkgs.pkg-config ];
+  buildInputs       = [ pkgs.openssl pkgs.onnxruntime ];
+  OPENSSL_NO_VENDOR = "1";
+
+If a raw `cargo build` fails on a -sys crate, build it through nix, or use the
+CI devshell that already carries pkg-config:
+  nix develop path:<yazelix>#ci
+"""
