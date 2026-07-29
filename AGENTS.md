@@ -76,3 +76,34 @@ toolchain is bound to:
    `XDG_DATA_HOME` is already redirected).
 
 Full runbook: `meta/var/ops/README-migrate-tool-state.md`.
+
+## Canonical runner: `nix/gha-runner`, not `crates/`
+
+`flexnetos_runner` is one repository with **two** runner lanes, and the retired one
+keeps re-surfacing because both are pinned into yazelix 16 lines apart under what
+used to be the same revision.
+
+| | Retired lane | **Canonical lane** |
+|---|---|---|
+| Subtree | `crates/{runner-cli,runner-core,runner-dispatch}` | `nix/gha-runner` |
+| Binaries | `fxrun`, `fxrun-dispatch` | `flexnetos-runner-start` |
+| Yazelix input | `flexnetos_runner_source` (`flake = false` tarball) — `src/yazelix/flake.nix:98` | `ghaRunner` (real flake, `?dir=nix/gha-runner`) — `src/yazelix/flake.nix:114` |
+| Composition | Rust only | nix + yazelix + nushell + ruvnet (`metaharness`, `agentic-flow`) |
+
+Rules:
+
+- **Build on `nix/gha-runner`.** New runner work belongs in the canonical lane. Do not
+  extend the `crates/` lane; it is retired and scheduled for removal.
+- **The two inputs are independent.** Bumping `ghaRunner` rebuilds the npm harness and
+  invalidates `npmDepsHash`; repinning `flexnetos_runner_source` does not. Never assume
+  one pin covers both just because they name the same repository.
+- **No home-owned agent paths in anything the profile installs.** Enforced at build
+  time: `src/yazelix/flake.nix` greps `bin/` and `toolbin/` for the retired dot-codex
+  home and dot-local tree and fails the build on a hit. Codex state lives at
+  `/home/flexnetos/meta/var/lib/codex`, Claude at `/home/flexnetos/meta/var/lib/claude`.
+  That Codex string must stay byte-identical across `forge_loop.rs`'s
+  `DEFAULT_CODEX_HOME`, `flake.nix`'s `codexStateHome`, and the frontdoor's
+  `STATE_HOME` — `reject-competing-owner` compares raw strings and hard-exits, so a
+  mismatch makes every non-dry-run `fxrun forge-loop run` fail.
+- **No agent state on tmpfs.** `/run/user/1001` is wiped on reboot; it already
+  destroyed the Codex credentials once.
