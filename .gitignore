@@ -114,3 +114,10 @@ meta-plugins/
 
 # local agent worktrees -- never part of the tree
 .claude/worktrees/
+
+# Retired planning-spine backup: 1.5G / 46k files including the retired repo's
+# own nested .git (a 354M code.db and a 150M packfile). The whole meta history
+# is 100M and the tracked archives/ material is 5.7M, so this is a filesystem
+# backup, not tracked documentation. Relocate under meta/var/archives/ to keep
+# it out of the source tree entirely.
+archives/lifeos-planning-spine-archived-20260729/
