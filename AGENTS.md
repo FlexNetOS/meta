@@ -107,3 +107,25 @@ Rules:
   mismatch makes every non-dry-run `fxrun forge-loop run` fail.
 - **No agent state in the host runtime.** Host XDG runtime storage is wiped on reboot; it already
   destroyed the Codex credentials once.
+
+## rUv published-artifact source authority and Path Law
+
+For rUv/RuVector artifacts, source order is absolute:
+
+1. Source of truth: `https://www.npmjs.com/~ruvnet`
+2. Fallback: `https://crates.io/users/ruvnet`
+3. Last resort: `https://github.com/ruvnet`
+
+Check each higher-priority source before using the next one, record the selected
+version, and keep the artifact in the Yazelix packaging graph. Use the npmjs
+registry first for Node/NAPI, CLI, PostgreSQL CLI, and published extension
+artifacts, including `ruvector`, `@ruvector/*`, `agentdb`, `ruflo`, and
+`@ruvector/postgres-cli`. Use crates.io only when npmjs does not publish the
+required artifact. GitHub may be used only as a last-resort derivation source
+after both registry checks; never clone it into `/srv` or a user path.
+
+Path Law is absolute: every binary, runtime, database, agent configuration, and
+durable state must be declared and owned by Yazelix's profile/runtime graph.
+Do not use an out-of-band installer, host package manager, rustup, systemd
+unit, or runtime-tmpfs path as a competing owner. Agents use Bash through the
+mandatory RTK frontdoor and Bun/Bunx in place of npm/npx.
