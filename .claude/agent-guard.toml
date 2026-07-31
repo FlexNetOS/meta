@@ -18,11 +18,25 @@
 # envctl has no authority over this policy. Do not infer authority from a local
 # projection, a generated file, or a tool being present on this host.
 #
-# NUSHELL-ONLY AGENT PLANE (YZXCONV-017): agents execute shell actions only
-# through the profile-owned Nushell; Bash/sh/zsh/fish/xonsh are owner-only, with
-# a per-incident owner-approved emergency fallback solely after a system crash.
-# This policy file adds no alternate-shell permission; launcher/hook enforcement
-# of the shell boundary is YZXCONV-017 scope and must not be weakened here.
+# RTK FRONTDOOR — MANDATORY. All Claude shell work enters through the
+# profile-owned RTK binary, and the Claude PreToolUse hook routes Bash-tool
+# requests through `rtk hook claude`. Agents always use bash through RTK: the
+# Bash tool is the agent's shell interface, and every segment of every command
+# carries the `rtk` prefix. Do not bypass that hook with an alternate binary,
+# shell owner, or raw payload.
+#
+# RTK is the frontdoor, not the shell owner. It reaches the profile-owned
+# Nushell through `rtk proxy -- /home/<user>/.nix-profile/toolbin/nu -l -c
+# "command"`, which is also the documented escape hatch for a command that is
+# genuinely unfilterable. Substituting sh/zsh/fish/xonsh as the shell owner is
+# the bypass this paragraph forbids; using the Bash tool with the rtk prefix is
+# the sanctioned path and always was. An earlier draft of this paragraph read
+# "Bash/sh/zsh/fish/xonsh are owner-only", which contradicted the frontdoor rule
+# this same policy enforces and the RTK.md instruction it is derived from.
+#
+# Enforcement is deny-by-default and lives in evaluate_rtk_frontdoor() in
+# src/guard.rs, because it must match a segment whose first token is NOT rtk and
+# the regex crate has no lookahead.
 #
 # Decision semantics: "deny" blocks the tool call AND returns the reason to the
 # model; "ask" escalates to the operator. Unknown values fail closed to "deny".
@@ -46,6 +60,14 @@
 # A denial that only says "no" strands the agent and costs a human round trip;
 # a denial that says "use this instead" is self-correcting. When adding a rule,
 # write the remedy first and the prohibition second.
+#
+# The guard is not a brake on auto mode; it is what makes auto mode safe. It is
+# not designed to block auto mode, and it never asks the user a question. Its
+# job is to hold the user's already-stated intent when a session drifts from it,
+# so the user never has to answer for the same decision twice. No human in the
+# loop is the standard here, not the exception. That is why a rule's message is
+# addressed to the MODEL and always names the compliant command: the denial has
+# to carry everything the session needs to correct itself unattended.
 
 schema_version = "1.1"
 
@@ -273,6 +295,18 @@ metadata; use a reviewed migration or archive workflow instead.
 
 # ── path law ────────────────────────────────────────────────────────────────
 #
+# PATH LAW IS ABSOLUTE. All paths follow upstream Yazelix. No loopholes, no
+# exceptions, and no per-tool carve-outs -- an exception carved for one variable
+# is how the last violation survived five sessions. It binds every agent and
+# every tool equally: the rules below are the only ones evaluated against file
+# payloads as well as commands, so a forbidden path is forbidden whichever tool
+# writes it (evaluate_path_law_for_target in src/guard.rs, and the `cmd` field
+# so Codex is covered on the same terms as Claude).
+#
+# The one entitlement is narrow and structural, not a loophole: a `.nix` file
+# may PRODUCE a surface's value, because a derivation is the builder. That
+# covers exactly three rules (NIX_AUTHORED_SURFACE_RULES) and nothing else.
+#
 # SOURCING LAW, and the reason this section exists at all:
 #
 #   A rule may encode a DOCUMENTED SURFACE -- a variable whose owner defines it.
@@ -436,17 +470,13 @@ documented committer.
 #   Latest releases          run a tool at @latest through that Bun lane
 #                            (rtk bunx --bun <tool>@latest); to make it permanent
 #                            declare it a flake input and let the profile own it
-#   Shell entry              every agent shell command enters through RTK. RTK is
-#                            mandatory and the RTK frontdoor hook enforces the prefix
+#   Shell entry              see RTK FRONTDOOR at the top of this file
 #   ICM storage              ICM uses BOTH SQLite and PostgreSQL. Do not assume a
 #                            single backend when reading or repairing its corpus
 #
-# Guard design contract. Every rule is decision = "deny" carrying a remedy the agent
-# can act on unattended. The guard exists to hold the user's intent WITHOUT the user
-# answering questions, so it must never be used to put a human back in the loop:
-# no rule may use an "ask" decision, and no rule may block auto mode. Running with no
-# human in the loop is the standard operating mode, so a denial must always name the
-# correct action rather than raise a question.
+# The guard's own design contract -- deny-only, no "ask", never a brake on auto mode,
+# every message naming the exact allowed command -- is stated once under AUTO-MODE LAW
+# at the top of this file. It is not restated here.
 
 [[patterns]]
 id = "paths.session_env_ownership"
