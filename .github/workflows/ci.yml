@@ -26,6 +26,9 @@ jobs:
         shell: bash
         run: .github/scripts/clone-child-repos.sh
 
+      - name: Install policy-check prerequisites
+        uses: ./.github/actions/setup-ripgrep
+
       - name: Check lock panic handling
         run: .github/scripts/check-lock-panics.sh
         shell: bash
@@ -51,6 +54,9 @@ jobs:
       - name: Clone child repos
         shell: bash
         run: .github/scripts/clone-child-repos.sh
+
+      - name: Install policy-check prerequisites
+        uses: ./.github/actions/setup-ripgrep
 
       - name: Check lock panic handling
         run: .github/scripts/check-lock-panics.sh
@@ -83,6 +89,9 @@ jobs:
       - name: Clone child repos
         shell: bash
         run: .github/scripts/clone-child-repos.sh
+
+      - name: Install policy-check prerequisites
+        uses: ./.github/actions/setup-ripgrep
 
       - name: Check lock panic handling
         run: .github/scripts/check-lock-panics.sh
@@ -128,6 +137,9 @@ jobs:
 
       - name: Clone child repos
         run: .github/scripts/clone-child-repos.sh
+
+      - name: Install policy-check prerequisites
+        uses: ./.github/actions/setup-ripgrep
 
       - name: Install Rust toolchain
         uses: dtolnay/rust-toolchain@stable

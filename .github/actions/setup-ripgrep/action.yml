@@ -1,0 +1,32 @@
+name: Setup ripgrep
+description: Install the rg prerequisite used by repository policy checks
+
+runs:
+  using: composite
+  steps:
+    - name: Install ripgrep
+      shell: bash
+      run: |
+        if command -v rg >/dev/null 2>&1; then
+          rg --version
+          exit 0
+        fi
+
+        case "$RUNNER_OS" in
+          Linux)
+            sudo apt-get update
+            sudo apt-get install -y ripgrep
+            ;;
+          macOS)
+            brew install ripgrep
+            ;;
+          Windows)
+            choco install ripgrep --no-progress --yes
+            ;;
+          *)
+            echo "Unsupported GitHub Actions runner: $RUNNER_OS" >&2
+            exit 1
+            ;;
+        esac
+
+        rg --version

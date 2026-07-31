@@ -61,6 +61,9 @@ jobs:
           git clone --depth 1 https://github.com/gitkb/meta_rust_cli.git
           git clone --depth 1 https://github.com/gitkb/meta_project_cli.git
 
+      - name: Install policy-check prerequisites
+        uses: ./.github/actions/setup-ripgrep
+
       - name: Check lock panic handling
         run: .github/scripts/check-lock-panics.sh
         shell: bash
@@ -260,6 +263,9 @@ jobs:
           git clone --depth 1 https://github.com/gitkb/meta_plugin_protocol.git
           git clone --depth 1 https://github.com/gitkb/meta_rust_cli.git
           git clone --depth 1 https://github.com/gitkb/meta_project_cli.git
+
+      - name: Install policy-check prerequisites
+        uses: ./.github/actions/setup-ripgrep
 
       - name: Check lock panic handling
         run: .github/scripts/check-lock-panics.sh
