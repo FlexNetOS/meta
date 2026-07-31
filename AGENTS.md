@@ -69,7 +69,7 @@ toolchain is bound to:
    table): `XDG_DATA_HOME` → `/home/flexnetos/meta/var/xdg-data`, `XDG_STATE_HOME` →
    `/home/flexnetos/meta/var/xdg-state`; add
    `ICM_DB=/home/flexnetos/meta/var/xdg-data/icm/memories.db`; leave `YAZELIX_STATE_DIR`
-   unset (yzx baked default `/run/user/1001/yazelix/profile-runtime/yazelix`).
+   unset (yzx baked default `/home/flexnetos/meta/var/lib/yazelix/runtime/state`).
 3. **Restart the yazelix session** so the agent env adopts the new roots.
 4. `migrate-tool-state-off-dotlocal.sh verify` → `finalize` (removes
    `~/.local/share/{tools}` + `~/.local/state/env-ctl`; `finalize` refuses unless
@@ -105,5 +105,5 @@ Rules:
   `DEFAULT_CODEX_HOME`, `flake.nix`'s `codexStateHome`, and the frontdoor's
   `STATE_HOME` — `reject-competing-owner` compares raw strings and hard-exits, so a
   mismatch makes every non-dry-run `fxrun forge-loop run` fail.
-- **No agent state on tmpfs.** `/run/user/1001` is wiped on reboot; it already
+- **No agent state in the host runtime.** Host XDG runtime storage is wiped on reboot; it already
   destroyed the Codex credentials once.
