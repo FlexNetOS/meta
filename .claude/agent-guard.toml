@@ -389,6 +389,47 @@ Never hand-edit the owner's live configuration table; use that owner's
 documented committer.
 """
 
+# Upstream Yazelix ownership map, quoted from upstream/main. These are answers the
+# project already published -- not this host's policy. Read them before proposing any
+# new surface. Each line below was paid for once by an agent that invented instead.
+#
+#   Core Rule (AGENTS.md)    "The user decides scope. Do not create a feature,
+#                            compatibility surface, module, or planning bead until
+#                            the user has chosen that direction"
+#   Method 3 and 6           "Choose one owner in this repo" / "Avoid duplicate
+#                            owners, adapters, generated fixtures, and compatibility
+#                            shims"
+#   Git workflow             "Work directly on main by default. Do not create a
+#                            separate branch unless the user explicitly requests one"
+#   Hard-coded paths         Startup boundary is "Owned by runtime/yzx/ (Nix
+#                            substitutes paths; Rust owns wiring and exec)". Literals
+#                            are produced by the derivation, and each surface is a
+#                            precedence chain, never an assignment:
+#                              config home  YAZELIX_CONFIG_HOME -> XDG_CONFIG_HOME/yazelix -> ~/.config/yazelix
+#                              state        YAZELIX_STATE_DIR -> XDG_DATA_HOME/yazelix
+#   Active user config       ~/.config/yazelix/{config.toml,nu/,zellij/,yazi/,helix/,
+#                            mars/,starship.toml,cursors.toml}; host
+#                            ~/.config/{helix,yazi,starship} is "Not loaded by default"
+#   Nushell environment      Nu layering is "Packaged -> optional host mise activate
+#                            nu -> optional user Nu". The packaged layer is the
+#                            shell-scope owner; user Nu loads after it. There is no
+#                            session-scope tier.
+#   GUI and launcher         C8 "Desktop entry starts yzx" by its absolute profile
+#                            path, so no session PATH is involved; C1's note, "run
+#                            reuses the prepared environment"
+#   Packages and binaries    "flake.nix owns the package graph". Binaries are reached
+#                            through the profile frontdoor, never by store hash
+#                            (see paths.nix_store_hardcoded)
+#   New inputs / toolchains  flake inputs, hacked locally with
+#                            nix run --override-input <name> ../<repo>, proved by
+#                            nix flake check
+#   Agent configuration      upstream ships AGENTS.md only and has NO .claude and NO
+#                            .codex tree anywhere in the tree; agent homes are
+#                            surfaces here (see paths.agent_home_shadow)
+#   Rust toolchain           upstream has NO fenix, no rust-toolchain file and no
+#                            CARGO_ assignment at all. This fork's flake.nix composes
+#                            fenix and owns it (see paths.rustup_not_used)
+
 [[patterns]]
 id = "paths.session_env_ownership"
 priority = 200
@@ -409,6 +450,15 @@ scope lives:
   shell  the managed Nu config, which runs per-shell and wins over session scope
 Configure the GUI through the desktop entry and the shell through managed Nu.
 There is no third scope to add, and no exception that reintroduces one.
+
+This is upstream's Method 6 -- "Avoid duplicate owners, adapters, generated
+fixtures, and compatibility shims" -- and its Core Rule: "The user decides scope.
+Do not create a feature, compatibility surface, module, or planning bead until
+the user has chosen that direction." A session-env tier is a duplicate owner of
+what the packaged Nu layer already owns. Do not ask which scope should carry a
+value either; the ownership map above already answers it. A violation is a
+violation, and an exception carved for one variable is how the last one survived
+five sessions.
 
 Reading, listing or grepping environment.d is not matched here -- only writing.
 """
