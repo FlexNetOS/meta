@@ -1,5 +1,33 @@
 # Changelog
 
+## [0.2.23](https://github.com/FlexNetOS/meta/compare/v0.2.22...v0.2.23) (2026-07-31)
+
+
+### Features
+
+* org rename ([#94](https://github.com/FlexNetOS/meta/issues/94)) ([a44337c](https://github.com/FlexNetOS/meta/commit/a44337ce03373e3a7cf892c4cc451b1f6d88b08b))
+
+
+### Bug Fixes
+
+* **codegraph:** tree-sitter ABI 0.24-&gt;0.23 + repair corrupted oracle fixtures (LPS-025) ([ae6f96f](https://github.com/FlexNetOS/meta/commit/ae6f96ff68b76befab23b33cbfe417eac16d4c82))
+* fall back to workflow token for releases ([fd2dc36](https://github.com/FlexNetOS/meta/commit/fd2dc36a99808e155dc5b4134382f9dfa78bdcb7))
+* **gitkb:** configure MiniLM embeddings for Meta ([51b0368](https://github.com/FlexNetOS/meta/commit/51b03684171f2081a55742d9b87668f30c729694))
+* **gitkb:** configure MiniLM embeddings for Meta ([9df1a87](https://github.com/FlexNetOS/meta/commit/9df1a875f169a264bc4c044b43caf409f0211c6a))
+* **gitkb:** restore default candle embedder ([8fd3c61](https://github.com/FlexNetOS/meta/commit/8fd3c61a20124d287c13b056c852c959f4b75268))
+* **gitkb:** restore default candle embedder ([#113](https://github.com/FlexNetOS/meta/issues/113)) ([a930045](https://github.com/FlexNetOS/meta/commit/a930045df0dff266fa086f92278f55190babfdf7))
+* **gitkb:** restore the upstream store/ ignore and turn on native sync ([f383252](https://github.com/FlexNetOS/meta/commit/f3832521ef829c807bcd4e0036c4f4c8547009ba))
+* **gitkb:** track KB state and configure MiniLM embeddings ([#112](https://github.com/FlexNetOS/meta/issues/112)) ([a7ea02b](https://github.com/FlexNetOS/meta/commit/a7ea02b1ddae47b235f537ab1517e91e3032a8f8))
+* make path law absolute and unattended ([3415250](https://github.com/FlexNetOS/meta/commit/3415250a966a7cb2a6122760c9f0f647156adf6c))
+* place LifeOS in the Meta peer namespace ([#101](https://github.com/FlexNetOS/meta/issues/101)) ([a79802f](https://github.com/FlexNetOS/meta/commit/a79802ff1aeee693eb36ade4d7f9d666d85dad95))
+* point runner authority map at meta root ([7e57b28](https://github.com/FlexNetOS/meta/commit/7e57b285a48a2270e5cf69cc87abe3d31c4490a7))
+* promote Meta to the FlexNetOS root ([#100](https://github.com/FlexNetOS/meta/issues/100)) ([658383b](https://github.com/FlexNetOS/meta/commit/658383b460c87c7e4efe5b2e97d115723fa66ddc))
+* remove agent plugins ([#96](https://github.com/FlexNetOS/meta/issues/96)) ([4d8adcc](https://github.com/FlexNetOS/meta/commit/4d8adcc7e2b3a684e344180f6698a9a56c81bcc4))
+* restore unattended release token fallback ([18f61da](https://github.com/FlexNetOS/meta/commit/18f61da19b388e5b74f5361f4041dcb7bb34b92f))
+* **rusty-idd/codegraph:** tree-sitter ABI + repair corrupted oracle fixtures (LPS-026 fleet PR) ([#107](https://github.com/FlexNetOS/meta/issues/107)) ([1db7e77](https://github.com/FlexNetOS/meta/commit/1db7e77ae0de73e2fd1253eedb9ed365f59317a0))
+* **rusty-idd:** close remaining LPS-025 red gates — full workspace green ([eb66bbf](https://github.com/FlexNetOS/meta/commit/eb66bbf4f96371c955fb55de2e8ce7ab3a804911))
+* **rusty-idd:** force-add merge-tools + template test source fixes (LPS-025) ([f02b67f](https://github.com/FlexNetOS/meta/commit/f02b67fd22cab34ad40c5297d888f6e6ff171bda))
+
 ## [0.2.22](https://github.com/gitkb/meta/compare/v0.2.21...v0.2.22) (2026-05-19)
 
 
