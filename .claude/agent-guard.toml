@@ -390,6 +390,30 @@ documented committer.
 """
 
 [[patterns]]
+id = "paths.session_env_ownership"
+priority = 200
+enabled = true
+decision = "deny"
+matcher = { type = "regex", pattern = '((^|[\s;&|(])(cp|mv|ln|install|tee|touch|rsync)\s[^;&|]*|>>?\s*)[^\s;&|]*environment\.d/|writeTextDir\s+"[^"]*environment\.d/' }
+message = """
+This writes a systemd environment.d drop-in. That directory is read by the
+systemd USER MANAGER -- the parent of gnome-session and every desktop app -- so
+a file there owns the entire graphical session, not a dev shell. A redirected
+data root placed there once handed GNOME a fresh empty login keyring.
+
+Upstream Yazelix has no such layer, and its contracts already say where each
+scope lives:
+  C8     the desktop entry starts yzx by its absolute profile path, so a GUI
+         launch never depends on a session PATH
+  C1     `yzx run <program>` reuses the prepared environment
+  shell  the managed Nu config, which runs per-shell and wins over session scope
+Configure the GUI through the desktop entry and the shell through managed Nu.
+There is no third scope to add, and no exception that reintroduces one.
+
+Reading, listing or grepping environment.d is not matched here -- only writing.
+"""
+
+[[patterns]]
 id = "paths.nix_store_hardcoded"
 priority = 150
 enabled = true
