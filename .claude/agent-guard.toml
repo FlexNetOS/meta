@@ -429,6 +429,24 @@ documented committer.
 #   Rust toolchain           upstream has NO fenix, no rust-toolchain file and no
 #                            CARGO_ assignment at all. This fork's flake.nix composes
 #                            fenix and owns it (see paths.rustup_not_used)
+#   Node lane                bun and bunx are the drop-in replacements for npm and
+#                            npx. The flake contract asserts npm, npx, pnpm, corepack
+#                            and yarn are ABSENT, so a remedy naming them is broken
+#                            before it runs (see install.global_node_package)
+#   Latest releases          run a tool at @latest through that Bun lane
+#                            (rtk bunx --bun <tool>@latest); to make it permanent
+#                            declare it a flake input and let the profile own it
+#   Shell entry              every agent shell command enters through RTK. RTK is
+#                            mandatory and the RTK frontdoor hook enforces the prefix
+#   ICM storage              ICM uses BOTH SQLite and PostgreSQL. Do not assume a
+#                            single backend when reading or repairing its corpus
+#
+# Guard design contract. Every rule is decision = "deny" carrying a remedy the agent
+# can act on unattended. The guard exists to hold the user's intent WITHOUT the user
+# answering questions, so it must never be used to put a human back in the loop:
+# no rule may use an "ask" decision, and no rule may block auto mode. Running with no
+# human in the loop is the standard operating mode, so a denial must always name the
+# correct action rather than raise a question.
 
 [[patterns]]
 id = "paths.session_env_ownership"
@@ -461,6 +479,35 @@ violation, and an exception carved for one variable is how the last one survived
 five sessions.
 
 Reading, listing or grepping environment.d is not matched here -- only writing.
+"""
+
+[[patterns]]
+id = "paths.surface_pinned_in_source"
+priority = 200
+enabled = true
+decision = "deny"
+matcher = { type = "regex", pattern = '(?m)\$env\.[A-Za-z_][A-Za-z0-9_]*\s*=\s*"(/home/|/run/user/|/nix/store/)|^\s*let\s+[a-z_][a-z0-9_]*\s*=\s*"(/home/|/run/user/)' }
+message = """
+This pins an absolute path inside a runtime source file. Upstream's startup
+boundary is "Owned by runtime/yzx/ (Nix substitutes paths; Rust owns wiring and
+exec)" -- the derivation produces every path, and the source carries only a
+placeholder. Path law is absolute: no loophole, no exception, no second owner.
+
+Do it the way this repo already does it, do not ask which way is preferred:
+
+  in the .nu source     let cargo_home = "@cargoHome@"
+  in flake.nix          flexnetosNuConfigFor = pkgs: pkgs.replaceVars ./... {
+                          cargoHome = "/home/<user>/...";
+                        }
+
+replaceVars is fail-closed -- an unsubstituted placeholder breaks the build
+instead of shipping a literal. Define the value once and pass it to every
+consumer; a second attribute set repeating it is the duplicate owner Method 6
+forbids.
+
+A .nix file is the entitled owner and is not matched here. Neither is a `const`
+declaring a path the script AUDITS rather than publishes, nor a value already
+read from a surface (`$env.XDG_RUNTIME_DIR?`).
 """
 
 [[patterns]]
