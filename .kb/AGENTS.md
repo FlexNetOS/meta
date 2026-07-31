@@ -239,6 +239,19 @@ flowchart TD
 3. **NEVER** proceed without completing the validation checklist
 4. Start EVERY message with "PROJECT CONTEXT: ACTIVE" after validation
 
+### rUv Source Authority and Path Law
+
+For rUv/RuVector published artifacts, use this absolute source order:
+
+1. `https://www.npmjs.com/~ruvnet` — source of truth
+2. `https://crates.io/users/ruvnet` — fallback
+3. `https://github.com/ruvnet` — last resort only
+
+Check higher-priority sources first and keep the selected release in the
+Yazelix packaging graph. Path Law is absolute: binaries, runtimes, databases,
+agent configuration, and durable state are Yazelix-owned; no out-of-band
+installer or competing host/runtime owner is valid.
+
 ---
 
 ## PATH C: Returning Agent (Quick Resume)
