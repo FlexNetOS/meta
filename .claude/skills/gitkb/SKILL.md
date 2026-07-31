@@ -25,7 +25,7 @@ For the process-discipline reference (sections 9-18: when to create documents, q
 **Use CLI (`git kb`) for:**
 - ASCII board display (`git kb board`)
 - Template management (`git kb templates`)
-- Service control (`git kb service`)
+- Daemon control (`git kb daemon`)
 - Interactive editing (opens $EDITOR)
 
 **Use MCP tools for:**
@@ -112,10 +112,10 @@ git kb board --all              # All document types
 git kb templates list           # List available templates
 git kb templates show <name>    # Show template content
 
-# Service control
-git kb service start            # Start daemon
-git kb service stop             # Stop daemon
-git kb service status           # Check status
+# Daemon control
+git kb daemon start --background   # Start daemon (returns immediately; idempotent)
+git kb daemon stop                 # Stop daemon
+git kb daemon status               # Check status (add --json for the `running` field)
 ```
 
 ## Workflows

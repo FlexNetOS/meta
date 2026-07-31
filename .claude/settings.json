@@ -36,7 +36,7 @@
       {
         "hooks": [
           {
-            "command": "git kb service status --quiet 2>/dev/null || git kb service start 2>/dev/null",
+            "command": "git kb daemon start --background",
             "timeout": 10,
             "type": "command"
           }
